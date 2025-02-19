@@ -1,0 +1,169 @@
+---
+# Please rename this file to pipeline.yaml and follow the docs in:
+# https://github.com/acquia/devops-pipeline/blob/master/consumer/pipeline_get_started.md
+
+# You can also refer https://github.com/acquia/devops-hellomicro/blob/main/.acquia/pipeline.yaml
+# for getting glimpse of all the features that have been developed and also read about their
+# details in https://github.com/acquia/devops-pipeline/blob/master/consumer/pipeline_configurations.md
+
+type: default
+team: <team>
+group: <one of platform, drupal-cloud, marketing-cloud, content-cloud or acquia-shared>
+service: <service>
+
+# While debugging validate the formatting of this pipeline.yaml file.
+validate_config: true
+
+# The environment container image is used to prepare code versions
+# and tooling for tests during pre, post and build stages.
+environment_image:
+  file: ".acquia/Dockerfile.ci"
+  context: "."
+  # Only required to pass special docker build options.
+  args: ""
+  # The cache_from resource speeds up image building by reusing the defined image 
+  # When using matrix base_images a different image can be seen in the example below.
+  cache_from: '<image>:<tag>'
+  build_args:
+    - "EXAMPLE_ARG=PASSED_TO_CONTAINER_BUILD"
+    - secrets:
+        - type: vault
+          key: SSH_KEY
+          value: GIT_SSH_KEY
+          path: secret/pipeline-default/GIT_SSH_KEY 
+
+# -- Continuous Integration --
+# Pre-build runs after building the environment image, and relies on it to
+# run its sub-stages' steps inside the environment container.
+pre_build:
+  before: # Runs before the other stages in pre_build section
+    <stage>:
+      - steps:
+          - <shell_command1>
+          - <shell_command2>
+        args: -v /var/run/docker.sock:/var/run/docker.sock
+        # We can pass secrets to any steps section as shown below
+        secrets:
+          - type: vault
+            key: JFROG_READONLY
+            value: JFROG_READONLY
+            path: secret/pipeline-default/JFROG_READONLY
+  after: # Runs after the other stages in pre_build section
+    <stage>:
+      - steps:
+          - <shell_command1>
+          - <shell_command2>
+        args: -v /var/run/docker.sock:/var/run/docker.sock
+  example_stage:
+    - steps:
+        - <user_defined_label_for_grouped_commands>:
+            - echo "First Echo Statement!"
+            - echo "Second Echo Statement!"
+  # SonarQube section reporting to https://sonarqube.ais.acquia.io
+  # project_key is provided by engineering services team.
+  code_analysis:
+    required: false
+    project_key: <sonarqube-key>
+    quality_gate:
+      wait_for_quality_gate: false
+      max_time_limit: 10
+      abort_pipeline: false
+  
+# -- Service Containers (if applicable) --
+# This stage builds and publishes to Jfrog/ECR one or more service images.
+# https://github.com/acquia/devops-pipeline/blob/master/consumer/pipeline_get_started.md
+build:
+  service_image:
+# An image build can be simple and not use any special configs
+# like this that will be tagged with ${BRANCH} and ${GIT_COMMIT}
+    - name: <image>
+      file: <path_to_dockerfile_from_repository_root>
+      context: "."
+      # When 2 or more images have the same name, custom_tags are required for differentiating them.
+      custom_tags:
+        - ${DOCKER_TAG}-${BRANCH_NAME}
+        - ${DOCKER_TAG}-${GIT_COMMIT}
+        - ${FINAL_TAG}
+      # Ideally define the source base images and tag once in pipeline.env variables.
+      build_args:
+        - "BASE_IMAGE=${DOCKER_IMAGE}"
+        - "BASE_IMAGE_VERSION=${DOCKER_TAG}"
+        - "EXAMPLE_ARG=PASSED_TO_CONTAINER_BUILD"
+        - secrets:
+            - type: vault
+              key: <secret-key>
+              value: <key>
+              path: secret/<repo-name>/<key>
+
+  service_package:
+    - pattern: <path_to_file>
+      type: <one of debian or generic>
+      props:
+        - "maintainer=<team>"
+
+# -- Progressive Testing over Automated Environments --
+# Post-build has access to the service container deployed and already running,
+# so it is ideal for testing called from the pipeline into a cluster.
+post_build:
+  dev:
+    functional_test:
+      - steps:
+          - |
+            echo "Curling for functional check" &&
+            echo "Running more functional checks"
+  qa:
+    e2e_tests:
+      - steps:
+          - echo "end_to_end tests"
+    performance_tests:
+      - steps:
+          - echo "performance_tests"
+  staging:
+    acceptance_tests:
+      - steps:
+          - echo "acceptance_tests"
+
+# Simply deploy to Kaas using "acd" and platform.yaml
+deploy:
+  - component: acd
+    require_production_approval: false
+    deploy_pr: true
+    dev:
+      check_health: true # Enable Health Check on acd deployment (Default: true)
+      timeout: 3         # Maximum timeout 3 minutes for the acd command (Default: 5 minutes)
+    qa:
+      check_health: false
+      timeout: 5
+    staging:
+      # check_health: true # Enable Health Check on acd deployment
+      # timeout: 5
+    prod:
+      # check_health: true
+      # timeout: 5
+
+# These stages ensure that after every success or failure
+# the mentioned steps will always run
+after_failure:
+  - steps:
+      - echo "After failure step cleanup containers"
+    args: -v /var/run/docker.sock:/var/run/docker.sock --net=host
+
+after_success:
+ - steps:
+     - echo "After successful step"
+
+# Invoke dashboarding automation solution in pipeline
+dashboarding:
+  enable: true
+  tag: <tagValue>
+
+# -- Slack Bot Integration --
+notify:
+  channel: <slack-channel>
+  on_success: change
+  on_failure: always
+  on_branch:
+    - <branch>
+  approvers:
+    - "user1@acquia.com"
+    - "user2@acquia.com"

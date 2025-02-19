@@ -1,0 +1,41 @@
+---
+# If deploying to KaaS using ACD the service will need a platform.yaml file.
+# Please rename this file to platform.yaml and follow the documentation in:
+# https://github.com/acquia/acd/blob/master/docs/platform_configurations.md#configure-the-platformyaml-file
+
+# You can also refer https://github.com/acquia/acd/blob/master/docs/README.md#categories-of-service
+# for getting glimpse of all the categories of services that are supported and also read about their
+# details in https://github.com/acquia/acd/blob/master/docs/platform_configurations.md#further-configurations-based-on-service-category
+
+# Requires creating a namespace and project in ArgoCD
+apiVersion: v1
+# Your $SERVICE name maps to `namespace` in kaas-argocd
+service: <service>
+# The $PROJECT name maps to `teamAccess.name` in kaas-argocd
+# and can have several services/namespaces
+project: <project>
+# Use your $TEAM name:
+owner: <team>
+# Base configurations for your deployment
+base:
+# Variant specific configuration
+variants:
+  - name: dev
+    overrides:
+      standard:
+        values:
+
+  - name: qa
+    overrides:
+      standard:
+        values:
+
+  - name: staging
+    overrides:
+      standard:
+        values:
+
+  - name: prod
+    overrides:
+      standard:
+        values:

@@ -1,0 +1,26 @@
+# Please rename this file to cortex.yaml and follow the docs in:
+# https://github.com/acquia/devops-cortex/blob/master/consumer/onboarding_to_cortex.md
+
+openapi: 3.0.1
+info:
+  title: <title>
+  description: <description>
+  x-cortex-tag: <github-org-name-case-sensitive>/<repo-case-sensitive>
+  x-cortex-git:
+    github:
+      repository: <github-org-name-case-sensitive>/<repo-case-sensitive>
+  x-cortex-owners:
+    - type: GROUP
+      name: <github-org-name>/<team>
+      provider: GITHUB
+      description: <Short description about the owner team.>
+    - type: SLACK
+      channel: <slack-channel-name>
+      notificationsEnabled: true
+      description: <Short description about the slack channel.>
+  x-cortex-groups:
+    - <one of drupal-cloud, marketing-cloud or content-cloud>
+    - <Add other groups as desired (each group as a new list element herewith), or remove this line. More details present in the onboarding doc.>
+  x-cortex-dependency:
+    - tag: <full x-cortex-tag of another service or resources on which this service is dependent.>
+    - tag: <Add as many other service or resources this service depends upon, each as a new list element herewith, or remove this line if otherwise.>

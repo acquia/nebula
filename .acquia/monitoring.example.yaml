@@ -1,0 +1,252 @@
+---
+# Please rename this file to monitoring.yaml and follow the docs in:
+# https://github.com/acquia/sre-observability/blob/main/consumer/getting_started.md#getting-started-with-sre-observability
+
+# You can also refer https://github.com/acquia/devops-hellomicro/blob/main/.acquia/monitoring.yaml
+# for getting glimpse of all the features that have been developed and also read about their
+# details in https://github.com/acquia/sre-observability/tree/main/consumer
+
+slos:
+  # Availability SLO Example
+  - name: Unique SLO Name
+    sli_type: Availability
+    slo: 99.95
+    queries:
+      - query_string: "metric=success-metric targetURL=url"
+        type: Successful
+      - query_string: "metric=success-metric targetURL=url"
+        type: Total
+        count: true
+    monitors:
+      - Monitor 1
+      - Monitor 2
+  # Latency SLO Example    
+  - name: Create User API Latency
+    sli_type: Latency
+    window_type: Rolling
+    window_size: 7d
+    slo: 99.9
+    threshold: 200.0ms
+    aggregation_duration: 1m
+    queries:
+      - query_string: "metric=latency-metric api=create-user"
+        type: Threshold
+    monitors:
+      - SLI Monitor
+      - Error Budget Burn Rate Monitor
+  # Latency SLO Example
+  - name: User API Error Count
+    sli_type: Error
+    aggregation_duration: 60m
+    aggregation_type: Sum
+    slo: 99.5
+    window_type: Calendar
+    window_size: Month
+    threshold: 1
+    queries:
+      - query_string: "metric=error-metric service=user-api"
+    monitors:
+      - SLI Monitor
+      - Error Budget Burn Rate Monitor
+  # Throughput SLO Example
+  - name: DB Throughput
+    sli_type: Throughput
+    aggregation_duration: 1m
+    aggregation_type: Avg
+    slo: 99.5
+    window_type: Calendar
+    window_size: Month
+    threshold: 200000
+    queries:
+      - query_string: "metric=throughput-metric db=primary"
+        key: A
+      - query_string: "metric=throughput-metric db=secondary"
+        key: B
+      - query_string: "#A + #B"
+        key: C
+    monitors:
+      - SLI Monitor
+      - Error Budget Burn Rate Monitor
+  # Other SLO Example
+  - name: Ops Incident Mean Time To Acknowledge
+    sli_type: Other
+    aggregation_duration: 1m
+    aggregation_type: Avg
+    slo: 99.5
+    window_type: Calendar
+    window_size: Month
+    threshold: 5m
+    queries:
+      - query_string: "metric=ops-metric team=ops"
+    monitors:
+      - SLI Monitor
+      - Error Budget Burn Rate Monitor
+monitors:
+  # SLI Monitor Example
+  - name: SLI Monitor
+    description: my-service SLI Monitor
+    type: SLI
+    enabled: true
+    runbook: https://github.com/acquia/my-service/docs
+    alerts:
+      - type: Warning
+        threshold: 60%
+        notifications:
+          - email
+      - type: Critical
+        threshold: 0
+        notifications:
+          - email
+          - pagerduty
+  # Error Budget Monitor
+  - name: Error Budget Burn Rate Monitor
+    type: ErrorBudgetBurnRate
+    description: my-service Error Budget burn-rate Monitor
+    enabled: true
+    runbook: https://github.com/acquia/my-service/docs
+    alerts:
+      - type: Warning
+        threshold: 20%
+        duration: 3d
+        notifications:
+          - email
+      - type: Critical
+        threshold: 60%
+        duration: 2d
+        notifications:
+          - email
+          - pagerduty
+  # StaticGreaterThan Monitor Example
+  - name: API Error Rate
+    description: my-service API Error Rate Monitor
+    type: StaticGreaterThan
+    enabled: true
+    runbook: https://github.com/acquia/my-service/docs
+    queries:
+      - query_string: "metric=my-service.api.status http_status=200 | quantize using count | count"
+        key: A
+      - query_string: "metric=my-service.api.status | quantize using count | count"
+        key: B
+      - query_string: "(#B - #A) / #B"
+        key: C
+    alerts:
+      - type: Warning
+        threshold: 3%
+        resolution_threshold: 3%
+        duration: 6h
+        min_data_points: 10
+        trigger_for_all: true
+        notifications:
+          - email
+      - type: Critical
+        threshold: 10%
+        resolution_threshold: 10%
+        duration: 6h
+        min_data_points: 10
+        trigger_for_all: true
+        notifications:
+          - email
+          - pagerduty
+  # MissingData Monitor Example
+  - name: Health Check Lambda Function Monitoring
+    description: Monitoring for Health Check Lambda Function
+    type: MissingData
+    enabled: true
+    runbook: https://github.com/acquia/my-service/docs
+    queries:
+      - query_string: "metric=my-service.health-check"
+        key: "A"
+    alerts:
+      - duration: 5m
+        trigger_for_all: true
+        notifications:
+          - email
+          - pagerduty
+    tags: "type:missing-data,source:aws,aws-service:lambda"
+notifications:
+  # Email Notifications Example
+  - name: email
+    recipients:
+      - alerts@my-service.com
+  # PagerDuty Notifications Example
+  - name: pagerduty
+    type: PagerDuty
+dashboards:
+  # Dashboard Example
+  - name: My Service Dashboard
+    description: My Service Application Monitoring Dashboard
+    duration: 30m
+    variables:
+      - name: instance
+        display_name: Instance
+        default_value: "instance=my-service"
+        type: CustomList
+        search_keys:
+          - "instance=my-service"
+      - name: component
+        display_name: Component
+        default_value: "*"
+        type: MetricMetadata
+        search_keys:
+          - "component"
+        filters:
+          - "prod"
+    panels:
+      - Cpu Usage
+      - Memory Usage
+charts:
+  # TimeSeries Chart Example
+  - name: API Latency
+    description: Latency of APIs (1d)
+    duration: 1d
+    mode: TimeSeries
+    type: Line
+    y_axis:
+      label: Milliseconds
+      unit: ms
+    queries:
+      - query_string: "metric=my-service.latency | avg by api"
+        key: A
+        hidden: false
+  # Pie Chart Example
+  - name: API Error Count Comparison Pie
+    description: Error count for each API for the last 7d
+    duration: 7d
+    mode: Categorical
+    type: Pie
+    statistic_type: Count
+    queries:
+      - query_string: "metric=my-service.error | count by api"
+        key: A
+        hidden: false
+  # SingleValue Chart Example
+  - name: Memory Usage
+    description: Latest Memory Usage
+    duration: 1m
+    mode: SingleValue
+    type: Latest
+    queries:
+      - query_string: "metric=my-service.memory.usage"
+        key: A
+        hidden: false
+  # HoneyComb Chart Example
+  - name: Pod Cpu Usage
+    description: Pod Cpu Usage (1h)
+    duration: 1h
+    mode: HoneyComb
+    type: HoneyComb
+    statistic_type: Maximum
+    queries:
+      - query_string: "metric=my-service.cpu.usage | max by pod"
+        key: A
+        hidden: false
+text_panels:
+  # Text Panel Example
+  - name: dashboard text 1
+    title: Dashboard Text Panel 1
+    font_size: 24
+    vertical_alignment: top
+    horizontalAlignment: left
+    text: |
+          ### This is a Dashboard Text Panel with custom configs
+          You can have any texts you want here, and markdown is supported.

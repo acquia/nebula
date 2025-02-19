@@ -1,0 +1,67 @@
+# This CI environment example uses ubuntu as ARG below
+# uncomment one BASE_IMAGE as needed
+# for details refer https://github.com/acquia/devops-pipeline/blob/master/consumer/dockerfiles_examples.md#fips-compliant-environments
+
+#ARG BASE_IMAGE=php:8.2.13-cli-alpine
+#ARG BASE_IMAGE=php:8.2.13-fpm-alpine
+#ARG BASE_IMAGE=golang:1-alpine
+#ARG BASE_IMAGE=ruby:3.2-alpine
+#ARG BASE_IMAGE=node:19-alpine
+#ARG BASE_IMAGE=node:lts-alpine
+#ARG BASE_IMAGE=python:3-alpine
+#ARG BASE_IMAGE=maven:3.8.6-eclipse-temurin-8-alpine
+#ARG BASE_IMAGE=ubuntu:xenial
+#ARG BASE_IMAGE=ubuntu:22.04
+ARG BASE_IMAGE=ubuntu
+
+# Jfrog is used by default in REPO_LOCATION
+# Solving dockerhub rate limiting
+# and improving security scanning
+ARG REPO_LOCATION
+FROM ${REPO_LOCATION}${BASE_IMAGE}
+
+# Update the base image dependencies using a generic command for most OS.
+RUN  (apt-get update && apt-get upgrade -y && apt-get clean)  \
+  || (yum update -y && yum clean all) \
+  || (apk update && apk -U upgrade && apk cache clean) \
+  || echo "No valid package manager found."
+
+# Install git, purge some packages and clean up.
+RUN apt-get update \
+  && apt-get install -y git curl default-mysql-client \
+  && apt-get purge -y sqlite3 libsqlite3-0 \
+  && apt-get clean \
+  && apt-get -y autoremove \
+  && rm -rf /var/lib/apt/lists/*
+
+# Installing docker
+RUN curl -fsSL https://get.docker.com -o get-docker.sh
+RUN sh get-docker.sh
+
+# The WORKDIR for adding code and to run tests in pipeline.yaml
+WORKDIR /usr/src/app
+
+# To improve cache, install requirements.txt first
+COPY app/requirements.txt /usr/src/app/
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the rest of the application
+COPY app /usr/src/app/
+
+# Copy or change other files
+COPY version /usr/src/app/version
+RUN date -u +%y.%m.%d.%H.%M.%S > /usr/src/app/build
+
+# Environment variable passed in build_args
+ARG EXAMPLE_ARG
+RUN echo $EXAMPLE_ARG && [ "$EXAMPLE_ARG" = 'PASSED_TO_CONTAINER_BUILD' ]
+
+# Test SSH private key to read Acquia repositories
+ARG SSH_KEY
+RUN git config --global --add safe.directory '*' # Required by newer git versions
+RUN mkdir -p -m 0600 $HOME/.ssh && ssh-keyscan github.com >> $HOME/.ssh/known_hosts
+RUN ssh-agent sh -c 'echo $SSH_KEY | base64 -d | ssh-add - ; git ls-remote -h git@github.com:acquia/devops-hellomicro.git'
+
+# Open service port and define excution on docker run
+EXPOSE 8080
+CMD [ "python", "hello.py" ]
