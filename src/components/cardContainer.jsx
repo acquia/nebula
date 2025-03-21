@@ -15,7 +15,7 @@ const gridVariants = cva(
       },
     },
     defaultVariants: {
-      cardLayout: "3 column",
+      cardLayout: "3 columns",
     },
   },
 );
