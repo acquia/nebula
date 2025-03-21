@@ -8,7 +8,7 @@ const Branding = ({ homeUrl, logo, siteName, siteSlogan }) => {
         </a>
       )}
     </>
-  );
-};
+  )
+}
 
-export default Branding;
+export default Branding

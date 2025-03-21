@@ -1,8 +1,8 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
-  --font-sans: "Inter Variable";
-  --font-sans--font-feature-settings: "liga" 1, "calt" 1;
+  --font-sans: 'Inter Variable';
+  --font-sans--font-feature-settings: 'liga' 1, 'calt' 1;
 
   --color-drupal-blue: #009cde;
   --color-drupal-dark-blue: #006aa9;
@@ -38,7 +38,6 @@
   --color-primary: var(--color-blue-600);
   --color-primary-light: var(--color-slate-400);
 }
-
 
 html {
   @apply text-slate-950;

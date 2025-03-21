@@ -1,28 +1,28 @@
-import ProgressCard from "./progressCard.jsx";
+import ProgressCard from './progressCard.jsx'
 
 const meta = {
-  title: "Progress Card",
+  title: 'Progress Card',
   component: ProgressCard,
   argTypes: {
     status: {
-      control: "select",
-      options: ["Not Started", "In Progress", "Completed"],
+      control: 'select',
+      options: ['Not Started', 'In Progress', 'Completed'],
     },
     progress: {
-      control: "range",
+      control: 'range',
       min: 0,
       max: 100,
     },
   },
-};
+}
 
-export default meta;
+export default meta
 
 export const InProgress = {
   args: {
-    title: "Experience Builder",
-    link: "https://www.drupal.org/project/experience_builder",
-    status: "In Progress",
+    title: 'Experience Builder',
+    link: 'https://www.drupal.org/project/experience_builder',
+    status: 'In Progress',
     progress: 88,
     footer: (
       <div className="flex w-full flex-wrap items-center justify-between gap-3">
@@ -31,12 +31,12 @@ export const InProgress = {
       </div>
     ),
   },
-};
+}
 
 export const Completed = {
   args: {
     ...InProgress.args,
-    status: "Completed",
+    status: 'Completed',
     progress: 100,
     footer: (
       <div className="flex w-full flex-wrap items-center justify-between gap-3">
@@ -45,12 +45,12 @@ export const Completed = {
       </div>
     ),
   },
-};
+}
 
 export const NotStarted = {
   args: {
     ...InProgress.args,
-    status: "Not Started",
+    status: 'Not Started',
     progress: 0,
     footer: (
       <div className="flex w-full flex-wrap items-center justify-between gap-3">
@@ -59,4 +59,4 @@ export const NotStarted = {
       </div>
     ),
   },
-};
+}

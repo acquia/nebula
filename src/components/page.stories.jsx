@@ -1,67 +1,67 @@
-import imagePlaceholder from "../assets/images/card-placeholder.png";
-import drupalLogo from "../assets/images/logo.svg";
-import Blockquote from "./blockquote.jsx";
-import Branding from "./branding.jsx";
-import Card from "./card.jsx";
-import CardContainer from "./cardContainer.jsx";
-import Header from "./header.jsx";
-import Heading from "./heading.jsx";
-import Hero from "./hero.jsx";
-import Image from "./image.jsx";
-import NavigationMenu from "./navigation-menu.jsx";
-import Page from "./page";
-import Section from "./section.jsx";
-import Text from "./text.jsx";
+import imagePlaceholder from '../assets/images/card-placeholder.png'
+import drupalLogo from '../assets/images/logo.svg'
+import Blockquote from './blockquote.jsx'
+import Branding from './branding.jsx'
+import Card from './card.jsx'
+import CardContainer from './cardContainer.jsx'
+import Header from './header.jsx'
+import Heading from './heading.jsx'
+import Hero from './hero.jsx'
+import Image from './image.jsx'
+import NavigationMenu from './navigation-menu.jsx'
+import Page from './page'
+import Section from './section.jsx'
+import Text from './text.jsx'
 
 const meta = {
-  title: "Examples/Page",
+  title: 'Examples/Page',
   component: Page,
-};
+}
 
-export default meta;
+export default meta
 
-const logo = <Branding homeUrl="#" logo={drupalLogo} />;
+const logo = <Branding homeUrl="#" logo={drupalLogo} />
 const menu = (
   <NavigationMenu
     menuId="main-menu"
     menuLabel="Main Menu"
     links={[
       {
-        key: "front_page",
-        title: "Home",
-        url: "#",
+        key: 'front_page',
+        title: 'Home',
+        url: '#',
         isExpanded: false,
         isCollapsed: false,
         inActiveTrail: false,
       },
       {
-        key: "about",
-        title: "About",
-        url: "#",
+        key: 'about',
+        title: 'About',
+        url: '#',
         isExpanded: false,
         isCollapsed: false,
         inActiveTrail: false,
         submenu: [
           {
-            key: "team",
-            title: "Home",
-            url: "#",
+            key: 'team',
+            title: 'Home',
+            url: '#',
             isExpanded: false,
             isCollapsed: false,
             inActiveTrail: false,
           },
           {
-            key: "values",
-            title: "Values",
-            url: "#",
+            key: 'values',
+            title: 'Values',
+            url: '#',
             isExpanded: false,
             isCollapsed: false,
             inActiveTrail: false,
           },
           {
-            key: "history",
-            title: "History",
-            url: "#",
+            key: 'history',
+            title: 'History',
+            url: '#',
             isExpanded: false,
             isCollapsed: false,
             inActiveTrail: false,
@@ -69,16 +69,16 @@ const menu = (
         ],
       },
       {
-        key: "contact",
-        title: "Contact",
-        url: "#",
+        key: 'contact',
+        title: 'Contact',
+        url: '#',
         isExpanded: false,
         isCollapsed: false,
         inActiveTrail: false,
       },
     ]}
   />
-);
+)
 
 export const HomePage = {
   args: {},
@@ -94,8 +94,8 @@ export const HomePage = {
         button1Label="Get Started"
         button1Link="#get-started"
         button1Style="Solid"
-        image="https://github.com/balintbrews/drupal-xb-js-components-storybook-starter/blob/main/src/assets/images/placeholder.png?raw=true"
-        backgroundImage="https://github.com/balintbrews/drupal-xb-js-components-storybook-starter/blob/main/src/assets/images/hero-background-placeholder-light.png?raw=true"
+        image="/src/assets/images/placeholder.png?raw=true"
+        backgroundImage="/src/assets/images/hero-background-placeholder-light.png?raw=true"
         darkenImage="darken-25"
         backgroundColor="bg-blue-600"
       />
@@ -124,7 +124,7 @@ export const HomePage = {
       </CardContainer>
     </Page>
   ),
-};
+}
 export const AboutUs = {
   args: {},
   render: (args) => (
@@ -143,8 +143,8 @@ export const AboutUs = {
         <Text text="This is a space to talk about your organization, its products, services or values. Encourage people to explore your offerings and discover how you meet their needs, provide solutions, and deliver value. Show how the site serves as more than just a platform; it’s a reflection of your dedication to building meaningful connections and ensuring your experience is nothing short of exceptional." />
         <Image
           image={{
-            src: "https://github.com/balintbrews/drupal-xb-js-components-storybook-starter/blob/main/src/assets/images/placeholder.png?raw=true",
-            alt: "Who we are.",
+            src: '/src/assets/images/placeholder.png?raw=true',
+            alt: 'Who we are.',
           }}
         />
         <Text text="This is a space to talk about your organization, its products, services or values. Encourage people to explore your offerings and discover how you meet their needs, provide solutions, and deliver value. Show how the site serves as more than just a platform; it’s a reflection of your dedication to building meaningful connections and ensuring your experience is nothing short of exceptional." />
@@ -155,17 +155,17 @@ export const AboutUs = {
         />
         <Image
           image={{
-            src: "https://github.com/balintbrews/drupal-xb-js-components-storybook-starter/blob/main/src/assets/images/placeholder.png?raw=true",
-            alt: "Who we are.",
+            src: '/src/assets/images/placeholder.png?raw=true',
+            alt: 'Who we are.',
           }}
         />
         <Image
           image={{
-            src: "https://github.com/balintbrews/drupal-xb-js-components-storybook-starter/blob/main/src/assets/images/placeholder.png?raw=true",
-            alt: "Who we are.",
+            src: '/src/assets/images/placeholder.png?raw=true',
+            alt: 'Who we are.',
           }}
         />
       </Section>
     </Page>
   ),
-};
+}

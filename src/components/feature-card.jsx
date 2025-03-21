@@ -1,33 +1,33 @@
-import { cva } from "class-variance-authority";
+import { cva } from 'class-variance-authority'
 
-import { cn } from "../lib/utils";
-import Button from "./button";
+import { cn } from '../lib/utils'
+import Button from './button'
 
 const cardVariants = cva(
-  "flex w-full max-w-md flex-col items-start gap-4 rounded-2xl p-6 leading-[normal]",
+  'flex w-full max-w-md flex-col items-start gap-4 rounded-2xl p-6 leading-[normal]',
   {
     variants: {
       textColor: {
-        Dark: "",
-        Light: "text-white",
+        Dark: '',
+        Light: 'text-white',
       },
     },
-  },
-);
+  }
+)
 
 const FeatureCard = ({
   // icon,
-  heading = "Card title",
-  headingElement = "h2",
+  heading = 'Card title',
+  headingElement = 'h2',
   text = "Some quick example text to build on the card title and make up the bulk of the card's content.",
-  textColor = "Dark",
-  linkLabel = "Learn more",
-  link = "#",
-  backgroundColor = "#FFFFFF",
-  backgroundColorOnHover = "#F1F5F9",
+  textColor = 'Dark',
+  linkLabel = 'Learn more',
+  link = '#',
+  backgroundColor = '#FFFFFF',
+  backgroundColorOnHover = '#F1F5F9',
   className,
 }) => {
-  const Heading = headingElement;
+  const Heading = headingElement
 
   return (
     <>
@@ -35,7 +35,7 @@ const FeatureCard = ({
         {`
           .card-${backgroundColor.substring(1)} {
             background-color: ${backgroundColor};
-          } 
+          }
           .card-hover-${backgroundColorOnHover.substring(1)}:hover {
             background-color: ${backgroundColorOnHover};
           }
@@ -46,7 +46,7 @@ const FeatureCard = ({
           cardVariants({ textColor }),
           `card-hover-${backgroundColorOnHover.substring(1)}`,
           `card-${backgroundColor.substring(1)}`,
-          className,
+          className
         )}
       >
         <div className="">
@@ -61,8 +61,8 @@ const FeatureCard = ({
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
 const FeatureIcon = () => (
   <svg
@@ -109,6 +109,6 @@ const FeatureIcon = () => (
       strokeLinejoin="round"
     />
   </svg>
-);
+)
 
-export default FeatureCard;
+export default FeatureCard

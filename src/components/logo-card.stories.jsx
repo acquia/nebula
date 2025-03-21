@@ -1,18 +1,17 @@
-import LogoCard from "./logo-card";
+import LogoCard from './logo-card'
 
 const meta = {
-  title: "Components/LogoCard",
+  title: 'Components/LogoCard',
   component: LogoCard,
-  argTypes: {
-  },
-};
+  argTypes: {},
+}
 
-export default meta;
+export default meta
 
 export const Default = {
   args: {
-    image: "/src/assets/images/logo.svg",
-    backgroundColor: "#F1F5F9",
-    altText: "website logo",
+    image: '/src/assets/images/logo.svg',
+    backgroundColor: '#F1F5F9',
+    altText: 'website logo',
   },
-};
+}

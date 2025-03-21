@@ -1,30 +1,30 @@
-import { cva } from "class-variance-authority";
+import { cva } from 'class-variance-authority'
 
-import TwoColumnText from "./two-column-text";
+import TwoColumnText from './two-column-text'
 
-const backgroundVariants = cva("align-center h-full w-full px-8 py-16", {
+const backgroundVariants = cva('align-center h-full w-full px-8 py-16', {
   variants: {
     darkenImage: {
       false: null,
-      true: "backdrop-brightness-75",
+      true: 'backdrop-brightness-75',
     },
   },
-});
+})
 
 const Hero = ({
   layout,
   preHeading,
   heading,
-  headingSize = "Large",
+  headingSize = 'Large',
   headingElement,
-  textColor = "Dark",
+  textColor = 'Dark',
   text,
   button1Label,
   button1Link,
-  button1Style = "Solid",
+  button1Style = 'Solid',
   button2Label,
   button2Link,
-  button2Style = "Outline",
+  button2Style = 'Outline',
   image,
   backgroundImage,
   darkenImage,
@@ -54,7 +54,7 @@ const Hero = ({
         />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero

@@ -1,39 +1,39 @@
-import { cva } from "class-variance-authority";
+import { cva } from 'class-variance-authority'
 
-import { cn } from "../lib/utils";
-import Button from "./button";
+import { cn } from '../lib/utils'
+import Button from './button'
 
 const cardVariants = cva(
-  "flex w-full max-w-md flex-col items-center gap-4 rounded-2xl pb-6 leading-[normal]",
+  'flex w-full max-w-md flex-col items-center gap-4 rounded-2xl pb-6 leading-[normal]',
   {
     variants: {
       textColor: {
         Dark: null,
-        Light: "text-white",
+        Light: 'text-white',
       },
       image: {
         true: null,
-        false: "pt-8",
+        false: 'pt-8',
       },
     },
-  },
-);
+  }
+)
 
 const Card = ({
   image,
   heading,
-  headingElement = "h2",
+  headingElement = 'h2',
   text,
   textColor,
   linkLabel,
   link,
-  backgroundColor = "#ffffff",
-  backgroundColorOnHover = "#E2E8F0",
+  backgroundColor = '#ffffff',
+  backgroundColorOnHover = '#E2E8F0',
   className,
 }) => {
-  const Heading = headingElement;
-  const cardBackgroundClassName = `card-${backgroundColor.substring(1)}`;
-  const cardBackgroundClassNameOnHover = `card-${backgroundColorOnHover.substring(1)}`;
+  const Heading = headingElement
+  const cardBackgroundClassName = `card-${backgroundColor.substring(1)}`
+  const cardBackgroundClassNameOnHover = `card-${backgroundColorOnHover.substring(1)}`
 
   return (
     <>
@@ -41,7 +41,7 @@ const Card = ({
         {`
           .${cardBackgroundClassName} {
             background-color: ${backgroundColor};
-          } 
+          }
           .${cardBackgroundClassNameOnHover}:hover {
             background-color: ${backgroundColorOnHover};
           }
@@ -52,7 +52,7 @@ const Card = ({
           cardVariants({ textColor, image: !!image }),
           cardBackgroundClassName,
           cardBackgroundClassNameOnHover,
-          className,
+          className
         )}
       >
         {image && (
@@ -74,7 +74,7 @@ const Card = ({
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Card;
+export default Card

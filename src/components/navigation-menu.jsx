@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState } from 'react'
 
-import { cn } from "../lib/utils";
+import { cn } from '../lib/utils'
 
 /* eslint-disable-next-line no-unused-vars */
 const NavigationMenu = ({ id, label, links }) => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false)
   return (
     <>
       <div className="flex justify-end md:hidden">
@@ -14,11 +14,11 @@ const NavigationMenu = ({ id, label, links }) => {
           aria-expanded={open}
           aria-label="Toggle navigation"
           onClick={() => {
-            setOpen(!open);
+            setOpen(!open)
           }}
         >
           <svg
-            className={cn("size-4", open ? "hidden" : "")}
+            className={cn('size-4', open ? 'hidden' : '')}
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
@@ -34,7 +34,7 @@ const NavigationMenu = ({ id, label, links }) => {
             <line x1="3" x2="21" y1="18" y2="18" />
           </svg>
           <svg
-            className={cn("size-4 shrink-0", open ? "" : "hidden")}
+            className={cn('size-4 shrink-0', open ? '' : 'hidden')}
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
@@ -53,8 +53,8 @@ const NavigationMenu = ({ id, label, links }) => {
       </div>
       <nav
         className={cn(
-          "absolute left-0 w-screen border-b border-solid border-slate-200 bg-white px-10 py-6 md:static md:block md:w-full md:border-none md:px-8 md:py-0",
-          open ? "" : "hidden",
+          'absolute left-0 w-screen border-b border-solid border-slate-200 bg-white px-10 py-6 md:static md:block md:w-full md:border-none md:px-8 md:py-0',
+          open ? '' : 'hidden'
         )}
         role="navigation"
         aria-label={label}
@@ -79,13 +79,13 @@ const NavigationMenu = ({ id, label, links }) => {
                 >
                   {title}
                 </a>
-              ),
+              )
             )}
           </div>
         </div>
       </nav>
     </>
-  );
-};
+  )
+}
 
-export default NavigationMenu;
+export default NavigationMenu

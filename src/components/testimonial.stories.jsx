@@ -1,55 +1,55 @@
-import Testimonial from "./testimonial";
+import Testimonial from './testimonial'
 
 const meta = {
-  title: "Testimonial",
+  title: 'Testimonial',
   component: Testimonial,
   argTypes: {
     intent: {
-      control: "select",
-      options: ["primary", "secondary", "accent"],
+      control: 'select',
+      options: ['primary', 'secondary', 'accent'],
     },
     spacing: {
-      control: "select",
-      options: ["condensed", "relaxed"],
+      control: 'select',
+      options: ['condensed', 'relaxed'],
     },
   },
-};
+}
 
-export default meta;
+export default meta
 
 export const Default = {
   args: {
-    name: "Dries Buytaert",
-    title: "Founder of Drupal",
+    name: 'Dries Buytaert',
+    title: 'Founder of Drupal',
     quote:
-      "Looking to the future, I hope the Experience Builder becomes the preferred Drupal tool for layout design, page building, and basic theming. Our main goal is to create a tool that site builders love, with an amazing out-of-the-box experience.",
+      'Looking to the future, I hope the Experience Builder becomes the preferred Drupal tool for layout design, page building, and basic theming. Our main goal is to create a tool that site builders love, with an amazing out-of-the-box experience.',
   },
-};
+}
 
 export const Secondary = {
   args: {
     ...Default.args,
-    intent: "secondary",
+    intent: 'secondary',
   },
-};
+}
 
 export const Accent = {
   args: {
     ...Default.args,
-    intent: "accent",
+    intent: 'accent',
   },
-};
+}
 
 export const Condensed = {
   args: {
     ...Default.args,
-    spacing: "condensed",
+    spacing: 'condensed',
   },
-};
+}
 
 export const Relaxed = {
   args: {
     ...Default.args,
-    spacing: "relaxed",
+    spacing: 'relaxed',
   },
-};
+}

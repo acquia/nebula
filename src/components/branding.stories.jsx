@@ -1,20 +1,20 @@
-import logo from "../assets/images/logo.svg";
-import Branding from "./branding";
+import logo from '../assets/images/logo.svg'
+import Branding from './branding'
 
 const meta = {
-  title: "Overrides/Branding",
+  title: 'Overrides/Branding',
   component: Branding,
-};
+}
 
-export default meta;
+export default meta
 
 export const Default = {
   args: {
-    homeUrl: "#",
+    homeUrl: '#',
     logo,
-    siteName: "Drupal Experience Builder",
+    siteName: 'Drupal Experience Builder',
     siteSlogan: (
       <p>This website is the best. It&apos;s better than all the rest.</p>
     ),
   },
-};
+}

@@ -1,30 +1,30 @@
-import { cva } from "class-variance-authority";
-import PropTypes from "prop-types";
+import { cva } from 'class-variance-authority'
+import PropTypes from 'prop-types'
 
-const testimonialVariants = cva("mx-auto max-w-7xl px-4 sm:px-6 lg:px-8", {
+const testimonialVariants = cva('mx-auto max-w-7xl px-4 sm:px-6 lg:px-8', {
   variants: {
     intent: {
-      primary: "bg-black",
-      secondary: "bg-gray-800",
-      accent: "bg-sky-900",
+      primary: 'bg-black',
+      secondary: 'bg-gray-800',
+      accent: 'bg-sky-900',
     },
     spacing: {
-      condensed: "py-8 lg:py-12",
-      relaxed: "py-16 lg:py-24",
+      condensed: 'py-8 lg:py-12',
+      relaxed: 'py-16 lg:py-24',
     },
   },
   defaultVariants: {
-    intent: "primary",
-    spacing: "relaxed",
+    intent: 'primary',
+    spacing: 'relaxed',
   },
-});
+})
 
 const Testimonial = ({ name, title, quote, intent, spacing }) => (
   <div className={testimonialVariants({ intent, spacing })}>
     <div className="mx-auto max-w-4xl">
       <blockquote className="mx-auto max-w-4xl">
         <p className="mb-6 md:text-lg">
-          <span className="font-semibold text-emerald-300">{name},</span>{" "}
+          <span className="font-semibold text-emerald-300">{name},</span>{' '}
           <span className="text-slate-400">{title}</span>
         </p>
 
@@ -57,15 +57,15 @@ const Testimonial = ({ name, title, quote, intent, spacing }) => (
       </blockquote>
     </div>
   </div>
-);
+)
 
 Testimonial.propTypes = {
   name: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   quote: PropTypes.string.isRequired,
-  intent: PropTypes.oneOf(["primary", "secondary", "accent"]),
-  spacing: PropTypes.oneOf(["condensed", "relaxed"]),
-};
+  intent: PropTypes.oneOf(['primary', 'secondary', 'accent']),
+  spacing: PropTypes.oneOf(['condensed', 'relaxed']),
+}
 
-Testimonial.displayName = "Testimonial";
-export default Testimonial;
+Testimonial.displayName = 'Testimonial'
+export default Testimonial

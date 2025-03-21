@@ -43,8 +43,8 @@ const Breadcrumb = ({ links }) => {
         </ol>
       </nav>
     )
-  );
-};
+  )
+}
 
-Breadcrumb.displayName = "Breadcrumb";
-export default Breadcrumb;
+Breadcrumb.displayName = 'Breadcrumb'
+export default Breadcrumb

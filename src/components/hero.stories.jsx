@@ -28,9 +28,9 @@ Default.args = {
   button2Link: "#learn-more",
   button2Style: "Outline",
   image:
-    "https://github.com/balintbrews/drupal-xb-js-components-storybook-starter/blob/main/src/assets/images/placeholder.png?raw=true",
+    "/src/assets/images/placeholder.png?raw=true",
   backgroundImage:
-    "https://github.com/balintbrews/drupal-xb-js-components-storybook-starter/blob/main/src/assets/images/hero-background-placeholder-light.png?raw=true",
+    "/src/assets/images/hero-background-placeholder-light.png?raw=true",
   darkenImage: false,
   backgroundColor: "bg-blue-600",
 };

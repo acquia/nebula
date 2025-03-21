@@ -4,7 +4,7 @@ const Header = ({ logo, menu }) => {
       <div className="my-1 max-h-8 md:my-3">{logo}</div>
       <div className="w-full md:content-center md:px-6 md:py-2">{menu}</div>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

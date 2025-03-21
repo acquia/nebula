@@ -1,26 +1,26 @@
-import { cva } from "class-variance-authority";
+import { cva } from 'class-variance-authority'
 
-import Heading from "./heading";
+import Heading from './heading'
 
-const twoColumnTextImageLayoutVariants = cva("flex flex-col gap-4", {
+const twoColumnTextImageLayoutVariants = cva('flex flex-col gap-4', {
   variants: {
     layout: {
-      "Text - Image": "flex-row",
-      "Image - Text": "flex-col",
+      'Text - Image': 'flex-row',
+      'Image - Text': 'flex-col',
     },
   },
   defaultVariants: {
-    layout: "Text - Image",
+    layout: 'Text - Image',
   },
-});
+})
 
 const TwoColumnTextImage = ({
-  layout = "Text - Image",
-  preHeading = "About us",
-  heading = "Who we are",
-  headingElement = "h2",
-  text = "This is a space to talk about your organization, its products, services or values.",
-  image = "https://raw.githubusercontent.com/balintbrews/drupal-xb-js-components-storybook-starter/refs/heads/main/src/assets/placeholder-light.png",
+  layout = 'Text - Image',
+  preHeading = 'About us',
+  heading = 'Who we are',
+  headingElement = 'h2',
+  text = 'This is a space to talk about your organization, its products, services or values.',
+  image = '/src/assets/placeholder-light.png',
 }) => {
   return (
     <div className={twoColumnTextImageLayoutVariants({ layout })}>
@@ -38,8 +38,8 @@ const TwoColumnTextImage = ({
         <img src={image} alt={heading} />
       </div>
     </div>
-  );
-};
+  )
+}
 
-TwoColumnTextImage.displayName = "TwoColumnTextImage";
-export default TwoColumnTextImage;
+TwoColumnTextImage.displayName = 'TwoColumnTextImage'
+export default TwoColumnTextImage

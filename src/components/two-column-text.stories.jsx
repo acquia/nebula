@@ -27,6 +27,5 @@ Default.args = {
   button2Label: "Learn More",
   button2Link: "#learn-more",
   button2Style: "Outline",
-  image:
-    "https://github.com/balintbrews/drupal-xb-js-components-storybook-starter/blob/main/src/assets/images/placeholder.png?raw=true",
+  image: "/src/assets/images/placeholder.png?raw=true",
 };

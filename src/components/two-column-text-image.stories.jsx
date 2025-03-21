@@ -1,12 +1,12 @@
-import TwoColumnTextImage from "./two-column-text-image";
+import TwoColumnTextImage from './two-column-text-image'
 
 const meta = {
-  title: "Two Column Text Image",
+  title: 'Two Column Text Image',
   component: TwoColumnTextImage,
-};
+}
 
-export default meta;
+export default meta
 
 export const Default = {
   args: {},
-};
+}

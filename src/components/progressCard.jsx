@@ -1,15 +1,15 @@
 const ProgressCard = ({
-  title = "Project",
-  link = "#",
-  status = "Not Started",
+  title = 'Project',
+  link = '#',
+  status = 'Not Started',
   progress = 0,
   footer = null,
 }) => {
   const statusBadge = {
-    "Not Started": "bg-drupal-gray-mildest text-drupal-gray-darker",
-    "In Progress": "bg-drupal-purple text-drupal-navy",
-    Completed: "bg-green-200 text-drupal-green",
-  };
+    'Not Started': 'bg-drupal-gray-mildest text-drupal-gray-darker',
+    'In Progress': 'bg-drupal-purple text-drupal-navy',
+    Completed: 'bg-green-200 text-drupal-green',
+  }
   return (
     <div className="w-full max-w-md rounded-lg bg-drupal-blue text-white shadow-sm transition-all duration-300 hover:shadow-lg">
       <div className="flex flex-col space-y-1 p-6">
@@ -59,7 +59,7 @@ const ProgressCard = ({
               ></div>
             </div>
           </div>
-          <div className="overflow-hidden" style={{ height: "0px" }}>
+          <div className="overflow-hidden" style={{ height: '0px' }}>
             <div></div>
           </div>
         </div>
@@ -70,8 +70,8 @@ const ProgressCard = ({
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-ProgressCard.displayName = "Card";
-export default ProgressCard;
+ProgressCard.displayName = 'Card'
+export default ProgressCard

@@ -15,5 +15,8 @@
     "<TYPES>^[.]"
   ],
   "tailwindFunctions": ["cn", "cva"],
-  "tailwindStylesheet": "./src/global.css"
+  "tailwindStylesheet": "./src/global.css",
+  "semi": false,
+  "singleQuote": true,
+  "trailingComma": "es5"
 }
