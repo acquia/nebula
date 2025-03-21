@@ -56,7 +56,6 @@ const NavigationMenu = ({ id, label, links }) => {
           'absolute left-0 w-screen border-b border-solid border-slate-200 bg-white px-10 py-6 md:static md:block md:w-full md:border-none md:px-8 md:py-0',
           open ? '' : 'hidden'
         )}
-        role="navigation"
         aria-label={label}
       >
         <div className="max-h-[75vh] overflow-hidden overflow-y-auto">

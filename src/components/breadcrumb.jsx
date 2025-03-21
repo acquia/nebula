@@ -1,7 +1,7 @@
 const Breadcrumb = ({ links }) => {
   return (
     links && (
-      <nav role="navigation" aria-labelledby="system-breadcrumb">
+      <nav aria-labelledby="system-breadcrumb">
         <h2 id="system-breadcrumb" className="sr-only">
           Breadcrumb
         </h2>
@@ -9,14 +9,12 @@ const Breadcrumb = ({ links }) => {
           {links.map(({ key, text, url }, index) => (
             <li key={key} className="inline-flex items-center">
               {url ? (
-                <>
                   <a
                     href={url}
                     className="flex items-center text-sm text-gray-500 hover:text-blue-600 focus:text-blue-600 focus:outline-none dark:text-neutral-500 dark:hover:text-blue-500 dark:focus:text-blue-500"
                   >
                     {text}
                   </a>
-                </>
               ) : (
                 <span className="inline-flex items-center truncate text-sm font-semibold text-gray-800 dark:text-neutral-200">
                   {text}

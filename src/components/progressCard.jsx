@@ -25,7 +25,6 @@ const ProgressCard = ({
           <a
             href={link}
             className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-drupal-gray-mildest text-sm font-medium whitespace-nowrap text-drupal-dark-navy transition-colors hover:bg-drupal-gray-milder"
-            role="link"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Open"

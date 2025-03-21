@@ -27,7 +27,6 @@ const CardContainer = ({
   headingSize = 'Medium',
   headingLevel,
   textColor,
-  //backgroundColor,
   cardLayout,
   children,
 }) => {

@@ -31,10 +31,8 @@ const Button = ({
 }) => {
   return (
     <a className={cn(buttonVariants({ variant, className }))} href={link}>
-      <>
         {children}
         <ChevronRightIcon />
-      </>
     </a>
   )
 }
