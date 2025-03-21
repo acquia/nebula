@@ -1,0 +1,19 @@
+{
+  "proseWrap": "always",
+  "plugins": [
+    "@ianvs/prettier-plugin-sort-imports",
+    "prettier-plugin-tailwindcss"
+  ],
+  "importOrder": [
+    "^react$",
+    "<THIRD_PARTY_MODULES>",
+    "<TYPES>^(node:)",
+    "<TYPES>^(react)",
+    "<TYPES>",
+    "",
+    "^[.]",
+    "<TYPES>^[.]"
+  ],
+  "tailwindFunctions": ["cn", "cva"],
+  "tailwindStylesheet": "./src/global.css"
+}

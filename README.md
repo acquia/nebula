@@ -1,22 +1,12 @@
-# My repository name
+# React + Vite
 
-[Acquia CI/CD Build Status]
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-[SonarQube Status Badge]
+Currently, two official plugins are available:
 
-## About this repository
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-Explain your repository.
+## Expanding the ESLint configuration
 
-## Testing and Build (CI)
-
-Proper testing is required in the pipeline.yaml and during deployments, in order to release
-the application with reliability and be less prone to failures: 
-
-- All categories should have **unit tests** when code is being developed during pull requests.
-- For categories 2, 3 and 4, [lint helm charts](https://helm.sh/docs/helm/helm_lint), and [**postsync hook tests**](https://argo-cd.readthedocs.io/en/stable/user-guide/resource_hooks)
-  are strongly advisable or even mandatory if the application can impact customers.
-
-## Releasing and Deploying (CD)
-
-A repository using CI+CD releases via ACD and follows the [Standard Release Process](https://github.com/acquia/acd/tree/master/docs/consumer_releases#standard-release-process)
+If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
