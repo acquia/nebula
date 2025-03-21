@@ -710,6 +710,16 @@
   resolved "https://jfrog.ais.acquia.io/artifactory/api/npm/widen-npm-virtual/@rollup/rollup-win32-x64-msvc/-/rollup-win32-x64-msvc-4.36.0.tgz#88b23fe29d28fa647030b36e912c1b5b50831b1d"
   integrity sha512-aRXd7tRZkWLqGbChgcMMDEHjOKudo1kChb1Jt1IfR8cY/KIpgNviLeJy5FUb9IpSuQj8dU2fAYNMPW/hLKOSTw==
 
+"@storybook/addon-a11y@^8.6.7":
+  version "8.6.7"
+  resolved "https://jfrog.ais.acquia.io/artifactory/api/npm/widen-npm-virtual/@storybook/addon-a11y/-/addon-a11y-8.6.7.tgz#72fa2a7e3d86aea9f3d874a52a67b1c698fae7f5"
+  integrity sha512-/pGRa27AVpoFG0J2+PTKSQCk6ytbRkcR+5fi75iLlqgp7YZN9rVJ8SYyEXALf/B8Gw9hSk2uxCyT3dA7ZTy52Q==
+  dependencies:
+    "@storybook/addon-highlight" "8.6.7"
+    "@storybook/global" "^5.0.0"
+    "@storybook/test" "8.6.7"
+    axe-core "^4.2.0"
+
 "@storybook/addon-actions@8.6.7":
   version "8.6.7"
   resolved "https://registry.yarnpkg.com/@storybook/addon-actions/-/addon-actions-8.6.7.tgz#d5d5712cee0c593c3e5d51546ff88a801f748c0b"
@@ -1462,6 +1472,11 @@ available-typed-arrays@^1.0.7:
   integrity sha512-wvUjBtSGN7+7SjNpq/9M2Tg350UZD3q62IFZLbRAR1bSMlCo1ZaeW+BJ+D090e4hIIZLBcTDWe4Mh4jvUDajzQ==
   dependencies:
     possible-typed-array-names "^1.0.0"
+
+axe-core@^4.2.0:
+  version "4.10.3"
+  resolved "https://jfrog.ais.acquia.io/artifactory/api/npm/widen-npm-virtual/axe-core/-/axe-core-4.10.3.tgz#04145965ac7894faddbac30861e5d8f11bfd14fc"
+  integrity sha512-Xm7bpRXnDSX2YE2YFfBk2FnF0ep6tmG7xPh8iHee8MIcrgq762Nkce856dYtJYLkuIoYZvGfTs/PbZhideTcEg==
 
 balanced-match@^1.0.0:
   version "1.0.2"
