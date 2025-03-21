@@ -2,6 +2,7 @@ import imagePlaceholder from "../assets/images/card-placeholder.png";
 import Card from "./card.jsx";
 import CardContainer from "./cardContainer.jsx";
 import FeatureCard from "./feature-card.jsx";
+import LogoCard from "./logo-card.jsx";
 
 const meta = {
   title: "Sections/Card Container",
@@ -115,6 +116,35 @@ export const FeatureContainer = {
           />
         );
       }
+    });
+
+    return <CardContainer {...args}>{cards}</CardContainer>;
+  },
+};
+
+export const LogoContainer = {
+  args: {
+    layout: "Center aligned",
+    preHeading: "Our customers",
+    heading: "You're in good company.",
+    headingElement: "h2",
+    headingSize: "Medium",
+    textColor: "Dark",
+    cardLayout: "6 columns",
+    previewCardType: "Feature Card",
+    previewCardCount: 6,
+  },
+  render: (args) => {
+    // Create an array with a length equal to previewCardCount and fill it with null
+    const cardsArray = Array(args.previewCardCount).fill(null);
+    const cards = cardsArray.map((_, index) => {
+      return (
+        <LogoCard
+          key={index}
+          image="/src/assets/images/logo.svg"
+          altText="Company logo"
+        />
+      )
     });
 
     return <CardContainer {...args}>{cards}</CardContainer>;
