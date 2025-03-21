@@ -48,7 +48,7 @@ const NavigationMenu = ({ id, label, links }) => {
             <path d="M18 6 6 18" />
             <path d="m6 6 12 12" />
           </svg>
-          <span className="sr-only">Toggle navigation</span>
+          <span className="sr-only">{`${open ? 'Close' : 'Open'} navigation`}</span>
         </button>
       </div>
       <nav
@@ -60,26 +60,16 @@ const NavigationMenu = ({ id, label, links }) => {
       >
         <div className="max-h-[75vh] overflow-hidden overflow-y-auto">
           <div className="flex flex-col gap-0.5 py-2 md:flex-row md:items-center md:justify-center md:gap-1 md:py-0">
-            {links.map(
-              ({
-                key,
-                title,
-                url,
-                isExpanded, // eslint-disable-line no-unused-vars
-                isCollapsed, // eslint-disable-line no-unused-vars
-                inActiveTrail, // eslint-disable-line no-unused-vars
-                submenu, // eslint-disable-line no-unused-vars
-              }) => (
-                <a
-                  key={key}
-                  href={url}
-                  className="flex items-center p-2 text-sm text-blue-600 focus:text-blue-600 focus:outline-none dark:text-blue-500 dark:focus:text-blue-500"
-                  aria-current="page"
-                >
-                  {title}
-                </a>
-              )
-            )}
+            {links.map(({ key, title, url }) => (
+              <a
+                key={key}
+                href={url}
+                className="flex items-center p-2 text-sm text-blue-600 focus:text-blue-600 focus:outline-none dark:text-blue-500 dark:focus:text-blue-500"
+                aria-current="page"
+              >
+                {title}
+              </a>
+            ))}
           </div>
         </div>
       </nav>

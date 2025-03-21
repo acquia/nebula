@@ -16,7 +16,6 @@ const cardVariants = cva(
 )
 
 const FeatureCard = ({
-  // icon,
   heading = 'Card title',
   headingElement = 'h2',
   text = "Some quick example text to build on the card title and make up the bulk of the card's content.",
@@ -66,6 +65,7 @@ const FeatureCard = ({
 
 const FeatureIcon = () => (
   <svg
+    aria-hidden="true"
     width="24"
     height="24"
     viewBox="0 0 24 24"

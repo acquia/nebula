@@ -28,7 +28,6 @@ const Hero = ({
   image,
   backgroundImage,
   darkenImage,
-  // backgroundColor,
 }) => {
   return (
     <div

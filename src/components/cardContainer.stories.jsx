@@ -61,7 +61,7 @@ export const Default = {
       if (args.previewCardType === 'Feature Card') {
         return (
           <FeatureCard
-            key={index}
+            key={`feature-card-${index}`}
             heading="Engaging title that represents the content."
             text="Some quick example text to build on the card title and make up the bulk of the card's content."
           />
@@ -69,7 +69,7 @@ export const Default = {
       } else {
         return (
           <Card
-            key={index}
+            key={`card-${index}`}
             heading="Engaging title that represents the content."
             text="Some quick example text to build on the card title and make up the bulk of the card's content."
             image={imagePlaceholder}
@@ -140,7 +140,7 @@ export const LogoContainer = {
     const cards = cardsArray.map((_, index) => {
       return (
         <LogoCard
-          key={index}
+          key={`logo-card-${index}`}
           image="/src/assets/images/logo.svg"
           altText="Company logo"
         />

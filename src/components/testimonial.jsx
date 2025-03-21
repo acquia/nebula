@@ -24,7 +24,7 @@ const Testimonial = ({ name, title, quote, intent, spacing }) => (
     <div className="mx-auto max-w-4xl">
       <blockquote className="mx-auto max-w-4xl">
         <p className="mb-6 md:text-lg">
-          <span className="font-semibold text-emerald-300">{name},</span>{' '}
+          <span className="font-semibold text-emerald-300">{name}, </span>
           <span className="text-slate-400">{title}</span>
         </p>
 
@@ -40,6 +40,7 @@ const Testimonial = ({ name, title, quote, intent, spacing }) => (
             >
               <span className="flex size-8 flex-col items-center justify-center rounded-full bg-white text-black group-hover:bg-emerald-400 group-focus:bg-emerald-400 md:size-10">
                 <svg
+                  aria-hidden="true"
                   className="size-5 shrink-0"
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
