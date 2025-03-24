@@ -23,6 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 
+# Storybook
+storybook-static
 *storybook.log
 
 # Yarn releases, plugins, and dependency cache

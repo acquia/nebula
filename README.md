@@ -2,13 +2,13 @@
 
 Build and test JavaScript components for
 [Drupal's Experience Builder](https://www.drupal.org/project/experience_builder)
-with this preconfigured development environment.
+with this pre-configured development environment.
 
 Experience Builder (**XB**) will include an in-browser code editor for authoring
 components using React/Preact and Tailwind CSS. Compiling these components
 happens directly in the browser, and they become available to content creators.
 
-All of this work is ongoing, and is in an earlier stage of development. See the
+All of this work is ongoing, and is in an early stage of development. See the
 [meta plan issue](https://www.drupal.org/project/experience_builder/issues/3499919)
 for the initial roadmap.
 
@@ -36,14 +36,12 @@ components.
 
 ## Commands
 
-| Command               | Description                           |
-| --------------------- | ------------------------------------- |
-| `dev`                 | Starts Storybook's development server |
-| `storybook`           | Alias for `dev` command               |
-| `build-storybook`     | Creates a static Storybook build      |
-| `code:check`          | Runs all code checks                  |
-| `code:check:prettier` | Checks code formatting with Prettier  |
-| `code:check:eslint`   | Checks code with ESLint               |
-| `code:fix`            | Runs all code fixes                   |
-| `code:fix:prettier`   | Fixes code formatting with Prettier   |
-| `code:fix:eslint`     | Fixes code with ESLint                |
+This project uses `yarn` as the package manager.
+
+| Command                | Description                      |
+| ---------------------- | -------------------------------- |
+| `yarn dev`             | Starts App                       |
+| `yarn build`           | Builds app                       |
+| `yarn lint`            | Lints the project                |
+| `yarn storybook`       | Starts Storybook                 |
+| `yarn build-storybook` | Creates a static Storybook build |
