@@ -38,14 +38,10 @@ components.
 
 This project uses `yarn` as the package manager.
 
-| Command               | Description                           |
-| --------------------- | ------------------------------------- |
-| `dev`                 | Starts Storybook's development server |
-| `storybook`           | Alias for `dev` command               |
-| `build-storybook`     | Creates a static Storybook build      |
-| `code:check`          | Runs all code checks                  |
-| `code:check:prettier` | Checks code formatting with Prettier  |
-| `code:check:eslint`   | Checks code with ESLint               |
-| `code:fix`            | Runs all code fixes                   |
-| `code:fix:prettier`   | Fixes code formatting with Prettier   |
-| `code:fix:eslint`     | Fixes code with ESLint                |
+| Command                | Description                      |
+| ---------------------- | -------------------------------- |
+| `yarn dev`             | Starts App                       |
+| `yarn build`           | Builds app                       |
+| `yarn lint`            | Lints the project                |
+| `yarn storybook`       | Starts Storybook                 |
+| `yarn build-storybook` | Creates a static Storybook build |
