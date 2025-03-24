@@ -8,10 +8,12 @@ import Header from './header.jsx'
 import Heading from './heading.jsx'
 import Hero from './hero.jsx'
 import Image from './image.jsx'
+import LogoCard from './logo-card.jsx'
 import NavigationMenu from './navigation-menu.jsx'
 import Page from './page'
 import Section from './section.jsx'
 import Text from './text.jsx'
+import TwoColumnTextImage from './two-column-text-image.jsx'
 
 const meta = {
   title: 'Examples/Page',
@@ -121,6 +123,21 @@ export const HomePage = {
           text="Some quick example text to build on the card title and make up the bulk of the card's content."
           image={imagePlaceholder}
         />
+      </CardContainer>
+      <TwoColumnTextImage text="This is a space to talk about your organization, its products, services or values. Encourage people to explore your offerings and discover how you meet their needs, provide solutions, and deliver value. Show how the site serves as more than just a platform; it’s a reflection of your dedication to building meaningful connections and ensuring your experience is nothing short of exceptional." />
+      <CardContainer
+        heading="You're in good company"
+        preHeading="Our customers"
+        headingLevel="h2"
+        layout="Center aligned"
+        cardLayout="6 columns"
+      >
+        <LogoCard image="/src/assets/images/logo.svg" />
+        <LogoCard image="/src/assets/images/logo.svg" />
+        <LogoCard image="/src/assets/images/logo.svg" />
+        <LogoCard image="/src/assets/images/logo.svg" />
+        <LogoCard image="/src/assets/images/logo.svg" />
+        <LogoCard image="/src/assets/images/logo.svg" />
       </CardContainer>
     </Page>
   ),

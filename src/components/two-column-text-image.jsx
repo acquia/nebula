@@ -2,17 +2,20 @@ import { cva } from 'class-variance-authority'
 
 import Heading from './heading'
 
-const twoColumnTextImageLayoutVariants = cva('flex flex-col gap-4', {
-  variants: {
-    layout: {
-      'Text - Image': 'flex-row',
-      'Image - Text': 'flex-col',
+const twoColumnTextImageLayoutVariants = cva(
+  'flex flex-col flex-wrap items-center justify-between gap-8',
+  {
+    variants: {
+      layout: {
+        'Text - Image': 'flex-row',
+        'Image - Text': 'flex-col',
+      },
     },
-  },
-  defaultVariants: {
-    layout: 'Text - Image',
-  },
-})
+    defaultVariants: {
+      layout: 'Text - Image',
+    },
+  }
+)
 
 const TwoColumnTextImage = ({
   layout = 'Text - Image',
@@ -20,11 +23,11 @@ const TwoColumnTextImage = ({
   heading = 'Who we are',
   headingElement = 'h2',
   text = 'This is a space to talk about your organization, its products, services or values.',
-  image = '/src/assets/placeholder-light.png',
+  image = '/src/assets/images/placeholder.png',
 }) => {
   return (
     <div className={twoColumnTextImageLayoutVariants({ layout })}>
-      <div className="">
+      <div className="md:flex-1">
         <Heading
           preHeading={preHeading}
           heading={heading}
@@ -34,7 +37,7 @@ const TwoColumnTextImage = ({
         />
         <p>{text}</p>
       </div>
-      <div>
+      <div className="md:flex-1">
         <img src={image} alt={heading} />
       </div>
     </div>
