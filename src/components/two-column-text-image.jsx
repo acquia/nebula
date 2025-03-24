@@ -20,7 +20,7 @@ const TwoColumnTextImage = ({
   heading = 'Who we are',
   headingElement = 'h2',
   text = 'This is a space to talk about your organization, its products, services or values.',
-  image = '/src/assets/placeholder-light.png',
+  image = '/src/assets/images/placeholder-light.png',
 }) => {
   return (
     <div className={twoColumnTextImageLayoutVariants({ layout })}>
