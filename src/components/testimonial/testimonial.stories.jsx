@@ -1,4 +1,5 @@
 import CardContainer from '../cardContainer'
+import ColumnTestimonial from './columnTestimonial'
 import Testimonial from './testimonial'
 import TestimonialCard from './testimonialCard'
 
@@ -13,6 +14,10 @@ const meta = {
     spacing: {
       control: 'select',
       options: ['condensed', 'relaxed'],
+    },
+    textColor: {
+      control: 'select',
+      options: ['Dark', 'Light'],
     },
   },
 }
@@ -75,7 +80,7 @@ export const TestimonialContainer = {
   },
 }
 
-export const columnTestimonial = {
+export const columnTestimonialWithImage = {
   args: {
     name: 'Garth Brooks',
     role: 'Boss',
@@ -83,8 +88,27 @@ export const columnTestimonial = {
     text: 'Truly one of the products of all time.',
     avatar: '/src/assets/images/logo.svg',
     avatarAltText: 'test alt text',
+    image: '/src/assets/images/placeholder.png',
+    imageAltText: 'test alt text',
+    background: '/src/assets/images/hero-placeholder-light.png',
   },
   render: (args) => {
-    return <Testimonial {...args} />
+    return <ColumnTestimonial {...args} />
+  },
+}
+
+export const columnTestimonialDarkBg = {
+  args: {
+    name: 'Garth Brooks',
+    role: 'Boss',
+    organization: 'Country music',
+    text: 'Truly one of the products of all time.',
+    avatar: '/src/assets/images/logo.svg',
+    avatarAltText: 'test alt text',
+    background: '/src/assets/images/hero-background-placeholder-dark.png',
+    textColor: 'Light',
+  },
+  render: (args) => {
+    return <ColumnTestimonial {...args} />
   },
 }

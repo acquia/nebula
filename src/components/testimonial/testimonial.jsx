@@ -1,3 +1,5 @@
+import { cva } from 'class-variance-authority'
+
 export default function Testimonial({
   avatarAltText,
   name,
@@ -5,10 +7,20 @@ export default function Testimonial({
   organization,
   text,
   avatar,
+  textColor,
 }) {
+  const variants = cva('text-sm', {
+    variants: {
+      textColor: {
+        Dark: 'text-drupal-gray-default',
+        Light: 'text-white',
+      },
+    },
+  })
+
   return (
-    <div className="border-l-1 border-l-drupal-gray-default pl-4">
-      <blockquote class="">
+    <div className="border-l-2 border-l-gray-200 pl-4">
+      <blockquote class="text-xl font-medium">
         <p class="">
           <em>{text}</em>
         </p>
@@ -21,7 +33,9 @@ export default function Testimonial({
         />
         <div className="flex flex-col gap-1">
           <p className="font-bold">{name}</p>
-          <p className="text-sm text-drupal-gray-default">{`${role} | ${organization}`}</p>
+          <p
+            className={variants({ textColor })}
+          >{`${role} | ${organization}`}</p>
         </div>
       </div>
     </div>
