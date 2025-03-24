@@ -1,0 +1,44 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Inter Variable';
+  --font-sans--font-feature-settings: 'liga' 1, 'calt' 1;
+
+  --color-drupal-blue: #009cde;
+  --color-drupal-dark-blue: #006aa9;
+  --color-drupal-navy: #12285f;
+  --color-drupal-dark-navy: #091942;
+  --color-drupal-light-blue: #ccedf9;
+  --color-drupal-black: #000;
+  --color-drupal-white: #fff;
+  --color-drupal-purple: #ccbaf4;
+  --color-drupal-yellow: #ffc423;
+  --color-drupal-red: #f46351;
+  --color-drupal-dark-red: #c63c00;
+  --color-drupal-green: #397618;
+  --color-drupal-gray-darkest: #1f2420;
+  --color-drupal-gray-darker: #323946;
+  --color-drupal-gray-dark: #4f5661;
+  --color-drupal-gray-default: #6d7583;
+  --color-drupal-gray-mild: #a2acbe;
+  --color-drupal-gray-milder: #cfd4dd;
+  --color-drupal-gray-mildest: #f8f9fc;
+  --color-drupal-gray-disabled: #e7ebf3;
+
+  --color-primary-100: var(--color-blue-100);
+  --color-primary-200: var(--color-blue-200);
+  --color-primary-300: var(--color-blue-300);
+  --color-primary-400: var(--color-blue-400);
+  --color-primary-500: var(--color-blue-500);
+  --color-primary-600: var(--color-blue-600);
+  --color-primary-700: var(--color-blue-700);
+  --color-primary-800: var(--color-blue-800);
+  --color-primary-900: var(--color-blue-900);
+
+  --color-primary: var(--color-blue-600);
+  --color-primary-light: var(--color-slate-400);
+}
+
+html {
+  @apply text-slate-950;
+}
