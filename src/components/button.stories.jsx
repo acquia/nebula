@@ -36,7 +36,7 @@ export const OutlineLight = {
     link: '#',
   },
   decorators: [
-    () => (
+    (Story) => (
       <div className="max-w-sm bg-black p-8">
         <Story />
       </div>

@@ -19,10 +19,10 @@ const footerVariants = cva(
 const Footer = ({ textColor, className }) => {
   return (
     <footer className={cn(footerVariants({ textColor }), className)}>
-      <div class="mb-10 grid grid-cols-2 gap-6 md:grid-cols-4 lg:grid-cols-5">
+      <div className="mb-10 grid grid-cols-2 gap-6 md:grid-cols-4 lg:grid-cols-5">
         <div>
-          <div class="text-xs font-semibold uppercase">Product</div>
-          <div class="mt-3 grid space-y-3 text-sm">
+          <div className="text-xs font-semibold uppercase">Product</div>
+          <div className="mt-3 grid space-y-3 text-sm">
             <p>
               <Link link="#">Pricing</Link>
             </p>
@@ -39,8 +39,8 @@ const Footer = ({ textColor, className }) => {
         </div>
 
         <div>
-          <div class="text-xs font-semibold uppercase">Company</div>
-          <div class="mt-3 grid space-y-3 text-sm">
+          <div className="text-xs font-semibold uppercase">Company</div>
+          <div className="mt-3 grid space-y-3 text-sm">
             <p>
               <Link link="#">About us</Link>
             </p>
@@ -60,8 +60,8 @@ const Footer = ({ textColor, className }) => {
         </div>
 
         <div>
-          <div class="text-xs font-semibold uppercase">Resources</div>
-          <div class="mt-3 grid space-y-3 text-sm">
+          <div className="text-xs font-semibold uppercase">Resources</div>
+          <div className="mt-3 grid space-y-3 text-sm">
             <p>
               <Link link="#">Community</Link>
             </p>
@@ -78,8 +78,8 @@ const Footer = ({ textColor, className }) => {
         </div>
 
         <div>
-          <div class="text-xs font-semibold uppercase">Developers</div>
-          <div class="mt-3 grid space-y-3 text-sm">
+          <div className="text-xs font-semibold uppercase">Developers</div>
+          <div className="mt-3 grid space-y-3 text-sm">
             <p>
               <Link link="#">API</Link>
             </p>
@@ -91,8 +91,8 @@ const Footer = ({ textColor, className }) => {
             </p>
           </div>
 
-          <div class="mt-7 text-xs font-semibold uppercase">Industries</div>
-          <div class="mt-3 grid space-y-3 text-sm">
+          <div className="mt-7 text-xs font-semibold uppercase">Industries</div>
+          <div className="mt-3 grid space-y-3 text-sm">
             <p>
               <Link link="#">Financial Services</Link>
             </p>
@@ -103,8 +103,8 @@ const Footer = ({ textColor, className }) => {
         </div>
 
         <div>
-          <div class="text-xs font-semibold uppercase">Contact us</div>
-          <div class="mt-3 grid space-y-3 text-sm">
+          <div className="text-xs font-semibold uppercase">Contact us</div>
+          <div className="mt-3 grid space-y-3 text-sm">
             <p>
               456 Elm Street <br />
               Suite 300 <br />
@@ -115,18 +115,18 @@ const Footer = ({ textColor, className }) => {
         </div>
       </div>
 
-      <div class="mt-5 border-t border-gray-200 pt-5 dark:border-neutral-700">
-        <div class="sm:flex sm:items-center sm:justify-between">
-          <div class="flex flex-wrap items-center gap-3">
+      <div className="mt-5 border-t border-gray-200 pt-5 dark:border-neutral-700">
+        <div className="sm:flex sm:items-center sm:justify-between">
+          <div className="flex flex-wrap items-center gap-3">
             <Copyright text={`© ${new Date().getFullYear()} Company Name.`} />
           </div>
-          <div class="space-x-4">
+          <div className="space-x-4">
             <a
-              class="inline-block text-gray-500 hover:text-gray-800 focus:text-gray-800 focus:outline-hidden dark:text-neutral-500 dark:hover:text-neutral-200 dark:focus:text-neutral-200"
+              className="inline-block text-gray-500 hover:text-gray-800 focus:text-gray-800 focus:outline-hidden dark:text-neutral-500 dark:hover:text-neutral-200 dark:focus:text-neutral-200"
               href="#"
             >
               <svg
-                class="size-4 shrink-0"
+                className="size-4 shrink-0"
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
                 height="16"
@@ -137,11 +137,11 @@ const Footer = ({ textColor, className }) => {
               </svg>
             </a>
             <a
-              class="inline-block text-gray-500 hover:text-gray-800 focus:text-gray-800 focus:outline-hidden dark:text-neutral-500 dark:hover:text-neutral-200 dark:focus:text-neutral-200"
+              className="inline-block text-gray-500 hover:text-gray-800 focus:text-gray-800 focus:outline-hidden dark:text-neutral-500 dark:hover:text-neutral-200 dark:focus:text-neutral-200"
               href="#"
             >
               <svg
-                class="size-4 shrink-0"
+                className="size-4 shrink-0"
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
                 height="16"
@@ -152,11 +152,11 @@ const Footer = ({ textColor, className }) => {
               </svg>
             </a>
             <a
-              class="inline-block text-gray-500 hover:text-gray-800 focus:text-gray-800 focus:outline-hidden dark:text-neutral-500 dark:hover:text-neutral-200 dark:focus:text-neutral-200"
+              className="inline-block text-gray-500 hover:text-gray-800 focus:text-gray-800 focus:outline-hidden dark:text-neutral-500 dark:hover:text-neutral-200 dark:focus:text-neutral-200"
               href="#"
             >
               <svg
-                class="size-4 shrink-0"
+                className="size-4 shrink-0"
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
                 height="16"
