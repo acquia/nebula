@@ -46,7 +46,7 @@ export default function Testimonial({
 
   return (
     <div className="flex flex-col gap-2 border-l-2 border-l-gray-200 pl-2">
-      <blockquote class={textVariants({ textSize })}>
+      <blockquote className={textVariants({ textSize })}>
         <p>{text}</p>
       </blockquote>
       <div className="flex items-center gap-4">
