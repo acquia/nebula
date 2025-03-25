@@ -23,7 +23,7 @@ export default function Testimonial({
   const nameVariants = cva('font-bold', {
     variants: {
       textSize: {
-        Large: 'text-sm',
+        Large: 'text-base',
         Medium: 'text-sm',
         Small: 'text-xs',
       },
@@ -33,7 +33,7 @@ export default function Testimonial({
   const roleVariants = cva('text-sm', {
     variants: {
       textSize: {
-        Large: 'text-sm',
+        Large: 'text-base',
         Medium: 'text-sm',
         Small: 'text-xs',
       },
