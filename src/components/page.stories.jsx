@@ -12,6 +12,7 @@ import LogoCard from './logo-card.jsx'
 import NavigationMenu from './navigation-menu.jsx'
 import Page from './page'
 import Section from './section.jsx'
+import TestimonialSection from './testimonial/testimonialSection.jsx'
 import Text from './text.jsx'
 import TwoColumnTextImage from './two-column-text-image.jsx'
 
@@ -125,6 +126,17 @@ export const HomePage = {
         />
       </CardContainer>
       <TwoColumnTextImage text="This is a space to talk about your organization, its products, services or values. Encourage people to explore your offerings and discover how you meet their needs, provide solutions, and deliver value. Show how the site serves as more than just a platform; it’s a reflection of your dedication to building meaningful connections and ensuring your experience is nothing short of exceptional." />
+      <div className="my-16">
+        <TestimonialSection
+          background="/src/assets/images/hero-background-placeholder-dark.png"
+          textColor="Light"
+          text="I just wanted to say that I'm very happy with my purchase so far. The experience builder is amazing and the documentation is outstanding - clear and detailed."
+          name="Mark Villiams"
+          organization="Capsule"
+          role="Product Manager"
+          avatar="/src/assets/images/placeholder.png"
+        />
+      </div>
       <CardContainer
         heading="You're in good company"
         preHeading="Our customers"
@@ -165,11 +177,23 @@ export const AboutUs = {
           }}
         />
         <Text text="This is a space to talk about your organization, its products, services or values. Encourage people to explore your offerings and discover how you meet their needs, provide solutions, and deliver value. Show how the site serves as more than just a platform; it’s a reflection of your dedication to building meaningful connections and ensuring your experience is nothing short of exceptional." />
-        <Blockquote
-          text="I just wanted to say that I'm very happy with my purchase so far. The experience builder is amazing and the documentation is outstanding - clear and detailed."
-          name="Mark Villiams"
-          title="Product Manager | Capsule"
+        <Heading
+          heading="What our customers say."
+          preHeading="Testimonials"
+          headingSize="Medium"
+          layout="Center aligned"
         />
+        <div className="my-16">
+          <TestimonialSection
+            background="/src/assets/images/hero-background-placeholder-dark.png"
+            textColor="Light"
+            text="I just wanted to say that I'm very happy with my purchase so far. The experience builder is amazing and the documentation is outstanding - clear and detailed."
+            name="Mark Villiams"
+            organization="Capsule"
+            role="Product Manager"
+            avatar="/src/assets/images/placeholder.png"
+          />
+        </div>
         <Image
           image={{
             src: '/src/assets/images/placeholder.png?raw=true',
