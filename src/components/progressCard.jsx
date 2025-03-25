@@ -30,7 +30,7 @@ const ProgressCard = ({
             aria-label="Open"
           >
             <svg
-              aria-hidden={true}
+              aria-hidden="true"
               className="h-5 w-5"
               viewBox="0 0 24 24"
               fill="currentColor"

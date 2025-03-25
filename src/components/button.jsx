@@ -31,8 +31,19 @@ const Button = ({
 }) => {
   return (
     <a className={cn(buttonVariants({ variant, className }))} href={link}>
-        {children}
-        <ChevronRightIcon />
+      {children}
+      <ChevronRightIcon />
+    </a>
+  )
+}
+
+export const Link = ({ children, link = '#', className = '' }) => {
+  return (
+    <a
+      className={cn(buttonVariants({ variant: 'link', className }))}
+      href={link}
+    >
+      {children}
     </a>
   )
 }
