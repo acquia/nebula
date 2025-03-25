@@ -31,15 +31,17 @@ const CardContainer = ({
   children,
 }) => {
   return (
-    <div className="my-18 flex flex-col items-center gap-16 md:my-24">
-      <Heading
-        layout={layout}
-        preHeading={preHeading}
-        heading={heading}
-        headingSize={headingSize}
-        headingLevel={headingLevel}
-        textColor={textColor}
-      />
+    <div className="flex flex-col items-center gap-16">
+      {heading ? (
+        <Heading
+          layout={layout}
+          preHeading={preHeading}
+          heading={heading}
+          headingSize={headingSize}
+          headingLevel={headingLevel}
+          textColor={textColor}
+        />
+      ) : null}
       <div className={cn(gridVariants({ cardLayout }))}>{children}</div>
     </div>
   )

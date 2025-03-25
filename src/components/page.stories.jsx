@@ -1,6 +1,5 @@
 import imagePlaceholder from '../assets/images/card-placeholder.png'
 import drupalLogo from '../assets/images/logo.svg'
-import Blockquote from './blockquote.jsx'
 import Branding from './branding.jsx'
 import Card from './card.jsx'
 import CardContainer from './cardContainer.jsx'
