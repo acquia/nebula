@@ -19,6 +19,10 @@ const meta = {
       control: 'select',
       options: ['Dark', 'Light'],
     },
+    textSize: {
+      control: 'select',
+      options: ['Small', 'Medium', 'Large'],
+    },
   },
 }
 
@@ -30,8 +34,10 @@ export const TestimonialCardDefault = {
     role: 'Boss',
     organization: 'Country music',
     text: 'Truly one of the products of all time.',
-    avatar: '/src/assets/images/logo.svg',
+    avatar: '/src/assets/images/acquia-logo.svg',
     avatarAltText: 'test alt text',
+    textSize: 'Small',
+    textColor: 'Dark',
   },
   render: (args) => {
     return (
@@ -42,6 +48,7 @@ export const TestimonialCardDefault = {
         text={args.text}
         avatar={args.avatar}
         avatarAltText={args.avatarAltText}
+        textSize={args.textSize}
       />
     )
   },
@@ -58,6 +65,7 @@ export const TestimonialContainer = {
     cardLayout: '3 columns',
     previewCardType: 'Feature Card',
     previewCardCount: 3,
+    textSize: 'Small',
   },
   render: (args) => {
     // Create an array with a length equal to previewCardCount and fill it with null
@@ -70,8 +78,9 @@ export const TestimonialContainer = {
           role="Boss"
           organization="Country music"
           text="Truly one of the products of all time."
-          avatar="/src/assets/images/logo.svg"
+          avatar="/src/assets/images/acquia-logo.svg"
           avatarAltText="test alt text"
+          textSize={args.textSize}
         />
       )
     })
@@ -86,7 +95,8 @@ export const columnTestimonialWithImage = {
     role: 'Boss',
     organization: 'Country music',
     text: 'Truly one of the products of all time.',
-    avatar: '/src/assets/images/logo.svg',
+    textColor: 'Dark',
+    avatar: '/src/assets/images/acquia-logo.svg',
     avatarAltText: 'test alt text',
     image: '/src/assets/images/placeholder.png',
     imageAltText: 'test alt text',
@@ -103,7 +113,7 @@ export const columnTestimonialDarkBg = {
     role: 'Boss',
     organization: 'Country music',
     text: 'Truly one of the products of all time.',
-    avatar: '/src/assets/images/logo.svg',
+    avatar: '/src/assets/images/acquia-logo.svg',
     avatarAltText: 'test alt text',
     background: '/src/assets/images/hero-background-placeholder-dark.png',
     textColor: 'Light',
