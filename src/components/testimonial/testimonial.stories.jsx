@@ -1,7 +1,6 @@
 import CardContainer from '../cardContainer'
-import ColumnTestimonial from './columnTestimonial'
-import Testimonial from './testimonial'
 import TestimonialCard from './testimonialCard'
+import TestimonialSection from './testimonialSection'
 
 const meta = {
   title: 'Components/Testimonial',
@@ -89,7 +88,7 @@ export const TestimonialContainer = {
   },
 }
 
-export const columnTestimonialWithImage = {
+export const testimonialSectionWithImage = {
   args: {
     name: 'Garth Brooks',
     role: 'Boss',
@@ -103,11 +102,11 @@ export const columnTestimonialWithImage = {
     background: '/src/assets/images/hero-placeholder-light.png',
   },
   render: (args) => {
-    return <ColumnTestimonial {...args} />
+    return <TestimonialSection {...args} />
   },
 }
 
-export const columnTestimonialDarkBg = {
+export const testimonialSectionDarkBg = {
   args: {
     name: 'Garth Brooks',
     role: 'Boss',
@@ -119,6 +118,6 @@ export const columnTestimonialDarkBg = {
     textColor: 'Light',
   },
   render: (args) => {
-    return <ColumnTestimonial {...args} />
+    return <TestimonialSection {...args} />
   },
 }

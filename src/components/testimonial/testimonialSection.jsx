@@ -2,7 +2,7 @@ import { cva } from 'class-variance-authority'
 
 import Testimonial from './testimonial'
 
-export default function ColumnTestimonial({
+export default function TestimonialSection({
   image,
   imageAltText,
   background,
