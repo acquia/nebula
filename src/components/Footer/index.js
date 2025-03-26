@@ -1,2 +1,5 @@
 export { default as Copyright } from './copyright'
 export { default as Footer } from './footer'
+export { default as FooterMinimal } from './footer-minimal'
+export { default as Social } from './social'
+export { default as FooterLogoTop } from './footer-logo-top'
