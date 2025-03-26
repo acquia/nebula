@@ -21,7 +21,7 @@ const List = ({ items, type = 'None', textColor, children }) => {
   const List = type === 'Ordered' ? 'ol' : 'ul'
   return (
     <List className={listVariants({ type, textColor })}>
-      {items.length
+      {items?.length
         ? items.map((item, index) => (
             <li key={`list-${index}`}>
               {item.url ? <Link link={item.url}>{item.text}</Link> : item.text}
@@ -52,7 +52,7 @@ List.propTypes = {
    * Sets the type of list to render.
    * Options are 'Ordered', 'Unordered', and 'None'.
    */
-  type: PropTypes.oneOf(['Ordered', 'Unordered', 'None']),
+  type: PropTypes.oneOf(['Ordered', 'Unordered', 'None', 'Icon']),
   /**
    * Specifies the text color to use.
    * Options are 'Dark' and 'Light'.
