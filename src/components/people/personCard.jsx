@@ -1,5 +1,8 @@
 import { Person } from './person'
 
+/**
+ * A card component for displaying a person's name, title, and avatar.
+ */
 function PersonCard({ ...props }) {
   return (
     <div className="align-center flex min-h-45 max-w-70 flex-col justify-center gap-4 rounded-2xl bg-white p-4 text-center leading-[normal]">

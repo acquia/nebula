@@ -2,6 +2,9 @@ import PropTypes from 'prop-types'
 
 import { cn } from '../../lib/utils'
 
+/**
+ * Consists of an image and text container for a person's name and title.
+ */
 function Person({
   name,
   title,
