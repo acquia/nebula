@@ -124,7 +124,7 @@ export default Footer
 Footer.propTypes = {
   /**
    * Allows for customizing the footer element.
-   * Use 'div' if nesting within a footer element.
+   * Use `'div'` if nesting within a footer element.
    * @default 'footer'
    */
   footerElement: PropTypes.elementType,

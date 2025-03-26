@@ -16,7 +16,7 @@ const meta = {
   },
 }
 
-export const Default = {
+export const DefaultNone = {
   args: {
     items: [{ text: 'Item 1' }, { text: 'Item 2' }, { text: 'Item 3' }],
   },
@@ -85,7 +85,7 @@ export const Icon = {
   ),
 }
 
-export const CustomContent = {
+export const VerticalNavigation = {
   args: {
     items: [
       { text: 'Item 1', url: 'http://www.acquia.com' },

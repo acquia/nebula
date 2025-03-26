@@ -11,7 +11,7 @@ const listVariants = cva('list-inside', {
       None: 'list-none',
     },
     textColor: {
-      Dark: 'text-black',
+      Dark: 'text-gray-900',
       Light: 'text-white',
     },
   },
@@ -35,10 +35,12 @@ const List = ({ items, type = 'None', textColor, children }) => {
 List.propTypes = {
   /**
    * Can pass children instead of items.
-   * Be sure to define your own <li> elements.
+   * Be sure to define your own `<li>` elements
+   * as a wrapper.
    */
   children: PropTypes.node,
   /**
+   * Can be used instead of children.
    * Takes in a list of items to render.
    * Items should be an array of objects with
    * required text strings and optional url strings.
