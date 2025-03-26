@@ -83,7 +83,7 @@ export const AuthorDefault = {
     title: 'Boss / Country music',
     avatar: '/src/assets/images/person.jpg',
     avatarAltText: 'test alt text',
-    headingElement: 'h4',
+    headingElement: 'h3',
   },
   render: (args) => {
     return <Author {...args} align="left" />

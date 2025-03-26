@@ -10,7 +10,7 @@ function Author({ ...props }) {
     <Person
       {...props}
       imageClasses="rounded-full"
-      textClasses="items-flex-start"
+      textClasses="items-start"
     />
   )
 }
