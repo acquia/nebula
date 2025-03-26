@@ -1,5 +1,5 @@
 import CardContainer from '../cardContainer'
-import TextAndCardSection from '../textAndCardSection'
+import Author from './author'
 import PersonCard from './personCard'
 import PersonSection from './PersonSection'
 
@@ -74,5 +74,18 @@ export const PersonSectionDefault = {
       return <PersonCard key={index} {...args} />
     })
     return <PersonSection {...args}>{cards}</PersonSection>
+  },
+}
+
+export const AuthorDefault = {
+  args: {
+    name: 'Garth Brooks',
+    title: 'Boss / Country music',
+    avatar: '/src/assets/images/person.jpg',
+    avatarAltText: 'test alt text',
+    headingElement: 'h4',
+  },
+  render: (args) => {
+    return <Author {...args} align="left" />
   },
 }
