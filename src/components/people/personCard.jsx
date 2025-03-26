@@ -1,4 +1,6 @@
-import { Person } from './person'
+import PropTypes from 'prop-types'
+
+import Person from './person'
 
 /**
  * A card component for displaying a person's name, title, and avatar.

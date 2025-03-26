@@ -1,4 +1,6 @@
-import { Person } from './person'
+import PropTypes from 'prop-types'
+
+import Person from './person'
 
 /**
  * For use in Article sections.
@@ -39,3 +41,5 @@ Author.propTypes = {
    */
   align: PropTypes.oneOf(['left', 'center', 'right']),
 }
+
+export default Author
