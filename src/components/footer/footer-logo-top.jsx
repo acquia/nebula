@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-import Social from './social'
+import Social from '../social/social'
 
 export default function FooterLogoTop({ footerElement, logo }) {
   const Footer = footerElement || 'footer'

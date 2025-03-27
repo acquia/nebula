@@ -2,19 +2,31 @@ import { cva } from 'class-variance-authority'
 
 import { cn } from '../lib/utils'
 
+const focusStyles =
+  'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:no-underline focus-visible:outline-primary-500'
+
 const buttonVariants = cva(
-  'focus-visible:ring-ring inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg px-4 py-3 text-sm font-medium whitespace-nowrap transition-colors focus-visible:ring-1 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
+  `inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg px-4 py-3 text-sm font-medium whitespace-nowrap transition-colors disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 ${focusStyles}`,
   {
     variants: {
       variant: {
-        solid: 'bg-primary-600 text-white hover:bg-primary-700',
+        solid:
+          'border border-transparent bg-primary-600 text-white hover:bg-primary-700 focus:bg-primary-700 active:bg-primary-800',
         outlineDark:
-          'border border-primary-600 text-primary-600 hover:border-blue-500 hover:text-blue-500 focus:border-blue-500 focus:text-blue-500',
+          'border border-primary-600 text-primary-600 hover:border-primary-800 hover:bg-primary-100 hover:text-primary-800 focus:border-primary-800 focus:bg-primary-100 focus:text-primary-800 active:border-primary-900 active:bg-primary-200 active:text-primary-900',
         outlineLight:
-          'border border-white text-white hover:border-neutral-300 hover:text-neutral-300 focus:border-neutral-300 focus:text-neutral-300',
+          'border border-white text-white hover:border-gray-300 hover:bg-gray-800 focus:border-gray-300 focus:bg-gray-800 active:border-gray-400 active:bg-gray-700',
         ghost:
-          'text-primary-600 hover:bg-primary-100 hover:text-primary-800 focus:bg-primary-100 focus:text-primary-800 focus:outline-none',
-        link: 'p-0 text-primary-600 hover:text-primary-800 focus:text-primary-800',
+          'border border-transparent text-primary-600 hover:bg-primary-100 hover:text-primary-800 focus:bg-primary-100 focus:text-primary-800 active:bg-primary-200 active:text-primary-900',
+        ghostNeutral:
+          'border border-transparent text-gray-600 hover:bg-gray-200 hover:text-gray-800 focus:bg-gray-200 focus:text-gray-800 active:bg-gray-300 active:text-gray-900',
+        ghostLight:
+          'border border-transparent text-white hover:border-gray-300 hover:bg-gray-800 focus:border-gray-300 focus:bg-gray-800 active:border-gray-400 active:bg-gray-700',
+        link: 'p-0 text-primary-600 hover:text-primary-800 hover:underline hover:underline-offset-2 focus:text-primary-800 active:text-primary-900',
+        linkUnderline:
+          'p-0 text-gray-900 underline underline-offset-3 hover:text-primary-600 focus:text-primary-600 active:text-primary-800',
+        linkDark:
+          'p-0 text-gray-900 hover:text-primary-600 hover:underline hover:underline-offset-3 focus:text-primary-600 active:text-primary-800',
       },
     },
     defaultVariants: {
@@ -37,12 +49,14 @@ const Button = ({
   )
 }
 
-export const Link = ({ children, link = '#', className = '' }) => {
+export const Link = ({
+  children,
+  link = '#',
+  variant = 'link',
+  className = '',
+}) => {
   return (
-    <a
-      className={cn(buttonVariants({ variant: 'link', className }))}
-      href={link}
-    >
+    <a className={cn(buttonVariants({ variant, className }))} href={link}>
       {children}
     </a>
   )

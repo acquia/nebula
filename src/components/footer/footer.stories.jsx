@@ -5,7 +5,6 @@ import Footer from './footer'
 import FooterCopyright from './footer-copyright'
 import FooterLogoTop from './footer-logo-top'
 import FooterMinimal from './footer-minimal'
-import Social from './social'
 
 const meta = {
   component: Footer,
@@ -19,11 +18,6 @@ export const CopyrightOnly = {
   args: {
     text: `© ${new Date().getFullYear()} Company Name.`,
   },
-}
-
-export const SocialOnly = {
-  render: (args) => <Social {...args} />,
-  args: {},
 }
 
 export const FooterWithCopyright = {

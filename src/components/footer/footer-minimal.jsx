@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 
+import Social from '../social/social'
 import Copyright from './copyright'
-import Social from './social'
 
 const FooterMinimal = ({ footerElement }) => {
   const Footer = footerElement || 'footer'
@@ -12,7 +12,7 @@ const FooterMinimal = ({ footerElement }) => {
         <div className="flex flex-wrap items-center gap-3">
           <Copyright text={`© ${new Date().getFullYear()} Company Name.`} />
         </div>
-        <Social />
+        <Social variant="ghostNeutral" />
       </div>
     </Footer>
   )
