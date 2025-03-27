@@ -25,16 +25,24 @@ const Footer = ({ footerElement, textColor, className }) => {
           <div className="text-xs font-semibold uppercase">Product</div>
           <div className="mt-3 grid space-y-3 text-sm">
             <p>
-              <Link link="#">Pricing</Link>
+              <Link variant="linkDark" link="#">
+                Pricing
+              </Link>
             </p>
             <p>
-              <Link link="#">Changelog</Link>
+              <Link variant="linkDark" link="#">
+                Changelog
+              </Link>
             </p>
             <p>
-              <Link link="#">Docs</Link>
+              <Link variant="linkDark" link="#">
+                Docs
+              </Link>
             </p>
             <p>
-              <Link link="#">Download</Link>
+              <Link variant="linkDark" link="#">
+                Download
+              </Link>
             </p>
           </div>
         </div>
@@ -43,19 +51,29 @@ const Footer = ({ footerElement, textColor, className }) => {
           <div className="text-xs font-semibold uppercase">Company</div>
           <div className="mt-3 grid space-y-3 text-sm">
             <p>
-              <Link link="#">About us</Link>
+              <Link variant="linkDark" link="#">
+                About us
+              </Link>
             </p>
             <p>
-              <Link link="#">Blog</Link>
+              <Link variant="linkDark" link="#">
+                Blog
+              </Link>
             </p>
             <p>
-              <Link link="#">Careers</Link>
+              <Link variant="linkDark" link="#">
+                Careers
+              </Link>
             </p>
             <p>
-              <Link link="#">Customers</Link>
+              <Link variant="linkDark" link="#">
+                Customers
+              </Link>
             </p>
             <p>
-              <Link link="#">Newsroom</Link>
+              <Link variant="linkDark" link="#">
+                Newsroom
+              </Link>
             </p>
           </div>
         </div>
@@ -64,16 +82,24 @@ const Footer = ({ footerElement, textColor, className }) => {
           <div className="text-xs font-semibold uppercase">Resources</div>
           <div className="mt-3 grid space-y-3 text-sm">
             <p>
-              <Link link="#">Community</Link>
+              <Link variant="linkDark" link="#">
+                Community
+              </Link>
             </p>
             <p>
-              <Link link="#">Help & Support</Link>
+              <Link variant="linkDark" link="#">
+                Help & Support
+              </Link>
             </p>
             <p>
-              <Link link="#">eBook</Link>
+              <Link variant="linkDark" link="#">
+                eBook
+              </Link>
             </p>
             <p>
-              <Link link="#">What's New</Link>
+              <Link variant="linkDark" link="#">
+                What's New
+              </Link>
             </p>
           </div>
         </div>
@@ -82,23 +108,33 @@ const Footer = ({ footerElement, textColor, className }) => {
           <div className="text-xs font-semibold uppercase">Developers</div>
           <div className="mt-3 grid space-y-3 text-sm">
             <p>
-              <Link link="#">API</Link>
+              <Link variant="linkDark" link="#">
+                API
+              </Link>
             </p>
             <p>
-              <Link link="#">GitHub</Link>
+              <Link variant="linkDark" link="#">
+                GitHub
+              </Link>
             </p>
             <p>
-              <Link link="#">Status</Link>
+              <Link variant="linkDark" link="#">
+                Status
+              </Link>
             </p>
           </div>
 
           <div className="mt-7 text-xs font-semibold uppercase">Industries</div>
           <div className="mt-3 grid space-y-3 text-sm">
             <p>
-              <Link link="#">Financial Services</Link>
+              <Link variant="linkDark" link="#">
+                Financial Services
+              </Link>
             </p>
             <p>
-              <Link link="#">Education</Link>
+              <Link variant="linkDark" link="#">
+                Education
+              </Link>
             </p>
           </div>
         </div>
@@ -124,7 +160,7 @@ export default Footer
 Footer.propTypes = {
   /**
    * Allows for customizing the footer element.
-   * Use 'div' if nesting within a footer element.
+   * Use `'div'` if nesting within a footer element.
    * @default 'footer'
    */
   footerElement: PropTypes.elementType,
