@@ -12,13 +12,9 @@ const wrapperVariants = cva('flex items-center justify-center gap-2', {
   },
 })
 
-const SocialIconButton = ({ variant, children, link }) => {
+const SocialIconButton = ({ variant, children, link, ...props }) => {
   return (
-    <Link
-      className="inline-flex size-10 items-center justify-center rounded-lg text-sm font-semibold"
-      link={link}
-      variant={variant}
-    >
+    <Link className="size-10" link={link} variant={variant} {...props}>
       {children}
     </Link>
   )
@@ -31,19 +27,19 @@ const Social = ({
 }) => {
   return (
     <div className={cn(wrapperVariants({ orientation }), className)}>
-      <SocialIconButton variant={variant} link="#">
+      <SocialIconButton variant={variant} link="#" aria-label="Facebook">
         <FacebookSolidIcon />
       </SocialIconButton>
-      <SocialIconButton variant={variant} link="#">
+      <SocialIconButton variant={variant} link="#" aria-label="Google">
         <GoogleSolidIcon />
       </SocialIconButton>
-      <SocialIconButton variant={variant} link="#">
-        <XSolidIcon />
-      </SocialIconButton>
-      <SocialIconButton variant={variant} link="#">
+      <SocialIconButton variant={variant} link="#" aria-label="GitHub">
         <GitHubSolidIcon />
       </SocialIconButton>
-      <SocialIconButton variant={variant} link="#">
+      <SocialIconButton variant={variant} link="#" aria-label="Instagram">
+        <InstagramOutlineIcon />
+      </SocialIconButton>
+      <SocialIconButton variant={variant} link="#" aria-label="LinkedIn">
         <LinkedInOutlineIcon />
       </SocialIconButton>
     </div>
@@ -52,7 +48,7 @@ const Social = ({
 
 const FacebookSolidIcon = () => (
   <svg
-    className="size-4 shrink-0"
+    aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
     width="16"
     height="16"
@@ -65,7 +61,7 @@ const FacebookSolidIcon = () => (
 
 const GoogleSolidIcon = () => (
   <svg
-    className="size-4 shrink-0"
+    aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
     width="16"
     height="16"
@@ -78,7 +74,7 @@ const GoogleSolidIcon = () => (
 
 const XSolidIcon = () => (
   <svg
-    className="size-4 shrink-0"
+    aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
     width="16"
     height="16"
@@ -91,7 +87,7 @@ const XSolidIcon = () => (
 
 const GitHubSolidIcon = () => (
   <svg
-    className="size-4 shrink-0"
+    aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
     width="16"
     height="16"
@@ -104,6 +100,7 @@ const GitHubSolidIcon = () => (
 
 const FacebookOutlineIcon = () => (
   <svg
+    aria-hidden="true"
     width="20"
     height="20"
     viewBox="0 0 20 20"
@@ -123,6 +120,7 @@ const FacebookOutlineIcon = () => (
 
 const InstagramOutlineIcon = () => (
   <svg
+    aria-hidden="true"
     width="20"
     height="20"
     viewBox="0 0 20 20"
@@ -154,6 +152,7 @@ const InstagramOutlineIcon = () => (
 
 const LinkedInOutlineIcon = () => (
   <svg
+    aria-hidden="true"
     width="24"
     height="24"
     viewBox="0 0 24 24"

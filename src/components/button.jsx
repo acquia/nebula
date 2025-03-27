@@ -2,11 +2,20 @@ import { cva } from 'class-variance-authority'
 
 import { cn } from '../lib/utils'
 
-const focusStyles =
-  'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:no-underline focus-visible:outline-primary-500'
+const baseStyles = {
+  disable: 'disabled:pointer-events-none disabled:opacity-50',
+  focus:
+    'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:no-underline focus-visible:outline-primary-500',
+  svg: '[&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
+}
 
 const buttonVariants = cva(
-  `inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg px-4 py-3 text-sm font-medium whitespace-nowrap transition-colors disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 ${focusStyles}`,
+  cn(
+    'inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg px-4 py-3 text-sm font-medium whitespace-nowrap transition-colors',
+    baseStyles.disable,
+    baseStyles.focus,
+    baseStyles.svg
+  ),
   {
     variants: {
       variant: {
@@ -40,9 +49,14 @@ const Button = ({
   link = '#',
   variant,
   className = '',
+  ...props
 }) => {
   return (
-    <a className={cn(buttonVariants({ variant, className }))} href={link}>
+    <a
+      className={cn(buttonVariants({ variant, className }))}
+      href={link}
+      {...props}
+    >
       {children}
       <ChevronRightIcon />
     </a>
@@ -54,9 +68,14 @@ export const Link = ({
   link = '#',
   variant = 'link',
   className = '',
+  ...props
 }) => {
   return (
-    <a className={cn(buttonVariants({ variant, className }))} href={link}>
+    <a
+      className={cn(buttonVariants({ variant, className }))}
+      href={link}
+      {...props}
+    >
       {children}
     </a>
   )
