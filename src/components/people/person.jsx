@@ -1,19 +1,43 @@
 import PropTypes from 'prop-types'
 
-import Person from './person'
+import { cn } from '../../lib/utils'
 
 /**
- * A card component for displaying a person's name, title, and avatar.
+ * Consists of an image and text container for a person's name and title.
  */
-function PersonCard({ ...props }) {
+function Person({
+  name,
+  title,
+  avatar,
+  avatarAltText,
+  imageClasses,
+  textClasses,
+  headingElement = 'h3',
+  align = 'center',
+}) {
+  const Heading = headingElement
   return (
-    <div className="align-center flex min-h-45 max-w-70 flex-col justify-center gap-4 rounded-2xl bg-white p-4 text-center leading-[normal]">
-      <Person {...props} />
-    </div>
+    <>
+      <img
+        className={cn(
+          'h-auto rounded-xl sm:w-48 lg:w-60',
+          imageClasses,
+          align === 'center' && 'mx-auto'
+        )}
+        src={avatar}
+        alt={avatarAltText}
+      />
+      <div className={cn('mt-2 flex flex-col gap-1 sm:mt-4', textClasses)}>
+        <Heading className="font-bold text-gray-800 sm:text-base lg:text-lg">
+          {name}
+        </Heading>
+        <p className="text-xs text-blue-700 sm:text-sm lg:text-base">{title}</p>
+      </div>
+    </>
   )
 }
 
-PersonCard.propTypes = {
+Person.propTypes = {
   /**
    * The name of the author.
    */
@@ -48,4 +72,4 @@ PersonCard.propTypes = {
   textClasses: PropTypes.string,
 }
 
-export default PersonCard
+export default Person
