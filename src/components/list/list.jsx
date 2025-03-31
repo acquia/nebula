@@ -17,10 +17,10 @@ const listVariants = cva('list-inside', {
   },
 })
 
-const List = ({ items, type = 'None', textColor, children }) => {
+const List = ({ items, type = 'None', textColor, children, className }) => {
   const List = type === 'Ordered' ? 'ol' : 'ul'
   return (
-    <List className={listVariants({ type, textColor })}>
+    <List className={listVariants({ type, textColor, className })}>
       {items?.length
         ? items.map((item, index) => (
             <li key={`list-${index}`}>
@@ -39,6 +39,10 @@ List.propTypes = {
    * as a wrapper.
    */
   children: PropTypes.node,
+  /**
+   * Additional classes to apply to the list.
+   */
+  className: PropTypes.string,
   /**
    * Can be used instead of children.
    * Takes in a list of items to render.

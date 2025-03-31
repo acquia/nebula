@@ -4,7 +4,21 @@ const meta = {
   component: Social,
   tags: ['autodocs'],
   title: 'Components/Social',
+  argTypes: {
+    variant: {
+      control: 'select',
+      options: [
+        'solid',
+        'outlineDark',
+        'outlineLight',
+        'ghost',
+        'ghostNeutral',
+        'ghostLight',
+      ],
+    },
+  },
 }
+
 export default meta
 
 export const DefaultSolid = {

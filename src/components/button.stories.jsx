@@ -12,8 +12,11 @@ const meta = {
         'outlineDark',
         'outlineLight',
         'ghost',
+        'ghostNeutral',
+        'ghostLight',
         'link',
         'linkUnderline',
+        'linkDark',
       ],
     },
   },
@@ -37,6 +40,9 @@ export const OutlineDark = {
   },
 }
 
+/**
+ * Use on dark backgrounds
+ */
 export const OutlineLight = {
   args: {
     variant: 'outlineLight',
@@ -52,6 +58,9 @@ export const OutlineLight = {
   ],
 }
 
+/**
+ * Only looks like a button after interaction.
+ */
 export const Ghost = {
   args: {
     variant: 'ghost',
@@ -71,6 +80,9 @@ export const GhostNeutral = {
   },
 }
 
+/**
+ * Use on dark backgrounds.
+ */
 export const GhostLight = {
   args: {
     variant: 'ghostLight',
@@ -131,4 +143,23 @@ export const LinkComponentDark = {
     children: 'Contact us',
     link: '#',
   },
+}
+
+/**
+ * Use within footer navigation on dark backgrounds.
+ */
+export const LinkComponentLight = {
+  render: (args) => <Link {...args} />,
+  args: {
+    variant: 'linkLight',
+    children: 'Contact us',
+    link: '#',
+  },
+  decorators: [
+    (Story) => (
+      <div className="max-w-sm bg-black p-8">
+        <Story />
+      </div>
+    ),
+  ],
 }

@@ -5,8 +5,9 @@ import { cn } from '../lib/utils'
 const containerVariants = cva('dark flex w-full flex-col', {
   variants: {
     layout: {
-      'Left aligned': '',
-      'Center aligned': 'items-center',
+      'Left aligned': 'items-start text-left',
+      'Center aligned': 'items-center text-center',
+      'Right aligned': 'items-end text-right',
     },
   },
 })
@@ -20,16 +21,17 @@ const preHeadingVariants = cva('mb-4 text-lg font-bold', {
   },
 })
 
-const headingVariants = cva('leading-[normal] font-bold', {
+const headingVariants = cva('leading-[normal] font-bold text-balance', {
   variants: {
     textColor: {
       Dark: 'text-black',
       Light: 'text-white',
     },
     headingSize: {
-      Large: 'text-6xl',
-      Medium: 'text-4xl',
-      Small: 'text-2xl',
+      ExtraLarge: 'text-6xl',
+      Large: 'text-4xl',
+      Medium: 'text-2xl',
+      Small: 'text-lg',
     },
   },
 })
@@ -39,7 +41,7 @@ const Heading = ({
   heading,
   headingElement = 'h2',
   layout = 'Left aligned',
-  headingSize = 'Large',
+  headingSize = 'ExtraLarge',
   textColor = 'Dark',
   className,
 }) => {
