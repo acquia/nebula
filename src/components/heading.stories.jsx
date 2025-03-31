@@ -3,9 +3,10 @@ import Heading from './heading'
 const meta = {
   title: 'Components/Heading',
   component: Heading,
+  tags: ['autodocs'],
   argTypes: {
     layout: {
-      options: ['Left aligned', 'Center aligned'],
+      options: ['Left aligned', 'Center aligned', 'Right aligned'],
       control: { type: 'select' },
     },
     headingElement: {
@@ -13,7 +14,7 @@ const meta = {
       control: { type: 'select' },
     },
     headingSize: {
-      options: ['Large', 'Medium', 'Small'],
+      options: ['ExtraLarge', 'Large', 'Medium', 'Small'],
       control: { type: 'select' },
     },
     textColor: {
@@ -31,7 +32,7 @@ export const Default = {
     preHeading: 'Mission',
     heading: 'Our purpose and values.',
     headingElement: 'h2',
-    headingSize: 'Medium',
+    headingSize: 'Large',
     textColor: 'Dark',
   },
 }

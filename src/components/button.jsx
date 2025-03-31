@@ -36,6 +36,8 @@ const buttonVariants = cva(
           'p-0 text-gray-900 underline underline-offset-3 hover:text-primary-600 focus:text-primary-600 active:text-primary-800',
         linkDark:
           'p-0 text-gray-900 hover:text-primary-600 hover:underline hover:underline-offset-3 focus:text-primary-600 active:text-primary-800',
+        linkLight:
+          'p-0 text-white hover:text-primary-100 hover:underline hover:underline-offset-3 focus:text-primary-100 active:text-primary-200',
       },
     },
     defaultVariants: {

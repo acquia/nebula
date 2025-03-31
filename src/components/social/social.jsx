@@ -1,4 +1,5 @@
 import { cva } from 'class-variance-authority'
+import PropTypes from 'prop-types'
 
 import { cn } from '../../lib/utils'
 import { Link } from '../button'
@@ -6,13 +7,16 @@ import { Link } from '../button'
 const wrapperVariants = cva('flex items-center justify-center gap-2', {
   variants: {
     orientation: {
-      Horizontal: 'flex-row',
+      Horizontal: 'flex-row flex-wrap',
       Vertical: 'flex-col',
     },
   },
+  defaultVariants: {
+    orientation: 'Horizontal',
+  },
 })
 
-const SocialIconButton = ({ variant, children, link, ...props }) => {
+export const SocialIconButton = ({ variant, children, link, ...props }) => {
   return (
     <Link className="size-10" link={link} variant={variant} {...props}>
       {children}
@@ -20,33 +24,54 @@ const SocialIconButton = ({ variant, children, link, ...props }) => {
   )
 }
 
-const Social = ({
-  orientation = 'Horizontal',
-  variant = 'solid',
-  className,
-}) => {
+const Social = ({ orientation, variant = 'solid', className }) => {
   return (
     <div className={cn(wrapperVariants({ orientation }), className)}>
-      <SocialIconButton variant={variant} link="#" aria-label="Facebook">
+      <SocialIconButton
+        variant={variant}
+        link="#"
+        aria-label="Facebook"
+        title="Facebook"
+      >
         <FacebookSolidIcon />
       </SocialIconButton>
-      <SocialIconButton variant={variant} link="#" aria-label="Google">
+      <SocialIconButton
+        variant={variant}
+        link="#"
+        aria-label="Google"
+        title="Google"
+      >
         <GoogleSolidIcon />
       </SocialIconButton>
-      <SocialIconButton variant={variant} link="#" aria-label="GitHub">
+      <SocialIconButton
+        variant={variant}
+        link="#"
+        aria-label="GitHub"
+        title="GitHub"
+      >
         <GitHubSolidIcon />
       </SocialIconButton>
-      <SocialIconButton variant={variant} link="#" aria-label="Instagram">
+      <SocialIconButton
+        variant={variant}
+        link="#"
+        aria-label="Instagram"
+        title="Instagram"
+      >
         <InstagramOutlineIcon />
       </SocialIconButton>
-      <SocialIconButton variant={variant} link="#" aria-label="LinkedIn">
+      <SocialIconButton
+        variant={variant}
+        link="#"
+        aria-label="LinkedIn"
+        title="LinkedIn"
+      >
         <LinkedInOutlineIcon />
       </SocialIconButton>
     </div>
   )
 }
 
-const FacebookSolidIcon = () => (
+export const FacebookSolidIcon = () => (
   <svg
     aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
@@ -59,7 +84,7 @@ const FacebookSolidIcon = () => (
   </svg>
 )
 
-const GoogleSolidIcon = () => (
+export const GoogleSolidIcon = () => (
   <svg
     aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
@@ -72,7 +97,7 @@ const GoogleSolidIcon = () => (
   </svg>
 )
 
-const XSolidIcon = () => (
+export const XSolidIcon = () => (
   <svg
     aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
@@ -85,7 +110,7 @@ const XSolidIcon = () => (
   </svg>
 )
 
-const GitHubSolidIcon = () => (
+export const GitHubSolidIcon = () => (
   <svg
     aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
@@ -98,7 +123,7 @@ const GitHubSolidIcon = () => (
   </svg>
 )
 
-const FacebookOutlineIcon = () => (
+export const FacebookOutlineIcon = () => (
   <svg
     aria-hidden="true"
     width="20"
@@ -118,7 +143,7 @@ const FacebookOutlineIcon = () => (
   </svg>
 )
 
-const InstagramOutlineIcon = () => (
+export const InstagramOutlineIcon = () => (
   <svg
     aria-hidden="true"
     width="20"
@@ -150,7 +175,7 @@ const InstagramOutlineIcon = () => (
   </svg>
 )
 
-const LinkedInOutlineIcon = () => (
+export const LinkedInOutlineIcon = () => (
   <svg
     aria-hidden="true"
     width="24"
@@ -181,3 +206,20 @@ const LinkedInOutlineIcon = () => (
 )
 
 export default Social
+
+Social.propTypes = {
+  /**
+   * Specifies the orientation of the social icons.
+   * Options are 'Horizontal' and 'Vertical'.
+   */
+  orientation: PropTypes.oneOf(['Horizontal', 'Vertical']),
+  /**
+   * Specifies the variant of the social icons.
+   * Default is 'solid'. See buttons for further variants.
+   */
+  variant: PropTypes.oneOf(['solid', 'outline']),
+  /**
+   * Additional class names for styling.
+   */
+  className: PropTypes.string,
+}

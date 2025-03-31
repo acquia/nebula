@@ -1,4 +1,4 @@
-export default function IconListItem({ index, bulletImage, children }) {
+export default function IconListItem({ bulletImage, children }) {
   return (
     <li className="mb-4 flex gap-x-3">
       {bulletImage ? (

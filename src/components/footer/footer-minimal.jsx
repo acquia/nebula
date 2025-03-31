@@ -1,18 +1,15 @@
 import PropTypes from 'prop-types'
 
-import Social from '../social/social'
-import Copyright from './copyright'
-
-const FooterMinimal = ({ footerElement }) => {
+const FooterMinimal = ({ copyright, footerElement, social }) => {
   const Footer = footerElement || 'footer'
 
   return (
-    <Footer className="mt-5 border-t border-solid border-slate-200 pt-5">
+    <Footer className="mt-5 border-t border-slate-200 pt-5">
       <div className="sm:flex sm:items-center sm:justify-between">
-        <div className="flex flex-wrap items-center gap-3">
-          <Copyright text={`© ${new Date().getFullYear()} Company Name.`} />
-        </div>
-        <Social variant="ghostNeutral" />
+        {copyright && (
+          <div className="flex flex-wrap items-center gap-3">{copyright}</div>
+        )}
+        {social}
       </div>
     </Footer>
   )
@@ -27,4 +24,12 @@ FooterMinimal.propTypes = {
    * @default 'footer'
    */
   footerElement: PropTypes.elementType,
+  /**
+   * The copyright component and text to display in the footer.
+   */
+  copyright: PropTypes.node,
+  /**
+   * The social icons to display in the footer.
+   */
+  social: PropTypes.node,
 }
