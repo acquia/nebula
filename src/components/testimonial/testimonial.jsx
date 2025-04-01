@@ -10,12 +10,12 @@ export default function Testimonial({
   textColor = 'Dark',
   textSize = 'Large',
 }) {
-  const textVariants = cva('', {
+  const textVariants = cva('max-w-3xl', {
     variants: {
       textSize: {
-        Large: 'text-lg',
-        Medium: 'text-base',
-        Small: 'text-sm',
+        Large: 'text-xl',
+        Medium: 'text-lg',
+        Small: 'text-base',
       },
     },
   })

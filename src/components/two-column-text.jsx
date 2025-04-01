@@ -2,6 +2,7 @@ import { cva } from 'class-variance-authority'
 
 import Button from './button'
 import Heading from './heading'
+import Text from './text'
 
 const heroVariants = cva('mx-auto flex w-full max-w-[1360px] flex-col gap-8', {
   variants: {
@@ -36,8 +37,7 @@ const TwoColumnText = ({
       return 'solid'
     }
     if (style === 'Outline') {
-      // @todo Return "outlineLight" if the hero has a dark background.
-      return 'outlineDark'
+      return textColor === 'Dark' ? 'outlineDark' : 'outlineLight'
     }
     return 'solid'
   }
@@ -58,7 +58,14 @@ const TwoColumnText = ({
                 headingElement={headingElement}
               />
             </div>
-            {text && <p className="mb-4 text-lg text-slate-950">{text}</p>}
+            {text && (
+              <Text
+                textColor={textColor}
+                textSize="Large"
+                className="mb-4"
+                text={text}
+              />
+            )}
             <div
               className={`flex w-full gap-4 ${layout === 'centered' ? 'justify-center' : 'justify-start'}`}
             >

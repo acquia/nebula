@@ -3,21 +3,22 @@ import { cva } from 'class-variance-authority'
 const textVariants = cva('my-8', {
   variants: {
     textColor: {
-      Dark: '',
+      Dark: 'text-slate-950',
       Light: 'text-white',
     },
     textSize: {
+      ExtraSmall: 'text-xs',
+      Small: 'text-sm',
       Normal: 'text-base/6',
-      Large: 'text-xl/8',
+      Large: 'text-lg/8',
+      ExtraLarge: 'text-xl/8',
     },
   },
 })
 
-const Text = ({ text, textSize, textColor }) => {
+const Text = ({ text, textSize, textColor, className }) => {
   return (
-    <div className={textVariants({ textColor, textSize })}>
-      <p>{text}</p>
-    </div>
+    <p className={textVariants({ textColor, textSize }, className)}>{text}</p>
   )
 }
 

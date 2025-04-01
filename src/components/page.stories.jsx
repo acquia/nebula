@@ -92,19 +92,25 @@ export const HomePage = {
         preHeading="Mission"
         heading="This space deserves a hero."
         text="This is a space to welcome visitors to the site. Grab their attention with copy that clearly states what the site is about."
+        textColor="Light"
         headingElement="h1"
-        button1Label="Get Started"
+        button1Label="Get started"
         button1Link="#get-started"
         button1Style="Solid"
+        button2Label="Learn more"
+        button2Link="#learn-more"
+        button2Style="Outline"
         image="/src/assets/images/placeholder.png?raw=true"
-        backgroundImage="/src/assets/images/hero-background-placeholder-light.png?raw=true"
+        backgroundImage="/src/assets/images/hero-background-placeholder-dark.png?raw=true"
         darkenImage="darken-25"
         backgroundColor="bg-blue-600"
       />
       <CardContainer
+        className="mt-24"
         heading="What we offer."
         preHeading="Featured services"
         headingLevel="h2"
+        headingSize="Large"
         layout="Center aligned"
         cardLayout="3 columns"
       >
@@ -124,12 +130,19 @@ export const HomePage = {
           image={imagePlaceholder}
         />
       </CardContainer>
-      <TwoColumnTextImage text="This is a space to talk about your organization, its products, services or values. Encourage people to explore your offerings and discover how you meet their needs, provide solutions, and deliver value. Show how the site serves as more than just a platform; it’s a reflection of your dedication to building meaningful connections and ensuring your experience is nothing short of exceptional." />
+      <TwoColumnTextImage
+        className="mt-16 bg-slate-50 p-24"
+        headingSize="Large"
+        heading="Who we are."
+        headingElement="h2"
+        text="This is a space to talk about your organization, its products, services or values. Encourage people to explore your offerings and discover how you meet their needs, provide solutions, and deliver value. Show how the site serves as more than just a platform; it’s a reflection of your dedication to building meaningful connections and ensuring your experience is nothing short of exceptional."
+      />
       <div className="my-16">
         <TestimonialSection
           background="/src/assets/images/hero-background-placeholder-dark.png"
-          textColor="Light"
           text="I just wanted to say that I'm very happy with my purchase so far. The experience builder is amazing and the documentation is outstanding - clear and detailed."
+          textColor="Light"
+          testSize="Large"
           name="Mark Villiams"
           organization="Capsule"
           role="Product Manager"
@@ -166,7 +179,7 @@ export const AboutUs = {
         />
         <Text
           text="This is a space to talk about your organization, its products, services or values. Encourage people to explore your offerings and discover how you meet their needs, provide solutions, and deliver value. Show how the site serves as more than just a platform; it’s a reflection of your dedication to building meaningful connections and ensuring your experience is nothing short of exceptional."
-          textSize="Large"
+          textSize="ExtraLarge"
         />
         <Text text="This is a space to talk about your organization, its products, services or values. Encourage people to explore your offerings and discover how you meet their needs, provide solutions, and deliver value. Show how the site serves as more than just a platform; it’s a reflection of your dedication to building meaningful connections and ensuring your experience is nothing short of exceptional." />
         <Image

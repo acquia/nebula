@@ -29,9 +29,10 @@ const CardContainer = ({
   textColor,
   cardLayout,
   children,
+  className,
 }) => {
   return (
-    <div className="flex flex-col items-center gap-16">
+    <div className={cn('flex flex-col items-center gap-16', className)}>
       {heading ? (
         <Heading
           layout={layout}

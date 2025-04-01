@@ -163,3 +163,15 @@ export const LinkComponentLight = {
     ),
   ],
 }
+
+/**
+ * For use within navigation header.
+ */
+export const LinkComponentNavDark = {
+  render: (args) => <Link {...args} />,
+  args: {
+    variant: 'navLinkDark',
+    children: 'Home',
+    link: '#',
+  },
+}
