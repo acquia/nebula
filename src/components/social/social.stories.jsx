@@ -1,4 +1,11 @@
-import Social from './social'
+import Social, {
+  FacebookSolidIcon,
+  GitHubSolidIcon,
+  GoogleSolidIcon,
+  InstagramOutlineIcon,
+  LinkedInOutlineIcon,
+  SocialIconButton,
+} from './social'
 
 const meta = {
   component: Social,
@@ -21,26 +28,51 @@ const meta = {
 
 export default meta
 
+function Buttons({ variant }) {
+  return (
+    <>
+      <SocialIconButton variant={variant} link="#" aria-label="Facebook">
+        <FacebookSolidIcon />
+      </SocialIconButton>
+      <SocialIconButton variant={variant} link="#" aria-label="Google">
+        <GoogleSolidIcon />
+      </SocialIconButton>
+      <SocialIconButton variant={variant} link="#" aria-label="GitHub">
+        <GitHubSolidIcon />
+      </SocialIconButton>
+      <SocialIconButton variant={variant} link="#" aria-label="Instagram">
+        <InstagramOutlineIcon />
+      </SocialIconButton>
+      <SocialIconButton variant={variant} link="#" aria-label="LinkedIn">
+        <LinkedInOutlineIcon />
+      </SocialIconButton>
+    </>
+  )
+}
+
 export const DefaultSolid = {
-  args: {},
+  args: {
+    children: <Buttons variant="solid" />,
+  },
 }
 
 export const Vertical = {
   args: {
     orientation: 'Vertical',
+    children: <Buttons variant="solid" />,
   },
 }
 
 export const outlineDark = {
   args: {
     orientation: 'Vertical',
-    variant: 'outlineDark',
+    children: <Buttons variant="outlineDark" />,
   },
 }
 
 export const outlineLight = {
   args: {
-    variant: 'outlineLight',
+    children: <Buttons variant="outlineLight" />,
   },
   decorators: [
     (Story) => (
@@ -53,19 +85,19 @@ export const outlineLight = {
 
 export const Ghost = {
   args: {
-    variant: 'ghost',
+    children: <Buttons variant="ghost" />,
   },
 }
 
 export const GhostNeutral = {
   args: {
-    variant: 'ghostNeutral',
+    children: <Buttons variant="ghostNeutral" />,
   },
 }
 
 export const ghostLight = {
   args: {
-    variant: 'ghostLight',
+    children: <Buttons variant="ghostLight" />,
   },
   decorators: [
     (Story) => (
@@ -78,7 +110,7 @@ export const ghostLight = {
 
 export const GhostOnDark = {
   args: {
-    variant: 'ghost',
+    children: <Buttons variant="ghost" />,
   },
   decorators: [
     (Story) => (

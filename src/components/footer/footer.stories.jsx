@@ -3,7 +3,15 @@ import drupalLogo from '../../assets/images/logo.svg'
 import Branding from '../branding'
 import { Link } from '../button'
 import List from '../list/list'
-import Social from '../social/social'
+import {
+  FacebookSolidIcon,
+  GitHubSolidIcon,
+  GoogleSolidIcon,
+  InstagramOutlineIcon,
+  LinkedInOutlineIcon,
+  Social,
+  SocialIconButton,
+} from '../social'
 import Copyright from './copyright'
 import FooterCopyright from './footer-copyright'
 import FooterLinks from './footer-links'
@@ -17,6 +25,28 @@ const meta = {
   title: 'Components/Footer',
 }
 export default meta
+
+function Buttons({ variant }) {
+  return (
+    <>
+      <SocialIconButton variant={variant} link="#" aria-label="Facebook">
+        <FacebookSolidIcon />
+      </SocialIconButton>
+      <SocialIconButton variant={variant} link="#" aria-label="Google">
+        <GoogleSolidIcon />
+      </SocialIconButton>
+      <SocialIconButton variant={variant} link="#" aria-label="GitHub">
+        <GitHubSolidIcon />
+      </SocialIconButton>
+      <SocialIconButton variant={variant} link="#" aria-label="Instagram">
+        <InstagramOutlineIcon />
+      </SocialIconButton>
+      <SocialIconButton variant={variant} link="#" aria-label="LinkedIn">
+        <LinkedInOutlineIcon />
+      </SocialIconButton>
+    </>
+  )
+}
 
 export const CopyrightOnly = {
   render: (args) => <Copyright {...args} />,
@@ -38,7 +68,11 @@ export const Minimal = {
     copyright: (
       <Copyright text={`© ${new Date().getFullYear()} Company Name.`} />
     ),
-    social: <Social variant="ghostNeutral" />,
+    social: (
+      <Social>
+        <Buttons variant="ghostNeutral" />
+      </Social>
+    ),
   },
 }
 
@@ -49,7 +83,16 @@ export const Default = {
 export const FooterTop = {
   render: () => {
     const logo = <Branding homeUrl="#" logo={drupalLogo} />
-    return <FooterLogoTop logo={logo} social={<Social variant="ghost" />} />
+    return (
+      <FooterLogoTop
+        logo={logo}
+        social={
+          <Social>
+            <Buttons variant="ghost" />
+          </Social>
+        }
+      />
+    )
   },
   args: {},
 }
@@ -66,7 +109,11 @@ export const FullFooterFiveColumn = {
         <FooterLogoTop
           footerElement="div"
           logo={logo}
-          social={<Social variant="solid" />}
+          social={
+            <Social>
+              <Buttons variant="solid" />
+            </Social>
+          }
         />
         <FooterMenu footerElement="div" columnLayout="5">
           <FooterLinks title="Product">
@@ -205,7 +252,11 @@ export const FullFooterFourColumn = {
         <FooterLogoTop
           footerElement="div"
           logo={logo}
-          social={<Social variant="solid" />}
+          social={
+            <Social>
+              <Buttons variant="solid" />
+            </Social>
+          }
         />
         <FooterMenu footerElement="div" columnLayout="4">
           <FooterLinks title="Product">
@@ -337,7 +388,11 @@ export const FullFooterThreeColumn = {
         <FooterLogoTop
           footerElement="div"
           logo={logo}
-          social={<Social variant="solid" />}
+          social={
+            <Social>
+              <Buttons variant="solid" />
+            </Social>
+          }
         />
         <FooterMenu footerElement="div" columnLayout="3">
           <FooterLinks title="Product">
@@ -414,7 +469,11 @@ export const FullFooterTwoColumnLight = {
         <FooterLogoTop
           footerElement="div"
           logo={logo}
-          social={<Social variant="outlineLight" />}
+          social={
+            <Social>
+              <Buttons variant="outlineLight" />
+            </Social>
+          }
         />
         <FooterMenu footerElement="div" columnLayout="2" textColor="Light">
           <FooterLinks title="Product">
