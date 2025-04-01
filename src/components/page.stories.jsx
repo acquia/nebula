@@ -1,8 +1,16 @@
 import imagePlaceholder from '../assets/images/card-placeholder.png'
 import drupalLogo from '../assets/images/logo.svg'
 import Branding from './branding.jsx'
+import Button, { Link } from './button.jsx'
 import Card from './card.jsx'
 import CardContainer from './cardContainer.jsx'
+import FeatureCard from './feature-card.jsx'
+import {
+  FooterCopyright,
+  FooterLinks,
+  FooterLogoTop,
+  FooterMenu,
+} from './footer'
 import Header from './header.jsx'
 import Heading from './heading.jsx'
 import Hero from './hero.jsx'
@@ -11,6 +19,15 @@ import LogoCard from './logo-card.jsx'
 import NavigationMenu from './navigation-menu.jsx'
 import Page from './page'
 import Section from './section.jsx'
+import {
+  FacebookSolidIcon,
+  GitHubSolidIcon,
+  GoogleSolidIcon,
+  InstagramOutlineIcon,
+  LinkedInOutlineIcon,
+  Social,
+  SocialIconButton,
+} from './social'
 import TestimonialSection from './testimonial/testimonialSection.jsx'
 import Text from './text.jsx'
 import TwoColumnTextImage from './two-column-text-image.jsx'
@@ -130,6 +147,48 @@ export const HomePage = {
           image={imagePlaceholder}
         />
       </CardContainer>
+      <CardContainer
+        className="mt-24"
+        heading="Additional offerings."
+        preHeading="Featured products"
+        headingLevel="h2"
+        headingSize="Large"
+        layout="Center aligned"
+        cardLayout="3 columns"
+      >
+        <FeatureCard
+          heading="Engaging title that represents the content."
+          text="Some quick example text to build on the card title and make up the bulk of the card's content."
+          linkLabel="Learn more"
+          link="#"
+        />
+        <FeatureCard
+          heading="Engaging title that represents the content."
+          text="Some quick example text to build on the card title and make up the bulk of the card's content."
+        />
+        <FeatureCard
+          heading="Engaging title that represents the content."
+          text="Some quick example text to build on the card title and make up the bulk of the card's content."
+          linkLabel="Learn more"
+          link="#"
+        />
+        <FeatureCard
+          heading="Engaging title that represents the content."
+          text="Some quick example text to build on the card title and make up the bulk of the card's content."
+          linkLabel="Learn more"
+          link="#"
+        />
+        <FeatureCard
+          heading="Engaging title that represents the content."
+          text="Some quick example text to build on the card title and make up the bulk of the card's content."
+        />
+        <FeatureCard
+          heading="Engaging title that represents the content."
+          text="Some quick example text to build on the card title and make up the bulk of the card's content."
+          linkLabel="Learn more"
+          link="#"
+        />
+      </CardContainer>
       <TwoColumnTextImage
         className="mt-16 bg-slate-50 p-24"
         headingSize="Large"
@@ -150,6 +209,7 @@ export const HomePage = {
         />
       </div>
       <CardContainer
+        className="mt-24 mb-16"
         heading="You're in good company"
         preHeading="Our customers"
         headingLevel="h2"
@@ -163,6 +223,159 @@ export const HomePage = {
         <LogoCard image="/src/assets/images/logo.svg" />
         <LogoCard image="/src/assets/images/logo.svg" />
       </CardContainer>
+      <div className="mb-24 flex flex-wrap items-center justify-center gap-8">
+        <Text
+          className="my-0"
+          text="Over 2500 companies use us to better their business."
+        />
+        <Button variant="outlineDark" link="#">
+          Read our customer stories
+        </Button>
+      </div>
+      <footer>
+        <FooterLogoTop
+          footerElement="div"
+          logo={<Branding homeUrl="#" logo={drupalLogo} />}
+          social={
+            <Social>
+              <SocialIconButton variant="solid" link="#" aria-label="Facebook">
+                <FacebookSolidIcon />
+              </SocialIconButton>
+              <SocialIconButton variant="solid" link="#" aria-label="Google">
+                <GoogleSolidIcon />
+              </SocialIconButton>
+              <SocialIconButton variant="solid" link="#" aria-label="GitHub">
+                <GitHubSolidIcon />
+              </SocialIconButton>
+              <SocialIconButton variant="solid" link="#" aria-label="Instagram">
+                <InstagramOutlineIcon />
+              </SocialIconButton>
+              <SocialIconButton variant="solid" link="#" aria-label="LinkedIn">
+                <LinkedInOutlineIcon />
+              </SocialIconButton>
+            </Social>
+          }
+        />
+        <FooterMenu footerElement="div" columnLayout="5">
+          <FooterLinks title="Product">
+            <p>
+              <Link variant="linkDark" link="#">
+                Pricing
+              </Link>
+            </p>
+            <p>
+              <Link variant="linkDark" link="#">
+                Changelog
+              </Link>
+            </p>
+            <p>
+              <Link variant="linkDark" link="#">
+                Docs
+              </Link>
+            </p>
+            <p>
+              <Link variant="linkDark" link="#">
+                Download
+              </Link>
+            </p>
+          </FooterLinks>
+
+          <FooterLinks title="Company">
+            <p>
+              <Link variant="linkDark" link="#">
+                About us
+              </Link>
+            </p>
+            <p>
+              <Link variant="linkDark" link="#">
+                Blog
+              </Link>
+            </p>
+            <p>
+              <Link variant="linkDark" link="#">
+                Careers
+              </Link>
+            </p>
+            <p>
+              <Link variant="linkDark" link="#">
+                Customers
+              </Link>
+            </p>
+            <p>
+              <Link variant="linkDark" link="#">
+                Newsroom
+              </Link>
+            </p>
+          </FooterLinks>
+
+          <FooterLinks title="Resources">
+            <p>
+              <Link variant="linkDark" link="#">
+                Community
+              </Link>
+            </p>
+            <p>
+              <Link variant="linkDark" link="#">
+                Help & Support
+              </Link>
+            </p>
+            <p>
+              <Link variant="linkDark" link="#">
+                eBook
+              </Link>
+            </p>
+            <p>
+              <Link variant="linkDark" link="#">
+                What's New
+              </Link>
+            </p>
+          </FooterLinks>
+
+          <FooterLinks title="Developers">
+            <p>
+              <Link variant="linkDark" link="#">
+                API
+              </Link>
+            </p>
+            <p>
+              <Link variant="linkDark" link="#">
+                GitHub
+              </Link>
+            </p>
+            <p>
+              <Link variant="linkDark" link="#">
+                Status
+              </Link>
+            </p>
+
+            <FooterLinks title="Industries" className="mt-7">
+              <p>
+                <Link variant="linkDark" link="#">
+                  Financial Services
+                </Link>
+              </p>
+              <p>
+                <Link variant="linkDark" link="#">
+                  Education
+                </Link>
+              </p>
+            </FooterLinks>
+          </FooterLinks>
+
+          <FooterLinks title="Contact us">
+            <p>
+              456 Elm Street <br />
+              Suite 300 <br />
+              Los Angeles, CA 90001 <br />
+              USA
+            </p>
+          </FooterLinks>
+        </FooterMenu>
+        <FooterCopyright
+          footerElement="div"
+          text={`© ${new Date().getFullYear()} Company Name.`}
+        />
+      </footer>
     </Page>
   ),
 }

@@ -1,6 +1,25 @@
+import { cva } from 'class-variance-authority'
 import PropTypes from 'prop-types'
 
 import { cn } from '../../lib/utils'
+
+const headingVariants = cva('font-bold sm:text-base lg:text-lg', {
+  variants: {
+    textColor: {
+      Dark: 'text-gray-800',
+      Light: 'text-white',
+    },
+  },
+})
+
+const titleVariants = cva('text-xs text-blue-700 sm:text-sm lg:text-base', {
+  variants: {
+    textColor: {
+      Dark: 'text-blue-700',
+      Light: 'text-primary-light',
+    },
+  },
+})
 
 /**
  * Consists of an image and text container for a person's name and title.
@@ -8,30 +27,34 @@ import { cn } from '../../lib/utils'
 function Person({
   name,
   title,
+  titleColor = 'Dark',
   avatar,
   avatarAltText,
   imageClasses,
   textClasses,
   headingElement = 'h3',
+  headingColor = 'Dark',
   align = 'center',
 }) {
   const Heading = headingElement
   return (
     <>
-      <img
-        className={cn(
-          'h-auto rounded-xl sm:w-48 lg:w-60',
-          imageClasses,
-          align === 'center' && 'mx-auto'
-        )}
-        src={avatar}
-        alt={avatarAltText}
-      />
+      {avatar && (
+        <img
+          className={cn(
+            'h-auto rounded-xl sm:w-48 lg:w-60',
+            imageClasses,
+            align === 'center' && 'mx-auto'
+          )}
+          src={avatar}
+          alt={avatarAltText}
+        />
+      )}
       <div className={cn('mt-2 flex flex-col gap-1 sm:mt-4', textClasses)}>
-        <Heading className="font-bold text-gray-800 sm:text-base lg:text-lg">
+        <Heading className={cn(headingVariants({ textColor: headingColor }))}>
           {name}
         </Heading>
-        <p className="text-xs text-blue-700 sm:text-sm lg:text-base">{title}</p>
+        <p className={cn(titleVariants({ textColor: titleColor }))}>{title}</p>
       </div>
     </>
   )

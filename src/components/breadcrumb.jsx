@@ -11,12 +11,12 @@ const Breadcrumb = ({ links }) => {
               {url ? (
                 <a
                   href={url}
-                  className="flex items-center text-sm text-gray-500 hover:text-blue-600 focus:text-blue-600 focus:outline-none dark:text-neutral-500 dark:hover:text-blue-500 dark:focus:text-blue-500"
+                  className="flex items-center p-0 text-sm text-gray-900 hover:text-primary-600 hover:underline hover:underline-offset-3 focus:text-primary-600 focus-visible:rounded-lg focus-visible:border-transparent focus-visible:no-underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500 active:text-primary-800"
                 >
                   {text}
                 </a>
               ) : (
-                <span className="inline-flex items-center truncate text-sm font-semibold text-gray-800 dark:text-neutral-200">
+                <span className="inline-flex items-center truncate text-sm font-semibold text-gray-800">
                   {text}
                 </span>
               )}

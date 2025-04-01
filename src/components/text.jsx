@@ -1,5 +1,7 @@
 import { cva } from 'class-variance-authority'
 
+import { cn } from '../lib/utils'
+
 const textVariants = cva('my-8', {
   variants: {
     textColor: {
@@ -18,7 +20,9 @@ const textVariants = cva('my-8', {
 
 const Text = ({ text, textSize, textColor, className }) => {
   return (
-    <p className={textVariants({ textColor, textSize }, className)}>{text}</p>
+    <p className={cn(textVariants({ textColor, textSize }), className)}>
+      {text}
+    </p>
   )
 }
 
