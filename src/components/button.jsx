@@ -5,7 +5,7 @@ import { cn } from '../lib/utils'
 const baseStyles = {
   disable: 'disabled:pointer-events-none disabled:opacity-50',
   focus:
-    'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:no-underline focus-visible:outline-primary-500',
+    'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:no-underline focus-visible:outline-primary-500 focus-visible:rounded-lg focus-visible:border-transparent',
   svg: '[&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
 }
 
@@ -38,6 +38,8 @@ const buttonVariants = cva(
           'p-0 text-gray-900 hover:text-primary-600 hover:underline hover:underline-offset-3 focus:text-primary-600 active:text-primary-800',
         linkLight:
           'p-0 text-white hover:text-primary-100 hover:underline hover:underline-offset-3 focus:text-primary-100 active:text-primary-200',
+        navLinkDark:
+          'rounded-none border-s-2 border-transparent hover:border-primary-600 hover:text-primary-600 focus:border-primary-600 focus:text-primary-600 active:border-primary-800 active:text-primary-800 md:border-s-0 md:border-b-2 md:px-1 md:py-3',
       },
     },
     defaultVariants: {

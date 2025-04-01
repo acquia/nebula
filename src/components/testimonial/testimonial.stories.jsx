@@ -5,6 +5,7 @@ import TestimonialSection from './testimonialSection'
 const meta = {
   title: 'Components/Testimonial',
   component: null,
+  tags: ['autodocs'],
   argTypes: {
     intent: {
       control: 'select',
@@ -59,12 +60,12 @@ export const TestimonialContainer = {
     preHeading: 'Testimonials',
     heading: 'What our customers say.',
     headingElement: 'h2',
-    headingSize: 'Medium',
+    headingSize: 'Large',
     textColor: 'Dark',
     cardLayout: '3 columns',
     previewCardType: 'Feature Card',
     previewCardCount: 3,
-    textSize: 'Small',
+    textSize: 'Medium',
   },
   render: (args) => {
     // Create an array with a length equal to previewCardCount and fill it with null
@@ -95,6 +96,7 @@ export const testimonialSectionWithImage = {
     organization: 'Country music',
     text: 'Truly one of the products of all time.',
     textColor: 'Dark',
+    textSize: 'Large',
     avatar: '/src/assets/images/acquia-logo.svg',
     avatarAltText: 'test alt text',
     image: '/src/assets/images/placeholder.png',
