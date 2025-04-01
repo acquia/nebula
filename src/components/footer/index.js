@@ -1,4 +1,6 @@
 export { default as Copyright } from './copyright'
-
-export { default as FooterMinimal } from './footer-minimal'
+export { default as FooterCopyright } from './footer-copyright'
+export { default as FooterLinks } from './footer-links'
 export { default as FooterLogoTop } from './footer-logo-top'
+export { default as FooterMenu } from './footer-menu'
+export { default as FooterMinimal } from './footer-minimal'

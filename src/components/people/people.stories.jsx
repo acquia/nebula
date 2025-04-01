@@ -89,3 +89,33 @@ export const AuthorDefault = {
     return <Author {...args} align="left" />
   },
 }
+
+export const AuthorNoImage = {
+  args: {
+    name: 'Garth Brooks',
+    title: 'Boss / Country music',
+    headingElement: 'h3',
+  },
+  render: (args) => {
+    return <Author {...args} align="left" />
+  },
+}
+
+export const AuthorLight = {
+  args: {
+    avatar: '/src/assets/images/person.jpg',
+    avatarAltText: 'test alt text',
+    headingElement: 'h3',
+    headingColor: 'Light',
+    name: 'Garth Brooks',
+    title: 'Boss / Country music',
+    titleColor: 'Light',
+  },
+  render: (args) => {
+    return (
+      <div className="max-w-sm bg-black p-8">
+        <Author {...args} align="left" />
+      </div>
+    )
+  },
+}

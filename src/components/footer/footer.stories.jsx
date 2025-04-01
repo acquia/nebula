@@ -12,12 +12,14 @@ import {
   Social,
   SocialIconButton,
 } from '../social'
-import Copyright from './copyright'
-import FooterCopyright from './footer-copyright'
-import FooterLinks from './footer-links'
-import FooterLogoTop from './footer-logo-top'
-import FooterMenu from './footer-menu'
-import FooterMinimal from './footer-minimal'
+import {
+  Copyright,
+  FooterCopyright,
+  FooterLinks,
+  FooterLogoTop,
+  FooterMenu,
+  FooterMinimal,
+} from './index'
 
 const meta = {
   component: FooterMenu,
