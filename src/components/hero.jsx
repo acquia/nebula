@@ -15,10 +15,10 @@ const Hero = ({
   layout,
   preHeading,
   heading,
-  headingSize = 'Large',
   headingElement,
-  textColor = 'Dark',
+  headingSize = 'Large',
   text,
+  textColor = 'Dark',
   button1Label,
   button1Link,
   button1Style = 'Solid',
@@ -36,20 +36,20 @@ const Hero = ({
     >
       <div className={backgroundVariants({ darkenImage })}>
         <TwoColumnText
-          layout={layout}
-          preHeading={preHeading}
-          heading={heading}
-          headingSize={headingSize}
-          headingElement={headingElement}
-          text={text}
-          textColor={textColor}
           button1Label={button1Label}
           button1Link={button1Link}
           button1Style={button1Style}
           button2Label={button2Label}
           button2Link={button2Link}
           button2Style={button2Style}
+          heading={heading}
+          headingElement={headingElement}
+          headingSize={headingSize}
           image={image}
+          layout={layout}
+          preHeading={preHeading}
+          text={text}
+          textColor={textColor}
         />
       </div>
     </div>

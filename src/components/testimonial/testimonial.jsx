@@ -51,9 +51,9 @@ export default function Testimonial({
       </blockquote>
       <div className="flex items-center gap-4">
         <img
-          src={avatar}
           alt={avatarAltText}
           className="h-10 w-10 rounded-full object-contain"
+          src={avatar}
         />
         <div className="flex flex-col gap-1">
           <p className={nameVariants({ textSize })}>{name}</p>

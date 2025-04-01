@@ -59,8 +59,8 @@ export const TitleWith3ColLogoCards = {
       return (
         <LogoCard
           key={`logo-card-${index}`}
-          image="/src/assets/images/logo.svg"
           altText="Company logo"
+          image="/src/assets/images/logo.svg"
         />
       )
     })

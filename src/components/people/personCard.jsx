@@ -15,13 +15,9 @@ function PersonCard({ ...props }) {
 
 PersonCard.propTypes = {
   /**
-   * The name of the author.
+   * The alignment of the author's name and title.
    */
-  name: PropTypes.string.isRequired,
-  /**
-   * The title of the author.
-   */
-  title: PropTypes.string.isRequired,
+  align: PropTypes.oneOf(['left', 'center', 'right']),
   /**
    * The path to the author's avatar image.
    */
@@ -35,17 +31,21 @@ PersonCard.propTypes = {
    */
   headingElement: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
   /**
-   * The alignment of the author's name and title.
-   */
-  align: PropTypes.oneOf(['left', 'center', 'right']),
-  /**
    * Additional classes to apply to the image.
    */
   imageClasses: PropTypes.string,
   /**
+   * The name of the author.
+   */
+  name: PropTypes.string.isRequired,
+  /**
    * Additional classes to apply to the name + title text container.
    */
   textClasses: PropTypes.string,
+  /**
+   * The title of the author.
+   */
+  title: PropTypes.string.isRequired,
 }
 
 export default PersonCard

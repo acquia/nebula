@@ -31,19 +31,19 @@ export default meta
 function Buttons({ variant }) {
   return (
     <>
-      <SocialIconButton variant={variant} link="#" aria-label="Facebook">
+      <SocialIconButton aria-label="Facebook" link="#" variant={variant}>
         <FacebookSolidIcon />
       </SocialIconButton>
-      <SocialIconButton variant={variant} link="#" aria-label="Google">
+      <SocialIconButton aria-label="Google" link="#" variant={variant}>
         <GoogleSolidIcon />
       </SocialIconButton>
-      <SocialIconButton variant={variant} link="#" aria-label="GitHub">
+      <SocialIconButton aria-label="GitHub" link="#" variant={variant}>
         <GitHubSolidIcon />
       </SocialIconButton>
-      <SocialIconButton variant={variant} link="#" aria-label="Instagram">
+      <SocialIconButton aria-label="Instagram" link="#" variant={variant}>
         <InstagramOutlineIcon />
       </SocialIconButton>
-      <SocialIconButton variant={variant} link="#" aria-label="LinkedIn">
+      <SocialIconButton aria-label="LinkedIn" link="#" variant={variant}>
         <LinkedInOutlineIcon />
       </SocialIconButton>
     </>
@@ -117,25 +117,25 @@ export const FullFooterFiveColumn = {
             </Social>
           }
         />
-        <FooterMenu footerElement="div" columnLayout="5">
+        <FooterMenu columnLayout="5" footerElement="div">
           <FooterLinks title="Product">
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 Pricing
               </Link>
             </p>
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 Changelog
               </Link>
             </p>
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 Docs
               </Link>
             </p>
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 Download
               </Link>
             </p>
@@ -143,27 +143,27 @@ export const FullFooterFiveColumn = {
 
           <FooterLinks title="Company">
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 About us
               </Link>
             </p>
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 Blog
               </Link>
             </p>
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 Careers
               </Link>
             </p>
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 Customers
               </Link>
             </p>
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 Newsroom
               </Link>
             </p>
@@ -171,22 +171,22 @@ export const FullFooterFiveColumn = {
 
           <FooterLinks title="Resources">
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 Community
               </Link>
             </p>
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 Help & Support
               </Link>
             </p>
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 eBook
               </Link>
             </p>
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 What's New
               </Link>
             </p>
@@ -194,29 +194,29 @@ export const FullFooterFiveColumn = {
 
           <FooterLinks title="Developers">
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 API
               </Link>
             </p>
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 GitHub
               </Link>
             </p>
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 Status
               </Link>
             </p>
 
-            <FooterLinks title="Industries" className="mt-7">
+            <FooterLinks className="mt-7" title="Industries">
               <p>
-                <Link variant="linkDark" link="#">
+                <Link link="#" variant="linkDark">
                   Financial Services
                 </Link>
               </p>
               <p>
-                <Link variant="linkDark" link="#">
+                <Link link="#" variant="linkDark">
                   Education
                 </Link>
               </p>
@@ -260,25 +260,25 @@ export const FullFooterFourColumn = {
             </Social>
           }
         />
-        <FooterMenu footerElement="div" columnLayout="4">
+        <FooterMenu columnLayout="4" footerElement="div">
           <FooterLinks title="Product">
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 Pricing
               </Link>
             </p>
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 Changelog
               </Link>
             </p>
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 Docs
               </Link>
             </p>
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 Download
               </Link>
             </p>
@@ -286,27 +286,27 @@ export const FullFooterFourColumn = {
 
           <FooterLinks title="Company">
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 About us
               </Link>
             </p>
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 Blog
               </Link>
             </p>
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 Careers
               </Link>
             </p>
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 Customers
               </Link>
             </p>
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 Newsroom
               </Link>
             </p>
@@ -314,22 +314,22 @@ export const FullFooterFourColumn = {
 
           <FooterLinks title="Resources">
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 Community
               </Link>
             </p>
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 Help & Support
               </Link>
             </p>
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 eBook
               </Link>
             </p>
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 What's New
               </Link>
             </p>
@@ -347,12 +347,12 @@ export const FullFooterFourColumn = {
 
             <div className="mt-5">
               <p>
-                <Link variant="linkDark" link="#">
+                <Link link="#" variant="linkDark">
                   Financial Services
                 </Link>
               </p>
               <p>
-                <Link variant="linkDark" link="#">
+                <Link link="#" variant="linkDark">
                   Education
                 </Link>
               </p>
@@ -396,25 +396,25 @@ export const FullFooterThreeColumn = {
             </Social>
           }
         />
-        <FooterMenu footerElement="div" columnLayout="3">
+        <FooterMenu columnLayout="3" footerElement="div">
           <FooterLinks title="Product">
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 Pricing
               </Link>
             </p>
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 Changelog
               </Link>
             </p>
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 Docs
               </Link>
             </p>
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 Download
               </Link>
             </p>
@@ -423,17 +423,17 @@ export const FullFooterThreeColumn = {
           <FooterLinks title="Company">
             <List className="grid space-y-3">
               <li>
-                <Link variant="linkDark" link="#">
+                <Link link="#" variant="linkDark">
                   About us
                 </Link>
               </li>
               <li>
-                <Link variant="linkDark" link="#">
+                <Link link="#" variant="linkDark">
                   Blog
                 </Link>
               </li>
               <li>
-                <Link variant="linkDark" link="#">
+                <Link link="#" variant="linkDark">
                   Careers
                 </Link>
               </li>
@@ -477,25 +477,25 @@ export const FullFooterTwoColumnLight = {
             </Social>
           }
         />
-        <FooterMenu footerElement="div" columnLayout="2" textColor="Light">
+        <FooterMenu columnLayout="2" footerElement="div" textColor="Light">
           <FooterLinks title="Product">
             <p>
-              <Link variant="linkLight" link="#">
+              <Link link="#" variant="linkLight">
                 Pricing
               </Link>
             </p>
             <p>
-              <Link variant="linkLight" link="#">
+              <Link link="#" variant="linkLight">
                 Changelog
               </Link>
             </p>
             <p>
-              <Link variant="linkLight" link="#">
+              <Link link="#" variant="linkLight">
                 Docs
               </Link>
             </p>
             <p>
-              <Link variant="linkLight" link="#">
+              <Link link="#" variant="linkLight">
                 Download
               </Link>
             </p>
@@ -503,17 +503,17 @@ export const FullFooterTwoColumnLight = {
 
           <List className="flex flex-col gap-3">
             <li>
-              <Link variant="linkLight" link="#">
+              <Link link="#" variant="linkLight">
                 About us
               </Link>
             </li>
             <li>
-              <Link variant="linkLight" link="#">
+              <Link link="#" variant="linkLight">
                 Blog
               </Link>
             </li>
             <li>
-              <Link variant="linkLight" link="#">
+              <Link link="#" variant="linkLight">
                 Careers
               </Link>
             </li>

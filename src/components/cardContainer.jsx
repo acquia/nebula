@@ -21,13 +21,13 @@ const gridVariants = cva(
 )
 
 const CardContainer = ({
+  cardLayout,
   layout,
   preHeading,
   heading,
-  headingSize = 'Medium',
   headingLevel,
+  headingSize = 'Medium',
   textColor,
-  cardLayout,
   children,
   className,
 }) => {
@@ -35,11 +35,11 @@ const CardContainer = ({
     <div className={cn('flex flex-col items-center gap-16', className)}>
       {heading ? (
         <Heading
+          heading={heading}
+          headingLevel={headingLevel}
+          headingSize={headingSize}
           layout={layout}
           preHeading={preHeading}
-          heading={heading}
-          headingSize={headingSize}
-          headingLevel={headingLevel}
           textColor={textColor}
         />
       ) : null}

@@ -31,19 +31,19 @@ export default meta
 function Buttons({ variant }) {
   return (
     <>
-      <SocialIconButton variant={variant} link="#" aria-label="Facebook">
+      <SocialIconButton aria-label="Facebook" link="#" variant={variant}>
         <FacebookSolidIcon />
       </SocialIconButton>
-      <SocialIconButton variant={variant} link="#" aria-label="Google">
+      <SocialIconButton aria-label="Google" link="#" variant={variant}>
         <GoogleSolidIcon />
       </SocialIconButton>
-      <SocialIconButton variant={variant} link="#" aria-label="GitHub">
+      <SocialIconButton aria-label="GitHub" link="#" variant={variant}>
         <GitHubSolidIcon />
       </SocialIconButton>
-      <SocialIconButton variant={variant} link="#" aria-label="Instagram">
+      <SocialIconButton aria-label="Instagram" link="#" variant={variant}>
         <InstagramOutlineIcon />
       </SocialIconButton>
-      <SocialIconButton variant={variant} link="#" aria-label="LinkedIn">
+      <SocialIconButton aria-label="LinkedIn" link="#" variant={variant}>
         <LinkedInOutlineIcon />
       </SocialIconButton>
     </>

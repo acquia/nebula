@@ -20,16 +20,16 @@ const cardVariants = cva(
 )
 
 const Card = ({
-  image,
-  heading,
-  headingElement = 'h2',
-  text,
-  textColor,
-  linkLabel,
-  link,
   backgroundColor = '#ffffff',
   backgroundColorOnHover = '#E2E8F0',
   className,
+  image,
+  heading,
+  headingElement = 'h2',
+  link,
+  linkLabel,
+  text,
+  textColor,
 }) => {
   const Heading = headingElement
   const cardBackgroundClassName = `card-${backgroundColor.substring(1)}`
@@ -67,7 +67,7 @@ const Card = ({
           )}
           {text && <p className="mb-4 leading-6">{text}</p>}
           {link && linkLabel && (
-            <Button variant="link" link={link}>
+            <Button link={link} variant="link">
               {linkLabel}
             </Button>
           )}

@@ -3,8 +3,8 @@ const Branding = ({ homeUrl, logo, siteName, siteSlogan }) => {
   return (
     <>
       {logo && (
-        <a href={homeUrl} aria-label={siteName} className="max-h-full">
-          <img src={logo} alt="" fetchPriority="high" className="max-h-full" />
+        <a aria-label={siteName} className="max-h-full" href={homeUrl}>
+          <img alt="" className="max-h-full" fetchPriority="high" src={logo} />
         </a>
       )}
     </>

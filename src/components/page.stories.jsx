@@ -42,8 +42,6 @@ export default meta
 const logo = <Branding homeUrl="#" logo={drupalLogo} />
 const menu = (
   <NavigationMenu
-    menuId="main-menu"
-    menuLabel="Main Menu"
     links={[
       {
         key: 'front_page',
@@ -96,6 +94,8 @@ const menu = (
         inActiveTrail: false,
       },
     ]}
+    menuId="main-menu"
+    menuLabel="Main Menu"
   />
 )
 
@@ -105,116 +105,116 @@ export const HomePage = {
     <Page {...args}>
       <Header logo={logo} menu={menu} />
       <Hero
-        layout="leftAligned"
-        preHeading="Mission"
-        heading="This space deserves a hero."
-        text="This is a space to welcome visitors to the site. Grab their attention with copy that clearly states what the site is about."
-        textColor="Light"
-        headingElement="h1"
+        backgroundColor="bg-blue-600"
+        backgroundImage="/src/assets/images/hero-background-placeholder-dark.png?raw=true"
         button1Label="Get started"
         button1Link="#get-started"
         button1Style="Solid"
         button2Label="Learn more"
         button2Link="#learn-more"
         button2Style="Outline"
-        image="/src/assets/images/placeholder.png?raw=true"
-        backgroundImage="/src/assets/images/hero-background-placeholder-dark.png?raw=true"
         darkenImage="darken-25"
-        backgroundColor="bg-blue-600"
+        heading="This space deserves a hero."
+        headingElement="h1"
+        image="/src/assets/images/placeholder.png?raw=true"
+        layout="leftAligned"
+        preHeading="Mission"
+        text="This is a space to welcome visitors to the site. Grab their attention with copy that clearly states what the site is about."
+        textColor="Light"
       />
       <CardContainer
+        cardLayout="3 columns"
         className="mt-24"
         heading="What we offer."
-        preHeading="Featured services"
         headingLevel="h2"
         headingSize="Large"
         layout="Center aligned"
-        cardLayout="3 columns"
+        preHeading="Featured services"
       >
         <Card
           heading="Engaging title that represents the content."
-          text="Some quick example text to build on the card title and make up the bulk of the card's content."
           image={imagePlaceholder}
+          text="Some quick example text to build on the card title and make up the bulk of the card's content."
         />
         <Card
           heading="Engaging title that represents the content."
-          text="Some quick example text to build on the card title and make up the bulk of the card's content."
           image={imagePlaceholder}
+          text="Some quick example text to build on the card title and make up the bulk of the card's content."
         />
         <Card
           heading="Engaging title that represents the content."
-          text="Some quick example text to build on the card title and make up the bulk of the card's content."
           image={imagePlaceholder}
+          text="Some quick example text to build on the card title and make up the bulk of the card's content."
         />
       </CardContainer>
       <CardContainer
+        cardLayout="3 columns"
         className="mt-24"
         heading="Additional offerings."
-        preHeading="Featured products"
         headingLevel="h2"
         headingSize="Large"
         layout="Center aligned"
-        cardLayout="3 columns"
+        preHeading="Featured products"
       >
         <FeatureCard
           heading="Engaging title that represents the content."
-          text="Some quick example text to build on the card title and make up the bulk of the card's content."
-          linkLabel="Learn more"
           link="#"
-        />
-        <FeatureCard
-          heading="Engaging title that represents the content."
-          text="Some quick example text to build on the card title and make up the bulk of the card's content."
-        />
-        <FeatureCard
-          heading="Engaging title that represents the content."
-          text="Some quick example text to build on the card title and make up the bulk of the card's content."
           linkLabel="Learn more"
-          link="#"
+          text="Some quick example text to build on the card title and make up the bulk of the card's content."
         />
         <FeatureCard
           heading="Engaging title that represents the content."
           text="Some quick example text to build on the card title and make up the bulk of the card's content."
+        />
+        <FeatureCard
+          heading="Engaging title that represents the content."
+          link="#"
           linkLabel="Learn more"
+          text="Some quick example text to build on the card title and make up the bulk of the card's content."
+        />
+        <FeatureCard
+          heading="Engaging title that represents the content."
           link="#"
-        />
-        <FeatureCard
-          heading="Engaging title that represents the content."
-          text="Some quick example text to build on the card title and make up the bulk of the card's content."
-        />
-        <FeatureCard
-          heading="Engaging title that represents the content."
-          text="Some quick example text to build on the card title and make up the bulk of the card's content."
           linkLabel="Learn more"
+          text="Some quick example text to build on the card title and make up the bulk of the card's content."
+        />
+        <FeatureCard
+          heading="Engaging title that represents the content."
+          text="Some quick example text to build on the card title and make up the bulk of the card's content."
+        />
+        <FeatureCard
+          heading="Engaging title that represents the content."
           link="#"
+          linkLabel="Learn more"
+          text="Some quick example text to build on the card title and make up the bulk of the card's content."
         />
       </CardContainer>
       <TwoColumnTextImage
         className="mt-16 bg-slate-50 p-24"
-        headingSize="Large"
         heading="Who we are."
         headingElement="h2"
+        headingSize="Large"
         text="This is a space to talk about your organization, its products, services or values. Encourage people to explore your offerings and discover how you meet their needs, provide solutions, and deliver value. Show how the site serves as more than just a platform; it’s a reflection of your dedication to building meaningful connections and ensuring your experience is nothing short of exceptional."
       />
       <div className="my-16">
         <TestimonialSection
+          avatar="/src/assets/images/placeholder.png"
           background="/src/assets/images/hero-background-placeholder-dark.png"
-          text="I just wanted to say that I'm very happy with my purchase so far. The experience builder is amazing and the documentation is outstanding - clear and detailed."
-          textColor="Light"
-          testSize="Large"
           name="Mark Villiams"
           organization="Capsule"
           role="Product Manager"
-          avatar="/src/assets/images/placeholder.png"
+          testSize="Large"
+          text="I just wanted to say that I'm very happy with my purchase so far. The experience builder is amazing and the documentation is outstanding - clear and detailed."
+          textColor="Light"
         />
       </div>
       <CardContainer
+        cardLayout="6 columns"
         className="mt-24 mb-16"
         heading="You're in good company"
-        preHeading="Our customers"
         headingLevel="h2"
         layout="Center aligned"
-        cardLayout="6 columns"
+        preHeading="Our customers"
       >
         <LogoCard image="/src/assets/images/logo.svg" />
         <LogoCard image="/src/assets/images/logo.svg" />
@@ -228,7 +228,7 @@ export const HomePage = {
           className="my-0"
           text="Over 2500 companies use us to better their business."
         />
-        <Button variant="outlineDark" link="#">
+        <Button link="#" variant="outlineDark">
           Read our customer stories
         </Button>
       </div>
@@ -238,43 +238,43 @@ export const HomePage = {
           logo={<Branding homeUrl="#" logo={drupalLogo} />}
           social={
             <Social>
-              <SocialIconButton variant="solid" link="#" aria-label="Facebook">
+              <SocialIconButton aria-label="Facebook" link="#" variant="solid">
                 <FacebookSolidIcon />
               </SocialIconButton>
-              <SocialIconButton variant="solid" link="#" aria-label="Google">
+              <SocialIconButton aria-label="Google" link="#" variant="solid">
                 <GoogleSolidIcon />
               </SocialIconButton>
-              <SocialIconButton variant="solid" link="#" aria-label="GitHub">
+              <SocialIconButton aria-label="GitHub" link="#" variant="solid">
                 <GitHubSolidIcon />
               </SocialIconButton>
-              <SocialIconButton variant="solid" link="#" aria-label="Instagram">
+              <SocialIconButton aria-label="Instagram" link="#" variant="solid">
                 <InstagramOutlineIcon />
               </SocialIconButton>
-              <SocialIconButton variant="solid" link="#" aria-label="LinkedIn">
+              <SocialIconButton aria-label="LinkedIn" link="#" variant="solid">
                 <LinkedInOutlineIcon />
               </SocialIconButton>
             </Social>
           }
         />
-        <FooterMenu footerElement="div" columnLayout="5">
+        <FooterMenu columnLayout="5" footerElement="div">
           <FooterLinks title="Product">
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 Pricing
               </Link>
             </p>
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 Changelog
               </Link>
             </p>
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 Docs
               </Link>
             </p>
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 Download
               </Link>
             </p>
@@ -282,27 +282,27 @@ export const HomePage = {
 
           <FooterLinks title="Company">
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 About us
               </Link>
             </p>
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 Blog
               </Link>
             </p>
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 Careers
               </Link>
             </p>
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 Customers
               </Link>
             </p>
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 Newsroom
               </Link>
             </p>
@@ -310,22 +310,22 @@ export const HomePage = {
 
           <FooterLinks title="Resources">
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 Community
               </Link>
             </p>
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 Help & Support
               </Link>
             </p>
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 eBook
               </Link>
             </p>
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 What's New
               </Link>
             </p>
@@ -333,29 +333,29 @@ export const HomePage = {
 
           <FooterLinks title="Developers">
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 API
               </Link>
             </p>
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 GitHub
               </Link>
             </p>
             <p>
-              <Link variant="linkDark" link="#">
+              <Link link="#" variant="linkDark">
                 Status
               </Link>
             </p>
 
-            <FooterLinks title="Industries" className="mt-7">
+            <FooterLinks className="mt-7" title="Industries">
               <p>
-                <Link variant="linkDark" link="#">
+                <Link link="#" variant="linkDark">
                   Financial Services
                 </Link>
               </p>
               <p>
-                <Link variant="linkDark" link="#">
+                <Link link="#" variant="linkDark">
                   Education
                 </Link>
               </p>
@@ -387,8 +387,8 @@ export const AboutUs = {
       <Section>
         <Heading
           heading="Who we are."
-          preHeading="About us"
           headingSize="Medium"
+          preHeading="About us"
         />
         <Text
           text="This is a space to talk about your organization, its products, services or values. Encourage people to explore your offerings and discover how you meet their needs, provide solutions, and deliver value. Show how the site serves as more than just a platform; it’s a reflection of your dedication to building meaningful connections and ensuring your experience is nothing short of exceptional."
@@ -404,19 +404,19 @@ export const AboutUs = {
         <Text text="This is a space to talk about your organization, its products, services or values. Encourage people to explore your offerings and discover how you meet their needs, provide solutions, and deliver value. Show how the site serves as more than just a platform; it’s a reflection of your dedication to building meaningful connections and ensuring your experience is nothing short of exceptional." />
         <Heading
           heading="What our customers say."
-          preHeading="Testimonials"
           headingSize="Medium"
           layout="Center aligned"
+          preHeading="Testimonials"
         />
         <div className="my-16">
           <TestimonialSection
+            avatar="/src/assets/images/placeholder.png"
             background="/src/assets/images/hero-background-placeholder-dark.png"
-            textColor="Light"
-            text="I just wanted to say that I'm very happy with my purchase so far. The experience builder is amazing and the documentation is outstanding - clear and detailed."
             name="Mark Villiams"
             organization="Capsule"
             role="Product Manager"
-            avatar="/src/assets/images/placeholder.png"
+            text="I just wanted to say that I'm very happy with my purchase so far. The experience builder is amazing and the documentation is outstanding - clear and detailed."
+            textColor="Light"
           />
         </div>
         <Image

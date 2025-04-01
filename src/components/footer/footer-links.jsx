@@ -15,10 +15,6 @@ export default FooterLinks
 
 FooterLinks.propTypes = {
   /**
-   * The title of the column.
-   */
-  title: PropTypes.string,
-  /**
    * The content of the column.
    */
   children: PropTypes.node,
@@ -26,4 +22,8 @@ FooterLinks.propTypes = {
    * Additional classes to apply to the column.
    */
   className: PropTypes.string,
+  /**
+   * The title of the column.
+   */
+  title: PropTypes.string,
 }

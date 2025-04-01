@@ -25,15 +25,15 @@ const titleVariants = cva('text-xs text-blue-700 sm:text-sm lg:text-base', {
  * Consists of an image and text container for a person's name and title.
  */
 function Person({
+  avatar,
+  avatarAltText,
+  headingElement = 'h3',
+  headingColor = 'Dark',
   name,
   title,
   titleColor = 'Dark',
-  avatar,
-  avatarAltText,
   imageClasses,
   textClasses,
-  headingElement = 'h3',
-  headingColor = 'Dark',
   align = 'center',
 }) {
   const Heading = headingElement
@@ -41,13 +41,13 @@ function Person({
     <>
       {avatar && (
         <img
+          alt={avatarAltText}
           className={cn(
             'h-auto rounded-xl sm:w-48 lg:w-60',
             imageClasses,
             align === 'center' && 'mx-auto'
           )}
           src={avatar}
-          alt={avatarAltText}
         />
       )}
       <div className={cn('mt-2 flex flex-col gap-1 sm:mt-4', textClasses)}>
@@ -62,13 +62,9 @@ function Person({
 
 Person.propTypes = {
   /**
-   * The name of the author.
+   * The alignment of the author's name and title.
    */
-  name: PropTypes.string.isRequired,
-  /**
-   * The title of the author.
-   */
-  title: PropTypes.string.isRequired,
+  align: PropTypes.oneOf(['left', 'center', 'right']),
   /**
    * The path to the author's avatar image.
    */
@@ -82,17 +78,21 @@ Person.propTypes = {
    */
   headingElement: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
   /**
-   * The alignment of the author's name and title.
-   */
-  align: PropTypes.oneOf(['left', 'center', 'right']),
-  /**
    * Additional classes to apply to the image.
    */
   imageClasses: PropTypes.string,
   /**
+   * The name of the author.
+   */
+  name: PropTypes.string.isRequired,
+  /**
    * Additional classes to apply to the name + title text container.
    */
   textClasses: PropTypes.string,
+  /**
+   * The title of the author.
+   */
+  title: PropTypes.string.isRequired,
 }
 
 export default Person

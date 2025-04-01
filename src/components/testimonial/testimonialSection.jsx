@@ -28,7 +28,7 @@ export default function TestimonialSection({
     >
       {image && (
         <div className="md:flex-1">
-          <img src={image} alt={imageAltText} />
+          <img alt={imageAltText} src={image} />
         </div>
       )}
       <div className="md:flex-1">

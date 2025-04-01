@@ -19,15 +19,15 @@ export default FooterMinimal
 
 FooterMinimal.propTypes = {
   /**
+   * The copyright component and text to display in the footer.
+   */
+  copyright: PropTypes.node,
+  /**
    * Allows for customizing the footer element.
    * Use 'div' if nesting within a footer element.
    * @default 'footer'
    */
   footerElement: PropTypes.elementType,
-  /**
-   * The copyright component and text to display in the footer.
-   */
-  copyright: PropTypes.node,
   /**
    * The social icons to display in the footer.
    */

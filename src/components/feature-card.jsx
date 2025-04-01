@@ -20,8 +20,8 @@ const FeatureCard = ({
   headingElement = 'h2',
   text = "Some quick example text to build on the card title and make up the bulk of the card's content.",
   textColor = 'Dark',
-  linkLabel = '',
   link = '',
+  linkLabel = '',
   backgroundColor = '#FFFFFF',
   backgroundColorOnHover = '#F1F5F9',
   className,
@@ -68,10 +68,10 @@ const FeatureCard = ({
 const FeatureIcon = () => (
   <svg
     aria-hidden="true"
-    width="24"
+    fill="none"
     height="24"
     viewBox="0 0 24 24"
-    fill="none"
+    width="24"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path

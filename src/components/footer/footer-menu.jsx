@@ -30,10 +30,10 @@ const gridVariants = cva('mb-10 grid gap-6', {
 })
 
 const FooterMenu = ({
+  columnLayout,
   footerElement,
   textColor,
   className,
-  columnLayout,
   children,
 }) => {
   const Footer = footerElement || 'footer'
@@ -48,16 +48,9 @@ export default FooterMenu
 
 FooterMenu.propTypes = {
   /**
-   * Allows for customizing the footer element.
-   * Use `'div'` if nesting within a footer element.
-   * @default 'footer'
+   * The content of the footer.
    */
-  footerElement: PropTypes.elementType,
-  /**
-   * The text color of the footer.
-   * @default 'Dark'
-   */
-  textColor: PropTypes.oneOf(['Dark', 'Light']),
+  children: PropTypes.node,
   /**
    * Additional classes to apply to the footer.
    */
@@ -73,7 +66,14 @@ FooterMenu.propTypes = {
     '5 columns',
   ]),
   /**
-   * The content of the footer.
+   * Allows for customizing the footer element.
+   * Use `'div'` if nesting within a footer element.
+   * @default 'footer'
    */
-  children: PropTypes.node,
+  footerElement: PropTypes.elementType,
+  /**
+   * The text color of the footer.
+   * @default 'Dark'
+   */
+  textColor: PropTypes.oneOf(['Dark', 'Light']),
 }

@@ -55,15 +55,15 @@ List.propTypes = {
     url: PropTypes.string,
   }),
   /**
-   * Sets the type of list to render.
-   * Options are 'Ordered', 'Unordered', and 'None'.
-   */
-  type: PropTypes.oneOf(['Ordered', 'Unordered', 'None', 'Icon']),
-  /**
    * Specifies the text color to use.
    * Options are 'Dark' and 'Light'.
    */
   textColor: PropTypes.oneOf(['Dark', 'Light']),
+  /**
+   * Sets the type of list to render.
+   * Options are 'Ordered', 'Unordered', and 'None'.
+   */
+  type: PropTypes.oneOf(['Ordered', 'Unordered', 'None', 'Icon']),
 }
 
 export default List

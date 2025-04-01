@@ -33,10 +33,19 @@ export default [
       ...react.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+      'react/sort-prop-types': ['error'],
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },
       ],
+      'react/jsx-sort-props': [
+        'error',
+        { reservedFirst: true },
+      ] /* sort props alpha */,
+      'react/jsx-max-props-per-line': [
+        1,
+        { when: 'multiline' },
+      ] /* max props per line */,
       'react/prop-types': 'off',
       'react/react-in-jsx-scope': 'off',
       'react/no-unescaped-entities':

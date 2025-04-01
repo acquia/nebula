@@ -45,10 +45,10 @@ const TextAndCardSection = ({
     <div className={layoutVariants({ layout })}>
       <div className="mx-auto flex max-w-2xl flex-col gap-6">
         <Heading
-          preHeading={preHeading}
           heading={heading}
-          headingSize="Medium"
           headingElement={headingElement}
+          headingSize="Medium"
+          preHeading={preHeading}
         />
         <p>{text}</p>
         <div>

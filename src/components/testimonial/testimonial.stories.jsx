@@ -42,12 +42,12 @@ export const TestimonialCardDefault = {
   render: (args) => {
     return (
       <TestimonialCard
-        name={args.name}
-        role={args.role}
-        organization={args.organization}
-        text={args.text}
         avatar={args.avatar}
         avatarAltText={args.avatarAltText}
+        name={args.name}
+        organization={args.organization}
+        role={args.role}
+        text={args.text}
         textSize={args.textSize}
       />
     )
@@ -74,12 +74,12 @@ export const TestimonialContainer = {
       return (
         <TestimonialCard
           key={`logo-card-${index}`}
-          name="Garth Brooks"
-          role="Boss"
-          organization="Country music"
-          text="Truly one of the products of all time."
           avatar="/src/assets/images/acquia-logo.svg"
           avatarAltText="test alt text"
+          name="Garth Brooks"
+          organization="Country music"
+          role="Boss"
+          text="Truly one of the products of all time."
           textSize={args.textSize}
         />
       )

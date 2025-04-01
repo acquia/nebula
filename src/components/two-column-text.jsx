@@ -20,10 +20,10 @@ const TwoColumnText = ({
   layout,
   preHeading,
   heading,
-  headingSize = 'Large',
   headingElement,
-  textColor = 'Dark',
+  headingSize = 'Large',
   text,
+  textColor = 'Dark',
   button1Label,
   button1Link,
   button1Style = 'Solid',
@@ -52,18 +52,18 @@ const TwoColumnText = ({
             <div className="mb-4">
               <Heading
                 heading={heading}
-                preHeading={preHeading}
-                headingSize={headingSize}
-                textColor={textColor}
                 headingElement={headingElement}
+                headingSize={headingSize}
+                preHeading={preHeading}
+                textColor={textColor}
               />
             </div>
             {text && (
               <Text
-                textColor={textColor}
-                textSize="Large"
                 className="mb-4"
                 text={text}
+                textColor={textColor}
+                textSize="Large"
               />
             )}
             <div
@@ -89,9 +89,9 @@ const TwoColumnText = ({
           </div>
           <div className="flex max-w-3xl">
             <img
-              src={image}
               alt="Hero featured image"
               className="max-width-full w-full"
+              src={image}
             />
           </div>
         </div>

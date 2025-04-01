@@ -17,13 +17,9 @@ function Author({ ...props }) {
 
 Author.propTypes = {
   /**
-   * The name of the author.
+   * The alignment of the author's name and title.
    */
-  name: PropTypes.string.isRequired,
-  /**
-   * The title of the author.
-   */
-  title: PropTypes.string.isRequired,
+  align: PropTypes.oneOf(['left', 'center', 'right']),
   /**
    * The path to the author's avatar image.
    */
@@ -37,9 +33,13 @@ Author.propTypes = {
    */
   headingElement: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
   /**
-   * The alignment of the author's name and title.
+   * The name of the author.
    */
-  align: PropTypes.oneOf(['left', 'center', 'right']),
+  name: PropTypes.string.isRequired,
+  /**
+   * The title of the author.
+   */
+  title: PropTypes.string.isRequired,
 }
 
 export default Author

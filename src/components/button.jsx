@@ -50,9 +50,9 @@ const buttonVariants = cva(
 
 const Button = ({
   children = 'Button',
+  className = '',
   link = '#',
   variant,
-  className = '',
   ...props
 }) => {
   return (
@@ -88,14 +88,14 @@ export const Link = ({
 const ChevronRightIcon = () => (
   <svg
     aria-hidden="true"
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
+    className="h-4 w-4"
     fill="none"
     stroke="currentColor"
-    strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
-    className="h-4 w-4"
+    strokeWidth="2"
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
   >
     <path d="m9 18 6-6-6-6" />
   </svg>

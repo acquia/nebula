@@ -37,11 +37,11 @@ const TwoColumnTextImage = ({
     >
       <div className="md:flex-1">
         <Heading
-          preHeading={preHeading}
-          heading={heading}
-          headingSize={headingSize}
-          headingElement={headingElement}
           className="mb-4"
+          heading={heading}
+          headingElement={headingElement}
+          headingSize={headingSize}
+          preHeading={preHeading}
         />
         <Text
           className="text-balance"
@@ -51,7 +51,7 @@ const TwoColumnTextImage = ({
         />
       </div>
       <div className="md:flex-1">
-        <img src={image} alt={heading} />
+        <img alt={heading} src={image} />
       </div>
     </div>
   )

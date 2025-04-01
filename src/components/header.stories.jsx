@@ -13,8 +13,6 @@ export default meta
 const logo = <Branding homeUrl="#" logo={drupalLogo} />
 const menu = (
   <NavigationMenu
-    menuId="main-menu"
-    menuLabel="Main Menu"
     links={[
       {
         key: 'front_page',
@@ -67,6 +65,8 @@ const menu = (
         inActiveTrail: false,
       },
     ]}
+    menuId="main-menu"
+    menuLabel="Main Menu"
   />
 )
 export const Default = {

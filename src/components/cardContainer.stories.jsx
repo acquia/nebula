@@ -71,8 +71,8 @@ export const Default = {
           <Card
             key={`card-${index}`}
             heading="Engaging title that represents the content."
-            text="Some quick example text to build on the card title and make up the bulk of the card's content."
             image={imagePlaceholder}
+            text="Some quick example text to build on the card title and make up the bulk of the card's content."
           />
         )
       }
@@ -111,8 +111,8 @@ export const FeatureContainer = {
           <Card
             key={index}
             heading="Engaging title that represents the content."
-            text="Some quick example text to build on the card title and make up the bulk of the card's content."
             image={imagePlaceholder}
+            text="Some quick example text to build on the card title and make up the bulk of the card's content."
           />
         )
       }
@@ -141,8 +141,8 @@ export const LogoContainer = {
       return (
         <LogoCard
           key={`logo-card-${index}`}
-          image="/src/assets/images/logo.svg"
           altText="Company logo"
+          image="/src/assets/images/logo.svg"
         />
       )
     })
