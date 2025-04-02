@@ -44,6 +44,21 @@ export const TestimonialDefault = {
   },
 }
 
+export const TestimonialNoText = {
+  args: {
+    name: 'Garth Brooks',
+    role: 'Boss',
+    organization: 'Country music',
+    avatar: '/src/assets/images/acquia-logo.svg',
+    avatarAltText: 'test alt text',
+    textSize: 'Small',
+    textColor: 'Dark',
+  },
+  render: (args) => {
+    return <Testimonial {...args} />
+  },
+}
+
 export const TestimonialCenter = {
   args: {
     layout: 'Center aligned',
@@ -96,6 +111,9 @@ export const TestimonialCardDark = {
   },
 }
 
+/**
+ * Uses the Testimonial component in a CardContainer.
+ */
 export const TestimonialContainer = {
   args: {
     layout: 'Center aligned',
@@ -131,6 +149,9 @@ export const TestimonialContainer = {
   },
 }
 
+/**
+ * Uses a TestimonialSection component.
+ */
 export const testimonialSectionWithImage = {
   args: {
     name: 'Garth Brooks',
@@ -150,10 +171,12 @@ export const testimonialSectionWithImage = {
   },
 }
 
+/**
+ * Uses a TestimonialSection component with right aligned image.
+ */
 export const testimonialSectionWithImageRight = {
   args: {
     name: 'Garth Brooks',
-    role: 'Boss',
     organization: 'Country music',
     text: 'Truly one of the products of all time.',
     textColor: 'Dark',
@@ -171,11 +194,13 @@ export const testimonialSectionWithImageRight = {
   },
 }
 
+/**
+ * Uses a TestimonialSection component with no side image, just background image.
+ */
 export const testimonialSectionDarkBg = {
   args: {
     name: 'Garth Brooks',
     role: 'Boss',
-    organization: 'Country music',
     text: 'Truly one of the products of all time.',
     avatar: '/src/assets/images/acquia-logo.svg',
     avatarAltText: 'test alt text',

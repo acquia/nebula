@@ -61,8 +61,8 @@ export default function Testimonial({
   className,
   layout,
   name,
-  role,
-  organization,
+  role = '',
+  organization = '',
   text,
   avatar,
   textColor = 'Dark',
@@ -83,20 +83,26 @@ export default function Testimonial({
       }}
     >
       <div className={cardVariants({ layout, textColor })}>
-        <blockquote className={textVariants({ textSize })}>
-          <p>{text}</p>
-        </blockquote>
+        {text && (
+          <blockquote className={textVariants({ textSize })}>
+            <p>{text}</p>
+          </blockquote>
+        )}
         <div className="flex items-center gap-4">
-          <img
-            alt={avatarAltText}
-            className="h-10 w-10 rounded-full object-contain"
-            src={avatar}
-          />
+          {avatar && (
+            <img
+              alt={avatarAltText}
+              className="h-10 w-10 rounded-full object-contain"
+              src={avatar}
+            />
+          )}
           <div className="flex flex-col gap-1">
-            <p className={nameVariants({ textSize })}>{name}</p>
-            <p
-              className={roleVariants({ textColor, textSize })}
-            >{`${role} | ${organization}`}</p>
+            {name && <p className={nameVariants({ textSize })}>{name}</p>}
+            {(role || organization) && (
+              <p
+                className={roleVariants({ textColor, textSize })}
+              >{`${role} ${role && organization ? '|' : ''} ${organization}`}</p>
+            )}
           </div>
         </div>
       </div>
