@@ -50,12 +50,22 @@ function Person({
           src={avatar}
         />
       )}
-      <div className={cn('mt-2 flex flex-col gap-1 sm:mt-4', textClasses)}>
-        <Heading className={cn(headingVariants({ textColor: headingColor }))}>
-          {name}
-        </Heading>
-        <p className={cn(titleVariants({ textColor: titleColor }))}>{title}</p>
-      </div>
+      {(name || title) && (
+        <div className={cn('mt-2 flex flex-col gap-1 sm:mt-4', textClasses)}>
+          {name && (
+            <Heading
+              className={cn(headingVariants({ textColor: headingColor }))}
+            >
+              {name}
+            </Heading>
+          )}
+          {title && (
+            <p className={cn(titleVariants({ textColor: titleColor }))}>
+              {title}
+            </p>
+          )}
+        </div>
+      )}
     </>
   )
 }
