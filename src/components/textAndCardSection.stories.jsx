@@ -2,7 +2,7 @@ import LogoCard from './logo-card.jsx'
 import TextAndCardSection from './textAndCardSection.jsx'
 
 const meta = {
-  title: 'Sections/textAndCardSection',
+  title: 'Sections/Text and Card',
   component: TextAndCardSection,
   argTypes: {
     layout: {

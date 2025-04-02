@@ -1,7 +1,7 @@
 import TwoColumnTextImage from './two-column-text-image'
 
 const meta = {
-  title: 'Two Column Text Image',
+  title: 'Sections/Two Column Text Image',
   component: TwoColumnTextImage,
 }
 
