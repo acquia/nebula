@@ -29,7 +29,7 @@ const meta = {
 export default meta
 
 /**
- * Can also use SocialIconButton which builds in the additional
+ * Can also use IconButton which builds in the additional
  * className override. Alternatively, we could crate an IconButton
  */
 function Buttons({ variant }) {

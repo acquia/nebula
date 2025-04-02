@@ -1,7 +1,7 @@
 import imagePlaceholder from '../assets/images/card-placeholder.png'
 import drupalLogo from '../assets/images/logo.svg'
 import Branding from './branding.jsx'
-import Button, { Link } from './button.jsx'
+import Button, { IconButton, Link } from './button.jsx'
 import Card from './card.jsx'
 import CardContainer from './cardContainer.jsx'
 import FeatureCard from './feature-card.jsx'
@@ -26,7 +26,6 @@ import {
   InstagramOutlineIcon,
   LinkedInOutlineIcon,
   Social,
-  SocialIconButton,
 } from './social'
 import TestimonialSection from './testimonial/testimonialSection.jsx'
 import Text from './text.jsx'
@@ -238,21 +237,21 @@ export const HomePage = {
           logo={<Branding homeUrl="#" logo={drupalLogo} />}
           social={
             <Social>
-              <SocialIconButton aria-label="Facebook" link="#" variant="solid">
+              <IconButton aria-label="Facebook" link="#" variant="solid">
                 <FacebookSolidIcon />
-              </SocialIconButton>
-              <SocialIconButton aria-label="Google" link="#" variant="solid">
+              </IconButton>
+              <IconButton aria-label="Google" link="#" variant="solid">
                 <GoogleSolidIcon />
-              </SocialIconButton>
-              <SocialIconButton aria-label="GitHub" link="#" variant="solid">
+              </IconButton>
+              <IconButton aria-label="GitHub" link="#" variant="solid">
                 <GitHubSolidIcon />
-              </SocialIconButton>
-              <SocialIconButton aria-label="Instagram" link="#" variant="solid">
+              </IconButton>
+              <IconButton aria-label="Instagram" link="#" variant="solid">
                 <InstagramOutlineIcon />
-              </SocialIconButton>
-              <SocialIconButton aria-label="LinkedIn" link="#" variant="solid">
+              </IconButton>
+              <IconButton aria-label="LinkedIn" link="#" variant="solid">
                 <LinkedInOutlineIcon />
-              </SocialIconButton>
+              </IconButton>
             </Social>
           }
         />

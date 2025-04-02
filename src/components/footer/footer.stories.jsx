@@ -1,7 +1,7 @@
 import acquiaLogo from '../../assets/images/acquia-logo.svg'
 import drupalLogo from '../../assets/images/logo.svg'
 import Branding from '../branding'
-import { Link } from '../button'
+import { IconButton, Link } from '../button'
 import List from '../list/list'
 import {
   FacebookSolidIcon,
@@ -10,7 +10,6 @@ import {
   InstagramOutlineIcon,
   LinkedInOutlineIcon,
   Social,
-  SocialIconButton,
 } from '../social'
 import {
   Copyright,
@@ -31,21 +30,21 @@ export default meta
 function Buttons({ variant }) {
   return (
     <>
-      <SocialIconButton aria-label="Facebook" link="#" variant={variant}>
+      <IconButton aria-label="Facebook" link="#" variant={variant}>
         <FacebookSolidIcon />
-      </SocialIconButton>
-      <SocialIconButton aria-label="Google" link="#" variant={variant}>
+      </IconButton>
+      <IconButton aria-label="Google" link="#" variant={variant}>
         <GoogleSolidIcon />
-      </SocialIconButton>
-      <SocialIconButton aria-label="GitHub" link="#" variant={variant}>
+      </IconButton>
+      <IconButton aria-label="GitHub" link="#" variant={variant}>
         <GitHubSolidIcon />
-      </SocialIconButton>
-      <SocialIconButton aria-label="Instagram" link="#" variant={variant}>
+      </IconButton>
+      <IconButton aria-label="Instagram" link="#" variant={variant}>
         <InstagramOutlineIcon />
-      </SocialIconButton>
-      <SocialIconButton aria-label="LinkedIn" link="#" variant={variant}>
+      </IconButton>
+      <IconButton aria-label="LinkedIn" link="#" variant={variant}>
         <LinkedInOutlineIcon />
-      </SocialIconButton>
+      </IconButton>
     </>
   )
 }
