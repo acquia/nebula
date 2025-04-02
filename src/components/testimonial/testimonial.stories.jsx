@@ -1,5 +1,5 @@
 import CardContainer from '../cardContainer'
-import TestimonialCard from './testimonialCard'
+import Testimonial from './testimonial'
 import TestimonialSection from './testimonialSection'
 
 const meta = {
@@ -41,7 +41,7 @@ export const TestimonialCardDefault = {
   },
   render: (args) => {
     return (
-      <TestimonialCard
+      <Testimonial
         avatar={args.avatar}
         avatarAltText={args.avatarAltText}
         name={args.name}
@@ -49,6 +49,35 @@ export const TestimonialCardDefault = {
         role={args.role}
         text={args.text}
         textSize={args.textSize}
+      />
+    )
+  },
+}
+
+export const TestimonialCardDark = {
+  args: {
+    backgroundColor: '#000000',
+    backgroundColorOnHover: '#333333',
+    name: 'Garth Brooks',
+    role: 'Boss',
+    organization: 'Country music',
+    text: 'Truly one of the products of all time.',
+    avatar: '/src/assets/images/acquia-logo.svg',
+    avatarAltText: 'test alt text',
+    textSize: 'Small',
+    textColor: 'Light',
+  },
+  render: (args) => {
+    return (
+      <Testimonial
+        avatar={args.avatar}
+        avatarAltText={args.avatarAltText}
+        name={args.name}
+        organization={args.organization}
+        role={args.role}
+        text={args.text}
+        textSize={args.textSize}
+        {...args}
       />
     )
   },
@@ -72,7 +101,7 @@ export const TestimonialContainer = {
     const cardsArray = Array(args.previewCardCount).fill(null)
     const cards = cardsArray.map((_, index) => {
       return (
-        <TestimonialCard
+        <Testimonial
           key={`logo-card-${index}`}
           avatar="/src/assets/images/acquia-logo.svg"
           avatarAltText="test alt text"
