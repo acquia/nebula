@@ -85,6 +85,14 @@ export const Link = ({
   )
 }
 
+export const IconButton = ({ variant, children, link, ...props }) => {
+  return (
+    <Link className="size-10" link={link} variant={variant} {...props}>
+      {children}
+    </Link>
+  )
+}
+
 const ChevronRightIcon = () => (
   <svg
     aria-hidden="true"

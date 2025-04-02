@@ -1,4 +1,5 @@
-import Button, { Link } from './button'
+import Button, { IconButton, Link } from './button'
+import { FacebookSolidIcon } from './social'
 
 const meta = {
   title: 'Components/Button',
@@ -172,6 +173,18 @@ export const LinkComponentNavDark = {
   args: {
     variant: 'navLinkDark',
     children: 'Home',
+    link: '#',
+  },
+}
+
+/**
+ * For use for Social media icons.
+ */
+export const IconButtonComponentSolid = {
+  render: (args) => <IconButton {...args} />,
+  args: {
+    variant: 'solid',
+    children: <FacebookSolidIcon />,
     link: '#',
   },
 }

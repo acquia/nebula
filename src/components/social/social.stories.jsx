@@ -1,10 +1,10 @@
+import { IconButton } from '../button'
 import Social, {
   FacebookSolidIcon,
   GitHubSolidIcon,
   GoogleSolidIcon,
   InstagramOutlineIcon,
   LinkedInOutlineIcon,
-  SocialIconButton,
 } from './social'
 
 const meta = {
@@ -28,24 +28,28 @@ const meta = {
 
 export default meta
 
+/**
+ * Can also use SocialIconButton which builds in the additional
+ * className override. Alternatively, we could crate an IconButton
+ */
 function Buttons({ variant }) {
   return (
     <>
-      <SocialIconButton aria-label="Facebook" link="#" variant={variant}>
+      <IconButton aria-label="Facebook" link="#" variant={variant}>
         <FacebookSolidIcon />
-      </SocialIconButton>
-      <SocialIconButton aria-label="Google" link="#" variant={variant}>
+      </IconButton>
+      <IconButton aria-label="Google" link="#" variant={variant}>
         <GoogleSolidIcon />
-      </SocialIconButton>
-      <SocialIconButton aria-label="GitHub" link="#" variant={variant}>
+      </IconButton>
+      <IconButton aria-label="GitHub" link="#" variant={variant}>
         <GitHubSolidIcon />
-      </SocialIconButton>
-      <SocialIconButton aria-label="Instagram" link="#" variant={variant}>
+      </IconButton>
+      <IconButton aria-label="Instagram" link="#" variant={variant}>
         <InstagramOutlineIcon />
-      </SocialIconButton>
-      <SocialIconButton aria-label="LinkedIn" link="#" variant={variant}>
+      </IconButton>
+      <IconButton aria-label="LinkedIn" link="#" variant={variant}>
         <LinkedInOutlineIcon />
-      </SocialIconButton>
+      </IconButton>
     </>
   )
 }

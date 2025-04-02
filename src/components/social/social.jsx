@@ -2,7 +2,6 @@ import { cva } from 'class-variance-authority'
 import PropTypes from 'prop-types'
 
 import { cn } from '../../lib/utils'
-import { Link } from '../button'
 
 const wrapperVariants = cva('flex items-center justify-center gap-2', {
   variants: {
@@ -15,14 +14,6 @@ const wrapperVariants = cva('flex items-center justify-center gap-2', {
     orientation: 'Horizontal',
   },
 })
-
-export const SocialIconButton = ({ variant, children, link, ...props }) => {
-  return (
-    <Link className="size-10" link={link} variant={variant} {...props}>
-      {children}
-    </Link>
-  )
-}
 
 const Social = ({ orientation, className, children }) => {
   return (
