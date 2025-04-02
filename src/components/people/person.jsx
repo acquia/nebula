@@ -3,6 +3,22 @@ import PropTypes from 'prop-types'
 
 import { cn } from '../../lib/utils'
 
+const cardVariants = cva(
+  'flex w-full max-w-md flex-col items-center gap-4 rounded-2xl pb-6 leading-[normal]',
+  {
+    variants: {
+      layout: {
+        'Left aligned': 'items-start text-left',
+        'Center aligned': 'items-center text-center',
+        'Right aligned': 'items-end text-right',
+      },
+    },
+    defaultVariants: {
+      layout: 'Align left',
+    },
+  }
+)
+
 const headingVariants = cva('font-bold sm:text-base lg:text-lg', {
   variants: {
     textColor: {
@@ -27,25 +43,41 @@ const titleVariants = cva('text-xs text-blue-700 sm:text-sm lg:text-base', {
 function Person({
   avatar,
   avatarAltText,
-  headingElement = 'h3',
-  headingColor = 'Dark',
+  backgroundColor = '',
+  backgroundColorOnHover = '',
+  className,
   name,
+  headingColor = 'Dark',
+  headingElement = 'h3',
+  layout = 'Left aligned',
   title,
   titleColor = 'Dark',
   imageClasses,
   textClasses,
-  align = 'center',
 }) {
   const Heading = headingElement
   return (
-    <>
+    <div
+      className={cn(
+        cardVariants({ layout }),
+        'rounded-xl',
+        'p-4',
+        'bg-[var(--color-bg)]',
+        'hover:bg-[var(--color-bg-hover)]',
+        className
+      )}
+      style={{
+        '--color-bg': backgroundColor,
+        '--color-bg-hover': backgroundColorOnHover,
+      }}
+    >
       {avatar && (
         <img
           alt={avatarAltText}
           className={cn(
             'h-auto rounded-xl sm:w-48 lg:w-60',
             imageClasses,
-            align === 'center' && 'mx-auto'
+            layout === 'center' && 'mx-auto'
           )}
           src={avatar}
         />
@@ -66,43 +98,63 @@ function Person({
           )}
         </div>
       )}
-    </>
+    </div>
   )
 }
 
 Person.propTypes = {
   /**
-   * The alignment of the author's name and title.
+   * The image.
    */
-  align: PropTypes.oneOf(['left', 'center', 'right']),
+  avatar: PropTypes.string,
   /**
-   * The path to the author's avatar image.
+   * The alt text for the avatar image.
    */
-  avatar: PropTypes.string.isRequired,
+  avatarAltText: PropTypes.string,
   /**
-   * The alt text for the author's avatar image.
+   * The background color of the card.
    */
-  avatarAltText: PropTypes.string.isRequired,
+  backgroundColor: PropTypes.string,
   /**
-   * Type of heading to use for the author's name.
+   * The background color of the card on hover.
    */
-  headingElement: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
+  backgroundColorOnHover: PropTypes.string,
   /**
-   * Additional classes to apply to the image.
+   * The class name for the card.
+   */
+  className: PropTypes.string,
+  /**
+   * The color of the heading text.
+   */
+  headingColor: PropTypes.oneOf(['Dark', 'Light']),
+  /**
+   * The heading element.
+   */
+  headingElement: PropTypes.string,
+  /**
+   * The class name for the image avatar.
    */
   imageClasses: PropTypes.string,
   /**
-   * The name of the author.
+   * The layout alignment of the card.
+   */
+  layout: PropTypes.oneOf(['Left aligned', 'Center aligned', 'Right aligned']),
+  /**
+   * The name of the person.
    */
   name: PropTypes.string.isRequired,
   /**
-   * Additional classes to apply to the name + title text container.
+   * The class name for the text.
    */
   textClasses: PropTypes.string,
   /**
-   * The title of the author.
+   * The title of the person.
    */
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  /**
+   * The color of the title text.
+   */
+  titleColor: PropTypes.oneOf(['Dark', 'Light']),
 }
 
 export default Person

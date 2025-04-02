@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-const FooterLinks = ({ title, children, className }) => {
+const FooterLinks = ({ children, className, title }) => {
   return (
     <div className={className}>
       {title && (

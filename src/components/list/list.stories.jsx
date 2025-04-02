@@ -1,5 +1,4 @@
-import IconListItem from './iconListItem'
-import List from './list'
+import { IconListItem, List } from './index'
 
 const meta = {
   component: List,

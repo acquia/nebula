@@ -8,12 +8,18 @@ const textVariants = cva('text-xs', {
       Light: 'text-gray-200',
     },
     defaultVariants: {
-      textColor: 'solid',
+      textColor: 'Dark',
     },
   },
 })
 
-const Copyright = ({ textColor, text }) => {
+/**
+ * !NOTE: This is almost the same as the Text component.
+ * Possibly re-use instead of this one, but pass through the textSize prop
+ * and textColor override?
+ 
+ */
+const Copyright = ({ text, textColor }) => {
   return <p className={textVariants({ textColor })}>{text}</p>
 }
 

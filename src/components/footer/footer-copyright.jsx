@@ -25,4 +25,9 @@ FooterCopyright.propTypes = {
    * The text to display in the copyright section.
    */
   text: PropTypes.string,
+  /**
+   * Specifies the text color to use.
+   * Options are 'Dark' and 'Light'.
+   */
+  textColor: PropTypes.oneOf(['Dark', 'Light']),
 }

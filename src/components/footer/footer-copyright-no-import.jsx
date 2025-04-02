@@ -8,7 +8,7 @@ const textVariants = cva('text-xs', {
       Light: 'text-gray-200',
     },
     defaultVariants: {
-      textColor: 'solid',
+      textColor: 'Dark',
     },
   },
 })

@@ -1,6 +1,6 @@
 import Card from '../card'
 import CardContainer from '../cardContainer'
-import { Author, Person, PersonCard, PersonSection } from './index'
+import { Person, PersonCard, PersonSection } from './index'
 
 const meta = {
   title: 'Components/People',
@@ -10,6 +10,9 @@ const meta = {
 
 export default meta
 
+/**
+ * The default person component.
+ */
 export const PersonDefault = {
   args: {
     name: 'Garth Brooks',
@@ -23,8 +26,71 @@ export const PersonDefault = {
   },
 }
 
-export const PersonCardDefault = {
+/**
+ * Same as default person but with image and text classes to look like an Author.
+ */
+export const PersonStyledAsAuthor = {
   args: {
+    align: 'left',
+    name: 'Garth Brooks',
+    title: 'Boss / Country music',
+    avatar: '/src/assets/images/person.jpg',
+    avatarAltText: 'test alt text',
+    headingElement: 'h3',
+    imageClasses: 'rounded-full',
+    textClasses: 'items-start',
+  },
+  render: (args) => {
+    return <Person {...args} />
+  },
+}
+
+/**
+ * No image passed in, (Author with no image).
+ */
+export const PersonAsAuthorNoImage = {
+  args: {
+    name: 'Garth Brooks',
+    title: 'Boss / Country music',
+    headingElement: 'h3',
+  },
+  render: (args) => {
+    return <Person {...args} />
+  },
+}
+
+/**
+ * Person component with a dark background using Light text.
+ */
+export const PersonLight = {
+  args: {
+    avatar: '/src/assets/images/person.jpg',
+    avatarAltText: 'test alt text',
+    backgroundColor: '#000000',
+    backgroundColorOnHover: '#333333',
+    headingElement: 'h3',
+    headingColor: 'Light',
+    name: 'Garth Brooks',
+    title: 'Boss / Country music',
+    titleColor: 'Light',
+  },
+  render: (args) => {
+    return (
+      <div className="max-w-sm bg-black p-8">
+        <Person {...args} />
+      </div>
+    )
+  },
+}
+
+/**
+ * This might not be needed and could be replaced by using the Card component.
+ * See PersonUsingCardComponent.
+ */
+export const PersonCardComponent = {
+  args: {
+    backgroundColor: '#ffffff',
+    backgroundColorOnHover: '#E2E8F0',
     name: 'Garth Brooks',
     title: 'Boss / Country music',
     avatar: '/src/assets/images/person.jpg',
@@ -36,7 +102,10 @@ export const PersonCardDefault = {
   },
 }
 
-export const PersonUsingCard = {
+/**
+ * Probably use this Card component instead of the PersonCard.
+ */
+export const PersonUsingCardComponent = {
   args: {},
   render: () => {
     return (
@@ -51,8 +120,14 @@ export const PersonUsingCard = {
   },
 }
 
+/**
+ * Uses the PersonCard component to create a section of cards.
+ * May not be needed as Card and CardContainer can be used instead.
+ */
 export const PersonCardSection = {
   args: {
+    backgroundColor: '#ffffff',
+    backgroundColorOnHover: '#E2E8F0',
     name: 'Garth Brooks',
     title: 'Boss / Country music',
     avatar: '/src/assets/images/person.jpg',
@@ -76,6 +151,9 @@ export const PersonCardSection = {
   },
 }
 
+/**
+ * Probably use this Card and CardContainer component instead of the PersonCard.
+ */
 export const PersonUsingCardSection = {
   args: {
     headingElement: 'h3',
@@ -107,6 +185,9 @@ export const PersonUsingCardSection = {
   },
 }
 
+/**
+ * This uses the Card and CardContainer component to create a section of person cards.
+ */
 export const PersonUsingCardSectionLight = {
   args: {
     headingElement: 'h3',
@@ -140,8 +221,13 @@ export const PersonUsingCardSectionLight = {
   },
 }
 
+/**
+ * Uses the PersonCard and PerseonSection component.
+ */
 export const PersonSectionDefault = {
   args: {
+    backgroundColor: '#ffffff',
+    backgroundColorOnHover: '#E2E8F0',
     layout: 'column',
     name: 'Garth Brooks',
     title: 'Boss / Country music',
@@ -165,48 +251,5 @@ export const PersonSectionDefault = {
       return <PersonCard key={index} {...args} />
     })
     return <PersonSection {...args}>{cards}</PersonSection>
-  },
-}
-
-export const AuthorDefault = {
-  args: {
-    name: 'Garth Brooks',
-    title: 'Boss / Country music',
-    avatar: '/src/assets/images/person.jpg',
-    avatarAltText: 'test alt text',
-    headingElement: 'h3',
-  },
-  render: (args) => {
-    return <Author {...args} align="left" />
-  },
-}
-
-export const AuthorNoImage = {
-  args: {
-    name: 'Garth Brooks',
-    title: 'Boss / Country music',
-    headingElement: 'h3',
-  },
-  render: (args) => {
-    return <Author {...args} align="left" />
-  },
-}
-
-export const AuthorLight = {
-  args: {
-    avatar: '/src/assets/images/person.jpg',
-    avatarAltText: 'test alt text',
-    headingElement: 'h3',
-    headingColor: 'Light',
-    name: 'Garth Brooks',
-    title: 'Boss / Country music',
-    titleColor: 'Light',
-  },
-  render: (args) => {
-    return (
-      <div className="max-w-sm bg-black p-8">
-        <Author {...args} align="left" />
-      </div>
-    )
   },
 }

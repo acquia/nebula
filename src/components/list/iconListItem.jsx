@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'
+
 export default function IconListItem({ bulletImage, children }) {
   return (
     <li className="mb-4 flex gap-x-3">
@@ -9,4 +11,15 @@ export default function IconListItem({ bulletImage, children }) {
       <div>{children}</div>
     </li>
   )
+}
+
+IconListItem.propTypes = {
+  /**
+   * The image to use as the bullet point.
+   */
+  bulletImage: PropTypes.string,
+  /**
+   * The content of the list item.
+   */
+  children: PropTypes.node,
 }

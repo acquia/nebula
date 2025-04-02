@@ -30,11 +30,11 @@ const gridVariants = cva('mb-10 grid gap-6', {
 })
 
 const FooterMenu = ({
+  children,
+  className,
   columnLayout,
   footerElement,
   textColor,
-  className,
-  children,
 }) => {
   const Footer = footerElement || 'footer'
   return (
