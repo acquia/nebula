@@ -5,6 +5,7 @@ import Testimonial from './testimonial'
 export default function TestimonialSection({
   image,
   imageAltText,
+  imagePlacement = 'left',
   background,
   textColor,
   ...props
@@ -26,7 +27,7 @@ export default function TestimonialSection({
       className={variants({ textColor })}
       style={{ backgroundImage: `url(${background})`, color: textColor }}
     >
-      {image && (
+      {image && imagePlacement === 'left' && (
         <div className="md:flex-1">
           <img alt={imageAltText} src={image} />
         </div>
@@ -34,6 +35,11 @@ export default function TestimonialSection({
       <div className="md:flex-1">
         <Testimonial textColor={textColor} {...props} />
       </div>
+      {image && imagePlacement === 'right' && (
+        <div className="md:flex-1">
+          <img alt={imageAltText} src={image} />
+        </div>
+      )}
     </div>
   )
 }

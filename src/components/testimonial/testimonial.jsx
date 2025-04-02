@@ -2,25 +2,23 @@ import { cva } from 'class-variance-authority'
 
 import { cn } from '../../lib/utils'
 
-const cardVariants = cva(
-  'flex flex-col gap-2 border-l-2 border-l-gray-200 pl-3 leading-[normal]',
-  {
-    variants: {
-      layout: {
-        'Left aligned': 'items-start text-left',
-        'Center aligned': 'items-center text-center',
-        'Right aligned': 'items-end text-right',
-      },
-      textColor: {
-        Dark: '',
-        Light: 'text-white',
-      },
+const cardVariants = cva('flex flex-col gap-2 leading-[normal]', {
+  variants: {
+    layout: {
+      'Left aligned': 'items-start border-l-2 border-l-gray-200 pl-3 text-left',
+      'Center aligned':
+        'items-center border-l-2 border-l-gray-200 pl-3 text-center',
+      'Right aligned': 'items-end border-r-2 border-r-gray-200 pr-3 text-right',
     },
-    defaultVariants: {
-      layout: 'Left aligned',
+    textColor: {
+      Dark: '',
+      Light: 'text-white',
     },
-  }
-)
+  },
+  defaultVariants: {
+    layout: 'Left aligned',
+  },
+})
 
 const textVariants = cva('max-w-3xl', {
   variants: {
@@ -84,7 +82,7 @@ export default function Testimonial({
         '--color-bg-hover': backgroundColorOnHover,
       }}
     >
-      <div className={cn(cardVariants({ layout, textColor }))}>
+      <div className={cardVariants({ layout, textColor })}>
         <blockquote className={textVariants({ textSize })}>
           <p>{text}</p>
         </blockquote>

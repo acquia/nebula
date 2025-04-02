@@ -7,9 +7,9 @@ const meta = {
   component: null,
   tags: ['autodocs'],
   argTypes: {
-    intent: {
+    layout: {
       control: 'select',
-      options: ['primary', 'secondary', 'accent'],
+      options: ['Left aligned', 'Center aligned', 'Right aligned'],
     },
     spacing: {
       control: 'select',
@@ -28,7 +28,7 @@ const meta = {
 
 export default meta
 
-export const TestimonialCardDefault = {
+export const TestimonialDefault = {
   args: {
     name: 'Garth Brooks',
     role: 'Boss',
@@ -40,17 +40,41 @@ export const TestimonialCardDefault = {
     textColor: 'Dark',
   },
   render: (args) => {
-    return (
-      <Testimonial
-        avatar={args.avatar}
-        avatarAltText={args.avatarAltText}
-        name={args.name}
-        organization={args.organization}
-        role={args.role}
-        text={args.text}
-        textSize={args.textSize}
-      />
-    )
+    return <Testimonial {...args} />
+  },
+}
+
+export const TestimonialCenter = {
+  args: {
+    layout: 'Center aligned',
+    name: 'Garth Brooks',
+    role: 'Boss',
+    organization: 'Country music',
+    text: 'Truly one of the products of all time.',
+    avatar: '/src/assets/images/acquia-logo.svg',
+    avatarAltText: 'test alt text',
+    textSize: 'Small',
+    textColor: 'Dark',
+  },
+  render: (args) => {
+    return <Testimonial {...args} />
+  },
+}
+
+export const TestimonialRight = {
+  args: {
+    layout: 'Right aligned',
+    name: 'Garth Brooks',
+    role: 'Boss',
+    organization: 'Country music',
+    text: 'Truly one of the products of all time.',
+    avatar: '/src/assets/images/acquia-logo.svg',
+    avatarAltText: 'test alt text',
+    textSize: 'Small',
+    textColor: 'Dark',
+  },
+  render: (args) => {
+    return <Testimonial {...args} />
   },
 }
 
@@ -68,18 +92,7 @@ export const TestimonialCardDark = {
     textColor: 'Light',
   },
   render: (args) => {
-    return (
-      <Testimonial
-        avatar={args.avatar}
-        avatarAltText={args.avatarAltText}
-        name={args.name}
-        organization={args.organization}
-        role={args.role}
-        text={args.text}
-        textSize={args.textSize}
-        {...args}
-      />
-    )
+    return <Testimonial {...args} />
   },
 }
 
@@ -130,6 +143,27 @@ export const testimonialSectionWithImage = {
     avatarAltText: 'test alt text',
     image: '/src/assets/images/placeholder.png',
     imageAltText: 'test alt text',
+    background: '/src/assets/images/hero-placeholder-light.png',
+  },
+  render: (args) => {
+    return <TestimonialSection {...args} />
+  },
+}
+
+export const testimonialSectionWithImageRight = {
+  args: {
+    name: 'Garth Brooks',
+    role: 'Boss',
+    organization: 'Country music',
+    text: 'Truly one of the products of all time.',
+    textColor: 'Dark',
+    textSize: 'Large',
+    avatar: '/src/assets/images/acquia-logo.svg',
+    avatarAltText: 'test alt text',
+    image: '/src/assets/images/placeholder.png',
+    imageAltText: 'test alt text',
+    imagePlacement: 'right',
+    layout: 'Right aligned',
     background: '/src/assets/images/hero-placeholder-light.png',
   },
   render: (args) => {
