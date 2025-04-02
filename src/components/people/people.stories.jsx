@@ -1,15 +1,27 @@
+import Card from '../card'
 import CardContainer from '../cardContainer'
-import Author from './author'
-import PersonCard from './personCard'
-import PersonSection from './PersonSection'
+import { Author, Person, PersonCard, PersonSection } from './index'
 
 const meta = {
   title: 'Components/People',
-  component: null,
-  argTypes: {},
+  component: Person,
+  tags: ['autodocs'],
 }
 
 export default meta
+
+export const PersonDefault = {
+  args: {
+    name: 'Garth Brooks',
+    title: 'Boss / Country music',
+    avatar: '/src/assets/images/person.jpg',
+    avatarAltText: 'test alt text',
+    headingElement: 'h4',
+  },
+  render: (args) => {
+    return <Person {...args} />
+  },
+}
 
 export const PersonCardDefault = {
   args: {
@@ -21,6 +33,21 @@ export const PersonCardDefault = {
   },
   render: (args) => {
     return <PersonCard {...args} />
+  },
+}
+
+export const PersonUsingCard = {
+  args: {},
+  render: () => {
+    return (
+      <Card
+        heading="Garth Brooks"
+        headingElement="h2"
+        image="/src/assets/images/person.jpg"
+        text="Boss / Country music"
+        textColor="Dark"
+      ></Card>
+    )
   },
 }
 
@@ -44,6 +71,70 @@ export const PersonCardSection = {
     const cardsArray = Array(args.previewCardCount).fill(null)
     const cards = cardsArray.map((_, index) => {
       return <PersonCard key={index} {...args} />
+    })
+    return <CardContainer {...args}>{cards}</CardContainer>
+  },
+}
+
+export const PersonUsingCardSection = {
+  args: {
+    headingElement: 'h3',
+    cardLayout: '4 columns',
+    previewCardCount: 4,
+    layout: 'Center aligned',
+    preHeading: 'Team',
+    heading: 'Meet our leadership.',
+    headingSize: 'Medium',
+    textColor: 'Dark',
+    previewCardType: 'Feature Card',
+  },
+  render: (args) => {
+    const cardsArray = Array(args.previewCardCount).fill(null)
+    const cards = cardsArray.map((_, index) => {
+      return (
+        <Card
+          key={index}
+          altText={'test alt text'}
+          heading="Garth Brooks"
+          headingElement="h2"
+          image="/src/assets/images/person.jpg"
+          text="Boss / Country music"
+          textColor="Dark"
+        ></Card>
+      )
+    })
+    return <CardContainer {...args}>{cards}</CardContainer>
+  },
+}
+
+export const PersonUsingCardSectionLight = {
+  args: {
+    headingElement: 'h3',
+    cardLayout: '4 columns',
+    previewCardCount: 4,
+    layout: 'Center aligned',
+    preHeading: 'Team',
+    heading: 'Meet our leadership.',
+    headingSize: 'Medium',
+    textColor: 'Dark',
+    previewCardType: 'Feature Card',
+  },
+  render: (args) => {
+    const cardsArray = Array(args.previewCardCount).fill(null)
+    const cards = cardsArray.map((_, index) => {
+      return (
+        <Card
+          key={index}
+          altText="test alt text"
+          backgroundColor="#000000"
+          backgroundColorOnHover="#333333"
+          heading="Garth Brooks"
+          headingElement="h2"
+          image="/src/assets/images/person.jpg"
+          text="Boss / Country music"
+          textColor="Light"
+        ></Card>
+      )
     })
     return <CardContainer {...args}>{cards}</CardContainer>
   },
