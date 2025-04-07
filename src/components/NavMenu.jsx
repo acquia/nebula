@@ -9,6 +9,7 @@ const NavMenu = ({ children, variant = 'horizontal', className = '' }) => {
   const menuItems = React.Children.map(children, (child, index) => {
     return React.cloneElement(child, {
       isActive: index === activeIndex,
+      isVertical: variant === 'vertical',
       onClick: (e) => {
         setActiveIndex(index)
         // Call the original onClick if it exists
@@ -21,7 +22,7 @@ const NavMenu = ({ children, variant = 'horizontal', className = '' }) => {
 
   return (
     <nav
-      className={`nav-menu ${variant === 'vertical' ? 'flex flex-col space-y-2' : 'flex space-x-4'} ${className}`}
+      className={`nav-menu ${variant === 'vertical' ? 'flex flex-col space-y-2' : 'flex flex-wrap space-x-4'} ${className}`}
       role="navigation"
     >
       {menuItems}
@@ -32,6 +33,7 @@ const NavMenu = ({ children, variant = 'horizontal', className = '' }) => {
 export const NavMenuItem = ({
   children,
   isActive = false,
+  isVertical = false,
   onClick,
   href = '#',
   className = '',
@@ -47,18 +49,14 @@ export const NavMenuItem = ({
   return (
     <div className="relative">
       <Link
-        className={`${isActive ? 'border-b-2 border-blue-500' : ''} ${className}`}
+        className={`${isActive ? (isVertical ? 'border-l-2 border-blue-500' : 'border-b-2 border-l-0 border-blue-500') : ''} ${className}`}
         href={href}
         onClick={dropdownItems ? handleDropdownToggle : onClick}
         variant="navLinkDark"
       >
         {children}
         {dropdownItems && (
-          <span
-            className={`ml-2 transform transition-transform duration-200 ${
-              isDropdownOpen ? 'rotate-180' : 'rotate-0'
-            }`}
-          >
+          <span className={`ml-2 transform transition-transform duration-200`}>
             {'⌵'}
           </span>
         )}
