@@ -36,7 +36,7 @@ const MultiCarousel = ({ items, slidesToShow = 1 }) => {
         <div
           className="flex transition-transform duration-300"
           style={{
-            transform: `translateX(calc(-${(currentIndex * 100) / slidesToShow}%)`,
+            transform: `translateX(calc(-${currentIndex * (100 / slidesToShow)}% - ${currentIndex * (10 / slidesToShow)}px))`,
             gap: '10px', // Add spacing between slides
           }}
         >
