@@ -48,12 +48,14 @@ const Carousel = ({ items }) => {
           ))}
         </div>
         <button
+          aria-label="Previous Slide"
           className="absolute top-1/2 left-2 flex h-7 w-7 -translate-y-1/2 transform items-center justify-center rounded-full bg-blue-500 text-white hover:bg-blue-400"
           onClick={handlePrev}
         >
           &larr;
         </button>
         <button
+          aria-label="Next Slide"
           className="absolute top-1/2 right-2 flex h-7 w-7 -translate-y-1/2 transform items-center justify-center rounded-full bg-blue-500 text-white hover:bg-blue-400"
           onClick={handleNext}
         >

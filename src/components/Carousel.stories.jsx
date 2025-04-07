@@ -45,13 +45,13 @@ export const WithImages = {
         key="image-1"
         alt="Image 1"
         className="h-64 w-full object-contain"
-        src="/src/assets/images/person.jpg"
+        src="/src/assets/images/hero-background-placeholder-dark.png"
       />,
       <img
         key="image-2"
         alt="Image 2"
         className="h-64 w-full object-contain"
-        src="/src/assets/images/logo.svg"
+        src="/src/assets/images/placeholder.png"
       />,
       <img
         key="image-3"
