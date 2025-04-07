@@ -67,6 +67,8 @@ const Carousel = ({ items }) => {
           <span
             key={index}
             className={`h-2 w-2 rounded-full ${index === currentIndex ? 'bg-blue-500' : 'bg-gray-400'}`}
+            onClick={() => setCurrentIndex(index)} // Navigate to specific slide
+            style={{ cursor: 'pointer' }} // Add pointer cursor for better UX
           ></span>
         ))}
       </div>
