@@ -34,10 +34,9 @@ const MultiCarousel = ({ items, slidesToShow = 1 }) => {
     <div>
       <div className="relative mx-auto w-full max-w-lg overflow-hidden">
         <div
-          className="flex transition-transform duration-300"
+          className="flex gap-2 transition-transform duration-300"
           style={{
             transform: `translateX(calc(-${currentIndex * (100 / slidesToShow)}% - ${currentIndex * (10 / slidesToShow)}px))`,
-            gap: '10px', // Add spacing between slides
           }}
         >
           {items.map((item, index) => {
@@ -47,14 +46,13 @@ const MultiCarousel = ({ items, slidesToShow = 1 }) => {
 
             return (
               <div
-                key={index}
-                className={`transition-opacity duration-300 ${
-                  isActive ? 'opacity-100' : 'opacity-50'
-                }`}
+                key={`slide-${index}`}
+                className="transition-opacity duration-300"
                 style={{
+                  opacity: isActive ? 1 : 0.5,
+                  filter: isActive ? 'none' : 'grayscale(100%)',
                   flex: `0 0 calc(${100 / slidesToShow}% - ${((slidesToShow - 1) * 10) / slidesToShow}px)`,
                   width: `calc(${100 / slidesToShow}% - ${((slidesToShow - 1) * 10) / slidesToShow}px)`,
-                  filter: isActive ? 'none' : 'grayscale(50%)',
                 }}
               >
                 {item}
@@ -64,14 +62,14 @@ const MultiCarousel = ({ items, slidesToShow = 1 }) => {
         </div>
         <button
           aria-label="Previous Slide"
-          className="absolute top-1/2 left-2 flex h-7 w-7 -translate-y-1/2 transform items-center justify-center rounded-full bg-blue-500 text-white hover:bg-blue-400"
+          className="absolute top-1/2 left-2 flex h-7 w-7 -translate-y-1/2 transform cursor-pointer items-center justify-center rounded-full bg-blue-500 text-white hover:bg-blue-400"
           onClick={handlePrev}
         >
           &larr;
         </button>
         <button
           aria-label="Next Slide"
-          className="absolute top-1/2 right-2 flex h-7 w-7 -translate-y-1/2 transform items-center justify-center rounded-full bg-blue-500 text-white hover:bg-blue-400"
+          className="absolute top-1/2 right-2 flex h-7 w-7 -translate-y-1/2 transform cursor-pointer items-center justify-center rounded-full bg-blue-500 text-white hover:bg-blue-400"
           onClick={handleNext}
         >
           &rarr;
@@ -79,14 +77,15 @@ const MultiCarousel = ({ items, slidesToShow = 1 }) => {
       </div>
       <div className="mx-auto mt-4 flex w-full max-w-lg justify-center space-x-2">
         {[...Array(totalPages)].map((_, pageIndex) => (
-          <span
+          <button
             key={pageIndex}
-            className={`h-2 w-2 rounded-full ${
-              pageIndex === currentPage ? 'bg-blue-500' : 'bg-gray-400'
-            }`}
+            className="h-2 w-2 cursor-pointer rounded-full"
             onClick={() => goToPage(pageIndex)}
-            style={{ cursor: 'pointer' }}
-          ></span>
+            style={{
+              backgroundColor:
+                pageIndex === currentPage ? '#3B82F6' : '#9CA3AF',
+            }}
+          ></button>
         ))}
       </div>
     </div>
