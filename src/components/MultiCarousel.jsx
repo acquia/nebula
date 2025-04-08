@@ -1,48 +1,58 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const MultiCarousel = ({ items, slidesToShow = 1 }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [visibleSlides, setVisibleSlides] = useState(slidesToShow)
 
-  const totalPages = Math.ceil(items.length / slidesToShow)
+  useEffect(() => {
+    const updateSlidesToShow = () => {
+      if (window.innerWidth < 640) {
+        setVisibleSlides(1)
+      } else {
+        setVisibleSlides(slidesToShow)
+      }
+    }
+
+    updateSlidesToShow()
+    window.addEventListener('resize', updateSlidesToShow)
+    return () => window.removeEventListener('resize', updateSlidesToShow)
+  }, [slidesToShow])
+
+  const totalPages = Math.ceil(items.length / visibleSlides)
 
   const handlePrev = () => {
-    // Move by slidesToShow number of slides
     setCurrentIndex((prevIndex) => {
-      const newIndex = prevIndex - slidesToShow
-      return newIndex < 0 ? Math.max(items.length - slidesToShow, 0) : newIndex
+      const newIndex = prevIndex - visibleSlides
+      return newIndex < 0 ? Math.max(items.length - visibleSlides, 0) : newIndex
     })
   }
 
   const handleNext = () => {
-    // Move by slidesToShow number of slides
     setCurrentIndex((prevIndex) => {
-      const newIndex = prevIndex + slidesToShow
+      const newIndex = prevIndex + visibleSlides
       return newIndex >= items.length ? 0 : newIndex
     })
   }
 
-  // Handle dot indicator clicks
   const goToPage = (pageIndex) => {
-    const newIndex = pageIndex * slidesToShow
-    setCurrentIndex(Math.min(newIndex, items.length - slidesToShow))
+    const newIndex = pageIndex * visibleSlides
+    setCurrentIndex(Math.min(newIndex, items.length - visibleSlides))
   }
 
-  // Get the current page for indicators
-  const currentPage = Math.floor(currentIndex / slidesToShow)
+  const currentPage = Math.floor(currentIndex / visibleSlides)
 
   return (
     <div>
-      <div className="relative mx-auto w-full max-w-lg overflow-hidden">
+      <div className="relative mx-auto w-full overflow-hidden">
         <div
           className="flex gap-2 transition-transform duration-300"
           style={{
-            transform: `translateX(calc(-${currentIndex * (100 / slidesToShow)}% - ${currentIndex * (10 / slidesToShow)}px))`,
+            transform: `translateX(calc(-${currentIndex * (100 / visibleSlides)}% - ${currentIndex * (10 / visibleSlides)}px))`,
           }}
         >
           {items.map((item, index) => {
-            // Determine if this is a current active slide
             const isActive =
-              index >= currentIndex && index < currentIndex + slidesToShow
+              index >= currentIndex && index < currentIndex + visibleSlides
 
             return (
               <div
@@ -51,8 +61,8 @@ const MultiCarousel = ({ items, slidesToShow = 1 }) => {
                 style={{
                   opacity: isActive ? 1 : 0.5,
                   filter: isActive ? 'none' : 'grayscale(100%)',
-                  flex: `0 0 calc(${100 / slidesToShow}% - ${((slidesToShow - 1) * 10) / slidesToShow}px)`,
-                  width: `calc(${100 / slidesToShow}% - ${((slidesToShow - 1) * 10) / slidesToShow}px)`,
+                  flex: `0 0 calc(${100 / visibleSlides}% - ${((visibleSlides - 1) * 10) / visibleSlides}px)`,
+                  width: `calc(${100 / visibleSlides}% - ${((visibleSlides - 1) * 10) / visibleSlides}px)`,
                 }}
               >
                 {item}
