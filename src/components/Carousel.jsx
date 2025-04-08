@@ -62,11 +62,10 @@ const Carousel = ({ items }) => {
         {items.map((_, index) => (
           <button
             key={`paginator-${index}`}
-            className="h-2 w-2 cursor-pointer rounded-full"
+            className={`h-2 w-2 cursor-pointer rounded-full ${
+              index === currentIndex ? 'bg-blue-500' : 'bg-gray-400'
+            }`}
             onClick={() => setCurrentIndex(index)}
-            style={{
-              backgroundColor: index === currentIndex ? '#3b82f6' : '#9ca3af', // Tailwind colors for blue-500 and gray-400
-            }}
           ></button>
         ))}
       </div>

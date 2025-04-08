@@ -79,12 +79,10 @@ const MultiCarousel = ({ items, slidesToShow = 1 }) => {
         {[...Array(totalPages)].map((_, pageIndex) => (
           <button
             key={pageIndex}
-            className="h-2 w-2 cursor-pointer rounded-full"
+            className={`h-2 w-2 cursor-pointer rounded-full ${
+              pageIndex === currentPage ? 'bg-blue-500' : 'bg-gray-400'
+            }`}
             onClick={() => goToPage(pageIndex)}
-            style={{
-              backgroundColor:
-                pageIndex === currentPage ? '#3B82F6' : '#9CA3AF',
-            }}
           ></button>
         ))}
       </div>
