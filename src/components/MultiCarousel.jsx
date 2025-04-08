@@ -88,7 +88,7 @@ const MultiCarousel = ({ items, slidesToShow = 1 }) => {
       <div className="mx-auto mt-4 flex w-full max-w-lg justify-center space-x-2">
         {[...Array(totalPages)].map((_, pageIndex) => (
           <button
-            key={pageIndex}
+            key={`paginator-${pageIndex}`}
             className={`h-2 w-2 cursor-pointer rounded-full ${
               pageIndex === currentPage ? 'bg-blue-500' : 'bg-gray-400'
             }`}

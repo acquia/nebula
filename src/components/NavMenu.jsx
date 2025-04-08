@@ -47,7 +47,7 @@ export const NavMenuItem = ({
   }
 
   return (
-    <div className="relative">
+    <div className="relative" role={dropdownItems ? 'menu' : undefined}>
       <Link
         className={`${isActive ? (isVertical ? 'border-l-2 border-blue-500' : 'border-b-2 border-l-0 border-blue-500') : ''} ${className}`}
         href={href}
@@ -65,7 +65,7 @@ export const NavMenuItem = ({
         <div className="absolute left-0 mt-2 w-48 rounded-md bg-white shadow-lg">
           <ul className="flex flex-col space-y-1">
             {dropdownItems.map((item) => (
-              <li key={item.label}>
+              <li key={item.label} role="menuitem">
                 <a
                   className="block rounded-md px-3 py-2 text-gray-800 hover:bg-gray-100"
                   href={item.href}
