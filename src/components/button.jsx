@@ -39,7 +39,7 @@ const buttonVariants = cva(
         linkLight:
           'p-0 text-white hover:text-primary-100 hover:underline hover:underline-offset-3 focus:text-primary-100 active:text-primary-200',
         navLinkDark:
-          'rounded-none border-s-0 border-b-2 border-transparent hover:border-primary-600 hover:text-primary-600 focus:border-primary-600 focus:text-primary-600 active:border-primary-800 active:text-primary-800 md:px-1 md:py-3',
+          'rounded-none border-s-0 border-transparent hover:border-primary-600 hover:text-primary-600 focus:border-primary-600 focus:text-primary-600 active:border-primary-800 active:text-primary-800 md:px-1 md:py-3',
       },
     },
     defaultVariants: {
