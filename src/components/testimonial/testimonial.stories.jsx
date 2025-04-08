@@ -1,4 +1,5 @@
 import CardContainer from '../cardContainer'
+import MultiCarousel from '../MultiCarousel'
 import Testimonial from './testimonial'
 import TestimonialSection from './testimonialSection'
 
@@ -209,5 +210,88 @@ export const testimonialSectionDarkBg = {
   },
   render: (args) => {
     return <TestimonialSection {...args} />
+  },
+}
+
+/**
+ * Uses the Carousel component to display testimonial cards.
+ */
+export const TestimonialCarousel = {
+  args: {
+    items: [
+      {
+        name: 'Garth Brooks',
+        role: 'Boss',
+        organization: 'Country music',
+        text: 'Best of all time.',
+        avatar: '/src/assets/images/acquia-logo.svg',
+        avatarAltText: 'test alt text',
+        textSize: 'Small',
+        textColor: 'Dark',
+      },
+      {
+        name: 'Dolly Parton',
+        role: 'Singer',
+        organization: 'Country music',
+        text: 'An amazing experience!',
+        avatar: '/src/assets/images/acquia-logo.svg',
+        avatarAltText: 'test alt text',
+        textSize: 'Small',
+        textColor: 'Dark',
+      },
+      {
+        name: 'Johnny Cash',
+        role: 'Legend',
+        organization: 'Country music',
+        text: 'Absolutely fantastic!',
+        avatar: '/src/assets/images/acquia-logo.svg',
+        avatarAltText: 'test alt text',
+        textSize: 'Small',
+        textColor: 'Dark',
+      },
+      {
+        name: 'Willie Nelson',
+        role: 'Singer',
+        organization: 'Country music',
+        text: 'A truly remarkable product!',
+        avatar: '/src/assets/images/acquia-logo.svg',
+        avatarAltText: 'test alt text',
+        textSize: 'Small',
+        textColor: 'Dark',
+      },
+      {
+        name: 'Reba McEntire',
+        role: 'Actress',
+        organization: 'Country music',
+        text: 'Exceeded all my expectations!',
+        avatar: '/src/assets/images/acquia-logo.svg',
+        avatarAltText: 'test alt text',
+        textSize: 'Small',
+        textColor: 'Dark',
+      },
+      {
+        name: 'Kenny Rogers',
+        role: 'Legend',
+        organization: 'Country music',
+        text: 'Simply outstanding!',
+        avatar: '/src/assets/images/acquia-logo.svg',
+        avatarAltText: 'test alt text',
+        textSize: 'Small',
+        textColor: 'Dark',
+      },
+    ],
+    visibleItems: 3, // New property to specify the number of visible items
+  },
+  render: (args) => {
+    const testimonialItems = args.items.map((item, index) => (
+      <Testimonial key={`testimonial-${index}`} {...item} />
+    ))
+
+    return (
+      <MultiCarousel
+        items={testimonialItems}
+        slidesToShow={args.visibleItems}
+      />
+    )
   },
 }
