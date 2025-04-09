@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+import { cn } from '../../lib/utils'
+
 const Carousel = ({ items }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
 
@@ -17,19 +19,21 @@ const Carousel = ({ items }) => {
 
   return (
     <div>
-      <div className="relative mx-auto w-full max-w-lg overflow-hidden">
+      <div className="relative mx-auto box-border w-full max-w-lg overflow-hidden">
         <div
-          className="flex gap-2 transition-transform duration-300"
+          className="box-border flex gap-2 transition-transform duration-300"
           style={{
-            transform: `translateX(calc(-${currentIndex * 80}% - ${currentIndex * 10}px + 10%))`, // Tailwind cannot handle dynamic transform values
+            transform: `translateX(calc(-${currentIndex * 80}% - ${currentIndex * 10}px  + 2px + 10%))`, // Tailwind cannot handle dynamic transform values
           }}
         >
           {items.map((item, index) => (
             <div
               key={`slide-${index}`}
-              className="w-[80%] flex-none transition-opacity duration-300"
+              className={cn(
+                'box-border w-[80%] flex-none transition-opacity duration-300',
+                index === currentIndex ? 'opacity-100' : 'opacity-40'
+              )}
               style={{
-                opacity: index === currentIndex ? 1 : 0.5,
                 filter: index === currentIndex ? 'none' : 'grayscale(100%)',
                 display:
                   Math.abs(index - currentIndex) <= 1 ||
@@ -62,9 +66,10 @@ const Carousel = ({ items }) => {
         {items.map((_, index) => (
           <button
             key={`paginator-${index}`}
-            className={`h-2 w-2 cursor-pointer rounded-full ${
+            className={cn(
+              'h-2 w-2 cursor-pointer rounded-full',
               index === currentIndex ? 'bg-blue-500' : 'bg-gray-400'
-            }`}
+            )}
             onClick={() => setCurrentIndex(index)}
           ></button>
         ))}

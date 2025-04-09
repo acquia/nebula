@@ -1,6 +1,6 @@
 import React from 'react'
 
-import MultiCarousel from './MultiCarousel'
+import { MultiCarousel } from './'
 
 const meta = {
   title: 'Components/MultiCarousel',

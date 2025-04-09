@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Carousel from './Carousel'
+import { Carousel } from './'
 
 const meta = {
   title: 'Components/Carousel',

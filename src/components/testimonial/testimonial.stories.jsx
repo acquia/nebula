@@ -1,5 +1,5 @@
 import CardContainer from '../cardContainer'
-import MultiCarousel from '../MultiCarousel'
+import { MultiCarousel } from '../carousel'
 import Testimonial from './testimonial'
 import TestimonialSection from './testimonialSection'
 
