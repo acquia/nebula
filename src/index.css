@@ -1,0 +1,7 @@
+@import 'tailwindcss';
+@import './global.css';
+
+@theme {
+  --font-sans: 'Inter Variable';
+  --font-sans--font-feature-settings: 'liga' 1, 'calt' 1;
+}

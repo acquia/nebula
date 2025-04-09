@@ -1,9 +1,4 @@
-@import 'tailwindcss';
-
 @theme {
-  --font-sans: 'Inter Variable';
-  --font-sans--font-feature-settings: 'liga' 1, 'calt' 1;
-
   --color-drupal-blue: #009cde;
   --color-drupal-dark-blue: #006aa9;
   --color-drupal-navy: #12285f;

@@ -1,7 +1,7 @@
-import "@fontsource-variable/inter";
-import "../src/global.css";
+import '@fontsource-variable/inter'
+import '../src/index.css'
 
 /** @type { import('@storybook/react').Preview } */
-const preview = {};
+const preview = {}
 
-export default preview;
+export default preview
