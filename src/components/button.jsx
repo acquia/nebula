@@ -57,7 +57,7 @@ const Button = ({
 }) => {
   return (
     <a
-      className={cn(buttonVariants({ variant, className }))}
+      className={cn(buttonVariants({ variant }), className)}
       href={link}
       {...props}
     >
@@ -76,7 +76,7 @@ export const Link = ({
 }) => {
   return (
     <a
-      className={cn(buttonVariants({ variant, className }))}
+      className={cn(buttonVariants({ variant }), className)}
       href={link}
       {...props}
     >

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 
+import { cn } from '../lib/utils'
 import { Link } from './button'
 
 const NavMenu = ({ children, variant = 'horizontal', className = '' }) => {
@@ -22,7 +23,13 @@ const NavMenu = ({ children, variant = 'horizontal', className = '' }) => {
 
   return (
     <nav
-      className={`nav-menu ${variant === 'vertical' ? 'flex flex-col space-y-2' : 'flex flex-wrap space-x-4'} ${className}`}
+      className={cn(
+        'nav-menu',
+        variant === 'vertical'
+          ? 'flex flex-col space-y-2'
+          : 'flex flex-wrap space-x-4',
+        className
+      )}
       role="navigation"
     >
       {menuItems}
@@ -49,14 +56,21 @@ export const NavMenuItem = ({
   return (
     <div className="relative" role={dropdownItems ? 'menu' : undefined}>
       <Link
-        className={`${isActive ? (isVertical ? 'border-l-2 border-blue-500' : 'border-b-2 border-l-0 border-blue-500') : ''} ${className}`}
+        className={cn(
+          isActive
+            ? isVertical
+              ? 'border-l-2 border-blue-500'
+              : 'border-b-2 border-l-0 border-blue-500'
+            : '',
+          className
+        )}
         href={href}
         onClick={dropdownItems ? handleDropdownToggle : onClick}
         variant="navLinkDark"
       >
         {children}
         {dropdownItems && (
-          <span className={`ml-2 transform transition-transform duration-200`}>
+          <span className="transform transition-transform duration-200">
             {'⌵'}
           </span>
         )}
