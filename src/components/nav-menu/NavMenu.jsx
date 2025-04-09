@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
-import { cn } from '../lib/utils'
-import { Link } from './button'
+import { cn } from '../../lib/utils'
+import { Link } from '../button'
 
 const NavMenu = ({ children, variant = 'horizontal', className = '' }) => {
   const [activeIndex, setActiveIndex] = useState(0)

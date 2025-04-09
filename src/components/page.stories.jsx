@@ -16,6 +16,7 @@ import Heading from './heading.jsx'
 import Hero from './hero.jsx'
 import Image from './image.jsx'
 import LogoCard from './logo-card.jsx'
+import { NavMenu, NavMenuItem } from './nav-menu'
 import NavigationMenu from './navigation-menu.jsx'
 import Page from './page'
 import Section from './section.jsx'
@@ -98,11 +99,30 @@ const menu = (
   />
 )
 
+const newMenuNotResponsive = (
+  <NavMenu variant="horizontal">
+    <NavMenuItem>Home</NavMenuItem>
+    <NavMenuItem>Products</NavMenuItem>
+    <NavMenuItem>Services</NavMenuItem>
+    <NavMenuItem>About</NavMenuItem>
+    <NavMenuItem>Contact</NavMenuItem>
+    <NavMenuItem
+      dropdownItems={[
+        { label: 'Sub Item 1', href: '#' },
+        { label: 'Sub Item 2', href: '#' },
+        { label: 'Sub Item 3', href: '#' },
+      ]}
+    >
+      More
+    </NavMenuItem>
+  </NavMenu>
+)
+
 export const HomePage = {
   args: {},
   render: (args) => (
     <Page {...args}>
-      <Header logo={logo} menu={menu} />
+      <Header logo={logo} menu={newMenuNotResponsive} />
       <Hero
         backgroundColor="bg-blue-600"
         backgroundImage="/src/assets/images/hero-background-placeholder-dark.png?raw=true"
