@@ -45,7 +45,7 @@ const MultiCarousel = ({ items, slidesToShow = 1 }) => {
     <div>
       <div className="relative mx-auto w-full overflow-hidden">
         <div
-          className="flex gap-2 transition-transform duration-300"
+          className="mr-8 ml-8 flex gap-2 transition-transform duration-300"
           style={{
             transform: `translateX(calc(-${currentIndex * (100 / visibleSlides)}% - ${currentIndex * (10 / visibleSlides)}px))`,
           }}
@@ -72,14 +72,14 @@ const MultiCarousel = ({ items, slidesToShow = 1 }) => {
         </div>
         <button
           aria-label="Previous Slide"
-          className="absolute top-1/2 left-2 flex h-7 w-7 -translate-y-1/2 transform cursor-pointer items-center justify-center rounded-full bg-blue-500 text-white hover:bg-blue-400"
+          className="absolute top-1/2 left-0 flex h-7 w-7 -translate-y-1/2 transform cursor-pointer items-center justify-center rounded-full bg-blue-500 text-white hover:bg-blue-400"
           onClick={handlePrev}
         >
           &larr;
         </button>
         <button
           aria-label="Next Slide"
-          className="absolute top-1/2 right-2 flex h-7 w-7 -translate-y-1/2 transform cursor-pointer items-center justify-center rounded-full bg-blue-500 text-white hover:bg-blue-400"
+          className="absolute top-1/2 right-0 flex h-7 w-7 -translate-y-1/2 transform cursor-pointer items-center justify-center rounded-full bg-blue-500 text-white hover:bg-blue-400"
           onClick={handleNext}
         >
           &rarr;
