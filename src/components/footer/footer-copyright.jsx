@@ -6,7 +6,7 @@ const FooterCopyright = ({ footerElement, text, textColor }) => {
   const Footer = footerElement || 'footer'
 
   return (
-    <Footer className="mt-5 border-t border-slate-200 pt-5">
+    <Footer className="mt-5 pt-5 border-t border-gray-200">
       <Copyright text={text} textColor={textColor} />
     </Footer>
   )

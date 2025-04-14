@@ -124,7 +124,7 @@ export const HomePage = {
     <Page {...args}>
       <Header logo={logo} menu={newMenuNotResponsive} />
       <Hero
-        backgroundColor="bg-blue-600"
+        backgroundColor="bg-primary-600"
         backgroundImage="/src/assets/images/hero-background-placeholder-dark.png?raw=true"
         button1Label="Get started"
         button1Link="#get-started"
@@ -209,7 +209,7 @@ export const HomePage = {
         />
       </CardContainer>
       <TwoColumnTextImage
-        className="mt-16 bg-slate-50 p-24"
+        className="mt-16 p-24 bg-gray-50"
         heading="Who we are."
         headingElement="h2"
         headingSize="Large"
@@ -242,7 +242,7 @@ export const HomePage = {
         <LogoCard image="/src/assets/images/logo.svg" />
         <LogoCard image="/src/assets/images/logo.svg" />
       </CardContainer>
-      <div className="mb-24 flex flex-wrap items-center justify-center gap-8">
+      <div className="mb-24 gap-8 flex flex-wrap items-center justify-center">
         <Text
           className="my-0"
           text="Over 2500 companies use us to better their business."

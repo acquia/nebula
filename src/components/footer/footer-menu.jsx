@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { cn } from '../../lib/utils'
 
 const footerVariants = cva(
-  'mx-auto mt-auto w-full max-w-[85rem] border-t border-solid border-slate-200 px-4 py-10 sm:px-6 lg:px-8',
+  'px-4 py-10 sm:px-6 lg:px-8 mx-auto mt-auto w-full max-w-[85rem] border-t border-solid border-gray-200',
   {
     variants: {
       textColor: {
@@ -15,13 +15,13 @@ const footerVariants = cva(
   }
 )
 
-const gridVariants = cva('mb-10 grid gap-6', {
+const gridVariants = cva('mb-10 gap-6 grid', {
   variants: {
     columnLayout: {
       2: 'grid-cols-2',
-      3: 'grid-cols-2 lg:grid-cols-3',
-      4: 'grid-cols-2 md:grid-cols-3 lg:grid-cols-4',
-      5: 'grid-cols-2 md:grid-cols-4 lg:grid-cols-5',
+      3: 'lg:grid-cols-3 grid-cols-2',
+      4: 'md:grid-cols-3 lg:grid-cols-4 grid-cols-2',
+      5: 'md:grid-cols-4 lg:grid-cols-5 grid-cols-2',
     },
   },
   defaultVariants: {

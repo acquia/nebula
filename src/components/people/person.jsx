@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { cn } from '../../lib/utils'
 
 const cardVariants = cva(
-  'flex w-full max-w-md flex-col items-center gap-4 rounded-2xl pb-6 leading-[normal]',
+  'max-w-md gap-4 rounded-2xl pb-6 flex w-full flex-col items-center leading-[normal]',
   {
     variants: {
       layout: {
@@ -28,10 +28,10 @@ const headingVariants = cva('font-bold sm:text-base lg:text-lg', {
   },
 })
 
-const titleVariants = cva('text-xs text-blue-700 sm:text-sm lg:text-base', {
+const titleVariants = cva('text-xs sm:text-sm lg:text-base', {
   variants: {
     textColor: {
-      Dark: 'text-blue-700',
+      Dark: 'text-primary-dark',
       Light: 'text-primary-light',
     },
   },
@@ -75,7 +75,7 @@ function Person({
         <img
           alt={avatarAltText}
           className={cn(
-            'h-auto rounded-xl sm:w-48 lg:w-60',
+            'rounded-xl sm:w-48 lg:w-60 h-auto',
             imageClasses,
             layout === 'center' && 'mx-auto'
           )}
@@ -83,7 +83,7 @@ function Person({
         />
       )}
       {(name || title) && (
-        <div className={cn('mt-2 flex flex-col gap-1 sm:mt-4', textClasses)}>
+        <div className={cn('mt-2 gap-1 sm:mt-4 flex flex-col', textClasses)}>
           {name && (
             <Heading
               className={cn(headingVariants({ textColor: headingColor }))}

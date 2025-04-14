@@ -25,37 +25,37 @@ export const Default = {
     items: [
       <div
         key="slide-1"
-        className="flex h-64 items-center justify-center bg-blue-200 text-xl font-bold"
+        className="h-64 text-xl font-bold flex items-center justify-center bg-primary-200"
       >
         Slide 1
       </div>,
       <div
         key="slide-2"
-        className="flex h-64 items-center justify-center bg-green-200 text-xl font-bold"
+        className="h-64 bg-green-200 text-xl font-bold flex items-center justify-center"
       >
         Slide 2
       </div>,
       <div
         key="slide-3"
-        className="flex h-64 items-center justify-center bg-red-200 text-xl font-bold"
+        className="h-64 bg-red-200 text-xl font-bold flex items-center justify-center"
       >
         Slide 3
       </div>,
       <div
         key="slide-4"
-        className="flex h-64 items-center justify-center bg-blue-200 text-xl font-bold"
+        className="h-64 text-xl font-bold flex items-center justify-center bg-primary-200"
       >
         Slide 4
       </div>,
       <div
         key="slide-5"
-        className="flex h-64 items-center justify-center bg-green-200 text-xl font-bold"
+        className="h-64 bg-green-200 text-xl font-bold flex items-center justify-center"
       >
         Slide 5
       </div>,
       <div
         key="slide-6"
-        className="flex h-64 items-center justify-center bg-red-200 text-xl font-bold"
+        className="h-64 bg-red-200 text-xl font-bold flex items-center justify-center"
       >
         Slide 6
       </div>,
@@ -69,37 +69,37 @@ export const MultipleSlidesVisible = {
     items: [
       <div
         key="slide-1"
-        className="flex h-64 items-center justify-center bg-blue-200 text-xl font-bold"
+        className="h-64 text-xl font-bold flex items-center justify-center bg-primary-200"
       >
         Slide 1
       </div>,
       <div
         key="slide-2"
-        className="flex h-64 items-center justify-center bg-green-200 text-xl font-bold"
+        className="h-64 bg-green-200 text-xl font-bold flex items-center justify-center"
       >
         Slide 2
       </div>,
       <div
         key="slide-3"
-        className="flex h-64 items-center justify-center bg-red-200 text-xl font-bold"
+        className="h-64 bg-red-200 text-xl font-bold flex items-center justify-center"
       >
         Slide 3
       </div>,
       <div
         key="slide-4"
-        className="flex h-64 items-center justify-center bg-blue-200 text-xl font-bold"
+        className="h-64 text-xl font-bold flex items-center justify-center bg-primary-200"
       >
         Slide 4
       </div>,
       <div
         key="slide-5"
-        className="flex h-64 items-center justify-center bg-green-200 text-xl font-bold"
+        className="h-64 bg-green-200 text-xl font-bold flex items-center justify-center"
       >
         Slide 5
       </div>,
       <div
         key="slide-6"
-        className="flex h-64 items-center justify-center bg-red-200 text-xl font-bold"
+        className="h-64 bg-red-200 text-xl font-bold flex items-center justify-center"
       >
         Slide 6
       </div>,

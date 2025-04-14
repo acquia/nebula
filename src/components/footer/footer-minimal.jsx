@@ -4,10 +4,10 @@ const FooterMinimal = ({ copyright, footerElement, social }) => {
   const Footer = footerElement || 'footer'
 
   return (
-    <Footer className="mt-5 border-t border-slate-200 pt-5">
+    <Footer className="mt-5 pt-5 border-t border-gray-200">
       <div className="sm:flex sm:items-center sm:justify-between">
         {copyright && (
-          <div className="flex flex-wrap items-center gap-3">{copyright}</div>
+          <div className="gap-3 flex flex-wrap items-center">{copyright}</div>
         )}
         {social}
       </div>

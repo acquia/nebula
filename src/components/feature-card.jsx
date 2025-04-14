@@ -4,7 +4,7 @@ import { cn } from '../lib/utils'
 import Button from './button'
 
 const cardVariants = cva(
-  'flex w-full max-w-md flex-col items-start gap-4 rounded-2xl p-6 leading-[normal]',
+  'max-w-md gap-4 rounded-2xl p-6 flex w-full flex-col items-start leading-[normal]',
   {
     variants: {
       textColor: {
@@ -49,7 +49,7 @@ const FeatureCard = ({
         )}
       >
         <div>
-          <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-blue-700">
+          <div className="mb-4 h-12 w-12 rounded-lg flex items-center justify-center bg-primary-700">
             <FeatureIcon />
           </div>
           <Heading className="mb-4 text-lg font-bold">{heading}</Heading>

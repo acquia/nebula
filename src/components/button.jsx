@@ -7,11 +7,12 @@ const baseStyles = {
   focus:
     'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:no-underline focus-visible:outline-primary-500 focus-visible:rounded-lg focus-visible:border-transparent',
   svg: '[&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
+  link: 'text-primary-600 hover:text-primary-800 hover:underline hover:underline-offset-2 focus:text-primary-800 active:text-primary-900',
 }
 
 const buttonVariants = cva(
   cn(
-    'inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg px-4 py-3 text-sm font-medium whitespace-nowrap transition-colors',
+    'gap-2 rounded-lg px-4 py-3 text-sm font-medium inline-flex cursor-pointer items-center justify-center whitespace-nowrap transition-colors',
     baseStyles.disable,
     baseStyles.focus,
     baseStyles.svg
@@ -39,7 +40,7 @@ const buttonVariants = cva(
         linkLight:
           'p-0 text-white hover:text-primary-100 hover:underline hover:underline-offset-3 focus:text-primary-100 active:text-primary-200',
         navLinkDark:
-          'rounded-none border-s-0 border-transparent hover:border-primary-600 hover:text-primary-600 focus:border-primary-600 focus:text-primary-600 active:border-primary-800 active:text-primary-800 md:px-1 md:py-3',
+          'md:px-1 md:py-3 rounded-none border-s-0 border-transparent hover:border-primary-600 hover:text-primary-600 focus:border-primary-600 focus:text-primary-600 active:border-primary-800 active:text-primary-800',
       },
     },
     defaultVariants: {
