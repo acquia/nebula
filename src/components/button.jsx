@@ -7,7 +7,6 @@ const baseStyles = {
   focus:
     'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:no-underline focus-visible:outline-primary-500 focus-visible:rounded-lg focus-visible:border-transparent',
   svg: '[&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0',
-  link: 'text-primary-600 hover:text-primary-800 hover:underline hover:underline-offset-2 focus:text-primary-800 active:text-primary-900',
 }
 
 const buttonVariants = cva(
