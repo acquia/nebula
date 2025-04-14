@@ -3,7 +3,12 @@ import React, { useState } from 'react'
 import { cn } from '../../lib/utils'
 import { Link } from '../button'
 
-const NavMenu = ({ children, variant = 'horizontal', className = '' }) => {
+const NavMenu = ({
+  backgroundColor = '',
+  children,
+  className = '',
+  variant = 'horizontal',
+}) => {
   const [activeIndex, setActiveIndex] = useState(0)
 
   // Map children to add active state and click handlers
@@ -25,12 +30,16 @@ const NavMenu = ({ children, variant = 'horizontal', className = '' }) => {
     <nav
       className={cn(
         'nav-menu',
+        'bg-[var(--color-bg)]',
         variant === 'vertical'
           ? 'space-y-2 flex flex-col'
           : 'space-x-4 flex flex-wrap',
         className
       )}
       role="navigation"
+      style={{
+        '--color-bg': backgroundColor,
+      }}
     >
       {menuItems}
     </nav>
@@ -38,13 +47,14 @@ const NavMenu = ({ children, variant = 'horizontal', className = '' }) => {
 }
 
 export const NavMenuItem = ({
+  backgroundColor = '#ffffff',
   children,
+  className = '',
+  dropdownItems = null,
+  href = '#',
   isActive = false,
   isVertical = false,
   onClick,
-  href = '#',
-  className = '',
-  dropdownItems = null,
 }) => {
   const [isDropdownOpen, setDropdownOpen] = useState(false)
 
@@ -54,7 +64,13 @@ export const NavMenuItem = ({
   }
 
   return (
-    <div className="relative" role={dropdownItems ? 'menu' : undefined}>
+    <div
+      className={cn('relative', 'bg-[var(--color-bg)]')}
+      role={dropdownItems ? 'menu' : undefined}
+      style={{
+        '--color-bg': backgroundColor,
+      }}
+    >
       <Link
         className={cn(
           isActive
@@ -76,12 +92,20 @@ export const NavMenuItem = ({
         )}
       </Link>
       {dropdownItems && isDropdownOpen && (
-        <div className="left-0 mt-2 w-48 rounded-md shadow-lg absolute bg-white">
+        <div
+          className={cn(
+            'left-0 mt-2 w-48 rounded-md shadow-lg absolute',
+            'bg-[var(--color-bg)]'
+          )}
+          style={{
+            '--color-bg': backgroundColor,
+          }}
+        >
           <ul className="space-y-1 flex flex-col">
             {dropdownItems.map((item) => (
               <li key={item.label} role="menuitem">
                 <a
-                  className="rounded-md px-3 py-2 block text-gray-800 hover:bg-gray-100"
+                  className="rounded-md px-3 py-2 block text-gray-900 hover:bg-gray-100"
                   href={item.href}
                   onClick={item.onClick}
                 >

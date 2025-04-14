@@ -4,8 +4,9 @@ import Header from './header'
 import NavigationMenu from './navigation-menu.jsx'
 
 const meta = {
-  title: 'Components/Header',
   component: Header,
+  tags: ['autodocs'],
+  title: 'Components/Header',
 }
 
 export default meta
@@ -72,4 +73,14 @@ const menu = (
 export const Default = {
   args: {},
   render: () => <Header logo={logo} menu={menu} />,
+}
+
+export const BackgroundColor = {
+  args: {},
+  render: () => <Header backgroundColor="#efefef" logo={logo} menu={menu} />,
+}
+
+export const ClassName = {
+  args: {},
+  render: () => <Header className="bg-[#cccccc]" logo={logo} menu={menu} />,
 }

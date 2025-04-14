@@ -8,8 +8,8 @@ const footerVariants = cva(
   {
     variants: {
       textColor: {
-        Dark: 'text-gray-900',
-        Light: 'text-gray-200',
+        Dark: 'text-gray-dark',
+        Light: 'text-gray-light',
       },
     },
   }

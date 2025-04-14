@@ -11,7 +11,7 @@ const listVariants = cva('list-inside', {
       None: 'list-none',
     },
     textColor: {
-      Dark: 'text-gray-900',
+      Dark: 'text-black',
       Light: 'text-white',
     },
   },

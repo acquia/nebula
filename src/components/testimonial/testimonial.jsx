@@ -48,8 +48,8 @@ const roleVariants = cva('text-sm', {
       Small: 'text-xs',
     },
     textColor: {
-      Dark: 'text-gray-700',
-      Light: 'text-gray-300',
+      Dark: 'text-gray-dark',
+      Light: 'text-gray-light',
     },
   },
 })

@@ -4,8 +4,8 @@ import PropTypes from 'prop-types'
 const textVariants = cva('text-xs', {
   variants: {
     textColor: {
-      Dark: 'text-gray-600',
-      Light: 'text-gray-200',
+      Dark: 'text-gray-dark',
+      Light: 'text-gray-light',
     },
     defaultVariants: {
       textColor: 'Dark',

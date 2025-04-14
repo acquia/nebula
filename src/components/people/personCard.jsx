@@ -1,13 +1,23 @@
 import PropTypes from 'prop-types'
 
+import { cn } from '../../lib/utils'
 import Person from './person'
 
 /**
  * A card component for displaying a person's name, title, and avatar.
  */
-function PersonCard({ ...props }) {
+function PersonCard({ backgroundColor = '', className, ...props }) {
   return (
-    <div className="align-center flex min-h-45 max-w-70 flex-col justify-center gap-4 rounded-2xl bg-white p-4 text-center leading-[normal]">
+    <div
+      className={cn(
+        'align-center min-h-45 max-w-70 gap-4 rounded-2xl p-4 flex flex-col justify-center text-center leading-[normal]',
+        'bg-[var(--color-bg)]',
+        className
+      )}
+      style={{
+        '--color-bg': backgroundColor,
+      }}
+    >
       <Person {...props} />
     </div>
   )
@@ -26,6 +36,14 @@ PersonCard.propTypes = {
    * The alt text for the author's avatar image.
    */
   avatarAltText: PropTypes.string.isRequired,
+  /**
+   * The background color of the card.
+   */
+  backgroundColor: PropTypes.string,
+  /**
+   * Additional classes to apply to the card.
+   */
+  className: PropTypes.string,
   /**
    * Type of heading to use for the author's name.
    */

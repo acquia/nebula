@@ -22,7 +22,7 @@ const cardVariants = cva(
 const headingVariants = cva('font-bold sm:text-base lg:text-lg', {
   variants: {
     textColor: {
-      Dark: 'text-gray-800',
+      Dark: 'text-gray-dark',
       Light: 'text-white',
     },
   },

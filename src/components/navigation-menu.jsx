@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { cn } from '../lib/utils'
 
 /* eslint-disable-next-line no-unused-vars */
-const NavigationMenu = ({ id, label, links }) => {
+const NavigationMenu = ({ backgroundColor = '', id, label, links }) => {
   const [open, setOpen] = useState(false)
   return (
     <>
@@ -54,9 +54,13 @@ const NavigationMenu = ({ id, label, links }) => {
       <nav
         aria-label={label}
         className={cn(
-          'left-0 px-10 py-6 md:static md:block md:w-full md:border-none md:px-8 md:py-0 absolute w-screen border-b border-solid border-gray-200 bg-white',
+          'left-0 px-10 py-6 md:static md:block md:w-full md:border-none md:px-8 md:py-0 bg absolute w-screen border-b border-solid border-gray-200',
+          'bg-[var(--color-bg)]',
           open ? '' : 'hidden'
         )}
+        style={{
+          '--color-bg': backgroundColor,
+        }}
       >
         <div className="p-2 max-h-[75vh] overflow-hidden overflow-y-auto">
           <div className="gap-0.5 py-2 md:flex-row md:items-center md:justify-center md:gap-1 md:py-0 flex flex-col">
