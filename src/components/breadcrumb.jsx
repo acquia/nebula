@@ -8,10 +8,19 @@ const textVariants = cva('', {
       Dark: 'text-black',
       Light: 'text-white',
     },
+    linkColor: {
+      Dark: 'focus-visible:rounded-lg text-gray-900 hover:text-primary-600 hover:underline hover:underline-offset-3 focus:text-primary-600 focus-visible:border-transparent focus-visible:no-underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500 active:text-primary-800',
+      Light:
+        'focus-visible:rounded-lg text-white hover:text-primary-200 hover:underline hover:underline-offset-3 focus:text-primary-200 focus-visible:border-transparent focus-visible:no-underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500 active:text-primary-300',
+    },
     textSize: {
-      Large: 'text-lg',
-      Medium: 'text-base',
-      Small: 'text-sm',
+      Large: 'text-base',
+      Medium: 'text-sm',
+      Small: 'text-xs',
+    },
+    defaultVariants: {
+      textColor: 'Dark',
+      textSize: 'Medium',
     },
   },
 })
@@ -30,13 +39,13 @@ const Breadcrumb = ({ links, textColor, textSize }) => {
             <li key={key} className="inline-flex items-center">
               {url ? (
                 <a
-                  className="text-sm p-0 focus-visible:rounded-lg text-gray-900 hover:text-primary-600 hover:underline hover:underline-offset-3 focus:text-primary-600 focus-visible:border-transparent focus-visible:no-underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500 active:text-primary-800"
+                  className={cn('p-0', textVariants({ linkColor: textColor }))}
                   href={url}
                 >
                   {text}
                 </a>
               ) : (
-                <span className="text-sm font-semibold inline-flex items-center truncate">
+                <span className="font-semibold inline-flex items-center truncate">
                   {text}
                 </span>
               )}

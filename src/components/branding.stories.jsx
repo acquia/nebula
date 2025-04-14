@@ -5,18 +5,22 @@ const meta = {
   component: Branding,
   tags: ['autodocs'],
   title: 'Overrides/Branding',
+  argTypes: {
+    size: {
+      options: ['original', 'large', 'medium', 'small'],
+      control: { type: 'select' },
+    },
+  },
 }
 
 export default meta
 
 export const Default = {
   args: {
+    className: '',
     homeUrl: '#',
     logo,
     siteName: 'Drupal Experience Builder',
-    siteSlogan: (
-      <p>This website is the best. It&apos;s better than all the rest.</p>
-    ),
     title: 'Go to Drupal home',
   },
 }
@@ -28,9 +32,6 @@ export const NoLink = {
   args: {
     logo,
     siteName: 'Drupal Experience Builder',
-    siteSlogan: (
-      <p>This website is the best. It&apos;s better than all the rest.</p>
-    ),
   },
 }
 
