@@ -21,6 +21,9 @@ export const Default = {
   },
 }
 
+/**
+ * Defaults to original size.
+ */
 export const NoLink = {
   args: {
     logo,
@@ -28,5 +31,29 @@ export const NoLink = {
     siteSlogan: (
       <p>This website is the best. It&apos;s better than all the rest.</p>
     ),
+  },
+}
+
+export const SizeLarge = {
+  args: {
+    logo,
+    siteName: 'Drupal Experience Builder',
+    size: 'large',
+  },
+}
+
+export const SizeMedium = {
+  args: {
+    logo,
+    siteName: 'Drupal Experience Builder',
+    size: 'medium',
+  },
+}
+
+export const SizeSmall = {
+  args: {
+    logo,
+    siteName: 'Drupal Experience Builder',
+    size: 'small',
   },
 }
