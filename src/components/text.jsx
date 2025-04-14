@@ -5,7 +5,7 @@ import { cn } from '../lib/utils'
 const textVariants = cva('my-8', {
   variants: {
     textColor: {
-      Dark: 'text-slate-950',
+      Dark: 'text-black',
       Light: 'text-white',
     },
     textSize: {

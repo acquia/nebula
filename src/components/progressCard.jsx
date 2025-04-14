@@ -6,17 +6,17 @@ const ProgressCard = ({
   footer = null,
 }) => {
   const statusBadge = {
-    'Not Started': 'bg-drupal-gray-mildest text-drupal-gray-darker',
-    'In Progress': 'bg-drupal-purple text-drupal-navy',
-    Completed: 'bg-green-200 text-drupal-green',
+    'Not Started': 'bg-gray-200 text-black',
+    'In Progress': 'bg-purple-200 text-black',
+    Completed: 'bg-green-200 text-black',
   }
   return (
-    <div className="w-full max-w-md rounded-lg bg-drupal-blue text-white shadow-sm transition-all duration-300 hover:shadow-lg">
-      <div className="flex flex-col space-y-1 p-6">
+    <div className="max-w-md rounded-lg shadow-sm hover:shadow-lg w-full bg-drupal-blue text-white transition-all duration-300">
+      <div className="space-y-1 p-6 flex flex-col">
         <div className="flex w-full items-start justify-between">
           <div className="space-y-2">
             <span
-              className={`${statusBadge[status]} inline-flex items-center rounded-full border-transparent px-2 py-0.5 text-xs font-medium`}
+              className={`${statusBadge[status]} px-2 py-0.5 text-xs font-medium inline-flex items-center rounded-full border-transparent`}
             >
               {status}
             </span>
@@ -24,7 +24,7 @@ const ProgressCard = ({
           </div>
           <a
             aria-label="Open"
-            className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-drupal-gray-mildest text-sm font-medium whitespace-nowrap text-drupal-dark-navy transition-colors hover:bg-drupal-gray-milder"
+            className="h-8 w-8 rounded-md text-sm font-medium inline-flex items-center justify-center bg-gray-100 whitespace-nowrap text-black transition-colors hover:bg-gray-300"
             href={link}
             rel="noopener noreferrer"
             target="_blank"
@@ -43,20 +43,20 @@ const ProgressCard = ({
       <div className="p-6 pt-0">
         <div className="space-y-4">
           <div className="space-y-2">
-            <div className="flex justify-between text-sm text-drupal-gray-mildest">
+            <div className="text-sm flex justify-between">
               <span>Progress</span>
               <span>{progress}%</span>
             </div>
             <div
               aria-valuemax="100"
               aria-valuemin="0"
-              className="relative h-2 w-full overflow-hidden rounded-full bg-drupal-light-blue"
+              className="h-2 relative w-full overflow-hidden rounded-full bg-primary-100"
               data-max="100"
               data-state="indeterminate"
               role="progressbar"
             >
               <div
-                className="h-full w-full flex-1 border-r-3 border-drupal-red bg-drupal-yellow transition-all"
+                className="border-red-600 bg-yellow-400 h-full w-full flex-1 border-r-3 transition-all"
                 data-max="100"
                 data-state="indeterminate"
                 style={{ transform: `translateX(-${100 - progress}%)` }}
@@ -69,9 +69,7 @@ const ProgressCard = ({
         </div>
       </div>
       {footer && (
-        <footer className="flex items-center p-6 pt-0 text-sm text-drupal-gray-mildest">
-          {footer}
-        </footer>
+        <footer className="p-6 pt-0 text-sm flex items-center">{footer}</footer>
       )}
     </div>
   )

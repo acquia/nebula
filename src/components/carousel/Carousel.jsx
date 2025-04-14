@@ -19,9 +19,9 @@ const Carousel = ({ items }) => {
 
   return (
     <div>
-      <div className="relative mx-auto box-border w-full max-w-lg overflow-hidden">
+      <div className="max-w-lg relative mx-auto box-border w-full overflow-hidden">
         <div
-          className="box-border flex gap-2 transition-transform duration-300"
+          className="gap-2 box-border flex transition-transform duration-300"
           style={{
             transform: `translateX(calc(-${currentIndex * 80}% - ${currentIndex * 10}px  + 2px + 10%))`, // Tailwind cannot handle dynamic transform values
           }}
@@ -49,26 +49,26 @@ const Carousel = ({ items }) => {
         </div>
         <button
           aria-label="Previous Slide"
-          className="absolute top-1/2 left-2 flex h-7 w-7 -translate-y-1/2 transform cursor-pointer items-center justify-center rounded-full bg-blue-500 text-white hover:bg-blue-400"
+          className="left-2 h-7 w-7 absolute top-1/2 flex -translate-y-1/2 transform cursor-pointer items-center justify-center rounded-full bg-primary-500 text-white hover:bg-primary-400"
           onClick={handlePrev}
         >
           &larr;
         </button>
         <button
           aria-label="Next Slide"
-          className="absolute top-1/2 right-2 flex h-7 w-7 -translate-y-1/2 transform cursor-pointer items-center justify-center rounded-full bg-blue-500 text-white hover:bg-blue-400"
+          className="right-2 h-7 w-7 absolute top-1/2 flex -translate-y-1/2 transform cursor-pointer items-center justify-center rounded-full bg-primary-500 text-white hover:bg-primary-400"
           onClick={handleNext}
         >
           &rarr;
         </button>
       </div>
-      <div className="mx-auto mt-4 flex w-full max-w-lg justify-center space-x-2">
+      <div className="mt-4 max-w-lg space-x-2 mx-auto flex w-full justify-center">
         {items.map((_, index) => (
           <button
             key={`paginator-${index}`}
             className={cn(
               'h-2 w-2 cursor-pointer rounded-full',
-              index === currentIndex ? 'bg-blue-500' : 'bg-gray-400'
+              index === currentIndex ? 'bg-primary-500' : 'bg-gray-400'
             )}
             onClick={() => setCurrentIndex(index)}
           ></button>

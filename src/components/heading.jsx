@@ -15,13 +15,19 @@ const containerVariants = cva('dark flex w-full flex-col', {
 const preHeadingVariants = cva('mb-4 text-lg font-bold', {
   variants: {
     textColor: {
-      Dark: 'text-blue-700',
+      Dark: 'text-primary-dark',
       Light: 'text-primary-light',
+    },
+    headingSize: {
+      ExtraLarge: 'text-lg',
+      Large: 'text-base',
+      Medium: 'text-sm',
+      Small: 'text-xs',
     },
   },
 })
 
-const headingVariants = cva('leading-[normal] font-bold text-balance', {
+const headingVariants = cva('font-bold leading-[normal] text-balance', {
   variants: {
     textColor: {
       Dark: 'text-black',
@@ -49,7 +55,9 @@ const Heading = ({
   return (
     <div className={cn(containerVariants({ layout }), className)}>
       {preHeading && (
-        <div className={preHeadingVariants({ textColor })}>{preHeading}</div>
+        <div className={preHeadingVariants({ textColor, headingSize })}>
+          {preHeading}
+        </div>
       )}
       {heading && (
         <Heading className={headingVariants({ textColor, headingSize })}>

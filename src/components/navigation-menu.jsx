@@ -7,11 +7,11 @@ const NavigationMenu = ({ id, label, links }) => {
   const [open, setOpen] = useState(false)
   return (
     <>
-      <div className="flex justify-end md:hidden">
+      <div className="md:hidden flex justify-end">
         <button
           aria-expanded={open}
           aria-label="Toggle navigation"
-          className="relative flex size-9 items-center justify-center rounded-lg border border-gray-200 text-sm font-semibold text-gray-800 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none disabled:pointer-events-none"
+          className="size-9 rounded-lg text-sm font-semibold relative flex items-center justify-center border border-gray-200 text-gray-800 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none disabled:pointer-events-none"
           onClick={() => {
             setOpen(!open)
           }}
@@ -54,17 +54,17 @@ const NavigationMenu = ({ id, label, links }) => {
       <nav
         aria-label={label}
         className={cn(
-          'absolute left-0 w-screen border-b border-solid border-slate-200 bg-white px-10 py-6 md:static md:block md:w-full md:border-none md:px-8 md:py-0',
+          'left-0 px-10 py-6 md:static md:block md:w-full md:border-none md:px-8 md:py-0 absolute w-screen border-b border-solid border-gray-200 bg-white',
           open ? '' : 'hidden'
         )}
       >
-        <div className="max-h-[75vh] overflow-hidden overflow-y-auto">
-          <div className="flex flex-col gap-0.5 py-2 md:flex-row md:items-center md:justify-center md:gap-1 md:py-0">
+        <div className="p-2 max-h-[75vh] overflow-hidden overflow-y-auto">
+          <div className="gap-0.5 py-2 md:flex-row md:items-center md:justify-center md:gap-1 md:py-0 flex flex-col">
             {links.map(({ key, title, url }) => (
               <a
                 key={key}
                 aria-current="page"
-                className="flex items-center p-2 text-sm text-blue-600 focus:text-blue-600 focus:outline-none dark:text-blue-500 dark:focus:text-blue-500"
+                className="p-1 text-sm focus-visible:rounded-lg flex items-center text-primary-600 hover:text-primary-800 hover:underline hover:underline-offset-2 focus:text-primary-800 focus-visible:border-transparent focus-visible:no-underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500 active:text-primary-900"
                 href={url}
               >
                 {title}

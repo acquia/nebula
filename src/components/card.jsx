@@ -5,7 +5,7 @@ import Button from './button'
 import Heading from './heading'
 
 const cardVariants = cva(
-  'flex w-full max-w-md flex-col items-center gap-4 rounded-2xl pb-6 leading-[normal]',
+  'max-w-md gap-4 rounded-2xl pb-6 flex w-full flex-col items-center leading-[normal]',
   {
     variants: {
       layout: {
@@ -15,7 +15,7 @@ const cardVariants = cva(
       },
       textColor: {
         Default: null,
-        Dark: 'text-blue-700',
+        Dark: 'text-primary-dark',
         Light: 'text-white',
       },
       image: {
@@ -70,7 +70,7 @@ const Card = ({
         {image && (
           <img
             alt={altText}
-            className="w-full rounded-2xl object-cover object-center"
+            className="rounded-2xl w-full object-cover object-center"
             src={image}
           />
         )}

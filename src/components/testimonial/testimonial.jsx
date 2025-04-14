@@ -2,13 +2,13 @@ import { cva } from 'class-variance-authority'
 
 import { cn } from '../../lib/utils'
 
-const cardVariants = cva('flex flex-col gap-2 leading-[normal]', {
+const cardVariants = cva('gap-2 flex flex-col leading-[normal]', {
   variants: {
     layout: {
-      'Left aligned': 'items-start border-l-2 border-l-gray-200 pl-3 text-left',
+      'Left aligned': 'pl-3 items-start border-l-2 border-l-gray-200 text-left',
       'Center aligned':
-        'items-center border-l-2 border-l-gray-200 pl-3 text-center',
-      'Right aligned': 'items-end border-r-2 border-r-gray-200 pr-3 text-right',
+        'pl-3 items-center border-l-2 border-l-gray-200 text-center',
+      'Right aligned': 'pr-3 items-end border-r-2 border-r-gray-200 text-right',
     },
     textColor: {
       Dark: '',
@@ -48,7 +48,7 @@ const roleVariants = cva('text-sm', {
       Small: 'text-xs',
     },
     textColor: {
-      Dark: 'text-drupal-gray-default',
+      Dark: 'text-gray-700',
       Light: 'text-gray-300',
     },
   },
@@ -88,7 +88,7 @@ export default function Testimonial({
             <p>{text}</p>
           </blockquote>
         )}
-        <div className="flex items-center gap-4">
+        <div className="gap-4 flex items-center">
           {avatar && (
             <img
               alt={avatarAltText}
@@ -96,7 +96,7 @@ export default function Testimonial({
               src={avatar}
             />
           )}
-          <div className="flex flex-col gap-1">
+          <div className="gap-1 flex flex-col">
             {name && <p className={nameVariants({ textSize })}>{name}</p>}
             {(role || organization) && (
               <p

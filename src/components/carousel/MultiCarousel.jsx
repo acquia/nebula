@@ -45,7 +45,7 @@ const MultiCarousel = ({ items, slidesToShow = 1 }) => {
     <div>
       <div className="relative mx-auto w-full overflow-hidden">
         <div
-          className="mr-8 ml-8 flex gap-2 transition-transform duration-300"
+          className="mr-8 ml-8 gap-2 flex transition-transform duration-300"
           style={{
             transform: `translateX(calc(-${currentIndex * (100 / visibleSlides)}% - ${currentIndex * (10 / visibleSlides)}px))`,
           }}
@@ -72,25 +72,25 @@ const MultiCarousel = ({ items, slidesToShow = 1 }) => {
         </div>
         <button
           aria-label="Previous Slide"
-          className="absolute top-1/2 left-0 flex h-7 w-7 -translate-y-1/2 transform cursor-pointer items-center justify-center rounded-full bg-blue-500 text-white hover:bg-blue-400"
+          className="left-0 h-7 w-7 absolute top-1/2 flex -translate-y-1/2 transform cursor-pointer items-center justify-center rounded-full bg-primary-500 text-white hover:bg-primary-400"
           onClick={handlePrev}
         >
           &larr;
         </button>
         <button
           aria-label="Next Slide"
-          className="absolute top-1/2 right-0 flex h-7 w-7 -translate-y-1/2 transform cursor-pointer items-center justify-center rounded-full bg-blue-500 text-white hover:bg-blue-400"
+          className="right-0 h-7 w-7 absolute top-1/2 flex -translate-y-1/2 transform cursor-pointer items-center justify-center rounded-full bg-primary-500 text-white hover:bg-primary-400"
           onClick={handleNext}
         >
           &rarr;
         </button>
       </div>
-      <div className="mx-auto mt-4 flex w-full max-w-lg justify-center space-x-2">
+      <div className="mt-4 max-w-lg space-x-2 mx-auto flex w-full justify-center">
         {[...Array(totalPages)].map((_, pageIndex) => (
           <button
             key={`paginator-${pageIndex}`}
             className={`h-2 w-2 cursor-pointer rounded-full ${
-              pageIndex === currentPage ? 'bg-blue-500' : 'bg-gray-400'
+              pageIndex === currentPage ? 'bg-primary-500' : 'bg-gray-400'
             }`}
             onClick={() => goToPage(pageIndex)}
           ></button>

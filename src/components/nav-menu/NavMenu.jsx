@@ -26,8 +26,8 @@ const NavMenu = ({ children, variant = 'horizontal', className = '' }) => {
       className={cn(
         'nav-menu',
         variant === 'vertical'
-          ? 'flex flex-col space-y-2'
-          : 'flex flex-wrap space-x-4',
+          ? 'space-y-2 flex flex-col'
+          : 'space-x-4 flex flex-wrap',
         className
       )}
       role="navigation"
@@ -59,8 +59,8 @@ export const NavMenuItem = ({
         className={cn(
           isActive
             ? isVertical
-              ? 'border-l-2 border-blue-500'
-              : 'border-b-2 border-l-0 border-blue-500'
+              ? 'border-l-2 border-primary-500'
+              : 'border-b-2 border-l-0 border-primary-500'
             : '',
           className
         )}
@@ -76,12 +76,12 @@ export const NavMenuItem = ({
         )}
       </Link>
       {dropdownItems && isDropdownOpen && (
-        <div className="absolute left-0 mt-2 w-48 rounded-md bg-white shadow-lg">
-          <ul className="flex flex-col space-y-1">
+        <div className="left-0 mt-2 w-48 rounded-md shadow-lg absolute bg-white">
+          <ul className="space-y-1 flex flex-col">
             {dropdownItems.map((item) => (
               <li key={item.label} role="menuitem">
                 <a
-                  className="block rounded-md px-3 py-2 text-gray-800 hover:bg-gray-100"
+                  className="rounded-md px-3 py-2 block text-gray-800 hover:bg-gray-100"
                   href={item.href}
                   onClick={item.onClick}
                 >
