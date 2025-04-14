@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types'
 
+import { cn } from '../../lib/utils'
 import Copyright from './copyright'
 
-const FooterCopyright = ({ footerElement, text, textColor }) => {
+const FooterCopyright = ({ className, footerElement, text, textColor }) => {
   const Footer = footerElement || 'footer'
 
   return (
-    <Footer className="mt-5 pt-5 border-t border-gray-200">
+    <Footer className={cn('mt-5 pt-5 border-t border-gray-200', className)}>
       <Copyright text={text} textColor={textColor} />
     </Footer>
   )
@@ -15,6 +16,10 @@ const FooterCopyright = ({ footerElement, text, textColor }) => {
 export default FooterCopyright
 
 FooterCopyright.propTypes = {
+  /**
+   * Additional classes to apply.
+   */
+  className: PropTypes.string,
   /**
    * Allows for customizing the footer element.
    * Use 'div' if nesting within a footer element.

@@ -1,6 +1,8 @@
 import { cva } from 'class-variance-authority'
 import PropTypes from 'prop-types'
 
+import { cn } from '../../lib/utils'
+
 const textVariants = cva('text-xs', {
   variants: {
     textColor: {
@@ -19,8 +21,8 @@ const textVariants = cva('text-xs', {
  * and textColor override?
  
  */
-const Copyright = ({ text, textColor }) => {
-  return <p className={textVariants({ textColor })}>{text}</p>
+const Copyright = ({ className, text, textColor }) => {
+  return <p className={cn(textVariants({ textColor }), className)}>{text}</p>
 }
 
 export default Copyright
