@@ -6,6 +6,12 @@ const meta = {
   component: Button,
   tags: ['autodocs'],
   argTypes: {
+    className: {
+      control: 'text',
+    },
+    link: {
+      control: 'text',
+    },
     variant: {
       control: 'select',
       options: [
@@ -18,6 +24,8 @@ const meta = {
         'link',
         'linkUnderline',
         'linkDark',
+        'linkLight',
+        'navLinkDark',
       ],
     },
   },
@@ -52,7 +60,7 @@ export const OutlineLight = {
   },
   decorators: [
     (Story) => (
-      <div className="max-w-sm bg-black p-8">
+      <div className="max-w-sm p-8 bg-black">
         <Story />
       </div>
     ),
@@ -92,7 +100,7 @@ export const GhostLight = {
   },
   decorators: [
     (Story) => (
-      <div className="max-w-sm bg-black p-8">
+      <div className="max-w-sm p-8 bg-black">
         <Story />
       </div>
     ),
@@ -158,7 +166,7 @@ export const LinkComponentLight = {
   },
   decorators: [
     (Story) => (
-      <div className="max-w-sm bg-black p-8">
+      <div className="max-w-sm p-8 bg-black">
         <Story />
       </div>
     ),

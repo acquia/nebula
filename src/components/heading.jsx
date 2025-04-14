@@ -43,16 +43,16 @@ const headingVariants = cva('font-bold leading-[normal] text-balance', {
 })
 
 const Heading = ({
-  preHeading,
+  className,
   heading,
   headingElement = 'h2',
-  layout = 'Left aligned',
   headingSize = 'ExtraLarge',
+  layout = 'Left aligned',
+  preHeading,
   textColor = 'Dark',
-  className,
 }) => {
   const Heading = headingElement
-  return (
+  return preHeading || heading ? (
     <div className={cn(containerVariants({ layout }), className)}>
       {preHeading && (
         <div className={preHeadingVariants({ textColor, headingSize })}>
@@ -65,7 +65,7 @@ const Heading = ({
         </Heading>
       )}
     </div>
-  )
+  ) : null
 }
 
 export default Heading

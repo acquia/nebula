@@ -5,6 +5,9 @@ const meta = {
   title: 'Overrides/Breadcrumb',
   tags: ['autodocs'],
   argTypes: {
+    className: {
+      control: 'text',
+    },
     textColor: {
       options: ['Dark', 'Light'],
       control: { type: 'select' },

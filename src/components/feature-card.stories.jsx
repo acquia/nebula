@@ -19,12 +19,13 @@ export default meta
 
 export const Default = {
   args: {
+    className: '',
     heading: 'Engaging title that represents the content.',
     headingElement: 'h2',
     text: "Some quick example text to build on the card title and make up the bulk of the card's content.",
     textColor: 'Dark',
-    linkLabel: 'Learn More',
     link: '#',
+    linkLabel: 'Learn More',
     backgroundColor: '#F1F5F9',
     backgroundColorOnHover: '#E2E8F0',
   },

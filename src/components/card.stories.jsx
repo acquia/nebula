@@ -2,20 +2,41 @@ import imagePlaceholder from '../assets/images/card-placeholder.png'
 import Card from './card.jsx'
 
 const meta = {
-  title: 'Components/Card',
   component: Card,
+  title: 'Components/Card',
+  tags: ['autodocs'],
   argTypes: {
-    layout: {
-      options: ['Left aligned', 'Center aligned', 'Right aligned'],
-      control: { type: 'select' },
+    altText: {
+      control: 'text',
+    },
+    backgroundColor: {
+      control: 'text',
+    },
+    backgroundColorOnHover: {
+      control: 'text',
+    },
+    className: {
+      control: 'text',
+    },
+    image: {
+      control: 'text',
+    },
+    heading: {
+      control: 'text',
     },
     headingElement: {
       options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
       control: { type: 'select' },
     },
-    textColor: {
-      options: ['Dark', 'Light'],
+    layout: {
+      options: ['Left aligned', 'Center aligned', 'Right aligned'],
       control: { type: 'select' },
+    },
+    link: {
+      control: 'text',
+    },
+    linkLabel: {
+      control: 'text',
     },
     linkVariant: {
       control: 'select',
@@ -30,6 +51,13 @@ const meta = {
         'linkUnderline',
         'linkDark',
       ],
+    },
+    text: {
+      control: 'text',
+    },
+    textColor: {
+      options: ['Default', 'Dark', 'Light'],
+      control: { type: 'select' },
     },
   },
 }

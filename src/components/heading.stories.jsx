@@ -28,11 +28,36 @@ export default meta
 
 export const Default = {
   args: {
-    layout: 'Left aligned',
-    preHeading: 'Mission',
+    className: '',
     heading: 'Our purpose and values.',
     headingElement: 'h2',
     headingSize: 'Large',
+    layout: 'Left aligned',
+    preHeading: 'Mission',
+    textColor: 'Dark',
+  },
+}
+
+export const NoPreheading = {
+  args: {
+    className: '',
+    heading: 'Our purpose and values.',
+    headingElement: 'h2',
+    headingSize: 'Large',
+    layout: 'Left aligned',
+    preHeading: '',
+    textColor: 'Dark',
+  },
+}
+
+export const NoHeading = {
+  args: {
+    className: '',
+    heading: '',
+    headingElement: 'h2',
+    headingSize: 'Large',
+    layout: 'Left aligned',
+    preHeading: 'Mission',
     textColor: 'Dark',
   },
 }

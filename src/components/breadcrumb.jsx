@@ -25,14 +25,15 @@ const textVariants = cva('', {
   },
 })
 
-const Breadcrumb = ({ links, textColor, textSize }) => {
+const Breadcrumb = ({ className, links, textColor, textSize }) => {
   return (
     links && (
       <nav aria-label="Breadcrumbs">
         <ol
           className={cn(
             'flex items-center whitespace-nowrap',
-            textVariants({ textColor, textSize })
+            textVariants({ textColor, textSize }),
+            className
           )}
         >
           {links.map(({ key, text, url }, index) => (
