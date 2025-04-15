@@ -6,7 +6,7 @@ const Header = ({ backgroundColor = '', className, logo, menu }) => {
   return (
     <header
       className={cn(
-        'gap-4 px-8 py-3 md:grid-cols-[1fr_auto_1fr] grid w-full grid-cols-2 justify-center leading-[normal]',
+        'gap-4 px-8 py-3 md:grid-cols-[1fr_auto_1fr] relative grid w-full grid-cols-2 justify-center leading-[normal]',
         'border-b border-solid border-gray-200',
         'bg-[var(--color-bg)]',
         className

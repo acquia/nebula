@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import { cn } from '../../lib/utils'
 
-const NavigationMenu = ({ backgroundColor = '', label, links }) => {
+const NavigationMenu = ({ backgroundColor = '#ffffff', label, links }) => {
   const [open, setOpen] = useState(false)
   return (
     <>

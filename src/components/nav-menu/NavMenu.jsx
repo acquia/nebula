@@ -1,22 +1,73 @@
-import React, { useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
 
 import { cn } from '../../lib/utils'
 import { Link } from '../button/button'
 
 const NavMenu = ({
-  backgroundColor = '',
+  backgroundColor = '#ffffff',
   children,
   className = '',
   variant = 'horizontal',
 }) => {
   const [activeIndex, setActiveIndex] = useState(0)
+  const [isOpen, setIsOpen] = useState(false)
+  const menuRef = useRef(null)
+  const timeoutRef = useRef(null)
+  const isVertical = variant === 'vertical' || isOpen
+
+  function handleKeyDown(event) {
+    if (event.key === 'Escape') {
+      setIsOpen(false)
+    }
+  }
+
+  const handleClickOutside = useCallback(
+    (event) => {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(event.target) &&
+        isOpen
+      ) {
+        setIsOpen(false)
+      }
+    },
+    [isOpen]
+  )
+
+  const handleResize = useCallback(() => {
+    clearTimeout(timeoutRef.current)
+    timeoutRef.current = setTimeout(() => {
+      if (window.innerWidth >= 768 && isOpen) {
+        setIsOpen(false)
+      }
+    }, 100)
+  }, [isOpen])
+
+  useEffect(() => {
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [isOpen, handleClickOutside])
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      clearTimeout(timeoutRef.current)
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [handleResize])
 
   // Map children to add active state and click handlers
   const menuItems = React.Children.map(children, (child, index) => {
     return React.cloneElement(child, {
       isActive: index === activeIndex,
-      isVertical: variant === 'vertical',
+      isVertical: isVertical,
       onClick: (e) => {
         setActiveIndex(index)
         // Call the original onClick if it exists
@@ -28,22 +79,30 @@ const NavMenu = ({
   })
 
   return (
-    <nav
-      className={cn(
-        'nav-menu',
-        'bg-[var(--color-bg)]',
-        variant === 'vertical'
-          ? 'space-y-2 flex flex-col'
-          : 'space-x-4 flex flex-wrap',
-        className
-      )}
-      role="navigation"
-      style={{
-        '--color-bg': backgroundColor,
-      }}
-    >
-      {menuItems}
-    </nav>
+    <div ref={menuRef} onKeyDown={handleKeyDown} tabIndex={-1}>
+      <NavMenuButton isOpen={isOpen} setIsOpen={setIsOpen} />
+      <div
+        className={cn(
+          'left-0 px-24 py-4 md:static md:block md:w-full md:border-none md:px-0 md:py-0 bg absolute w-screen',
+          'bg-[var(--color-bg)]',
+          isOpen ? 'mt-4 md:hidden' : 'hidden'
+        )}
+        style={{
+          '--color-bg': backgroundColor,
+        }}
+      >
+        <nav
+          className={cn(
+            'nav-menu',
+            isVertical ? 'space-y-2 flex flex-col' : 'space-x-4 flex flex-wrap',
+            className
+          )}
+          role="navigation"
+        >
+          {menuItems}
+        </nav>
+      </div>
+    </div>
   )
 }
 
@@ -124,6 +183,59 @@ export const NavMenuItem = ({
           </ul>
         </div>
       )}
+    </div>
+  )
+}
+
+export const NavMenuButton = ({ isOpen, setIsOpen }) => {
+  return (
+    <div className="md:hidden flex justify-end">
+      <button
+        aria-expanded={isOpen}
+        aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
+        className={cn(
+          'size-9 rounded-lg text-sm font-semibold relative flex cursor-pointer items-center justify-center border border-gray-600',
+          'hover:border-primary-800 hover:bg-primary-100 hover:text-primary-800 focus:border-primary-800 focus:bg-primary-100 focus:text-primary-800 active:border-primary-900 active:bg-primary-200 active:text-primary-900'
+        )}
+        onClick={() => {
+          setIsOpen(!isOpen)
+        }}
+        title={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
+        type="button"
+      >
+        <svg
+          className={cn('size-4', isOpen ? 'hidden' : '')}
+          fill="none"
+          height="24"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <line x1="3" x2="21" y1="6" y2="6" />
+          <line x1="3" x2="21" y1="12" y2="12" />
+          <line x1="3" x2="21" y1="18" y2="18" />
+        </svg>
+        <svg
+          className={cn('size-4 shrink-0', isOpen ? '' : 'hidden')}
+          fill="none"
+          height="24"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M18 6 6 18" />
+          <path d="m6 6 12 12" />
+        </svg>
+        <span className="sr-only">{`${isOpen ? 'Close' : 'Open'} navigation`}</span>
+      </button>
     </div>
   )
 }
