@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 
 import { cn } from '../../lib/utils'
-import { Link } from '../button'
+import { Link } from '../button/button'
 
 const NavMenu = ({
   backgroundColor = '',
@@ -121,3 +122,72 @@ export const NavMenuItem = ({
 }
 
 export default NavMenu
+
+NavMenu.propTypes = {
+  /**
+   * Background color for the navigation menu
+   */
+  backgroundColor: PropTypes.string,
+  /**
+   * Menu items to be rendered
+   */
+  children: PropTypes.node,
+  /**
+   * Additional class names for the menu
+   */
+  className: PropTypes.string,
+  /**
+   * Orientation of the menu
+   */
+  variant: PropTypes.oneOf(['horizontal', 'vertical']),
+}
+
+NavMenuItem.propTypes = {
+  /**
+   * Background color for the menu item
+   */
+  backgroundColor: PropTypes.string,
+  /**
+   * Content of the menu item
+   */
+  children: PropTypes.node,
+  /**
+   * Additional class names for the menu item
+   */
+  className: PropTypes.string,
+  /**
+   * Items to be displayed in dropdown menu
+   */
+  dropdownItems: PropTypes.arrayOf(
+    PropTypes.shape({
+      /**
+       * URL for the dropdown item
+       */
+      href: PropTypes.string,
+      /**
+       * Label for the dropdown item
+       */
+      label: PropTypes.node.isRequired,
+      /**
+       * Click handler for the dropdown item
+       */
+      onClick: PropTypes.func,
+    })
+  ),
+  /**
+   * URL the menu item links to
+   */
+  href: PropTypes.string,
+  /**
+   * Whether the item is currently active
+   */
+  isActive: PropTypes.bool,
+  /**
+   * Whether the item is in vertical orientation
+   */
+  isVertical: PropTypes.bool,
+  /**
+   * Click handler for the menu item
+   */
+  onClick: PropTypes.func,
+}

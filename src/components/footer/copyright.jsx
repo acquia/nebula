@@ -29,6 +29,10 @@ export default Copyright
 
 Copyright.propTypes = {
   /**
+   * Additional classes to apply.
+   */
+  className: PropTypes.string,
+  /**
    * The text to display in the copyright section.
    */
   text: PropTypes.string,

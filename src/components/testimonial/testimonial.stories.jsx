@@ -1,7 +1,7 @@
-import CardContainer from '../cardContainer'
+import CardContainer from '../card/cardContainer'
 import { MultiCarousel } from '../carousel'
-import Testimonial from './testimonial'
-import TestimonialSection from './testimonialSection'
+import Testimonial from '../testimonial/testimonial.jsx'
+import TestimonialSection from '../testimonial/testimonialSection.jsx'
 
 const meta = {
   title: 'Components/Testimonial',

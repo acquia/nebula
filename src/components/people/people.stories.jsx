@@ -1,5 +1,5 @@
-import Card from '../card'
-import CardContainer from '../cardContainer'
+import Card from '../card/card.jsx'
+import CardContainer from '../card/cardContainer.jsx'
 import { Person, PersonCard, PersonSection } from './index'
 
 const meta = {
@@ -76,7 +76,7 @@ export const PersonLight = {
   },
   render: (args) => {
     return (
-      <div className="max-w-sm bg-black p-8">
+      <div className="max-w-sm p-8 bg-black">
         <Person {...args} />
       </div>
     )

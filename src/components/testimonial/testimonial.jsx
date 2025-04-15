@@ -1,4 +1,5 @@
 import { cva } from 'class-variance-authority'
+import PropTypes from 'prop-types'
 
 import { cn } from '../../lib/utils'
 
@@ -55,16 +56,16 @@ const roleVariants = cva('text-sm', {
 })
 
 export default function Testimonial({
+  avatar,
   avatarAltText,
   backgroundColor = '',
   backgroundColorOnHover = '',
   className,
   layout,
   name,
-  role = '',
   organization = '',
+  role = '',
   text,
-  avatar,
   textColor = 'Dark',
   textSize = 'Large',
 }) {
@@ -108,4 +109,56 @@ export default function Testimonial({
       </div>
     </div>
   )
+}
+
+Testimonial.propTypes = {
+  /**
+   * The alt text for the avatar image.
+   */
+  avatar: PropTypes.string,
+  /**
+   * The avatar image URL.
+   */
+  avatarAltText: PropTypes.string,
+  /**
+   * The background color of the card.
+   */
+  backgroundColor: PropTypes.string,
+  /**
+   * The background color of the card on hover.
+   */
+  backgroundColorOnHover: PropTypes.string,
+  /**
+   * Additional classes to apply to the card.
+   */
+  className: PropTypes.string,
+  /**
+   * The layout of the card content.
+   */
+  layout: PropTypes.oneOf(['Left aligned', 'Center aligned', 'Right aligned']),
+  /**
+   * The name of the person.
+   */
+  name: PropTypes.string,
+  /**
+   * The organization.
+   */
+  organization: PropTypes.string,
+  /**
+   * The role of the person.
+   */
+  role: PropTypes.string,
+  /**
+   * The testimonial text.
+   */
+  text: PropTypes.string,
+  /**
+   * The color of the text.
+   * @default 'Dark'
+   */
+  textColor: PropTypes.oneOf(['Dark', 'Light']),
+  /**
+   * The size of the text.
+   */
+  textSize: PropTypes.oneOf(['Large', 'Medium', 'Small']),
 }

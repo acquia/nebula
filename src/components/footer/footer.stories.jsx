@@ -1,6 +1,6 @@
 import acquiaLogo from '../../assets/images/acquia-logo.svg'
 import drupalLogo from '../../assets/images/logo.svg'
-import Branding from '../branding'
+import Branding from '../branding/branding'
 import { IconButton, Link } from '../button'
 import List from '../list/list'
 import {
@@ -336,7 +336,7 @@ export const FullFooterFourColumn = {
 
           <FooterLinks title="Developers">
             <List
-              className="grid space-y-3"
+              className="space-y-3 grid"
               items={[
                 { text: 'API', url: '#' },
                 { text: 'GitHub', url: '#' },
@@ -420,7 +420,7 @@ export const FullFooterThreeColumn = {
           </FooterLinks>
 
           <FooterLinks title="Company">
-            <List className="grid space-y-3">
+            <List className="space-y-3 grid">
               <li>
                 <Link link="#" variant="linkDark">
                   About us
@@ -500,7 +500,7 @@ export const FullFooterTwoColumnLight = {
             </p>
           </FooterLinks>
 
-          <List className="flex flex-col gap-3">
+          <List className="gap-3 flex flex-col">
             <li>
               <Link link="#" variant="linkLight">
                 About us
@@ -529,7 +529,7 @@ export const FullFooterTwoColumnLight = {
   args: {},
   decorators: [
     (Story) => (
-      <div className="max-w bg-black p-8">
+      <div className="max-w p-8 bg-black">
         <Story />
       </div>
     ),

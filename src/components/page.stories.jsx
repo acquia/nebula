@@ -1,25 +1,24 @@
 import imagePlaceholder from '../assets/images/card-placeholder.png'
 import drupalLogo from '../assets/images/logo.svg'
-import Branding from './branding.jsx'
-import Button, { IconButton, Link } from './button.jsx'
-import Card from './card.jsx'
-import CardContainer from './cardContainer.jsx'
-import FeatureCard from './feature-card.jsx'
+import Branding from './branding/branding.jsx'
+import Button, { IconButton, Link } from './button/button.jsx'
+import FeatureCard from './card-feature/feature-card.jsx'
+import LogoCard from './card-logo/logo-card.jsx'
+import Card from './card/card.jsx'
+import CardContainer from './card/cardContainer.jsx'
 import {
   FooterCopyright,
   FooterLinks,
   FooterLogoTop,
   FooterMenu,
 } from './footer'
-import Header from './header.jsx'
-import Heading from './heading.jsx'
-import Hero from './hero.jsx'
-import Image from './image.jsx'
-import LogoCard from './logo-card.jsx'
-import { NavMenu, NavMenuItem } from './nav-menu'
-import NavigationMenu from './navigation-menu.jsx'
+import Header from './header/header.jsx'
+import Heading from './heading/heading.jsx'
+import Hero from './hero/hero.jsx'
+import Image from './image/image.jsx'
+import { NavigationMenu, NavMenu, NavMenuItem } from './nav-menu'
 import Page from './page'
-import Section from './section.jsx'
+import Section from './section/section.jsx'
 import {
   FacebookSolidIcon,
   GitHubSolidIcon,
@@ -29,8 +28,8 @@ import {
   Social,
 } from './social'
 import TestimonialSection from './testimonial/testimonialSection.jsx'
-import Text from './text.jsx'
-import TwoColumnTextImage from './two-column-text-image.jsx'
+import Text from './text/text.jsx'
+import TwoColumnTextImage from './two-column/two-column-text-image.jsx'
 
 const meta = {
   title: 'Examples/Page',
