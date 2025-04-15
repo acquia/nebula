@@ -95,7 +95,7 @@ export const NavMenuItem = ({
       {dropdownItems && isDropdownOpen && (
         <div
           className={cn(
-            'left-0 mt-2 w-48 rounded-md shadow-lg absolute',
+            'left-0 mt-2 w-48 rounded-md shadow-lg absolute border border-gray-200',
             'bg-[var(--color-bg)]'
           )}
           style={{
