@@ -21,7 +21,7 @@ export default meta
  */
 export const Default = {
   args: {
-    className: '',
+    className: 'test',
     homeUrl: '#',
     logo,
     siteName: 'Drupal Experience Builder',
@@ -36,6 +36,7 @@ export const NoLink = {
   args: {
     logo,
     siteName: 'Drupal Experience Builder',
+    className: 'test',
   },
 }
 

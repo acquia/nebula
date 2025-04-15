@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 
 import { cn } from '../../lib/utils'
 
-const sizeVariants = cva('object-contain', {
+const sizeVariants = cva('max-h-full object-contain', {
   variants: {
     size: {
-      original: 'max-h-full',
+      original: '',
       large: 'scale-75',
       medium: 'scale-50',
       small: 'scale-40',
@@ -23,7 +23,7 @@ const Branding = ({ className, homeUrl, logo, size, siteName, title }) => {
   const img = (
     <img
       alt=""
-      className={cn(sizeVariants({ size }))}
+      className={cn(sizeVariants({ size }), !homeUrl && className)}
       fetchPriority="high"
       src={logo}
       title={title}
@@ -33,11 +33,7 @@ const Branding = ({ className, homeUrl, logo, size, siteName, title }) => {
   return (
     <>
       {homeUrl ? (
-        <a
-          aria-label={siteName}
-          className={cn('inline-block', className)}
-          href={homeUrl}
-        >
+        <a aria-label={siteName} className={className} href={homeUrl}>
           {img}
         </a>
       ) : (

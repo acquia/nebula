@@ -39,6 +39,7 @@ const meta = {
 export default meta
 
 const logo = <Branding homeUrl="#" logo={drupalLogo} />
+
 const menu = (
   <NavigationMenu
     links={[
