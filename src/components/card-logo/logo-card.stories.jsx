@@ -1,8 +1,9 @@
 import LogoCard from './logo-card'
 
 const meta = {
-  title: 'Components/LogoCard',
   component: LogoCard,
+  title: 'Components/LogoCard',
+  tags: ['autodocs'],
   argTypes: {},
 }
 

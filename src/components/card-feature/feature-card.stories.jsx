@@ -1,8 +1,9 @@
 import FeatureCard from './feature-card.jsx'
 
 const meta = {
-  title: 'Components/FeatureCard',
   component: FeatureCard,
+  tags: ['autodocs'],
+  title: 'Components/FeatureCard',
   argTypes: {
     headingElement: {
       options: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],

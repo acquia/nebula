@@ -5,8 +5,9 @@ import Card from './card.jsx'
 import CardContainer from './cardContainer.jsx'
 
 const meta = {
-  title: 'Sections/Card Container',
   component: CardContainer,
+  tags: ['autodocs'],
+  title: 'Sections/Card Container',
   argTypes: {
     layout: {
       options: ['Left aligned', 'Center aligned'],

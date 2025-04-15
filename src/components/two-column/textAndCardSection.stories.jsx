@@ -2,8 +2,9 @@ import LogoCard from '../card-logo/logo-card.jsx'
 import TextAndCardSection from './textAndCardSection.jsx'
 
 const meta = {
-  title: 'Sections/Text and Card',
   component: TextAndCardSection,
+  tags: ['autodocs'],
+  title: 'Sections/Text and Card',
   argTypes: {
     layout: {
       options: ['row', 'column'],

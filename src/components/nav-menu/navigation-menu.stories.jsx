@@ -1,7 +1,7 @@
 import NavigationMenu from './navigation-menu'
 
 const meta = {
-  title: 'Overrides/NavigationMenu',
+  title: 'Components/NavMenu/Old (v1)',
   component: NavigationMenu,
 }
 

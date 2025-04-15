@@ -1,8 +1,9 @@
 import TwoColumnText from './two-column-text'
 
 export default {
-  title: 'Sections/Two Column Text, Img, Buttons',
   component: TwoColumnText,
+  tags: ['autodocs'],
+  title: 'Sections/Two Column Text, Img, Buttons',
   argTypes: {
     layout: {
       control: 'select',

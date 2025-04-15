@@ -2,7 +2,7 @@ import Breadcrumb from './breadcrumb'
 
 const meta = {
   component: Breadcrumb,
-  title: 'Overrides/Breadcrumb',
+  title: 'Components/Breadcrumb',
   tags: ['autodocs'],
   argTypes: {
     className: {

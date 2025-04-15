@@ -4,7 +4,7 @@ import Branding from './branding.jsx'
 const meta = {
   component: Branding,
   tags: ['autodocs'],
-  title: 'Overrides/Branding',
+  title: 'Components/Branding',
   argTypes: {
     size: {
       options: ['original', 'large', 'medium', 'small'],
@@ -15,6 +15,10 @@ const meta = {
 
 export default meta
 
+/**
+ * Used for a logo.
+ * Can be used with a link or not.
+ */
 export const Default = {
   args: {
     className: '',

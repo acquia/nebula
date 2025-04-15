@@ -4,8 +4,9 @@ import Text from '../text/text.jsx'
 import Section from './section.jsx'
 
 const meta = {
-  title: 'Sections/Section',
   component: Section,
+  tags: ['autodocs'],
+  title: 'Sections/Section',
   argTypes: {
     width: {
       options: ['Normal', 'Wide'],

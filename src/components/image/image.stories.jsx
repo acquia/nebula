@@ -1,17 +1,19 @@
-import Image from "./image.jsx";
+import Image from './image.jsx'
 
 const meta = {
-  title: "Components/Image",
   component: Image,
-};
+  tags: ['autodocs'],
+  title: 'Components/Branding/Image',
+}
 
-export default meta;
+export default meta
 
+/**
+ * Wrap an image tag.
+ */
 export const Default = {
   args: {
-    image: {
-      src: "/src/assets/images/placeholder.png?raw=true",
-      alt: "Placeholder image",
-    },
+    src: '/src/assets/images/placeholder.png?raw=true',
+    alt: 'Placeholder image',
   },
-};
+}
