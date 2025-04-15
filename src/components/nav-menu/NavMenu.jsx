@@ -95,18 +95,25 @@ export const NavMenuItem = ({
       {dropdownItems && isDropdownOpen && (
         <div
           className={cn(
-            'left-0 mt-2 w-48 rounded-md shadow-lg absolute border border-gray-200',
+            'left-0 mt-2 w-48 rounded-md shadow-lg absolute border border-gray-300',
             'bg-[var(--color-bg)]'
           )}
           style={{
             '--color-bg': backgroundColor,
           }}
         >
-          <ul className="space-y-1 flex flex-col">
+          <ul className="gap-1 [&>li:first-child]:rounded-t-md [&>li:last-child]:rounded-b-md flex flex-col">
             {dropdownItems.map((item) => (
-              <li key={item.label} role="menuitem">
+              <li
+                key={item.label}
+                className="[&:first-child>a]:rounded-t-md [&:last-child>a]:rounded-b-md"
+                role="menuitem"
+              >
                 <a
-                  className="rounded-md px-3 py-2 block text-gray-900 hover:bg-gray-100"
+                  className={cn(
+                    'px-3 py-2 block',
+                    'text-black hover:bg-gray-200 focus:bg-gray-200 active:bg-gray-300'
+                  )}
                   href={item.href}
                   onClick={item.onClick}
                 >
