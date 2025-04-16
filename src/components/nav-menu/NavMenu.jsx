@@ -4,6 +4,21 @@ import PropTypes from 'prop-types'
 import { cn } from '../../lib/utils'
 import { Link } from '../button/button'
 
+const useClickOutside = (ref, callback) => {
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (ref.current && !ref.current.contains(event.target)) {
+        callback()
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [ref, callback])
+}
+
 const NavMenu = ({
   backgroundColor = '#ffffff',
   children,
@@ -22,18 +37,11 @@ const NavMenu = ({
     }
   }
 
-  const handleClickOutside = useCallback(
-    (event) => {
-      if (
-        menuRef.current &&
-        !menuRef.current.contains(event.target) &&
-        isOpen
-      ) {
-        setIsOpen(false)
-      }
-    },
-    [isOpen]
-  )
+  useClickOutside(menuRef, () => {
+    if (isOpen) {
+      setIsOpen(false)
+    }
+  })
 
   const handleResize = useCallback(() => {
     clearTimeout(timeoutRef.current)
@@ -43,16 +51,6 @@ const NavMenu = ({
       }
     }, 100)
   }, [isOpen])
-
-  useEffect(() => {
-    if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside)
-    }
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [isOpen, handleClickOutside])
 
   useEffect(() => {
     window.addEventListener('resize', handleResize)
@@ -116,6 +114,7 @@ export const NavMenuItem = ({
   isVertical = false,
   onClick,
 }) => {
+  const menuItemRef = useRef(null)
   const [isDropdownOpen, setDropdownOpen] = useState(false)
 
   const handleDropdownToggle = (e) => {
@@ -123,13 +122,28 @@ export const NavMenuItem = ({
     setDropdownOpen(!isDropdownOpen)
   }
 
+  function handleKeyDown(event) {
+    if (event.key === 'Escape') {
+      setDropdownOpen(false)
+    }
+  }
+
+  useClickOutside(menuItemRef, () => {
+    if (isDropdownOpen) {
+      setDropdownOpen(false)
+    }
+  })
+
   return (
     <div
+      ref={menuItemRef}
       className={cn('relative', 'bg-[var(--color-bg)]')}
+      onKeyDown={handleKeyDown}
       role={dropdownItems ? 'menu' : undefined}
       style={{
         '--color-bg': backgroundColor,
       }}
+      tabIndex={-1}
     >
       <Link
         className={cn(
