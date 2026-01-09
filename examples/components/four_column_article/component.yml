@@ -1,0 +1,73 @@
+name: Four Column Article
+machineName: four_column_article
+status: true
+props:
+  properties:
+    heading:
+      title: Heading
+      type: string
+      examples:
+        - What we offer.
+    headingPosition:
+      title: Heading Position
+      type: string
+      examples:
+        - center_aligned
+      enum:
+        - left_aligned
+        - center_aligned
+        - right_aligned
+      meta:enum:
+        left_aligned: Left aligned
+        center_aligned: Center aligned
+        right_aligned: Right aligned
+    headingLevel:
+      title: Heading Level
+      type: string
+      examples:
+        - h2
+      enum:
+        - h1
+        - h2
+        - h3
+        - h4
+        - h5
+        - h6
+      meta:enum:
+        h1: h1
+        h2: h2
+        h3: h3
+        h4: h4
+        h5: h5
+        h6: h6
+    layout:
+      title: Layout
+      type: string
+      examples:
+        - 33-33-33
+      enum:
+        - 50-50
+        - 33-33-33
+        - 50-25-25
+        - 25-25-50
+        - 25-25-25-25
+      meta:enum:
+        50-50: 50-50
+        33-33-33: 33-33-33
+        50-25-25: 50-25-25
+        25-25-50: 25-25-50
+        25-25-25-25: 25-25-25-25
+    textColor:
+      title: Text Color
+      type: string
+      examples:
+        - dark
+      enum:
+        - dark
+        - light
+      meta:enum:
+        dark: Dark
+        light: Light
+slots:
+  content:
+    title: Content

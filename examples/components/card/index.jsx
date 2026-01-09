@@ -31,6 +31,7 @@ const cardVariants = cva(
 const Card = ({
   backgroundColor = "#ffffff",
   backgroundColorOnHover = "#E2E8F0",
+  byline,
   className,
   image,
   heading,
@@ -82,6 +83,11 @@ const Card = ({
               layout={layout}
               textColor={textColor}
             />
+          )}
+          {byline && (
+            <div className="mt-3 mb-2 text-sm font-semibold text-gray-500">
+              {byline}
+            </div>
           )}
           {text && (
             <FormattedText className="mb-4 leading-6">{text}</FormattedText>

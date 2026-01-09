@@ -80,3 +80,10 @@ export const WithSolidButton = {
     linkVariant: "solid",
   },
 };
+
+export const WithByline = {
+  args: {
+    ...exampleArgs,
+    byline: "Mark Williams - 1 AUG, 2023",
+  },
+};

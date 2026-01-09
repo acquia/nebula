@@ -2,6 +2,7 @@ import { getPageData } from "drupal-canvas";
 
 const Breadcrumb = () => {
   const { breadcrumbs } = getPageData();
+  console.log(breadcrumbs);
   const links = Array.from(breadcrumbs);
   return (
     links && (
