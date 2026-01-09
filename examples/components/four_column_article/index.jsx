@@ -35,6 +35,20 @@ const FourColumnArticle = ({
     ([type, options]) => client.getCollection(type, options),
   );
 
+  // Format date as "D Mon, YYYY", e.g., "1 Aug, 2023"
+  const formatDayMonthYear = (iso) => {
+    const d = new Date(iso);
+    const parts = new Intl.DateTimeFormat("en-US", {
+      day: "numeric",
+      month: "short",
+      year: "numeric",
+    }).formatToParts(d);
+    const day = parts.find((p) => p.type === "day")?.value ?? "";
+    const month = parts.find((p) => p.type === "month")?.value ?? "";
+    const year = parts.find((p) => p.type === "year")?.value ?? "";
+    return `${day} ${month.toUpperCase()}, ${year}`;
+  };
+
   return (
     <>
       <CardContainer
@@ -49,7 +63,7 @@ const FourColumnArticle = ({
               data.map((article, i) => {
                 const cardProps = {
                   heading: article.title,
-                  byline: `By ${article.uid.display_name} - ${new Date(article.created).toLocaleDateString()}`,
+                  byline: `${article.uid.display_name} - ${formatDayMonthYear(article.created)}`,
                   image: {
                     src: article.field_image.uri.url,
                     alt:
