@@ -1,5 +1,5 @@
-name: Four Column Article
-machineName: four_column_article
+name: Related Articles
+machineName: related_articles
 status: true
 props:
   properties:
@@ -12,7 +12,7 @@ props:
       title: Heading Position
       type: string
       examples:
-        - center_aligned
+        - left_aligned
       enum:
         - left_aligned
         - center_aligned
@@ -44,7 +44,7 @@ props:
       title: Layout
       type: string
       examples:
-        - 33-33-33
+        - 25-25-25-25
       enum:
         - 50-50
         - 33-33-33
