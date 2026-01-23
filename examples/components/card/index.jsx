@@ -85,7 +85,7 @@ const Card = ({
             />
           )}
           {byline && (
-            <div className="mt-3 mb-2 text-sm font-semibold text-gray-500">
+            <div className="mt-3 mb-2 text-xs font-semibold text-gray-500">
               {byline}
             </div>
           )}
