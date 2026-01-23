@@ -51,7 +51,7 @@ export const RelatedArticles = ({
       headingElement={headingElement}
       headingSize={headingSize}
       textColor={textColor}
-      className="gap-5"
+      className="gap-8"
       content={
         <>
           {data &&
