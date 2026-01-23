@@ -6,7 +6,7 @@ import useSWR from "swr";
 
 const client = new JsonApiClient();
 
-const RelatedArticles = ({
+export const RelatedArticles = ({
   mainEntity,
   heading,
   headingPosition,
