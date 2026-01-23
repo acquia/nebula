@@ -21,8 +21,8 @@ props:
         left_aligned: Left aligned
         center_aligned: Center aligned
         right_aligned: Right aligned
-    headingLevel:
-      title: Heading Level
+    headingElement:
+      title: Heading Element
       type: string
       examples:
         - h2
@@ -55,6 +55,17 @@ props:
         large: Large
         medium: Medium
         small: Small
+    textColor:
+      title: Text Color
+      type: string
+      examples:
+        - dark
+      enum:
+        - dark
+        - light
+      meta:enum:
+        dark: Dark
+        light: Light
     layout:
       title: Layout
       type: string
@@ -72,17 +83,4 @@ props:
         50-25-25: 50-25-25
         25-25-50: 25-25-50
         25-25-25-25: 25-25-25-25
-    textColor:
-      title: Text Color
-      type: string
-      examples:
-        - dark
-      enum:
-        - dark
-        - light
-      meta:enum:
-        dark: Dark
-        light: Light
-slots:
-  content:
-    title: Content
+slots: []

@@ -7,7 +7,7 @@ const containerExampleArgs = {
   headingSize: "large",
   textColor: "dark",
   headingPosition: "center_aligned",
-  headingLevel: "h2",
+  headingElement: "h2",
   layout: "33-33-33",
 };
 
@@ -46,7 +46,7 @@ export default {
       control: "select",
       options: ["left_aligned", "center_aligned", "right_aligned"],
     },
-    headingLevel: {
+    headingElement: {
       control: "select",
       options: ["h1", "h2", "h3", "h4", "h5", "h6"],
     },
@@ -111,7 +111,7 @@ export const WithHeading = {
     heading: "What We Offer",
     headingSize: "large",
     headingPosition: "center_aligned",
-    headingLevel: "h2",
+    headingElement: "h2",
     content: SampleCards,
   },
 };

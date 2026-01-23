@@ -55,8 +55,8 @@ props:
         left_aligned: Left aligned
         center_aligned: Center aligned
         right_aligned: Right aligned
-    headingLevel:
-      title: Heading Level
+    headingElement:
+      title: Heading Element
       type: string
       examples:
         - h2

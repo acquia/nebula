@@ -10,7 +10,7 @@ const RelatedArticles = ({
   mainEntity,
   heading,
   headingPosition,
-  headingLevel,
+  headingElement,
   headingSize,
   layout,
   textColor,
@@ -46,11 +46,11 @@ const RelatedArticles = ({
   return (
     <CardContainer
       layout={layout}
-      textColor={textColor}
       heading={heading}
       headingPosition={headingPosition}
-      headingLevel={headingLevel}
+      headingElement={headingElement}
       headingSize={headingSize}
+      textColor={textColor}
       className="gap-5"
       content={
         <>
@@ -79,7 +79,7 @@ const RelatedArticles = ({
 const RelatedArticlesContainer = ({
   heading = "More articles",
   headingPosition,
-  headingLevel,
+  headingElement,
   headingSize,
   layout,
   textColor,
@@ -95,7 +95,7 @@ const RelatedArticlesContainer = ({
   const props = {
     heading,
     headingPosition,
-    headingLevel,
+    headingElement,
     headingSize,
     layout,
     textColor,

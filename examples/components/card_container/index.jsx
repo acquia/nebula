@@ -6,7 +6,7 @@ const ThreeColumnCardContainer = ({
   className,
   headingPosition,
   heading,
-  headingLevel,
+  headingElement,
   headingSize = "large",
   preHeading,
   textColor,
@@ -18,7 +18,7 @@ const ThreeColumnCardContainer = ({
       {heading ? (
         <Heading
           heading={heading}
-          headingLevel={headingLevel}
+          headingElement={headingElement}
           headingSize={headingSize}
           layout={headingPosition}
           preHeading={preHeading}
