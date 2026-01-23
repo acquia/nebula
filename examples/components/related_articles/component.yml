@@ -7,7 +7,7 @@ props:
       title: Heading
       type: string
       examples:
-        - What we offer.
+        - More articles
     headingPosition:
       title: Heading Position
       type: string
@@ -40,6 +40,21 @@ props:
         h4: h4
         h5: h5
         h6: h6
+    headingSize:
+      title: Heading Size
+      type: string
+      examples:
+        - medium
+      enum:
+        - extra_large
+        - large
+        - medium
+        - small
+      meta:enum:
+        extra_large: Extra Large
+        large: Large
+        medium: Medium
+        small: Small
     layout:
       title: Layout
       type: string

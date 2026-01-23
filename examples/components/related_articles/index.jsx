@@ -11,6 +11,7 @@ const RelatedArticles = ({
   heading,
   headingPosition,
   headingLevel,
+  headingSize,
   layout,
   textColor,
 }) => {
@@ -49,6 +50,8 @@ const RelatedArticles = ({
       heading={heading}
       headingPosition={headingPosition}
       headingLevel={headingLevel}
+      headingSize={headingSize}
+      className="gap-5"
       content={
         <>
           {data &&
@@ -77,6 +80,7 @@ const RelatedArticlesContainer = ({
   heading = "More articles",
   headingPosition,
   headingLevel,
+  headingSize,
   layout,
   textColor,
 }) => {
@@ -92,6 +96,7 @@ const RelatedArticlesContainer = ({
     heading,
     headingPosition,
     headingLevel,
+    headingSize,
     layout,
     textColor,
   };
