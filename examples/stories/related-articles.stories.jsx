@@ -88,14 +88,7 @@ export default {
   },
 };
 
-export const Default = {
-  args: {
-    layout: "25-25-25-25",
-    textColor: "dark",
-    heading: "All Features",
-    headingPosition: "center_aligned",
-  },
-};
+export const Default = {};
 
 export const WithMockData = (args) => (
   <SWRConfig

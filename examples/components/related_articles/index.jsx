@@ -86,11 +86,7 @@ const RelatedArticlesContainer = ({
 }) => {
   const { mainEntity } = getPageData();
   if (!mainEntity) {
-    console.warn(
-      "getPageData().mainEntity will only have metadata when used on a page with an associated entity (e.g. /node/1, /canvas_page/1). " +
-        "It is always null inside of the code editor since there is no entity context within the code editor.",
-    );
-    return <h2>Main entity not available, see console for more details.</h2>;
+    return null;
   }
   const props = {
     heading,
