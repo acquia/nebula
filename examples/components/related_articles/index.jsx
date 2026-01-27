@@ -1,6 +1,6 @@
 import Card from "@/components/card";
 import CardContainer from "@/components/card_container";
-import { getPageData, JsonApiClient } from "drupal-canvas";
+import { getNodePath, getPageData, JsonApiClient } from "drupal-canvas";
 import { DrupalJsonApiParams } from "drupal-jsonapi-params";
 import useSWR from "swr";
 
@@ -56,17 +56,17 @@ export const RelatedArticles = ({
         <>
           {data &&
             data.map((article, i) => {
+              const { title, uid, created, field_image } = article;
               const cardProps = {
-                heading: article.title,
-                byline: `${article.uid.display_name} - ${formatDayMonthYear(article.created)}`,
+                heading: title,
+                byline: `${uid.display_name} - ${formatDayMonthYear(created)}`,
                 image: {
-                  src: article.field_image.uri.url,
-                  alt:
-                    article.field_image.resourceIdObjMeta.alt ||
-                    "Article image",
-                  width: 800,
-                  height: 600,
+                  src: field_image.uri.url,
+                  alt: field_image.resourceIdObjMeta.alt || "Article image",
+                  width: field_image.resourceIdObjMeta.width,
+                  height: field_image.resourceIdObjMeta.height,
                 },
+                link: getNodePath(article),
               };
               return <Card key={i} {...cardProps} />;
             })}
