@@ -86,4 +86,9 @@ props:
         outline_dark: Outline Dark
         link: Link
         link_underline: Link Underline
+    byline:
+      title: Byline
+      type: string
+      examples:
+        - Alice Williams
 slots: []
