@@ -1,8 +1,9 @@
 ---
 name: component-upload
 description:
-  Uploading components to Drupal Canvas and handling upload failures, including
-  dependency-related issues.
+  Upload components to Drupal Canvas. Use after component work is complete and
+  validated. Handles upload failures including dependency-related issues that
+  require retry.
 ---
 
 ## Upload to Canvas

@@ -46,7 +46,7 @@ The prop ID (the key under `properties`) must be the camelCase conversion of the
 `title` value.
 
 ```yaml
-# Correct - prop ID is camelCase of title
+# Correct
 props:
   properties:
     buttonText:           # camelCase of "Button Text"
@@ -59,7 +59,7 @@ props:
       title: Is Visible
       type: boolean
 
-# Wrong - prop IDs don't match titles
+# Wrong
 props:
   properties:
     btn_text:             # should be "buttonText" for title "Button Text"
@@ -111,13 +111,13 @@ example value for `uri-reference` props—it can cause validation failures durin
 upload. Always use realistic path-like examples:
 
 ```yaml
-# Correct - proper path examples
+# Correct
 examples:
   - /resources
   - /about/team
   - https://example.com/page
 
-# Wrong - can cause upload failures
+# Wrong
 examples:
   - "#"
   - ""
@@ -237,7 +237,7 @@ meta:enum:
 examples:
   - left_aligned
 
-# Wrong - using display labels as enum values
+# Wrong
 enum:
   - Left aligned
   - Center aligned
