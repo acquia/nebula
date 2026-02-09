@@ -2,22 +2,14 @@
 name: slots
 description:
   Implement slots for repeatable and composable content in Canvas components.
-  Use when building lists/grids of items, converting array props to slots, or
-  troubleshooting empty slots in the Canvas editor.
+  Use when (1) Building lists/grids of items, (2) Converting array props to
+  slots (Canvas doesn't support array props with objects), (3) Troubleshooting
+  empty slots in Canvas editor. Covers parent/child component patterns.
 ---
 
 Slots enable components to accept and render child components in designated
 areas. This is the primary mechanism for building composable, repeatable content
 in Canvas because Canvas does not support array props with complex objects.
-
-## When to Use
-
-- Creating a component that renders a list or grid of items
-- A component needs to accept child components
-- You're tempted to use an array prop with objects (Canvas doesn't support this)
-- Building parent/child component relationships
-- A slot container is inside a flex/grid layout and appears collapsed in the
-  editor
 
 ## Canvas Limitation: No Array Props with Objects
 

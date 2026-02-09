@@ -2,16 +2,10 @@
 name: component-metadata
 description:
   Reference for component.yml file format - props, slots, and metadata for
-  Canvas components. Use when creating components, adding props, or fixing
-  upload errors.
+  Canvas components. Use when (1) Creating a new component, (2) Adding or
+  modifying props, (3) Troubleshooting "not a valid choice" or prop type errors,
+  (4) Mapping enums to CVA variants.
 ---
-
-## When to Use
-
-- Creating a new Canvas component
-- Adding or modifying props
-- Troubleshooting "not a valid choice" or prop type errors
-- Mapping enums to CVA variants
 
 ## File Structure
 

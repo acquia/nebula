@@ -1,5 +1,5 @@
 ---
-name: Component upload
+name: component-upload
 description:
   Uploading components to Drupal Canvas and handling upload failures, including
   dependency-related issues.

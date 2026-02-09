@@ -1,20 +1,13 @@
 ---
 name: data-fetching
 description:
-  Fetch and display dynamic content from Drupal via JSON:API. Use when building
-  content lists, integrating with SWR, or querying related entities.
+  Fetch and display dynamic content from Drupal via JSON:API and SWR. Use when
+  building content lists, integrating with SWR, or querying related entities.
+  Covers JsonApiClient, DrupalJsonApiParams, relationship handling, and filter
+  patterns.
 ---
 
-This skill provides patterns for fetching and displaying dynamic content from
-Drupal using JSON:API and SWR. It covers data fetching hooks, relationship
-handling, and building content list components that stay in sync with the CMS.
-
 # Data Fetching
-
-## When to Use
-
-When building components that fetch data, display content lists, or integrate
-with Drupal via JSON:API.
 
 ## Data Fetching with SWR
 

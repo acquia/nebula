@@ -2,24 +2,14 @@
 name: component-composability
 description:
   Design composable React components using slots and decomposition patterns. Use
-  when building new components, refactoring large components, or deciding
-  between props vs slots. Ensures Canvas compatibility and reusability.
+  when (1) Designing a component's prop/slot structure, (2) A component is
+  growing too large, (3) Deciding between props vs slots, (4) Refactoring
+  monolithic components. Ensures Canvas compatibility.
 ---
 
-This skill guides component design decisions, helping you create flexible,
-reusable components that work well with Drupal Canvas. **Prefer small, focused
-components over monolithic ones with many props.** When a component starts
-accumulating many unrelated props, it's often a sign that it should be
-decomposed into smaller, composable pieces.
-
-## When to Use
-
-Invoke this skill when:
-
-- Designing a new component's prop/slot structure
-- A component is growing too large or complex
-- Deciding whether to use props or slots for content
-- Refactoring a monolithic component into smaller pieces
+**Prefer small, focused components over monolithic ones with many props.** When
+a component starts accumulating many unrelated props, it's often a sign that it
+should be decomposed into smaller, composable pieces.
 
 ## Signs a component should be decomposed
 
