@@ -1,15 +1,12 @@
 ---
 name: component-validation
-description: Validate code to prepare for uploading.
+description:
+  Validate components before uploading to Canvas. Use after creating or
+  modifying components, before considering work complete. Runs `npm run
+  code:fix` for Prettier, ESLint, and Canvas requirements.
 ---
 
 # Validate
-
-## When to Use
-
-After creating or modifying components, before considering work complete.
-
-## Validation
 
 After creating or modifying components, always validate your code by running the
 `code:fix` script. Make sure to use the right package manager. For example, if

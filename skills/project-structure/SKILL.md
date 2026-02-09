@@ -1,11 +1,10 @@
 ---
 name: project-structure
-description: Project folder structure and package manager detection for Nebula.
+description:
+  Project folder structure and package manager detection for Nebula. Reference
+  when navigating the codebase, running commands, or determining which package
+  manager to use (npm/yarn/pnpm/bun).
 ---
-
-## When to use this workflow
-
-Reference this when navigating the codebase or running commands.
 
 # Project Structure
 

@@ -129,13 +129,13 @@ Page stories must only import and compose components.
 - Duplicate existing component code
 
 ```jsx
-// Prefer: Only imported components
+// Correct
 import Footer from "@/components/footer";
 import Header from "@/components/header";
 import Section from "@/components/section";
 import Text from "@/components/text";
 
-// Avoid: Inline components and raw HTML
+// Wrong
 const Logo = ({ color }) => <div className="flex">...</div>;
 
 const Page = () => (
@@ -164,7 +164,7 @@ in `src/components/` first.
 The `className` prop is not exposed in Canvas. Page stories should not pass it.
 
 ```jsx
-// Avoid: className props
+// Wrong
 const AboutPage = () => (
   <PageLayout>
     <Section width="normal">
@@ -174,7 +174,7 @@ const AboutPage = () => (
   </PageLayout>
 );
 
-// Prefer: No className
+// Correct
 const AboutPage = () => (
   <PageLayout>
     <Section width="normal">
@@ -202,7 +202,7 @@ cp examples/stories/spacer.stories.jsx src/stories/
 ```
 
 ```jsx
-// Prefer: Spacer component
+// Correct
 import Spacer from "@/components/spacer";
 
 const AboutPage = () => (
@@ -219,7 +219,7 @@ const AboutPage = () => (
   </PageLayout>
 );
 
-// Avoid: Margin classes or wrapper divs
+// Wrong
 const AboutPage = () => (
   <PageLayout>
     <Hero title="About Us" />
@@ -243,14 +243,14 @@ Check `src/components/` and `examples/components/` for:
 - **Spacing**: `spacer`, `divider`
 
 ```jsx
-// Prefer: Layout components
+// Correct
 <WidthConstraintComponent variant="wide">
   <ColumnLayoutComponent columns="sidebar-main">
     {/* Content */}
   </ColumnLayoutComponent>
 </WidthConstraintComponent>
 
-// Avoid: Inline layout styles
+// Wrong
 <div className="mx-auto max-w-6xl px-4">
   <div className="grid grid-cols-[300px_1fr] gap-8">
     {/* Content */}

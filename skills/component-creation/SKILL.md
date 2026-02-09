@@ -1,23 +1,12 @@
 ---
 name: component-creation
 description:
-  Create React components for Nebula using an examples-based workflow. Use when
-  asked to create, add, build, or copy components. Copies from
-  `examples/components/` with full dependency resolution, ensuring each
+  Create React components by copying and modifying examples from
+  `examples/components/`. Use when asked to (1) Create, add, or build a new
+  component, (2) Copy an example component to `src/components/`, (3) Add a
+  component with dependencies. Handles dependency resolution and ensures each
   component has `index.jsx` and `component.yml`.
 ---
-
-This skill guides the creation of new components by copying and modifying
-existing examples, ensuring consistent patterns across all components in the
-project.
-
-## When to Use
-
-Invoke this skill when the user asks to:
-
-- Create, add, or build a new component
-- Copy an example component to `src/components/`
-- Add a component that requires dependencies from examples
 
 ## Workflow
 
@@ -78,8 +67,6 @@ projectx_contact_form
 
 This ensures components remain portable and their names clearly communicate
 their function rather than their project context.
-
-boo
 
 ### Copying an Existing Example Component
 
@@ -171,7 +158,7 @@ exists in `examples/components/`. If so, copy it to `src/components/` first (see
 "Copying existing example components" below), then import and use it.
 
 ```jsx
-// CORRECT: Import and use the existing button component
+// Correct
 import Button from "@/components/button";
 
 const NewsletterSignup = ({ onSubmit }) => (
@@ -180,10 +167,8 @@ const NewsletterSignup = ({ onSubmit }) => (
     <Button variant="primary">Subscribe</Button>
   </form>
 );
-```
 
-```jsx
-// INCORRECT: Duplicating button styles instead of reusing the component
+// Wrong
 const NewsletterSignup = ({ onSubmit }) => (
   <form onSubmit={onSubmit}>
     <input type="email" placeholder="Enter your email" />
@@ -206,17 +191,15 @@ other layout context (such as `header` or `footer`), or when the design
 specifically requires it.
 
 ```jsx
-// CORRECT: Component adapts to its container width
+// Correct
 const Card = ({ title, children }) => (
   <div className="rounded-lg border p-4">
     <h3>{title}</h3>
     {children}
   </div>
 );
-```
 
-```jsx
-// INCORRECT: Component has built-in width constraints (limits composability)
+// Wrong
 const Card = ({ title, children }) => (
   <div className="mx-auto max-w-md rounded-lg border p-4">
     <h3>{title}</h3>

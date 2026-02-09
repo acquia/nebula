@@ -2,23 +2,10 @@
 name: component-development
 description:
   Implement and modify React components following Nebula's patterns. Use when
-  writing component code, adding variants, styling with Tailwind, or creating
-  Storybook stories. Ensures consistent use of CVA, theme tokens, and proper
-  component structure.
+  (1) Writing or modifying component JSX, (2) Adding variants or styling, (3)
+  Working with Tailwind theme tokens, (4) Creating Storybook stories. Covers CVA
+  variants, cn() utility, and theme token usage.
 ---
-
-This skill provides implementation guidelines for writing and modifying
-component code, ensuring consistency with the project's technology stack and
-patterns.
-
-## When to Use
-
-Invoke this skill when:
-
-- Writing or modifying component JSX code
-- Adding variants or styling to components
-- Working with Tailwind theme tokens
-- Creating or updating Storybook stories
 
 ## Technology Stack
 
@@ -88,22 +75,12 @@ Given this definition in `global.css`:
 You can use these colors with any color-accepting utility:
 
 ```jsx
-// ✅ GOOD: Using theme tokens via utility classes
+// Correct
 <button className="bg-primary-600 hover:bg-primary-700 text-white">
   Click me
 </button>
 
-<div className="border border-primary-600">
-  Bordered content
-</div>
-
-<span className="text-primary-600">
-  Colored text
-</span>
-```
-
-```jsx
-// ❌ AVOID: Hardcoding hex values when theme tokens exist
+// Wrong
 <button className="bg-[#1899cb] text-white hover:bg-[#1487b4]">Click me</button>
 ```
 
@@ -176,7 +153,7 @@ values in this project.
 **Wrong - allowing raw color values:**
 
 ```yaml
-# WRONG: Allows arbitrary color codes as prop values
+# Wrong
 props:
   properties:
     backgroundColor:
@@ -187,7 +164,7 @@ props:
 ```
 
 ```jsx
-// WRONG: Uses inline style with raw color value
+// Wrong
 const Card = ({ backgroundColor }) => (
   <div style={{ backgroundColor }}>{/* ... */}</div>
 );
@@ -196,7 +173,7 @@ const Card = ({ backgroundColor }) => (
 **Correct - using CVA variants with design tokens:**
 
 ```yaml
-# CORRECT: Offers curated color scheme options
+# Correct
 props:
   properties:
     colorScheme:
@@ -217,7 +194,7 @@ props:
 ```
 
 ```jsx
-// CORRECT: Uses CVA variants mapped to design tokens
+// Correct
 import { cva } from "class-variance-authority";
 
 const cardVariants = cva("rounded-lg p-6", {
