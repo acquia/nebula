@@ -41,33 +41,6 @@ Components use the `@/components` import alias, which points to
 `src/components`. When you copy and modify examples, the imports will work
 automatically.
 
-## Component naming Conventions
-
-**Use simple, generic names.** Never prefix component names with the project or
-site name. Components should be reusable and their names should describe their
-purpose, not their origin.
-
-When copying and modifying an example component, keep the original name unless
-the component serves a fundamentally different purpose. When creating a new
-component without an example, choose a simple, descriptive name.
-
-```
-# Correct - simple, descriptive names
-footer
-hero
-navigation
-contact_form
-
-# Wrong - prefixed with project/site name
-nebula_footer
-acme_hero
-mysite_navigation
-projectx_contact_form
-```
-
-This ensures components remain portable and their names clearly communicate
-their function rather than their project context.
-
 ### Copying an Existing Example Component
 
 **Workflow for copying example components:**
