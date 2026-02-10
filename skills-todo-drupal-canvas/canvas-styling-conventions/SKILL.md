@@ -4,14 +4,65 @@ description:
   Styling conventions for Canvas components using Tailwind CSS 4 theme tokens.
   Use when (1) Adding colors or styling to components, (2) Working with Tailwind
   theme tokens, (3) Adding or updating design tokens in global.css, (4) Creating
-  color/style props. Covers @theme variables and CVA color variants.
+  color/style props. Covers @theme variables, CVA variants, and cn() utility.
 ---
+
+## Technology Stack
+
+| Technology                           | Purpose            |
+| ------------------------------------ | ------------------ |
+| Tailwind CSS 4.1+                    | Styling            |
+| class-variance-authority (CVA)       | Component variants |
+| `clsx` + `tailwind-merge` via `cn()` | Class name merging |
+
+Only use these dependencies for styling. Do not add third-party CSS libraries or
+create new styling utilities.
 
 ## Styling conventions
 
 - Use Tailwind's theme colors (`primary-*`, `gray-*`) defined in `global.css`.
 - Avoid hardcoded color values; use theme tokens instead.
 - Follow the existing focus, hover, and active state patterns from examples.
+
+## The cn() utility
+
+Use `cn()` to merge Tailwind classes. It combines `clsx` for conditional classes
+with `tailwind-merge` to resolve conflicting utilities. Import from either
+source:
+
+```jsx
+import { cn } from "@/lib/utils";
+// or
+import { cn } from "drupal-canvas";
+```
+
+Example usage:
+
+```jsx
+const Button = ({ variant, className, children }) => (
+  <button
+    className={cn(
+      "rounded px-4 py-2",
+      variant === "primary" && "bg-primary-600 text-white",
+      variant === "secondary" && "bg-gray-200 text-gray-800",
+      className,
+    )}
+  >
+    {children}
+  </button>
+);
+```
+
+## Accept className for style customization
+
+Every component should accept a `className` prop to allow style overrides. Pass
+it to `cn()` as the last argument so consumer classes take precedence.
+
+```jsx
+const Card = ({ colorScheme, className, children }) => (
+  <div className={cn(cardVariants({ colorScheme }), className)}>{children}</div>
+);
+```
 
 ## Tailwind 4 theme variables
 
