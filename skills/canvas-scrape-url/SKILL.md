@@ -1,5 +1,5 @@
 ---
-name: scrape-url
+name: canvas-scrape-url
 description:
   Capture web page screenshots and HTML for design reference. Use when the user
   provides a URL and asks to build, recreate, or implement a design. Runs

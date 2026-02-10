@@ -1,5 +1,5 @@
 ---
-name: component-metadata
+name: canvas-component-metadata
 description:
   Reference for component.yml file format - props, slots, and metadata for
   Canvas components. Use when (1) Creating a new component, (2) Adding or

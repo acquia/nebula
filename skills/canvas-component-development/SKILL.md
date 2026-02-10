@@ -1,5 +1,5 @@
 ---
-name: component-development
+name: canvas-component-development
 description:
   Implement and modify React components following Nebula's patterns. Use when
   (1) Writing or modifying component JSX, (2) Adding variants or styling, (3)

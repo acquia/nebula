@@ -1,5 +1,5 @@
 ---
-name: component-creation
+name: canvas-component-creation
 description:
   Create React components by copying and modifying examples from
   `examples/components/`. Use when asked to (1) Create, add, or build a new

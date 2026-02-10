@@ -1,5 +1,5 @@
 ---
-name: data-fetching
+name: canvas-data-fetching
 description:
   Fetch and display dynamic content from Drupal via JSON:API and SWR. Use when
   building content lists, integrating with SWR, or querying related entities.

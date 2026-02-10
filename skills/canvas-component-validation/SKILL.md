@@ -1,5 +1,5 @@
 ---
-name: component-validation
+name: canvas-component-validation
 description:
   Validate components before uploading to Canvas. Use after creating or
   modifying components, before considering work complete. Runs `npm run

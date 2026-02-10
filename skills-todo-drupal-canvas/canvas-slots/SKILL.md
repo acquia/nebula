@@ -1,5 +1,5 @@
 ---
-name: slots
+name: canvas-slots
 description:
   Implement slots for repeatable and composable content in Canvas components.
   Use when (1) Building lists/grids of items, (2) Converting array props to

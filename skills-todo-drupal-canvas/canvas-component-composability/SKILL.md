@@ -1,5 +1,5 @@
 ---
-name: component-composability
+name: canvas-component-composability
 description:
   Design composable React components using slots and decomposition patterns. Use
   when (1) Designing a component's prop/slot structure, (2) A component is
