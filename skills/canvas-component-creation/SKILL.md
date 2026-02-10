@@ -179,35 +179,6 @@ const NewsletterSignup = ({ onSubmit }) => (
 );
 ```
 
-### Design for Composability
-
-By default, avoid building layout constraints (like `max-width` or centering)
-into individual components. Layout components such as `section` handle width
-constraints when composing pages, so most components should remain flexible and
-adapt to their container.
-
-Include built-in layout constraints when the component doesn't make sense in any
-other layout context (such as `header` or `footer`), or when the design
-specifically requires it.
-
-```jsx
-// Correct
-const Card = ({ title, children }) => (
-  <div className="rounded-lg border p-4">
-    <h3>{title}</h3>
-    {children}
-  </div>
-);
-
-// Wrong
-const Card = ({ title, children }) => (
-  <div className="mx-auto max-w-md rounded-lg border p-4">
-    <h3>{title}</h3>
-    {children}
-  </div>
-);
-```
-
 ## Common Pitfalls
 
 - **Overwriting existing components** - Always check `src/components/` first
