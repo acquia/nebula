@@ -1,35 +1,11 @@
 ---
-name: canvas-component-development
+name: canvas-styling-conventions
 description:
-  Implement and modify React components following Nebula's patterns. Use when
-  (1) Writing or modifying component JSX, (2) Adding variants or styling, (3)
-  Working with Tailwind theme tokens, (4) Creating Storybook stories. Covers CVA
-  variants, cn() utility, and theme token usage.
+  Styling conventions for Canvas components using Tailwind CSS 4 theme tokens.
+  Use when (1) Adding colors or styling to components, (2) Working with Tailwind
+  theme tokens, (3) Adding or updating design tokens in global.css, (4) Creating
+  color/style props. Covers @theme variables and CVA color variants.
 ---
-
-## Technology Stack
-
-| Technology                                 | Purpose                |
-| ------------------------------------------ | ---------------------- |
-| React 19                                   | Component framework    |
-| Tailwind CSS 4.1+                          | Styling                |
-| class-variance-authority (CVA)             | Component variants     |
-| `clsx` + `tailwind-merge` via `cn()`       | Class name merging     |
-| `FormattedText` from `@/lib/FormattedText` | Rendering HTML content |
-
-## Component Patterns
-
-Every component must:
-
-- Use CVA (`cva()`) to define variant styles for components.
-- Use the `cn()` utility from `@/lib/utils` to merge class names.
-- Always export components as default exports.
-- Accept a `className` prop for style customization.
-- Use the `@/components` import alias when importing other components.
-- Only use dependencies listed in the technology stack; do not add third-party
-  imports or create new library utilities.
-- Place each component in its own folder under `src/components/` with an
-  `index.jsx` and `component.yml` file. Do not create nested folder structures.
 
 ## Styling conventions
 
@@ -39,13 +15,12 @@ Every component must:
 
 ## Tailwind 4 theme variables
 
-This project uses Tailwind CSS 4's `@theme` directive to define design tokens in
-`global.css`. Variables defined inside `@theme { }` automatically become
+Canvas projects use Tailwind CSS 4's `@theme` directive to define design tokens
+in `global.css`. Variables defined inside `@theme { }` automatically become
 available as Tailwind utility classes.
 
 **Always check `global.css` for available design tokens.** The `@theme` block is
-the source of truth for colors, fonts, breakpoints, and other design tokens in
-this project.
+the source of truth for colors, fonts, breakpoints, and other design tokens.
 
 ### How theme variables map to utility classes
 
@@ -148,7 +123,7 @@ variants using CVA that map to the design tokens in `global.css`.
 
 **Always check `global.css` for available design tokens.** The tokens defined
 there (such as `primary-*`, `gray-*`, etc.) are the source of truth for color
-values in this project.
+values.
 
 **Wrong - allowing raw color values:**
 
@@ -222,42 +197,3 @@ This approach ensures:
 - Users select from curated, meaningful options (not arbitrary values)
 - Easy theme updates by modifying `global.css` tokens
 - Better accessibility through tested color combinations
-
-## Storybook stories
-
-**CRITICAL: Every component MUST have an individual story file.**
-
-Each component in `src/components/` requires a corresponding story file in
-`src/stories/`. The story file:
-
-- Must be named `<component-name>.stories.jsx` (kebab-case with hyphens)
-- Must import the component from `@/components/<component_name>`
-- Must showcase the component's props and variants
-
-**Example structure:**
-
-```
-src/components/my_card/
-├── index.jsx
-└── component.yml
-
-src/stories/my-card.stories.jsx  # Required story file for my_card component
-```
-
-**Story file requirements:**
-
-- Use Storybook CSF3 format (object-based stories).
-- Include `argTypes` for props with predefined options (like enums).
-- Create multiple story exports to showcase different variants.
-- Use decorators when components need specific backgrounds (e.g., dark
-  backgrounds for light-colored components).
-
-After creating components, verify story files exist:
-
-```bash
-# List all story files
-ls src/stories/*.stories.jsx
-
-# Verify a specific component has its story
-ls src/stories/<component-name>.stories.jsx
-```
