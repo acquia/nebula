@@ -183,16 +183,6 @@ const ResourceDetail = ({ leftContent, rightContent }) => (
 />;
 ```
 
-## Benefits of composability
-
-1. **Flexibility**: Components can be used in different contexts and
-   combinations
-2. **Reusability**: Small components are easier to reuse across pages
-3. **Maintainability**: Changes to one piece don't affect unrelated pieces
-4. **Canvas compatibility**: Smaller components map better to Canvas's
-   component-based editing model
-5. **Testing**: Smaller components are easier to test in isolation
-
 ## When NOT to decompose
 
 Keep components together when:
@@ -203,11 +193,3 @@ Keep components together when:
   backgrounds)
 - **Decomposition would create components with only 1-2 props** that aren't
   useful elsewhere
-
-## Naming decomposed components
-
-When extracting pieces from a larger component:
-
-- Use descriptive names that indicate purpose: `article-meta`, `resource-cover`
-- Avoid names tied to the parent: don't call it `resource-detail-cover`
-- Follow existing patterns: check `src/components/` for similar components
