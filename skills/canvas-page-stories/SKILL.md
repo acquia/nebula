@@ -129,13 +129,7 @@ Page stories must only import and compose components.
 - Duplicate existing component code
 
 ```jsx
-// Correct
-import Footer from "@/components/footer";
-import Header from "@/components/header";
-import Section from "@/components/section";
-import Text from "@/components/text";
-
-// Wrong
+// Wrong - defines inline components and uses raw HTML elements
 const Logo = ({ color }) => <div className="flex">...</div>;
 
 const Page = () => (
@@ -144,13 +138,19 @@ const Page = () => (
     <div className="mx-auto max-w-3xl">Content</div>
   </div>
 );
+```
+
+```jsx
+// Correct - imports and composes existing components
+import Footer from "@/components/footer";
+import Header from "@/components/header";
+import Section from "@/components/section";
+import Text from "@/components/text";
 
 const Page = () => (
   <>
     <Header />
-    <Section width="normal">
-      <Text content="<p>Content here</p>" />
-    </Section>
+    <Section width="normal" content={<Text text="<p>Content here</p>" />} />
     <Footer />
   </>
 );

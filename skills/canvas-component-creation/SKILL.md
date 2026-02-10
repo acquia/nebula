@@ -128,7 +128,7 @@ functionality.
 
 If the component you need doesn't exist in `src/components/` yet, check if it
 exists in `examples/components/`. If so, copy it to `src/components/` first (see
-"Copying existing example components" below), then import and use it.
+"Copying an Existing Example Component" above), then import and use it.
 
 ```jsx
 // Correct

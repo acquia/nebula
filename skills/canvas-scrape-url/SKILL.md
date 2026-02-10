@@ -34,8 +34,7 @@ description:
 
 4. **Use the HTML** to understand the content structure and hierarchy.
 
-5. **Build the components** following the patterns in the "Requirements for
-   creating or modifying components" section.
+5. **Build the components** using the `canvas-component-creation` skill.
 
 ## Example
 
