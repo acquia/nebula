@@ -5,7 +5,6 @@ import useSWR from "swr";
 
 const searchParams = new URLSearchParams(window.location.search);
 const q = searchParams.get("q") || "";
-
 const client = new JsonApiClient();
 
 function getOffsetFromLink(link) {
@@ -20,10 +19,6 @@ function getOffsetFromLink(link) {
 }
 
 export default function List() {
-  // Pagination can't be cleanly done currently due to how Canvas sets up
-  // @drupal-api-client/json-api-client with Jsona as the serializer by default.
-  // @see https://www.drupal.org/project/api_client/issues/3426518
-  const links = {};
   const [pageOffset, setPageOffset] = useState(0);
 
   const { data, error, isLoading } = useSWR(
@@ -39,7 +34,14 @@ export default function List() {
           .getQueryString(),
       },
     ],
-    ([type, options]) => client.getCollection(type, options),
+    async ([type, options]) => {
+      const json = await client.getCollection(type, options);
+
+      return {
+        results: Array.isArray(json) ? json : [],
+        links: json.getLinks() || {},
+      };
+    },
   );
 
   const handlePage = (link) => {
@@ -52,13 +54,16 @@ export default function List() {
   if (error) return "An error has occurred.";
   if (isLoading) return "Loading...";
 
+  const results = data?.results || [];
+  const links = data?.links || {};
+
   return (
     <div>
       <h2 className="text-2xl font-bold">Search results</h2>
       <ul className="mt-2 space-y-3">
-        {data.map((item, index) => (
+        {results.map((item) => (
           <li
-            key={index}
+            key={item?.id || item?.path?.alias || item?.title}
             className="mb-1 border-b border-[#E5E7EB] py-3 font-semibold"
           >
             <h3 className="text-[#2563EB]">
