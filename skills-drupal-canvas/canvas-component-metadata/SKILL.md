@@ -19,7 +19,7 @@ required: [] # Array of required prop names
 props:
   properties:
     # ... prop definitions
-slots: [] # Array of slot definitions or empty
+slots: [] # Use [] only when there are no slots; otherwise use an object map
 ```
 
 ## Props
@@ -269,6 +269,11 @@ const variants = cva("base-classes", {
 Slots allow other components to be embedded within a component. In React, slots
 are received as props containing the rendered children.
 
+`slots` must be either:
+
+1. An object map keyed by slot name (`content`, `sidebar`, etc.)
+2. `[]` when the component has no slots
+
 ```yaml
 slots:
   content:
@@ -285,8 +290,17 @@ const Section = ({ width, content }) => {
 };
 ```
 
-Use an empty array when the component has no slots:
+Use `slots: []` only when the component has no slots:
 
 ```yaml
 slots: []
+```
+
+Do not use arrays of slot objects:
+
+```yaml
+# Wrong
+slots:
+  - name: content
+    title: Content
 ```

@@ -102,6 +102,9 @@ slots: []
 
 Replace the array prop with a slot:
 
+Follow the `canvas-component-metadata` slot schema: use an object map for
+defined slots, and use `slots: []` only when the component has no slots.
+
 ```yaml
 # src/components/features-section/component.yml
 name: Features Section
