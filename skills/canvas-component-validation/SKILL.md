@@ -8,6 +8,10 @@ description:
 
 # Validate
 
+Before running validation, confirm every new component has a matching
+`src/stories/<component-name>.stories.jsx` file (see
+`canvas-storybook-stories`).
+
 After creating or modifying components, always validate your code by running the
 `code:fix` script. Make sure to use the right package manager. For example, if
 using npm, run the following command:

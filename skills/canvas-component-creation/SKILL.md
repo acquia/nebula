@@ -8,6 +8,9 @@ description:
   component has `index.jsx` and `component.yml`.
 ---
 
+Story requirements are delegated to `canvas-storybook-stories` (canonical source
+for story naming, structure, and CSF details).
+
 ## Workflow
 
 ### Creating a New Component
@@ -21,10 +24,8 @@ Always start from an example. When asked to create a new component:
 3. **Copy the corresponding story** from `examples/stories/` to `src/stories/`
 4. **Modify** the copied files to implement the new component
 
-**CRITICAL: Every component MUST have its own individual story file.** When
-copying from examples, always copy both the component folder AND its
-corresponding story file. The story file naming convention is
-`<component-name>.stories.jsx` (using kebab-case with hyphens).
+Always copy or create a story file for each component. For story naming,
+structure, and CSF conventions, follow `canvas-storybook-stories`.
 
 This approach ensures consistent patterns for `component.yml` structure, JSX
 conventions, and Storybook story format across all components.
