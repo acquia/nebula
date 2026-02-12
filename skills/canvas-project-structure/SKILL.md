@@ -16,7 +16,6 @@ src/
 ├── components/     # Working components (Storybook reads from here)
 │   └── global.css  # Base styles imported by Storybook
 ├── stories/        # Working stories (Storybook reads from here)
-└── lib/            # Library utilities and mocks
 
 examples/
 ├── components/     # Example component implementations (for reference)
