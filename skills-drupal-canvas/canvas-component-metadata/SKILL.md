@@ -13,7 +13,7 @@ Every `component.yml` must include these top-level keys:
 
 ```yaml
 name: Component Name # Human-readable display name
-machineName: component_name # Machine name in snake_case
+machineName: component-name # Machine name in kebab-case
 status: true # Whether the component is enabled
 required: [] # Array of required prop names
 props:

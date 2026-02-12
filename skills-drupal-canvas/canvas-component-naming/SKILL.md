@@ -10,6 +10,9 @@ description:
 site name. Components should be reusable and their names should describe their
 purpose, not their origin.
 
+Use `kebab-case` for component names (for example, `machineName`,
+`src/components/<name>/`, and story filenames).
+
 When copying and modifying an example component, keep the original name unless
 the component serves a fundamentally different purpose. When creating a new
 component without an example, choose a simple, descriptive name.
@@ -19,13 +22,13 @@ component without an example, choose a simple, descriptive name.
 footer
 hero
 navigation
-contact_form
+contact-form
 
 # Wrong - prefixed with project/site name
-nebula_footer
-acme_hero
-mysite_navigation
-projectx_contact_form
+nebula-footer
+acme-hero
+mysite-navigation
+projectx-contact-form
 ```
 
 This ensures components remain portable and their names clearly communicate

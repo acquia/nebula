@@ -12,17 +12,17 @@ Each component in `src/components/` requires a corresponding story file in
 `src/stories/`. The story file:
 
 - Must be named `<component-name>.stories.jsx` (kebab-case with hyphens)
-- Must import the component from `@/components/<component_name>`
+- Must import the component from `@/components/<component-name>`
 - Must showcase the component's props and variants
 
 **Example structure:**
 
 ```
-src/components/my_card/
+src/components/my-card/
 ├── index.jsx
 └── component.yml
 
-src/stories/my-card.stories.jsx  # Required story file for my_card component
+src/stories/my-card.stories.jsx  # Required story file for my-card component
 ```
 
 **Story file requirements:**

@@ -89,7 +89,7 @@ cp examples/stories/text.stories.jsx src/stories/
 two files:
 
 ```
-src/components/<component_name>/
+src/components/<component-name>/
 ├── index.jsx      # React component implementation
 └── component.yml  # Component metadata and props for Drupal Canvas
 ```
@@ -100,8 +100,11 @@ component's metadata, props, and slots for Drupal Canvas.
 
 The directory name must match machineName. The component folder name must
 exactly match the `machineName` value defined in `component.yml`. Use
-`kebab-case` (with hyphens) as the preferred format, though `snake_case` is also
-supported.
+`kebab-case` (with hyphens) for new and modified components in
+`src/components/`.
+
+**Legacy exception:** `examples/components/` may contain legacy `snake_case`
+names. Keep those examples unchanged unless explicitly asked to migrate them.
 
 After creating components, verify the folder structure:
 
@@ -110,8 +113,8 @@ After creating components, verify the folder structure:
 ls -la src/components/*/
 
 # Verify each new component has both required files
-ls src/components/<component_name>/index.jsx
-ls src/components/<component_name>/component.yml
+ls src/components/<component-name>/index.jsx
+ls src/components/<component-name>/component.yml
 ```
 
 If a component folder is missing either file, the component is incomplete and
