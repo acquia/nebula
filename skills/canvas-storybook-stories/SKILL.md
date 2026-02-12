@@ -25,6 +25,15 @@ src/components/my-card/
 src/stories/my-card.stories.jsx  # Required story file for my-card component
 ```
 
+## Name Mapping
+
+Use this canonical mapping for component/story naming:
+
+- `component.yml machineName`: `my-card`
+- Component folder: `src/components/my-card/`
+- Component import: `@/components/my-card`
+- Story file: `src/stories/my-card.stories.jsx`
+
 **Story file requirements:**
 
 - Use Storybook CSF3 format (object-based stories).

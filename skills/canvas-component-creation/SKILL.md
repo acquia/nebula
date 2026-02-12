@@ -25,7 +25,8 @@ Always start from an example. When asked to create a new component:
 4. **Modify** the copied files to implement the new component
 
 Always copy or create a story file for each component. For story naming,
-structure, and CSF conventions, follow `canvas-storybook-stories`.
+structure, and CSF conventions, follow `canvas-storybook-stories`. Follow its
+"Name Mapping" section for filename/path conversions.
 
 This approach ensures consistent patterns for `component.yml` structure, JSX
 conventions, and Storybook story format across all components.
