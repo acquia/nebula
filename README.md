@@ -17,17 +17,19 @@ npx @drupal-canvas/create@latest
 
 ## AI-assisted development workflows
 
-Different AI tools have different configuration files. To apply the provided AI
-instructions to your AI agent use:
+### Skills
 
-```
-npx ruler apply --agents=<agent1,agent2,...>
-```
+Agent skills are located in `.agents/skills/`. If you are using an AI agent that
+requires its own directory (such as Cursor or Claude Code), you need to manually
+symlink the relevant skill to the canonical source in `.agents/skills/`:
 
-For example, `npx ruler apply --agents=cursor` or
-`npx ruler apply --agents=claude`.  
-For complete list of supported agents, see:
-<https://github.com/intellectronica/ruler#supported-ai-agents>.
+```bash
+# For Claude Code
+ln -s .agents/skills/<skill-name> .claude/skills/<skill-name>
+
+# For Cursor
+ln -s .agents/skills/<skill-name> .cursor/skills/<skill-name>
+```
 
 ## Features
 
