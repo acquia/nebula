@@ -7,20 +7,20 @@ description:
   with Spacer, and single-story hoisting.
 ---
 
-# Example Page Stories with Storybook
+# Example page stories with Storybook
 
 Page stories showcase how components work together in realistic layouts. They
 should closely mirror what end users will experience in Drupal Canvas, so avoid
 patterns that won't be available in Canvas.
 
-## Location and Naming
+## Location and naming
 
 - Page stories MUST be placed in `src/stories/example-pages/`
 - Page story files should be named `<page-name>.stories.jsx`
 - The Storybook title MUST use this format:
   `title: "Example pages/[Page Title]"`
 
-### Single-Story Hoisting
+### Single-story hoisting
 
 **Use single-story hoisting for cleaner navigation.** Page stories should use
 Storybook's single-story hoisting feature to avoid unnecessary nesting in the
@@ -55,17 +55,17 @@ rather than a nested "Product: Detail" → "Default" structure.
   `src/stories/example-pages/` to ensure changes work well in composed layouts
   and update them if needed.
 
-## PageLayout Component
+## PageLayout component
 
 All page stories must use a shared `PageLayout` component from
 `src/stories/example-pages/page-layout.jsx`.
 
-### Create PageLayout When
+### Create PageLayout when
 
 - Creating the first page story, OR
 - It doesn't exist in `src/stories/example-pages/`
 
-### PageLayout Structure
+### PageLayout structure
 
 ```jsx
 // src/stories/example-pages/page-layout.jsx
@@ -112,7 +112,7 @@ export default {
 export const Default = { name: "About" };
 ```
 
-## Composition Rules
+## Composition rules
 
 Page stories must only import and compose components.
 
@@ -122,7 +122,7 @@ Page stories must only import and compose components.
 - Pass props and compose together
 - Define sample data (strings, objects, arrays)
 
-### Not Allowed
+### Not allowed
 
 - Define React components inline
 - Use raw HTML elements (`<div>`, `<span>`) for layout
@@ -159,7 +159,7 @@ const Page = () => (
 If you need a `<div>`, look for an existing component. If none exists, create it
 in `src/components/` first.
 
-## No className in Page Stories
+## No className in page stories
 
 The `className` prop is not exposed in Canvas. Page stories should not pass it.
 
@@ -190,7 +190,7 @@ When className IS appropriate:
 - Inside a component's `index.jsx` when composing other components
 - In individual component stories (not page stories)
 
-## Spacing with Spacer Component
+## Spacing with Spacer component
 
 Control spacing between components using `spacer`, not margins or padding.
 
@@ -232,7 +232,7 @@ const AboutPage = () => (
 );
 ```
 
-## Layout Components
+## Layout components
 
 Use existing layout components instead of inline styles.
 

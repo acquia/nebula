@@ -7,9 +7,9 @@ description:
   patterns.
 ---
 
-# Data Fetching
+# Data fetching
 
-## Data Fetching with SWR
+## Data fetching with SWR
 
 Use [SWR](https://swr.vercel.app/) for all data fetching. It provides caching,
 revalidation, and a clean hook-based API.

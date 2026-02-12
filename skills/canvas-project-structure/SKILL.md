@@ -6,7 +6,7 @@ description:
   manager to use (npm/yarn/pnpm/bun).
 ---
 
-# Project Structure
+# Project structure
 
 This project uses a two-folder structure to separate example code from working
 code:

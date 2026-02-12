@@ -13,7 +13,7 @@ for story naming, structure, and CSF details).
 
 ## Workflow
 
-### Creating a New Component
+### Creating a new component
 
 Always start from an example. When asked to create a new component:
 
@@ -43,7 +43,7 @@ Components use the `@/components` import alias, which points to
 `src/components`. When you copy and modify examples, the imports will work
 automatically.
 
-### Copying an Existing Example Component
+### Copying an existing example component
 
 **Workflow for copying example components:**
 
@@ -122,9 +122,9 @@ ls src/components/<component-name>/component.yml
 If a component folder is missing either file, the component is incomplete and
 will not work. Both `index.jsx` and `component.yml` are required.
 
-## Best Practices
+## Best practices
 
-### Reuse Existing Components
+### Reuse existing components
 
 **Always check `src/components/` before creating new UI elements.** When
 building a component that needs common UI elements (buttons, headings, images,
@@ -157,7 +157,7 @@ const NewsletterSignup = ({ onSubmit }) => (
 );
 ```
 
-## Common Pitfalls
+## Common pitfalls
 
 - **Overwriting existing components** - Always check `src/components/` first
 - **Missing dependencies** - Recursively check all `@/components/` imports

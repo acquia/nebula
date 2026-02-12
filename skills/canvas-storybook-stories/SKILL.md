@@ -25,7 +25,7 @@ src/components/my-card/
 src/stories/my-card.stories.jsx  # Required story file for my-card component
 ```
 
-## Name Mapping
+## Name mapping
 
 Use this canonical mapping for component/story naming:
 

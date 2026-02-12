@@ -7,7 +7,7 @@ description:
   (4) Mapping enums to CVA variants.
 ---
 
-## File Structure
+## File structure
 
 Every `component.yml` must include these top-level keys:
 
@@ -68,7 +68,7 @@ props:
       title: Background Color
 ```
 
-### Prop Types
+### Prop types
 
 #### Text
 

@@ -7,7 +7,7 @@ description:
   color/style props. Covers @theme variables, CVA variants, and cn() utility.
 ---
 
-## Technology Stack
+## Technology stack
 
 | Technology                           | Purpose            |
 | ------------------------------------ | ------------------ |

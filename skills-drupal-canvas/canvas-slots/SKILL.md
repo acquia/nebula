@@ -11,7 +11,7 @@ Slots enable components to accept and render child components in designated
 areas. This is the primary mechanism for building composable, repeatable content
 in Canvas because Canvas does not support array props with complex objects.
 
-## Canvas Limitation: No Array Props with Objects
+## Canvas limitation: no array props with objects
 
 Canvas will reject components that define array props with nested object items:
 
@@ -56,7 +56,7 @@ props:
           - tag2
 ```
 
-## The Pattern: Slots + Child Components
+## The pattern: slots + child components
 
 Instead of array props, create a separate child component for the repeating item
 and use a slot in the parent component.
@@ -173,7 +173,7 @@ export const Default = {
 };
 ```
 
-## Common Patterns
+## Common patterns
 
 These component patterns always need slots with child components:
 
@@ -189,7 +189,7 @@ These component patterns always need slots with child components:
 | `metadata-list`     | `metadata-item`     | Key-value metadata pairs    |
 | `carousel`          | `carousel-item`     | Carousel slides             |
 
-## Slot Container Minimum Size
+## Slot container minimum size
 
 When a slot is inside a container that sizes based on its content (flex items,
 grid items, inline elements), the container collapses to zero dimensions when
@@ -236,7 +236,7 @@ const Header = ({ branding, navigation }) => {
 - The container uses `block` layout (full width by default)
 - The slot is the only content and the parent has defined dimensions
 
-## Naming Child Components
+## Naming child components
 
 When creating child components for slots:
 
