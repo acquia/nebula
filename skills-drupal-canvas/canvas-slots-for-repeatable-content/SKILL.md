@@ -1,15 +1,19 @@
 ---
-name: canvas-slots
+name: canvas-slots-for-repeatable-content
 description:
-  Implement slots for repeatable and composable content in Canvas components.
-  Use when (1) Building lists/grids of items, (2) Converting array props to
-  slots (Canvas doesn't support array props with objects), (3) Troubleshooting
-  empty slots in Canvas editor. Covers parent/child component patterns.
+  Implement slots for repeatable content patterns in Canvas components. Use when
+  (1) Building lists/grids of items, (2) Converting array props to slots (Canvas
+  doesn't support array props with objects), (3) Troubleshooting empty slots in
+  Canvas editor. Covers parent/child repeatable item patterns.
 ---
 
 Slots enable components to accept and render child components in designated
-areas. This is the primary mechanism for building composable, repeatable content
-in Canvas because Canvas does not support array props with complex objects.
+areas. In this skill, focus on repeatable content patterns (lists, cards, item
+collections), especially because Canvas does not support array props with
+complex objects.
+
+For broader slot architecture and decomposition guidance, see
+`canvas-component-composability`.
 
 ## Canvas limitation: no array props with objects
 
