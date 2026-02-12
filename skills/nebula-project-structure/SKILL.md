@@ -1,5 +1,5 @@
 ---
-name: canvas-project-structure
+name: nebula-project-structure
 description:
   Project folder structure and package manager detection for Nebula. Reference
   when navigating the codebase, running commands, or determining which package

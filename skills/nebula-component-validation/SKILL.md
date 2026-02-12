@@ -1,5 +1,5 @@
 ---
-name: canvas-component-validation
+name: nebula-component-validation
 description:
   Validate components before uploading to Canvas. Use after creating or
   modifying components, before considering work complete. Runs `npm run
@@ -10,7 +10,7 @@ description:
 
 Before running validation, confirm every new component has a matching
 `src/stories/<component-name>.stories.jsx` file (see
-`canvas-storybook-stories`).
+`nebula-storybook-stories`).
 
 After creating or modifying components, always validate your code by running the
 `code:fix` script. Make sure to use the right package manager. For example, if

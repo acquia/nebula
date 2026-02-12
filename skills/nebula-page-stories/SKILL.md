@@ -1,5 +1,5 @@
 ---
-name: canvas-page-stories
+name: nebula-page-stories
 description:
   Create example page stories that compose multiple components into realistic
   layouts. Use when building page-level Storybook stories that showcase how

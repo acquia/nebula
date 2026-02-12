@@ -1,5 +1,5 @@
 ---
-name: canvas-component-creation
+name: nebula-component-creation
 description:
   Create React components by copying and modifying examples from
   `examples/components/`. Use when asked to (1) Create, add, or build a new
@@ -8,7 +8,7 @@ description:
   component has `index.jsx` and `component.yml`.
 ---
 
-Story requirements are delegated to `canvas-storybook-stories` (canonical source
+Story requirements are delegated to `nebula-storybook-stories` (canonical source
 for story naming, structure, and CSF details).
 
 ## Workflow
@@ -25,7 +25,7 @@ Always start from an example. When asked to create a new component:
 4. **Modify** the copied files to implement the new component
 
 Always copy or create a story file for each component. For story naming,
-structure, and CSF conventions, follow `canvas-storybook-stories`. Follow its
+structure, and CSF conventions, follow `nebula-storybook-stories`. Follow its
 "Name Mapping" section for filename/path conversions.
 
 This approach ensures consistent patterns for `component.yml` structure, JSX

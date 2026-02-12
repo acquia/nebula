@@ -1,5 +1,5 @@
 ---
-name: canvas-scrape-url
+name: nebula-scrape-url
 description:
   Capture web page screenshots and HTML for design reference. Use when the user
   provides a URL and asks to build, recreate, or implement a design. Runs
@@ -34,7 +34,7 @@ description:
 
 4. **Use the HTML** to understand the content structure and hierarchy.
 
-5. **Build the components** using the `canvas-component-creation` skill.
+5. **Build the components** using the `nebula-component-creation` skill.
 
 ## Example
 

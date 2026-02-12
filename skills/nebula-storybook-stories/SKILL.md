@@ -1,5 +1,5 @@
 ---
-name: canvas-storybook-stories
+name: nebula-storybook-stories
 description:
   Create Storybook stories for Canvas components. Use when (1) Creating a new
   component that needs a story, (2) Adding or modifying component stories, (3)
