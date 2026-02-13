@@ -15,13 +15,25 @@ Instead of cloning this repository, create a new project interactively:
 npx @drupal-canvas/create@latest
 ```
 
-## AI-assisted development workflows
+## AI-assisted development
 
-### Skills
+[Agent skills](https://agentskills.io) are located in `.agents/skills/`.
 
-Agent skills are located in `.agents/skills/`. If you are using an AI agent that
-requires its own directory (such as Cursor or Claude Code), you need to manually
-symlink the relevant skill to the canonical source in `.agents/skills/`:
+- `nebula-*` skills provide conventions and workflows specific for this
+  repository.
+- `canvas-*` skills are generic Canvas Code Component component guidance
+  installed from
+  [`drupal-canvas/skills`](https://github.com/drupal-canvas/skills).
+
+### Setup
+
+No setup is required for the following coding agents; they read directly from
+`.agents/skills/`: Amp, Codex, Gemini CLI, GitHub Copilot, Kimi Code CLI,
+OpenCode. (This list can become outdated quickly; by the time you read this,
+additional coding agents may already standardize on this directory.)
+
+If your coding agent does not standardize on this directory (for example, Cursor
+or Claude Code), manually symlink the relevant skill from `.agents/skills/`:
 
 ```bash
 # For Claude Code
@@ -29,6 +41,23 @@ ln -s .agents/skills/<skill-name> .claude/skills/<skill-name>
 
 # For Cursor
 ln -s .agents/skills/<skill-name> .cursor/skills/<skill-name>
+```
+
+### Adding new skills
+
+Install new skills from [skills.sh](https://skills.sh). For example:
+
+```bash
+npx skills add vercel-labs/agent-skills
+```
+
+### Updating skills
+
+You can update [`drupal-canvas/skills`](https://github.com/drupal-canvas/skills)
+or any other skills you installed via [skills.sh](https://skills.sh):
+
+```bash
+npx skills update
 ```
 
 ## Features
