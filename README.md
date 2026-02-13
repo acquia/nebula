@@ -53,12 +53,15 @@ npx skills add vercel-labs/agent-skills
 
 ### Updating skills
 
-You can update [`drupal-canvas/skills`](https://github.com/drupal-canvas/skills)
-or any other skills you installed via [skills.sh](https://skills.sh):
+Update the Drupal Canvas skills by re-adding and selecting all of them:
 
 ```bash
-npx skills update
+npx skills add drupal-canvas/skills
 ```
+
+Once [vercel-labs/skills#337](https://github.com/vercel-labs/skills/issues/337)
+is resolved, you'll be able to use the `npx skills check` and
+`npx skills update` to check for and apply updates more efficiently.
 
 ## Features
 
