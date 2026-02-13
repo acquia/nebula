@@ -1,10 +1,10 @@
 ---
 name: canvas-component-composability
 description:
-  Design composable React components using slots and decomposition patterns. Use
-  when (1) Designing a component's prop/slot structure, (2) A component is
-  growing too large, (3) Deciding between props vs slots, (4) Refactoring
-  monolithic components. Ensures Canvas compatibility.
+  Design Canvas-ready React components with slots and decomposition-first
+  patterns. Use when (1) Designing a component's prop/slot structure, (2) A
+  component is growing too large, (3) Deciding between props vs slots, (4)
+  Refactoring monolithic components. Ensures Canvas compatibility.
 ---
 
 **Prefer small, focused components over monolithic ones with many props.** When

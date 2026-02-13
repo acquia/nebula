@@ -1,11 +1,12 @@
 ---
 name: canvas-component-definition
 description:
-  ALWAYS use first for any task involving React components in the repository
-  (create, modify, refactor, review, migrate, or validate). Establishes the
-  canonical Canvas component contract, assuming repository components are Canvas
-  targets, and guides either (1) transforming existing components to meet Canvas
-  requirements or (2) creating new Canvas-ready components.
+  Start here for any React component task to enforce the canonical Canvas
+  component contract. Use for create, modify, refactor, review, migrate, or
+  validate work. Establishes the canonical Canvas component contract, assuming
+  repository components are Canvas targets, and guides either (1) transforming
+  existing components to meet Canvas requirements or (2) creating new
+  Canvas-ready components.
 ---
 
 ## Canonical definition

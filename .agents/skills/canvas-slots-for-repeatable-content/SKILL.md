@@ -1,10 +1,11 @@
 ---
 name: canvas-slots-for-repeatable-content
 description:
-  Implement slots for repeatable content patterns in Canvas components. Use when
-  (1) Building lists/grids of items, (2) Converting array props to slots (Canvas
-  doesn't support array props with objects), (3) Troubleshooting empty slots in
-  Canvas editor. Covers parent/child repeatable item patterns.
+  Model repeatable Canvas content with slot-based parent/child component
+  patterns. Use when (1) Building lists/grids of items, (2) Converting array
+  props to slots (Canvas doesn't support array props with objects), (3)
+  Troubleshooting empty slots in Canvas editor. Covers parent/child repeatable
+  item patterns.
 ---
 
 Slots enable components to accept and render child components in designated

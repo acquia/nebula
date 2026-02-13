@@ -1,9 +1,10 @@
 ---
 name: canvas-component-naming
 description:
-  Naming conventions for Canvas components. Use when (1) Creating a new
-  component, (2) Renaming components, (3) Reviewing component names for
-  consistency. Ensures portable, descriptive component names.
+  Name Canvas components with clear, portable conventions for machine names and
+  folders. Use when (1) Creating a new component, (2) Renaming components, (3)
+  Reviewing component names for consistency. Ensures portable, descriptive
+  component names.
 ---
 
 **Use simple, generic names.** Never prefix component names with the project or

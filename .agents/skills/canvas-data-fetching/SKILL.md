@@ -1,10 +1,10 @@
 ---
 name: canvas-data-fetching
 description:
-  Fetch and display dynamic content from Drupal via JSON:API and SWR. Use when
-  building content lists, integrating with SWR, or querying related entities.
-  Covers JsonApiClient, DrupalJsonApiParams, relationship handling, and filter
-  patterns.
+  Fetch and render Drupal content in Canvas components with JSON:API and SWR
+  patterns. Use when building content lists, integrating with SWR, or querying
+  related entities. Covers JsonApiClient, DrupalJsonApiParams, relationship
+  handling, and filter patterns.
 ---
 
 # Data fetching

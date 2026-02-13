@@ -1,7 +1,7 @@
 ---
 name: canvas-component-utils
 description:
-  Utility components from drupal-canvas package for rendering content. Use when
+  Use utility components to render formatted text and media correctly. Use when
   (1) Rendering HTML text content from props, (2) Displaying images, (3) Working
   with formatted text or media. Covers FormattedText and Image utilities.
 ---
