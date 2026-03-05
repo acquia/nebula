@@ -30,6 +30,10 @@ Every prop definition must include a `title` for the UI label. The `examples`
 array is required for required props and recommended for all others. Only the
 first example value is used by Drupal Canvas.
 
+If a prop is listed in `required`, do not add a fallback/default value for that
+prop in the React component signature. Required Canvas props should be provided
+by metadata/editor input rather than silent JSX defaults.
+
 ```yaml
 props:
   properties:
@@ -38,6 +42,14 @@ props:
       type: string
       examples:
         - Enter a heading...
+```
+
+```jsx
+// Correct: required prop has no fallback default
+const Hero = ({ heading }) => <h1>{heading}</h1>;
+
+// Wrong: required prop fallback masks missing required data
+const Hero = ({ heading = "Default heading" }) => <h1>{heading}</h1>;
 ```
 
 **Prop IDs must be camelCase versions of their titles.**
