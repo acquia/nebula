@@ -3,27 +3,60 @@ import Text from "@/components/text";
 import { cva } from "class-variance-authority";
 import { Image as ResponsiveImage } from "drupal-canvas";
 
-const heroVariants = cva("mx-auto flex w-full max-w-[1360px] flex-col gap-8", {
+const containerVariants = cva(
+  "mx-auto flex w-full max-w-[1360px] gap-8 md:items-center",
+  {
+    variants: {
+      layout: {
+        text_image: "flex-col md:flex-row",
+        image_text: "flex-col md:flex-row-reverse",
+      },
+    },
+    defaultVariants: {
+      layout: "text_image",
+    },
+  },
+);
+
+const textColumnVariants = cva(
+  "flex flex-col items-start justify-center gap-4",
+  {
+    variants: {
+      columnWidths: {
+        "33_66": "w-full md:w-1/3",
+        "50_50": "w-full md:w-1/2",
+        "66_33": "w-full md:w-2/3",
+      },
+    },
+    defaultVariants: {
+      columnWidths: "50_50",
+    },
+  },
+);
+
+const imageColumnVariants = cva("flex w-full items-center", {
   variants: {
-    layout: {
-      left_aligned: "items-start justify-between md:flex-row",
-      centered: "flex-col items-center justify-center text-center",
+    columnWidths: {
+      "33_66": "md:w-2/3",
+      "50_50": "md:w-1/2",
+      "66_33": "md:w-1/3",
     },
   },
   defaultVariants: {
-    layout: "left_aligned",
+    columnWidths: "50_50",
   },
 });
 
 const TwoColumnText = ({
   layout,
+  columnWidths,
   preHeading,
   heading,
   headingElement,
-  headingSize = "large",
+  headingSize,
   text,
   buttons,
-  textColor = "dark",
+  textColor,
   image,
   rightColumn,
   textShadow,
@@ -31,10 +64,8 @@ const TwoColumnText = ({
   return (
     <div className="flex w-full justify-start bg-cover bg-center bg-no-repeat py-24">
       <div className="mx-6 flex w-full items-center justify-center">
-        <div className={heroVariants({ layout })}>
-          <div
-            className={`flex max-w-xl flex-col items-start justify-start gap-4 xl:max-w-lg ${layout === "centered" ? "items-center" : "items-start"}`}
-          >
+        <div className={containerVariants({ layout })}>
+          <div className={textColumnVariants({ columnWidths })}>
             <div className="mb-4">
               <Heading
                 heading={heading}
@@ -54,14 +85,10 @@ const TwoColumnText = ({
                 textShadow={textShadow}
               />
             )}
-            <div
-              className={`flex w-full min-w-3xs gap-4 ${layout === "centered" ? "justify-center" : "justify-start"}`}
-            >
-              {buttons}
-            </div>
+            <div className="flex w-full min-w-3xs gap-4">{buttons}</div>
           </div>
-          <div className="flex max-w-3xl">
-            <ContentImage image={image} className="h-auto max-w-full" />
+          <div className={imageColumnVariants({ columnWidths })}>
+            <ContentImage image={image} className="h-auto w-full" />
             {rightColumn}
           </div>
         </div>

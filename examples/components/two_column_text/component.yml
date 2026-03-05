@@ -3,6 +3,7 @@ machineName: two_column_text
 status: true
 required:
   - layout
+  - columnWidths
   - headingElement
   - headingSize
   - textColor
@@ -22,13 +23,26 @@ props:
       title: Layout
       type: string
       examples:
-        - left_aligned
+        - text_image
       enum:
-        - left_aligned
-        - centered
+        - text_image
+        - image_text
       meta:enum:
-        left_aligned: Left Aligned
-        centered: Centered
+        text_image: Text - Image
+        image_text: Image - Text
+    columnWidths:
+      title: Column Widths
+      type: string
+      examples:
+        - "50_50"
+      enum:
+        - "33_66"
+        - "50_50"
+        - "66_33"
+      meta:enum:
+        "33_66": Text 33% - Image 66%
+        "50_50": Text 50% - Image 50%
+        "66_33": Text 66% - Image 33%
     preHeading:
       title: Pre Heading
       type: string
