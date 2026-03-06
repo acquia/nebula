@@ -8,7 +8,8 @@ const exampleArgs = {
     width: 800,
     height: 600,
   },
-  layout: "left_aligned",
+  layout: "text_image",
+  columnWidths: "50_50",
   preHeading: "Mission",
   heading: "This space deserves a hero.",
   headingElement: "h2",
@@ -23,7 +24,11 @@ export default {
   argTypes: {
     layout: {
       control: "select",
-      options: ["left_aligned", "centered"],
+      options: ["text_image", "image_text"],
+    },
+    columnWidths: {
+      control: "select",
+      options: ["33_66", "50_50", "66_33"],
     },
     textColor: {
       control: "select",
@@ -54,18 +59,28 @@ export const Default = {
   },
 };
 
-export const Centered = {
+export const ImageFirst = {
   args: {
     ...exampleArgs,
-    layout: "centered",
+    layout: "image_text",
     buttons: SampleButtons,
   },
 };
 
-export const WithPreHeading = {
+export const NarrowTextColumn = {
   args: {
     ...exampleArgs,
-    preHeading: "Welcome",
+    columnWidths: "33_66",
+    heading: "Support the story with a larger visual",
+    text: "Create beautiful, responsive websites with our component library. Designed for developers who value clean code and modern design.",
+    buttons: SampleButtons,
+  },
+};
+
+export const WideTextColumn = {
+  args: {
+    ...exampleArgs,
+    columnWidths: "66_33",
     heading: "Build something amazing",
     text: "Create beautiful, responsive websites with our component library. Designed for developers who value clean code and modern design.",
     buttons: SampleButtons,
@@ -92,9 +107,11 @@ export const LightOnDark = {
   ],
 };
 
-export const WithoutImage = {
+export const TextOnly = {
   args: {
-    layout: "left_aligned",
+    layout: "text_image",
+    columnWidths: "50_50",
+    preHeading: "Overview",
     heading: "Simple and Clean",
     headingElement: "h2",
     headingSize: "large",
