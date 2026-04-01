@@ -70,9 +70,10 @@ const LinkCard = ({
             <Image
               src={image.src}
               alt={image.alt}
-              width={38}
-              height={38}
+              width={image.width}
+              height={image.height}
               className="size-9.5 rounded-full object-cover"
+              sizes="38px"
             />
           )}
           <div className={cn("grow", linkCardTextAlign[layout])}>
