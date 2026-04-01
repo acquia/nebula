@@ -4,7 +4,6 @@ status: true
 required:
   - variant
   - layout
-  - linkVariant
 props:
   properties:
     variant:
