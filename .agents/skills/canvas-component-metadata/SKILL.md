@@ -127,7 +127,7 @@ examples:
 
 **IMPORTANT: Use proper path examples for URL props.** Do not use `#` as an
 example value for `uri-reference` props—it can cause validation failures during
-upload. Always use realistic path-like examples:
+push. Always use realistic path-like examples:
 
 ```yaml
 # Correct

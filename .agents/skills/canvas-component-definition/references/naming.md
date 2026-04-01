@@ -7,7 +7,7 @@ Use `kebab-case` consistently for:
 
 - `machineName`
 - component folder names
-- story filenames
+- mock filenames when the component uses the named-file pattern
 
 ## Examples
 

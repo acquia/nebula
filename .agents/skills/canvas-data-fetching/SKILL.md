@@ -37,8 +37,10 @@ To fetch content from Drupal (e.g., articles, events, or other content types),
 use the autoconfigured `JsonApiClient` from the `drupal-canvas` package combined
 with `DrupalJsonApiParams` for query building.
 
-**Important:** Do not mock JSON:API resources in Storybook stories. Components
-that fetch data will display their loading or empty states in Storybook.
+**Important:** Do not fabricate JSON:API resource payloads in Workbench mocks.
+Components that fetch data should render their real loading, empty, or error
+states in Workbench unless the user explicitly asks for a static, non-fetching
+preview shape.
 
 ```jsx
 import { getNodePath, JsonApiClient } from "drupal-canvas";

@@ -15,10 +15,14 @@ A Canvas component is a package of:
 
 1. A React implementation (`index.jsx`)
 2. Canvas metadata/schema (`component.yml`)
-3. Naming and structure compatibility (`machineName`, folder path, story path)
+3. Naming and structure compatibility (`machineName`, folder path, Workbench
+   mock path)
 4. Canvas-compatible props/slots modeling
+5. Workbench mock coverage for authored preview states
 
-All four parts are required for the component to be usable in Drupal Canvas.
+The first four parts are required for the component to be usable in Drupal
+Canvas. Workbench mocks are the supported way to author named preview states
+beyond Workbench's built-in `Default` tab.
 
 ## Minimum contract (MUST)
 
@@ -31,16 +35,27 @@ Every Canvas component MUST satisfy all checks below:
 - `component.yml` includes required top-level keys (`name`, `machineName`,
   `status`, `required`, `props`, `slots`)
 - Folder name exactly matches `machineName` in `component.yml` (kebab-case)
-- A matching story exists at `<stories-root>/<machine-name>.stories.jsx` (use
-  the repository's configured stories root)
 - Props/slots follow Canvas rules (for example, avoid unsupported
   array-of-object prop shapes; use slots for repeatable complex content)
 
 If any item is missing, the component is incomplete for Canvas usage.
 
+For local authoring and review, add a matching Workbench mock file beside the
+component source and metadata:
+
+- Use `mocks.json` beside `index.jsx` and `component.yml`
+- Author at least one named mock whenever the component needs a preview beyond
+  the auto-generated `Default` tab, which renders the component using the first
+  example value for each prop from `component.yml`
+
 ## Naming guidance
 
 Use `references/naming.md` for naming rules and examples.
+
+## Workbench mocks
+
+Use `references/workbench-mocks.md` for mock naming, placement, format
+selection, and validation.
 
 ## Skill coordination
 
@@ -61,6 +76,6 @@ Evaluate using companion skills in this order.
 5. `canvas-data-fetching`
    - Use when fetching/rendering Drupal content with JSON:API, SWR, includes,
      and filter patterns.
-6. `canvas-component-upload`
-   - Use after implementation is complete and validated, when uploading and
-     recovering from upload failures.
+6. `canvas-component-push`
+   - Use after implementation is complete and validated, when pushing changes
+     and recovering from push failures.
