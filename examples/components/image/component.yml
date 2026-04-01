@@ -1,7 +1,8 @@
 name: Image
 machineName: image
 status: true
-required: []
+required:
+  - image
 props:
   properties:
     image:

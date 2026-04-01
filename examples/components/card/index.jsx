@@ -109,18 +109,19 @@ const DefaultCard = ({
 }) => {
   const cardBackgroundClassName = `card-${backgroundColor.substring(1)}`;
   const cardBackgroundClassNameOnHover = `card-${backgroundColorOnHover.substring(1)}`;
-  const { src, alt, width, height } = image;
+  const { src, alt, width, height } = image ?? {};
+  const hasImage = !!src;
 
   const cardContent = (
     <div
       className={cn(
-        cardVariants({ layout, textColor, image: !!image }),
+        cardVariants({ layout, textColor, image: hasImage }),
         cardBackgroundClassName,
         cardBackgroundClassNameOnHover,
         className,
       )}
     >
-      {image && (
+      {hasImage && (
         <Image
           {...{ src, alt, width, height }}
           className="w-full rounded-2xl object-cover object-center"

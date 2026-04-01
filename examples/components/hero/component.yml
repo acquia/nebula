@@ -2,6 +2,7 @@ name: Hero
 machineName: hero
 status: true
 required:
+  - backgroundImage
   - layout
   - headingSize
   - textColor

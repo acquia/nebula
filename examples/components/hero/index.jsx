@@ -22,10 +22,16 @@ const Hero = ({
   backgroundImage,
   darkenImage,
 }) => {
+  const backgroundImageUrl = backgroundImage?.src
+    ? `url(${backgroundImage.src})`
+    : undefined;
+
   return (
     <div
       className="flex min-h-[672px] w-full justify-start bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: `url(${backgroundImage.src})` }}
+      style={
+        backgroundImageUrl ? { backgroundImage: backgroundImageUrl } : undefined
+      }
     >
       <div className={backgroundVariants({ darkenImage })}>
         <TwoColumnText
