@@ -98,12 +98,10 @@ const TwoColumnText = ({
 };
 
 const ContentImage = ({ image, className }) => {
-  if (!image?.src) {
+  if (!image) {
     return null;
   }
-
   const { src, alt, width, height } = image;
-
   return (
     <ResponsiveImage {...{ src, alt, width, height }} className={className} />
   );
