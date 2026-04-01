@@ -14,7 +14,7 @@
   "dependencies": {
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "drupal-canvas": "^0.2.0",
+    "drupal-canvas": "^0.3.1",
     "drupal-jsonapi-params": "^3.0.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
@@ -22,9 +22,9 @@
     "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
-    "@drupal-canvas/cli": "^0.6.2",
-    "@drupal-canvas/eslint-config": "^0.1.0",
-    "@drupal-canvas/vite-plugin": "^0.1.0",
+    "@drupal-canvas/cli": "^0.10.0",
+    "@drupal-canvas/eslint-config": "^0.2.0",
+    "@drupal-canvas/vite-plugin": "^0.1.1",
     "@eslint/js": "^9.39.1",
     "@ianvs/prettier-plugin-sort-imports": "^4.7.0",
     "@storybook/addon-docs": "^10.0.8",
