@@ -2,10 +2,21 @@ name: Card
 machineName: card
 status: true
 required:
+  - variant
   - layout
-  - linkVariant
 props:
   properties:
+    variant:
+      title: Variant
+      type: string
+      examples:
+        - default
+      enum:
+        - default
+        - link_card
+      meta:enum:
+        default: Default
+        link_card: Link Card
     image:
       title: Image
       type: object

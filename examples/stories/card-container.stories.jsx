@@ -145,3 +145,98 @@ export const LeftAlignedHeading = {
     content: SampleCards,
   },
 };
+
+const LinkCards = (
+  <>
+    <Card
+      variant="link_card"
+      layout="left_aligned"
+      heading="Management"
+      text="4 job positions"
+      link="/management"
+    />
+    <Card
+      variant="link_card"
+      layout="left_aligned"
+      heading="App Development"
+      text="26 job positions"
+      link="/app-development"
+    />
+    <Card
+      variant="link_card"
+      layout="left_aligned"
+      heading="Arts & Entertainment"
+      text="9 job positions"
+      link="/arts-entertainment"
+    />
+    <Card
+      variant="link_card"
+      layout="left_aligned"
+      heading="Accounting"
+      text="11 job positions"
+      link="/accounting"
+    />
+  </>
+);
+
+export const LinkCardGrid = {
+  args: {
+    layout: "25-25-25-25",
+    textColor: "dark",
+    heading: "Browse by category",
+    headingPosition: "center_aligned",
+    headingElement: "h2",
+    content: LinkCards,
+  },
+};
+
+const avatarImage = (photo) => ({
+  src: `https://images.unsplash.com/${photo}?ixlib=rb-4.0.3&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80`,
+  alt: "Location photo",
+  width: 320,
+  height: 320,
+});
+
+const LinkCardsWithImages = (
+  <>
+    <Card
+      variant="link_card"
+      layout="left_aligned"
+      heading="London, UK"
+      link="/locations/london"
+      image={avatarImage("photo-1486299267070-83823f5448dd")}
+    />
+    <Card
+      variant="link_card"
+      layout="left_aligned"
+      heading="Bristol, UK"
+      link="/locations/bristol"
+      image={avatarImage("photo-1612046264803-6d6b67fdee80")}
+    />
+    <Card
+      variant="link_card"
+      layout="left_aligned"
+      heading="Oxford, UK"
+      link="/locations/oxford"
+      image={avatarImage("photo-1582542021865-bde52fd7c3cf")}
+    />
+    <Card
+      variant="link_card"
+      layout="left_aligned"
+      heading="Edinburgh, UK"
+      link="/locations/edinburgh"
+      image={avatarImage("photo-1571044880241-95d4c9aa06f5")}
+    />
+  </>
+);
+
+export const LinkCardWithImageGrid = {
+  args: {
+    layout: "25-25-25-25",
+    textColor: "dark",
+    heading: "Our locations",
+    headingPosition: "center_aligned",
+    headingElement: "h2",
+    content: LinkCardsWithImages,
+  },
+};

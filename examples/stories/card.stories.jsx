@@ -19,6 +19,10 @@ export default {
   title: "Components/Card",
   component: Card,
   argTypes: {
+    variant: {
+      control: "select",
+      options: ["default", "link_card"],
+    },
     layout: {
       control: "select",
       options: ["left_aligned", "center_aligned", "right_aligned"],
@@ -85,5 +89,31 @@ export const WithByline = {
   args: {
     ...exampleArgs,
     byline: "Mark Williams - 1 AUG, 2023",
+  },
+};
+
+export const LinkCard = {
+  args: {
+    variant: "link_card",
+    layout: "left_aligned",
+    heading: "Management",
+    text: "4 job positions",
+    link: "/management",
+  },
+};
+
+export const LinkCardWithImage = {
+  args: {
+    variant: "link_card",
+    layout: "left_aligned",
+    heading: "London, UK",
+    text: "",
+    link: "/locations/london",
+    image: {
+      src: "https://images.unsplash.com/photo-1486299267070-83823f5448dd?ixlib=rb-4.0.3&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
+      alt: "London skyline",
+      width: 320,
+      height: 320,
+    },
   },
 };
