@@ -1,6 +1,14 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { cn } from "drupal-canvas";
 
+const borderColorClassName = {
+  gray_200: "border-gray-200",
+  gray_300: "border-gray-300",
+  gray_400: "border-gray-400",
+  primary_200: "border-primary-200",
+  primary_300: "border-primary-300",
+};
+
 const PlusIcon = () => (
   <svg
     aria-hidden="true"
@@ -70,7 +78,7 @@ const AccordionItem = ({
   headingElement = "h3",
   title,
 }) => {
-  const [localOpen, setLocalOpen] = useState(defaultOpen);
+  const [isOpen, setIsOpen] = useState(defaultOpen);
   const itemRef = useRef(null);
   const [groupState, setGroupState] = useState({
     borderColor: "gray_200",
@@ -83,7 +91,6 @@ const AccordionItem = ({
   const buttonId = `accordion-item-button-${safeId}`;
   const panelId = `accordion-item-panel-${safeId}`;
   const HeadingElement = headingElement;
-  const isOpen = localOpen;
 
   useEffect(() => {
     const el = itemRef.current;
@@ -103,16 +110,14 @@ const AccordionItem = ({
   }, []);
 
   useEffect(() => {
-    setLocalOpen(defaultOpen);
+    setIsOpen(defaultOpen);
   }, [defaultOpen]);
 
   useEffect(() => {
     if (!anchorId) return;
     const checkHash = () => {
-      // Open the item if the anchor ID is in the URL.
       if (window.location.hash === `#${anchorId}`) {
-        setLocalOpen(true);
-        // Scroll the item into view after the panel has expanded.
+        setIsOpen(true);
         requestAnimationFrame(() => {
           requestAnimationFrame(() => {
             itemRef.current?.scrollIntoView({
@@ -135,50 +140,46 @@ const AccordionItem = ({
     variant: groupVariant,
   } = groupState;
 
-  const handleToggle = () => {
-    setLocalOpen((prev) => !prev);
-  };
+  const isBordered = groupVariant === "bordered";
+  const isSeparated = groupVariant === "separated";
+  const isDefault = groupVariant === "default";
 
-  const borderColorClassName = {
-    gray_200: "border-gray-200",
-    gray_300: "border-gray-300",
-    gray_400: "border-gray-400",
-    primary_200: "border-primary-200",
-    primary_300: "border-primary-300",
+  const handleToggle = () => {
+    setIsOpen((prev) => !prev);
   };
 
   const itemClassName = cn(
     "w-full",
-    groupVariant === "bordered" && "border bg-white",
-    groupVariant === "bordered" && !isFirstItem && "-mt-px",
-    groupVariant === "bordered" && isFirstItem && "rounded-t-lg",
-    groupVariant === "bordered" && isLastItem && "rounded-b-lg",
-    groupVariant === "separated" && "rounded-xl border bg-white",
-    (groupVariant === "bordered" || groupVariant === "separated") &&
-      borderColorClassName[groupBorderColor],
+    isBordered && "border bg-white",
+    isBordered && !isFirstItem && "-mt-px",
+    isBordered && isFirstItem && "rounded-t-lg",
+    isBordered && isLastItem && "rounded-b-lg",
+    isSeparated && "rounded-xl border bg-white",
+    (isBordered || isSeparated) && borderColorClassName[groupBorderColor],
     className,
   );
 
   const buttonClassName = cn(
     "flex w-full items-center gap-3 text-left font-semibold transition-colors disabled:pointer-events-none disabled:opacity-50",
     "focus-visible:rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500",
-    groupVariant === "default" &&
+    isDefault &&
       "justify-between py-4 text-base text-black hover:text-primary-700",
-    groupVariant === "bordered" &&
-      "px-5 py-4 text-base text-black hover:text-gray-700",
-    groupVariant === "separated" &&
+    isBordered && "px-5 py-4 text-base text-black hover:text-primary-700",
+    isSeparated &&
       "justify-between px-4 py-4 text-base text-black hover:text-primary-700",
   );
 
   const contentOuterClassName = cn(
-    "w-full overflow-hidden",
-    !isOpen && "hidden",
+    "grid w-full transition-[grid-template-rows] duration-300 ease-in-out",
+    isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
   );
 
-  const contentInnerClassName = cn(
+  const contentInnerClassName = "min-h-0 overflow-hidden";
+
+  const contentBodyClassName = cn(
     "pb-4 text-gray-700",
-    groupVariant === "bordered" && "px-5",
-    groupVariant === "separated" && "px-4",
+    isBordered && "px-5",
+    isSeparated && "px-4",
   );
 
   return (
@@ -198,9 +199,26 @@ const AccordionItem = ({
           onClick={handleToggle}
           type="button"
         >
-          {groupVariant === "bordered" ? (
+          {isBordered ? (
             <>
-              {isOpen ? <MinusIcon /> : <PlusIcon />}
+              <span className="relative inline-flex size-3.5 shrink-0 items-center justify-center">
+                <span
+                  className={cn(
+                    "absolute inset-0 flex items-center justify-center transition-opacity duration-200 ease-out",
+                    isOpen ? "opacity-0" : "opacity-100",
+                  )}
+                >
+                  <PlusIcon />
+                </span>
+                <span
+                  className={cn(
+                    "absolute inset-0 flex items-center justify-center transition-opacity duration-200 ease-out",
+                    isOpen ? "opacity-100" : "opacity-0",
+                  )}
+                >
+                  <MinusIcon />
+                </span>
+              </span>
               <span>{title}</span>
             </>
           ) : (
@@ -213,13 +231,17 @@ const AccordionItem = ({
       </HeadingElement>
 
       <div
+        aria-hidden={!isOpen}
         aria-labelledby={buttonId}
         className={contentOuterClassName}
         data-accordion-content
         id={panelId}
+        inert={!isOpen}
         role="region"
       >
-        <div className={contentInnerClassName}>{content}</div>
+        <div className={contentInnerClassName}>
+          <div className={contentBodyClassName}>{content}</div>
+        </div>
       </div>
     </div>
   );

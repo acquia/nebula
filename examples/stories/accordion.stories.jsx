@@ -19,11 +19,6 @@ export default {
       control: "select",
       options: ["default", "bordered", "separated"],
     },
-    anchorId: {
-      control: "text",
-      description:
-        "Anchor ID for deep-linking (set on each AccordionItem). Try #faq-support or #faq-multiple in the URL.",
-    },
   },
 };
 
