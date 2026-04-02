@@ -1,0 +1,39 @@
+name: Accordion
+machineName: accordion
+status: true
+required: []
+props:
+  properties:
+    borderColor:
+      title: Border Color
+      type: string
+      examples:
+        - gray_200
+      enum:
+        - gray_200
+        - gray_300
+        - gray_400
+        - primary_200
+        - primary_300
+      meta:enum:
+        gray_200: Gray 200
+        gray_300: Gray 300
+        gray_400: Gray 400
+        primary_200: Primary 200
+        primary_300: Primary 300
+    variant:
+      title: Variant
+      type: string
+      examples:
+        - default
+      enum:
+        - default
+        - bordered
+        - separated
+      meta:enum:
+        default: Default
+        bordered: Bordered
+        separated: Separated
+slots:
+  items:
+    title: Items
