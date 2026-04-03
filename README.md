@@ -95,15 +95,13 @@ is resolved, you'll be able to use the `npx skills check` and
 
 ## Commands
 
-| Command                          | Description                                                                  |
-| -------------------------------- | ---------------------------------------------------------------------------- |
-| `npx canvas [command] [options]` | Runs Drupal Canvas CLI commands <br> (`npx canvas` lists available commands) |
-| `npm run dev`                    | Starts Storybook's development server                                        |
-| `npm run storybook`              | Alias for `dev` command                                                      |
-| `npm run build-storybook`        | Creates a static Storybook build                                             |
-| `npm run code:check`             | Runs all code checks                                                         |
-| `npm run code:check:prettier`    | Checks code formatting with Prettier                                         |
-| `npm run code:check:eslint`      | Checks code with ESLint                                                      |
-| `npm run code:fix`               | Runs all code fixes                                                          |
-| `npm run code:fix:prettier`      | Fixes code formatting with Prettier                                          |
-| `npm run code:fix:eslint`        | Fixes code with ESLint                                                       |
+| Command                          | Description                                                                                      |
+| -------------------------------- | ------------------------------------------------------------------------------------------------ |
+| `npx canvas [command] [options]` | Runs Drupal Canvas CLI commands <br> (`npx canvas` lists available commands)                     |
+| `npm run dev`                    | Starts [Canvas Workbench](https://project.pages.drupalcode.org/canvas/code-components/workbench) |
+| `npm run code:check`             | Runs all code checks                                                                             |
+| `npm run code:check:prettier`    | Checks code formatting with Prettier                                                             |
+| `npm run code:check:eslint`      | Checks code with ESLint                                                                          |
+| `npm run code:fix`               | Runs all code fixes                                                                              |
+| `npm run code:fix:prettier`      | Fixes code formatting with Prettier                                                              |
+| `npm run code:fix:eslint`        | Fixes code with ESLint                                                                           |
