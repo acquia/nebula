@@ -1,4 +1,4 @@
-# Workbench Mocks
+# Component Mocks
 
 Canvas Workbench is the supported tool for local component preview work.
 

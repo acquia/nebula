@@ -8,19 +8,29 @@ description:
 
 # Project structure
 
-This project uses a two-folder structure to separate example code from working
-code:
+This project separates working code from example components and Workbench page
+specs:
 
 ```
 src/
-├── components/     # Working components (Storybook reads from here)
-│   └── global.css  # Base styles imported by Storybook
-├── stories/        # Working stories (Storybook reads from here)
+├── components/     # Working component implementations and metadata
+├── pages/          # Working Canvas Workbench page specs
+└── global.css      # Base styles loaded by Canvas Workbench
 
 examples/
-├── components/     # Example component implementations (for reference)
-└── stories/        # Example stories (for reference)
+├── components/     # Example components to copy from (may include mocks.json)
+└── pages/          # Example page specs for reference only
 ```
+
+Component preview states live beside the component itself as
+`src/components/<name>/mocks.json`, not in a central stories directory.
+
+When present, `canvas.config.json` is the source of truth for repository paths.
+In this repository it points Workbench at:
+
+- `componentDir`: `src/components`
+- `pagesDir`: `pages`
+- `globalCssPath`: `src/global.css`
 
 # Package manager
 

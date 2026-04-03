@@ -3,7 +3,8 @@
  * Alternatively, you can load fonts purely in Code Components by importing a
  * CSS file with the font declarations from a URL, i.e. a CDN. For example, you
  * can uncomment the following line to use the Inter font.
- * For local development, this is done in .storybook/preview-head.html.
+ * For local development, Workbench loads the global CSS file configured in
+ * canvas.config.json.
  */
 /* @import url("https://rsms.me/inter/inter.css"); */
 

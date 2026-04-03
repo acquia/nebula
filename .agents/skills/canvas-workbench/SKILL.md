@@ -2,10 +2,10 @@
 name: canvas-workbench
 description:
   Use when work must be verified in local Canvas Workbench, or when the user
-  asks to run, open, or check a component in Workbench. Verifies that Canvas
-  Workbench is available through the project's package runner, starts the local
-  Workbench dev server, and keeps Workbench verification as part of the
-  implementation workflow.
+  asks to run, open, check, or author component mocks or page previews in
+  Workbench. Verifies that Canvas Workbench is available through the project's
+  package runner, starts the local Workbench dev server, and keeps Workbench
+  verification as part of the implementation workflow.
 ---
 
 ## Installation gate
@@ -62,10 +62,10 @@ Example:
 
 ```json
 {
-  "componentDir": "./components",
+  "componentDir": "./src/components",
   "pagesDir": "./pages",
   "aliasBaseDir": "src",
-  "globalCssPath": "./src/components/global.css"
+  "globalCssPath": "./src/global.css"
 }
 ```
 
@@ -87,7 +87,7 @@ instead of starting a second instance.
 Use Workbench as part of the normal implementation loop:
 
 1. Start or reuse Workbench.
-2. Open the relevant component or preview state.
+2. Open the relevant component preview state or page preview.
 3. Verify that the requested change renders correctly.
 4. If the result is wrong, update the implementation and verify again.
 5. Finish only after Workbench verification passes, or explain clearly what
@@ -95,10 +95,16 @@ Use Workbench as part of the normal implementation loop:
 
 ## Scope
 
-This skill is for starting and using Workbench, not for defining the Canvas
-component contract or detailed mock authoring rules.
+This skill is for starting and using Workbench and for coordinating page/mock
+authoring. It is not the source of truth for the Canvas component contract.
 
 - Use `canvas-component-definition` when creating or validating the component
   structure, `component.yml`, naming, or mock coverage expectations.
-- Use `canvas-component-definition/references/workbench-mocks.md` when you need
+- Use `canvas-page-definition` when creating or validating page JSON files, page
+  structure, or page schema requirements.
+- Use `canvas-component-definition/references/component-mocks.md` when you need
   to author or validate `mocks.json`.
+- Use `references/components.md` when you need the Workbench-specific component
+  review flow and where component preview files live.
+- Use `references/pages.md` when you need the Workbench-specific page preview
+  flow and configured page location.

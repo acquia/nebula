@@ -54,7 +54,7 @@ Use `references/naming.md` for naming rules and examples.
 
 ## Workbench mocks
 
-Use `references/workbench-mocks.md` for mock naming, placement, format
+Use `references/component-mocks.md` for mock naming, placement, format
 selection, and validation.
 
 ## Skill coordination

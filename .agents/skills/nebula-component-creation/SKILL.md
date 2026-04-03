@@ -8,8 +8,10 @@ description:
   component has `index.jsx` and `component.yml`.
 ---
 
-Story requirements are delegated to `nebula-storybook-stories` (canonical source
-for story naming, structure, and CSF details).
+Preview coverage requirements are delegated to `canvas-workbench` (see
+`canvas-workbench/references/components.md` for Workbench component review flow,
+and `canvas-component-definition/references/component-mocks.md` for `mocks.json`
+rules).
 
 ## Workflow
 
@@ -21,20 +23,20 @@ Always start from an example. When asked to create a new component:
    starting point (e.g., use `blockquote` for an "alert" component, or `button`
    for any interactive element)
 2. **Copy the example component folder** to `src/components/<new_name>/`
-3. **Copy the corresponding story** from `examples/stories/` to `src/stories/`
+3. **Keep or author preview coverage** by updating the copied `mocks.json` when
+   the example includes one, or by authoring a new `mocks.json` if the new
+   component needs named states beyond Workbench's built-in `Default` tab
 4. **Modify** the copied files to implement the new component
 
-Always copy or create a story file for each component. For story naming,
-structure, and CSF conventions, follow `nebula-storybook-stories`. Follow its
-"Name Mapping" section for filename/path conversions.
+When deciding whether to keep, remove, or author `mocks.json`, follow
+`canvas-component-definition/references/component-mocks.md`.
 
 This approach ensures consistent patterns for `component.yml` structure, JSX
-conventions, and Storybook story format across all components.
+conventions, and Workbench preview coverage across all components.
 
 ```bash
 # Example: Create an Alert component based on Blockquote
 cp -r examples/components/blockquote src/components/alert
-cp examples/stories/blockquote.stories.jsx src/stories/alert.stories.jsx
 ```
 
 Then modify the copied files to implement the Alert component.
@@ -58,8 +60,8 @@ automatically.
 4. **Check what already exists:** List the contents of `src/components/` to see
    which components are already present.
 5. **Copy only missing components:** Copy only the example components (and their
-   stories) that don't already exist in `src/components/`. Do NOT overwrite
-   existing components.
+   preview coverage, when included in the copied folders) that don't already
+   exist in `src/components/`. Do NOT overwrite existing components.
 
 **Example scenario:** User asks for a "hero" component.
 
@@ -73,16 +75,11 @@ ls src/components/
 # Missing components: hero, two_column_text, heading, text
 # button already exists, so skip it if it were a dependency
 
-# Step 3: Copy all missing components and stories in one batch
+# Step 3: Copy all missing components in one batch
 cp -r examples/components/hero src/components/
 cp -r examples/components/two_column_text src/components/
 cp -r examples/components/heading src/components/
 cp -r examples/components/text src/components/
-
-cp examples/stories/hero.stories.jsx src/stories/
-cp examples/stories/two-column-text.stories.jsx src/stories/
-cp examples/stories/heading.stories.jsx src/stories/
-cp examples/stories/text.stories.jsx src/stories/
 ```
 
 ## Required component folder structure
