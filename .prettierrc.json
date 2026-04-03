@@ -15,5 +15,5 @@
     "<TYPES>^[.]"
   ],
   "tailwindFunctions": ["cn", "cva"],
-  "tailwindStylesheet": "./src/components/global.css"
+  "tailwindStylesheet": "./src/global.css"
 }
