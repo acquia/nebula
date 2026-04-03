@@ -1,0 +1,94 @@
+{
+  "mocks": [
+    {
+      "name": "With link",
+      "props": {
+        "image": {
+          "src": "https://placehold.co/800x600@2x.png",
+          "alt": "Example image placeholder",
+          "width": 800,
+          "height": 600
+        },
+        "layout": "left_aligned",
+        "heading": "Feature or benefit",
+        "headingElement": "h3",
+        "text": "Help people become familiar with the organization and its offerings, creating a sense of connection and trust.",
+        "link": "/learn-more",
+        "linkLabel": "Learn more",
+        "linkVariant": "link"
+      }
+    },
+    {
+      "name": "Center aligned",
+      "props": {
+        "image": {
+          "src": "https://placehold.co/800x600@2x.png",
+          "alt": "Example image placeholder",
+          "width": 800,
+          "height": 600
+        },
+        "layout": "center_aligned",
+        "heading": "Feature or benefit",
+        "headingElement": "h3",
+        "text": "Help people become familiar with the organization and its offerings, creating a sense of connection and trust.",
+        "link": "/",
+        "linkVariant": "link"
+      }
+    },
+    {
+      "name": "Custom colors",
+      "props": {
+        "image": {
+          "src": "https://placehold.co/800x600@2x.png",
+          "alt": "Example image placeholder",
+          "width": 800,
+          "height": 600
+        },
+        "layout": "left_aligned",
+        "heading": "Feature or benefit",
+        "headingElement": "h3",
+        "text": "Help people become familiar with the organization and its offerings, creating a sense of connection and trust.",
+        "link": "/",
+        "linkVariant": "link",
+        "backgroundColor": "#F0F9FF",
+        "backgroundColorOnHover": "#E0F2FE"
+      }
+    },
+    {
+      "name": "With solid button",
+      "props": {
+        "image": {
+          "src": "https://placehold.co/800x600@2x.png",
+          "alt": "Example image placeholder",
+          "width": 800,
+          "height": 600
+        },
+        "layout": "left_aligned",
+        "heading": "Feature or benefit",
+        "headingElement": "h3",
+        "text": "Help people become familiar with the organization and its offerings, creating a sense of connection and trust.",
+        "link": "/get-started",
+        "linkLabel": "Get Started",
+        "linkVariant": "solid"
+      }
+    },
+    {
+      "name": "With byline",
+      "props": {
+        "image": {
+          "src": "https://placehold.co/800x600@2x.png",
+          "alt": "Example image placeholder",
+          "width": 800,
+          "height": 600
+        },
+        "layout": "left_aligned",
+        "heading": "Feature or benefit",
+        "headingElement": "h3",
+        "text": "Help people become familiar with the organization and its offerings, creating a sense of connection and trust.",
+        "link": "/",
+        "linkVariant": "link",
+        "byline": "Mark Williams - 1 AUG, 2023"
+      }
+    }
+  ]
+}

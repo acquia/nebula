@@ -1,0 +1,133 @@
+{
+  "mocks": [
+    {
+      "name": "Small between cards",
+      "root": "spacer-demo-section",
+      "elements": {
+        "spacer-demo-section": {
+          "type": "section",
+          "props": {
+            "width": "normal"
+          },
+          "slots": {
+            "content": ["card-one", "demo-spacer", "card-two"]
+          }
+        },
+        "card-one": {
+          "type": "card",
+          "props": {
+            "layout": "left_aligned",
+            "linkVariant": "link",
+            "heading": "Card One",
+            "text": "<p>Content above the spacer.</p>",
+            "backgroundColor": "#F0F9FF",
+            "backgroundColorOnHover": "#E0F2FE"
+          }
+        },
+        "demo-spacer": {
+          "type": "spacer",
+          "props": {
+            "height": "small"
+          }
+        },
+        "card-two": {
+          "type": "card",
+          "props": {
+            "layout": "left_aligned",
+            "linkVariant": "link",
+            "heading": "Card Two",
+            "text": "<p>Content below the spacer.</p>",
+            "backgroundColor": "#F0F9FF",
+            "backgroundColorOnHover": "#E0F2FE"
+          }
+        }
+      }
+    },
+    {
+      "name": "Large between cards",
+      "root": "spacer-demo-section",
+      "elements": {
+        "spacer-demo-section": {
+          "type": "section",
+          "props": {
+            "width": "normal"
+          },
+          "slots": {
+            "content": ["card-one", "demo-spacer", "card-two"]
+          }
+        },
+        "card-one": {
+          "type": "card",
+          "props": {
+            "layout": "left_aligned",
+            "linkVariant": "link",
+            "heading": "Card One",
+            "text": "<p>Content above the spacer.</p>",
+            "backgroundColor": "#F0F9FF",
+            "backgroundColorOnHover": "#E0F2FE"
+          }
+        },
+        "demo-spacer": {
+          "type": "spacer",
+          "props": {
+            "height": "large"
+          }
+        },
+        "card-two": {
+          "type": "card",
+          "props": {
+            "layout": "left_aligned",
+            "linkVariant": "link",
+            "heading": "Card Two",
+            "text": "<p>Content below the spacer.</p>",
+            "backgroundColor": "#F0F9FF",
+            "backgroundColorOnHover": "#E0F2FE"
+          }
+        }
+      }
+    },
+    {
+      "name": "Extra large between cards",
+      "root": "spacer-demo-section",
+      "elements": {
+        "spacer-demo-section": {
+          "type": "section",
+          "props": {
+            "width": "normal"
+          },
+          "slots": {
+            "content": ["card-one", "demo-spacer", "card-two"]
+          }
+        },
+        "card-one": {
+          "type": "card",
+          "props": {
+            "layout": "left_aligned",
+            "linkVariant": "link",
+            "heading": "Card One",
+            "text": "<p>Content above the spacer.</p>",
+            "backgroundColor": "#F0F9FF",
+            "backgroundColorOnHover": "#E0F2FE"
+          }
+        },
+        "demo-spacer": {
+          "type": "spacer",
+          "props": {
+            "height": "extra_large"
+          }
+        },
+        "card-two": {
+          "type": "card",
+          "props": {
+            "layout": "left_aligned",
+            "linkVariant": "link",
+            "heading": "Card Two",
+            "text": "<p>Content below the spacer.</p>",
+            "backgroundColor": "#F0F9FF",
+            "backgroundColorOnHover": "#E0F2FE"
+          }
+        }
+      }
+    }
+  ]
+}

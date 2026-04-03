@@ -1,0 +1,338 @@
+{
+  "mocks": [
+    {
+      "name": "Default layout",
+      "props": {
+        "preHeading": "Featured services",
+        "heading": "What we offer.",
+        "headingSize": "large",
+        "textColor": "dark",
+        "headingPosition": "center_aligned",
+        "headingElement": "h2",
+        "layout": "33-33-33"
+      },
+      "slots": {
+        "content": ["card-one", "card-two", "card-three"]
+      },
+      "elements": {
+        "card-one": {
+          "type": "card",
+          "props": {
+            "image": {
+              "src": "https://placehold.co/800x600@2x.png",
+              "alt": "Example image placeholder",
+              "width": 800,
+              "height": 600
+            },
+            "layout": "left_aligned",
+            "heading": "Card One",
+            "headingElement": "h3",
+            "text": "This is the first card in the container.",
+            "link": "/",
+            "linkVariant": "link"
+          }
+        },
+        "card-two": {
+          "type": "card",
+          "props": {
+            "image": {
+              "src": "https://placehold.co/800x600@2x.png",
+              "alt": "Example image placeholder",
+              "width": 800,
+              "height": 600
+            },
+            "layout": "left_aligned",
+            "heading": "Card Two",
+            "headingElement": "h3",
+            "text": "This is the second card in the container.",
+            "link": "/",
+            "linkVariant": "link"
+          }
+        },
+        "card-three": {
+          "type": "card",
+          "props": {
+            "image": {
+              "src": "https://placehold.co/800x600@2x.png",
+              "alt": "Example image placeholder",
+              "width": 800,
+              "height": 600
+            },
+            "layout": "left_aligned",
+            "heading": "Card Three",
+            "headingElement": "h3",
+            "text": "This is the third card in the container.",
+            "link": "/",
+            "linkVariant": "link"
+          }
+        }
+      }
+    },
+    {
+      "name": "With heading",
+      "props": {
+        "preHeading": "Our Services",
+        "heading": "What We Offer",
+        "headingSize": "large",
+        "textColor": "dark",
+        "headingPosition": "center_aligned",
+        "headingElement": "h2",
+        "layout": "33-33-33"
+      },
+      "slots": {
+        "content": ["card-one", "card-two", "card-three"]
+      },
+      "elements": {
+        "card-one": {
+          "type": "card",
+          "props": {
+            "image": {
+              "src": "https://placehold.co/800x600@2x.png",
+              "alt": "Example image placeholder",
+              "width": 800,
+              "height": 600
+            },
+            "layout": "left_aligned",
+            "heading": "Card One",
+            "headingElement": "h3",
+            "text": "This is the first card in the container.",
+            "link": "/",
+            "linkVariant": "link"
+          }
+        },
+        "card-two": {
+          "type": "card",
+          "props": {
+            "image": {
+              "src": "https://placehold.co/800x600@2x.png",
+              "alt": "Example image placeholder",
+              "width": 800,
+              "height": 600
+            },
+            "layout": "left_aligned",
+            "heading": "Card Two",
+            "headingElement": "h3",
+            "text": "This is the second card in the container.",
+            "link": "/",
+            "linkVariant": "link"
+          }
+        },
+        "card-three": {
+          "type": "card",
+          "props": {
+            "image": {
+              "src": "https://placehold.co/800x600@2x.png",
+              "alt": "Example image placeholder",
+              "width": 800,
+              "height": 600
+            },
+            "layout": "left_aligned",
+            "heading": "Card Three",
+            "headingElement": "h3",
+            "text": "This is the third card in the container.",
+            "link": "/",
+            "linkVariant": "link"
+          }
+        }
+      }
+    },
+    {
+      "name": "Two column layout",
+      "props": {
+        "layout": "50-50",
+        "textColor": "dark",
+        "heading": "Featured",
+        "headingPosition": "left_aligned"
+      },
+      "slots": {
+        "content": ["card-one", "card-two"]
+      },
+      "elements": {
+        "card-one": {
+          "type": "card",
+          "props": {
+            "image": {
+              "src": "https://placehold.co/800x600@2x.png",
+              "alt": "Example image placeholder",
+              "width": 800,
+              "height": 600
+            },
+            "layout": "left_aligned",
+            "heading": "Card One",
+            "headingElement": "h3",
+            "text": "This is the first card.",
+            "link": "/",
+            "linkVariant": "link"
+          }
+        },
+        "card-two": {
+          "type": "card",
+          "props": {
+            "image": {
+              "src": "https://placehold.co/800x600@2x.png",
+              "alt": "Example image placeholder",
+              "width": 800,
+              "height": 600
+            },
+            "layout": "left_aligned",
+            "heading": "Card Two",
+            "headingElement": "h3",
+            "text": "This is the second card.",
+            "link": "/",
+            "linkVariant": "link"
+          }
+        }
+      }
+    },
+    {
+      "name": "Four column layout",
+      "props": {
+        "layout": "25-25-25-25",
+        "textColor": "dark",
+        "heading": "All Features",
+        "headingPosition": "center_aligned"
+      },
+      "slots": {
+        "content": ["card-one", "card-two", "card-three", "card-four"]
+      },
+      "elements": {
+        "card-one": {
+          "type": "card",
+          "props": {
+            "image": {
+              "src": "https://placehold.co/800x600@2x.png",
+              "alt": "Example image placeholder",
+              "width": 800,
+              "height": 600
+            },
+            "layout": "left_aligned",
+            "heading": "Card One",
+            "headingElement": "h3",
+            "text": "First card.",
+            "link": "/",
+            "linkVariant": "link"
+          }
+        },
+        "card-two": {
+          "type": "card",
+          "props": {
+            "image": {
+              "src": "https://placehold.co/800x600@2x.png",
+              "alt": "Example image placeholder",
+              "width": 800,
+              "height": 600
+            },
+            "layout": "left_aligned",
+            "heading": "Card Two",
+            "headingElement": "h3",
+            "text": "Second card.",
+            "link": "/",
+            "linkVariant": "link"
+          }
+        },
+        "card-three": {
+          "type": "card",
+          "props": {
+            "image": {
+              "src": "https://placehold.co/800x600@2x.png",
+              "alt": "Example image placeholder",
+              "width": 800,
+              "height": 600
+            },
+            "layout": "left_aligned",
+            "heading": "Card Three",
+            "headingElement": "h3",
+            "text": "Third card.",
+            "link": "/",
+            "linkVariant": "link"
+          }
+        },
+        "card-four": {
+          "type": "card",
+          "props": {
+            "image": {
+              "src": "https://placehold.co/800x600@2x.png",
+              "alt": "Example image placeholder",
+              "width": 800,
+              "height": 600
+            },
+            "layout": "left_aligned",
+            "heading": "Card Four",
+            "headingElement": "h3",
+            "text": "Fourth card.",
+            "link": "/",
+            "linkVariant": "link"
+          }
+        }
+      }
+    },
+    {
+      "name": "Left-aligned heading",
+      "props": {
+        "preHeading": "Features",
+        "heading": "Everything you need",
+        "headingSize": "large",
+        "textColor": "dark",
+        "headingPosition": "left_aligned",
+        "headingElement": "h2",
+        "layout": "33-33-33"
+      },
+      "slots": {
+        "content": ["card-one", "card-two", "card-three"]
+      },
+      "elements": {
+        "card-one": {
+          "type": "card",
+          "props": {
+            "image": {
+              "src": "https://placehold.co/800x600@2x.png",
+              "alt": "Example image placeholder",
+              "width": 800,
+              "height": 600
+            },
+            "layout": "left_aligned",
+            "heading": "Card One",
+            "headingElement": "h3",
+            "text": "This is the first card in the container.",
+            "link": "/",
+            "linkVariant": "link"
+          }
+        },
+        "card-two": {
+          "type": "card",
+          "props": {
+            "image": {
+              "src": "https://placehold.co/800x600@2x.png",
+              "alt": "Example image placeholder",
+              "width": 800,
+              "height": 600
+            },
+            "layout": "left_aligned",
+            "heading": "Card Two",
+            "headingElement": "h3",
+            "text": "This is the second card in the container.",
+            "link": "/",
+            "linkVariant": "link"
+          }
+        },
+        "card-three": {
+          "type": "card",
+          "props": {
+            "image": {
+              "src": "https://placehold.co/800x600@2x.png",
+              "alt": "Example image placeholder",
+              "width": 800,
+              "height": 600
+            },
+            "layout": "left_aligned",
+            "heading": "Card Three",
+            "headingElement": "h3",
+            "text": "This is the third card in the container.",
+            "link": "/",
+            "linkVariant": "link"
+          }
+        }
+      }
+    }
+  ]
+}

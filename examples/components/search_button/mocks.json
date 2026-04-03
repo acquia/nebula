@@ -1,0 +1,10 @@
+{
+  "mocks": [
+    {
+      "name": "In header",
+      "props": {
+        "positionTop": 60
+      }
+    }
+  ]
+}
