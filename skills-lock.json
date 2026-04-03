@@ -1,6 +1,11 @@
 {
   "version": 1,
   "skills": {
+    "agent-browser": {
+      "source": "vercel-labs/agent-browser",
+      "sourceType": "github",
+      "computedHash": "da901a619fa097fa5c70bedccfd728c03901e409bcbb375006cceba5aad535b9"
+    },
     "canvas-component-composability": {
       "source": "drupal-canvas/skills",
       "sourceType": "github",
@@ -45,6 +50,11 @@
       "source": "drupal-canvas/skills",
       "sourceType": "github",
       "computedHash": "60f698c8e3dc17c4dbd8e8dad7533dfb04814e2df27be8aa65eb8ac894c3ec95"
+    },
+    "dogfood": {
+      "source": "vercel-labs/agent-browser",
+      "sourceType": "github",
+      "computedHash": "055e73cddeec68e7eb75eab0c3f8490415384f72e98ac05405821427ed0e74b1"
     }
   }
 }
