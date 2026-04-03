@@ -24,7 +24,7 @@
   "devDependencies": {
     "@drupal-canvas/cli": "^0.10.0",
     "@drupal-canvas/eslint-config": "^0.2.0",
-    "@drupal-canvas/workbench": "^0.2.0",
+    "@drupal-canvas/workbench": "^0.2.1",
     "@eslint/js": "^9.39.4",
     "@ianvs/prettier-plugin-sort-imports": "^4.7.1",
     "eslint": "^9.39.4",
