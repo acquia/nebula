@@ -1,0 +1,238 @@
+{
+  "mocks": [
+    {
+      "name": "Default layout",
+      "props": {
+        "image": {
+          "src": "https://placehold.co/800x600@2x.png",
+          "alt": "Example image placeholder",
+          "width": 800,
+          "height": 600
+        },
+        "layout": "text_image",
+        "columnWidths": "50_50",
+        "preHeading": "Mission",
+        "heading": "This space deserves a hero.",
+        "headingElement": "h2",
+        "headingSize": "large",
+        "text": "This is a space to welcome visitors to the site. Grab their attention with copy that clearly states what the site is about.",
+        "textColor": "dark"
+      },
+      "slots": {
+        "buttons": ["primary-button", "secondary-button"]
+      },
+      "elements": {
+        "primary-button": {
+          "type": "button",
+          "props": {
+            "text": "Primary Action",
+            "variant": "solid",
+            "link": "#"
+          }
+        },
+        "secondary-button": {
+          "type": "button",
+          "props": {
+            "text": "Secondary",
+            "variant": "outline_dark",
+            "link": "#"
+          }
+        }
+      }
+    },
+    {
+      "name": "Image first",
+      "props": {
+        "image": {
+          "src": "https://placehold.co/800x600@2x.png",
+          "alt": "Example image placeholder",
+          "width": 800,
+          "height": 600
+        },
+        "layout": "image_text",
+        "columnWidths": "50_50",
+        "preHeading": "Mission",
+        "heading": "This space deserves a hero.",
+        "headingElement": "h2",
+        "headingSize": "large",
+        "text": "This is a space to welcome visitors to the site. Grab their attention with copy that clearly states what the site is about.",
+        "textColor": "dark"
+      },
+      "slots": {
+        "buttons": ["primary-button", "secondary-button"]
+      },
+      "elements": {
+        "primary-button": {
+          "type": "button",
+          "props": {
+            "text": "Primary Action",
+            "variant": "solid",
+            "link": "#"
+          }
+        },
+        "secondary-button": {
+          "type": "button",
+          "props": {
+            "text": "Secondary",
+            "variant": "outline_dark",
+            "link": "#"
+          }
+        }
+      }
+    },
+    {
+      "name": "Narrow text column",
+      "props": {
+        "image": {
+          "src": "https://placehold.co/800x600@2x.png",
+          "alt": "Example image placeholder",
+          "width": 800,
+          "height": 600
+        },
+        "layout": "text_image",
+        "columnWidths": "33_66",
+        "preHeading": "Mission",
+        "heading": "Support the story with a larger visual",
+        "headingElement": "h2",
+        "headingSize": "large",
+        "text": "Create beautiful, responsive websites with our component library. Designed for developers who value clean code and modern design.",
+        "textColor": "dark"
+      },
+      "slots": {
+        "buttons": ["primary-button", "secondary-button"]
+      },
+      "elements": {
+        "primary-button": {
+          "type": "button",
+          "props": {
+            "text": "Primary Action",
+            "variant": "solid",
+            "link": "#"
+          }
+        },
+        "secondary-button": {
+          "type": "button",
+          "props": {
+            "text": "Secondary",
+            "variant": "outline_dark",
+            "link": "#"
+          }
+        }
+      }
+    },
+    {
+      "name": "Wide text column",
+      "props": {
+        "image": {
+          "src": "https://placehold.co/800x600@2x.png",
+          "alt": "Example image placeholder",
+          "width": 800,
+          "height": 600
+        },
+        "layout": "text_image",
+        "columnWidths": "66_33",
+        "preHeading": "Mission",
+        "heading": "Build something amazing",
+        "headingElement": "h2",
+        "headingSize": "large",
+        "text": "Create beautiful, responsive websites with our component library. Designed for developers who value clean code and modern design.",
+        "textColor": "dark"
+      },
+      "slots": {
+        "buttons": ["primary-button", "secondary-button"]
+      },
+      "elements": {
+        "primary-button": {
+          "type": "button",
+          "props": {
+            "text": "Primary Action",
+            "variant": "solid",
+            "link": "#"
+          }
+        },
+        "secondary-button": {
+          "type": "button",
+          "props": {
+            "text": "Secondary",
+            "variant": "outline_dark",
+            "link": "#"
+          }
+        }
+      }
+    },
+    {
+      "name": "Light on dark",
+      "props": {
+        "image": {
+          "src": "https://placehold.co/800x600@2x.png",
+          "alt": "Example image placeholder",
+          "width": 800,
+          "height": 600
+        },
+        "layout": "text_image",
+        "columnWidths": "50_50",
+        "preHeading": "Mission",
+        "heading": "This space deserves a hero.",
+        "headingElement": "h2",
+        "headingSize": "large",
+        "text": "This is a space to welcome visitors to the site. Grab their attention with copy that clearly states what the site is about.",
+        "textColor": "light"
+      },
+      "slots": {
+        "buttons": ["primary-button", "secondary-button"]
+      },
+      "elements": {
+        "primary-button": {
+          "type": "button",
+          "props": {
+            "text": "Get Started",
+            "variant": "solid",
+            "link": "#"
+          }
+        },
+        "secondary-button": {
+          "type": "button",
+          "props": {
+            "text": "Learn More",
+            "variant": "outline_light",
+            "link": "#"
+          }
+        }
+      }
+    },
+    {
+      "name": "Text only",
+      "props": {
+        "layout": "text_image",
+        "columnWidths": "50_50",
+        "preHeading": "Overview",
+        "heading": "Simple and Clean",
+        "headingElement": "h2",
+        "headingSize": "large",
+        "text": "Sometimes you just need text without an image. This layout works great for that.",
+        "textColor": "dark"
+      },
+      "slots": {
+        "buttons": ["primary-button", "secondary-button"]
+      },
+      "elements": {
+        "primary-button": {
+          "type": "button",
+          "props": {
+            "text": "Primary Action",
+            "variant": "solid",
+            "link": "#"
+          }
+        },
+        "secondary-button": {
+          "type": "button",
+          "props": {
+            "text": "Secondary",
+            "variant": "outline_dark",
+            "link": "#"
+          }
+        }
+      }
+    }
+  ]
+}

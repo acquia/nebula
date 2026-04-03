@@ -1,0 +1,86 @@
+name: Related Articles
+machineName: related_articles
+status: true
+props:
+  properties:
+    heading:
+      title: Heading
+      type: string
+      examples:
+        - More articles
+    headingPosition:
+      title: Heading Position
+      type: string
+      examples:
+        - left_aligned
+      enum:
+        - left_aligned
+        - center_aligned
+        - right_aligned
+      meta:enum:
+        left_aligned: Left aligned
+        center_aligned: Center aligned
+        right_aligned: Right aligned
+    headingElement:
+      title: Heading Element
+      type: string
+      examples:
+        - h2
+      enum:
+        - h1
+        - h2
+        - h3
+        - h4
+        - h5
+        - h6
+      meta:enum:
+        h1: h1
+        h2: h2
+        h3: h3
+        h4: h4
+        h5: h5
+        h6: h6
+    headingSize:
+      title: Heading Size
+      type: string
+      examples:
+        - medium
+      enum:
+        - extra_large
+        - large
+        - medium
+        - small
+      meta:enum:
+        extra_large: Extra Large
+        large: Large
+        medium: Medium
+        small: Small
+    textColor:
+      title: Text Color
+      type: string
+      examples:
+        - dark
+      enum:
+        - dark
+        - light
+      meta:enum:
+        dark: Dark
+        light: Light
+    layout:
+      title: Layout
+      type: string
+      examples:
+        - 25-25-25-25
+      enum:
+        - 50-50
+        - 33-33-33
+        - 50-25-25
+        - 25-25-50
+        - 25-25-25-25
+      meta:enum:
+        50-50: 50-50
+        33-33-33: 33-33-33
+        50-25-25: 50-25-25
+        25-25-50: 25-25-50
+        25-25-25-25: 25-25-25-25
+slots: []

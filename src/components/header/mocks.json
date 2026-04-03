@@ -1,0 +1,44 @@
+{
+  "mocks": [
+    {
+      "name": "Default layout",
+      "props": {
+        "displaySearchForm": true
+      },
+      "slots": {
+        "logo": ["site-logo"],
+        "menu": ["main-menu"]
+      },
+      "elements": {
+        "site-logo": {
+          "type": "logo",
+          "props": {}
+        },
+        "main-menu": {
+          "type": "main_navigation",
+          "props": {}
+        }
+      }
+    },
+    {
+      "name": "Without search",
+      "props": {
+        "displaySearchForm": false
+      },
+      "slots": {
+        "logo": ["site-logo"],
+        "menu": ["main-menu"]
+      },
+      "elements": {
+        "site-logo": {
+          "type": "logo",
+          "props": {}
+        },
+        "main-menu": {
+          "type": "main_navigation",
+          "props": {}
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "mocks": [
+    {
+      "name": "Custom background",
+      "props": {
+        "image": {
+          "src": "https://placehold.co/800x600@2x.png",
+          "alt": "Example image placeholder",
+          "width": 800,
+          "height": 600
+        },
+        "backgroundColor": "#E0F2FE"
+      }
+    },
+    {
+      "name": "Dark background",
+      "props": {
+        "image": {
+          "src": "https://placehold.co/800x600@2x.png",
+          "alt": "Example image placeholder",
+          "width": 800,
+          "height": 600
+        },
+        "backgroundColor": "#1E293B"
+      }
+    }
+  ]
+}

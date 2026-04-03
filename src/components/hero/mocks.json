@@ -1,0 +1,199 @@
+{
+  "mocks": [
+    {
+      "name": "Default layout",
+      "props": {
+        "backgroundImage": {
+          "src": "https://placehold.co/1920x1080@2x.png",
+          "alt": "Example image placeholder",
+          "width": 1920,
+          "height": 1080
+        },
+        "layout": "left_aligned",
+        "preHeading": "Mission",
+        "headingElement": "h2",
+        "headingSize": "extra_large",
+        "heading": "This space deserves a hero.",
+        "text": "This is a space to welcome visitors to the site. Grab their attention with copy that clearly states what the site is about.",
+        "textColor": "dark"
+      },
+      "slots": {
+        "buttons": ["primary-button", "secondary-button"]
+      },
+      "elements": {
+        "primary-button": {
+          "type": "button",
+          "props": {
+            "text": "Get Started",
+            "variant": "solid",
+            "link": "#"
+          }
+        },
+        "secondary-button": {
+          "type": "button",
+          "props": {
+            "text": "Learn More",
+            "variant": "outline_dark",
+            "link": "#"
+          }
+        }
+      }
+    },
+    {
+      "name": "Centered",
+      "props": {
+        "backgroundImage": {
+          "src": "https://placehold.co/1920x1080@2x.png",
+          "alt": "Example image placeholder",
+          "width": 1920,
+          "height": 1080
+        },
+        "layout": "centered",
+        "preHeading": "Mission",
+        "headingElement": "h2",
+        "headingSize": "extra_large",
+        "heading": "This space deserves a hero.",
+        "text": "This is a space to welcome visitors to the site. Grab their attention with copy that clearly states what the site is about.",
+        "textColor": "dark"
+      },
+      "slots": {
+        "buttons": ["primary-button", "secondary-button"]
+      },
+      "elements": {
+        "primary-button": {
+          "type": "button",
+          "props": {
+            "text": "Get Started",
+            "variant": "solid",
+            "link": "#"
+          }
+        },
+        "secondary-button": {
+          "type": "button",
+          "props": {
+            "text": "Learn More",
+            "variant": "outline_dark",
+            "link": "#"
+          }
+        }
+      }
+    },
+    {
+      "name": "Light text on dark image",
+      "props": {
+        "backgroundImage": {
+          "src": "https://placehold.co/1920x1080/1e293b/1e293b@2x.png",
+          "alt": "Dark background",
+          "width": 1920,
+          "height": 1080
+        },
+        "layout": "left_aligned",
+        "preHeading": "Mission",
+        "headingElement": "h2",
+        "headingSize": "extra_large",
+        "heading": "This space deserves a hero.",
+        "text": "This is a space to welcome visitors to the site. Grab their attention with copy that clearly states what the site is about.",
+        "textColor": "light"
+      },
+      "slots": {
+        "buttons": ["primary-button", "secondary-button"]
+      },
+      "elements": {
+        "primary-button": {
+          "type": "button",
+          "props": {
+            "text": "Get Started",
+            "variant": "solid",
+            "link": "#"
+          }
+        },
+        "secondary-button": {
+          "type": "button",
+          "props": {
+            "text": "Learn More",
+            "variant": "outline_light",
+            "link": "#"
+          }
+        }
+      }
+    },
+    {
+      "name": "Extra large heading",
+      "props": {
+        "backgroundImage": {
+          "src": "https://placehold.co/1920x1080@2x.png",
+          "alt": "Example image placeholder",
+          "width": 1920,
+          "height": 1080
+        },
+        "layout": "left_aligned",
+        "preHeading": "Mission",
+        "headingElement": "h2",
+        "headingSize": "extra_large",
+        "heading": "Make a Bold Statement",
+        "text": "This is a space to welcome visitors to the site. Grab their attention with copy that clearly states what the site is about.",
+        "textColor": "dark"
+      },
+      "slots": {
+        "buttons": ["primary-button", "secondary-button"]
+      },
+      "elements": {
+        "primary-button": {
+          "type": "button",
+          "props": {
+            "text": "Get Started",
+            "variant": "solid",
+            "link": "#"
+          }
+        },
+        "secondary-button": {
+          "type": "button",
+          "props": {
+            "text": "Learn More",
+            "variant": "outline_dark",
+            "link": "#"
+          }
+        }
+      }
+    },
+    {
+      "name": "With pre-heading",
+      "props": {
+        "backgroundImage": {
+          "src": "https://placehold.co/1920x1080@2x.png",
+          "alt": "Example image placeholder",
+          "width": 1920,
+          "height": 1080
+        },
+        "layout": "left_aligned",
+        "preHeading": "Welcome",
+        "headingElement": "h2",
+        "headingSize": "extra_large",
+        "heading": "Build Something Amazing",
+        "text": "Create beautiful, responsive websites with our modern component library.",
+        "textColor": "dark"
+      },
+      "slots": {
+        "buttons": ["primary-button", "secondary-button"]
+      },
+      "elements": {
+        "primary-button": {
+          "type": "button",
+          "props": {
+            "text": "Get Started",
+            "variant": "solid",
+            "link": "#"
+          }
+        },
+        "secondary-button": {
+          "type": "button",
+          "props": {
+            "text": "Learn More",
+            "variant": "outline_dark",
+            "link": "#"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "mocks": [
+    {
+      "name": "Custom image",
+      "props": {
+        "image": {
+          "src": "https://placehold.co/1200x800@2x.png",
+          "alt": "Wide landscape placeholder",
+          "width": 1200,
+          "height": 800
+        }
+      }
+    },
+    {
+      "name": "Square image",
+      "props": {
+        "image": {
+          "src": "https://placehold.co/600x600@2x.png",
+          "alt": "Square placeholder",
+          "width": 600,
+          "height": 600
+        }
+      }
+    },
+    {
+      "name": "Portrait image",
+      "props": {
+        "image": {
+          "src": "https://placehold.co/400x600@2x.png",
+          "alt": "Portrait placeholder",
+          "width": 400,
+          "height": 600
+        }
+      }
+    }
+  ]
+}
