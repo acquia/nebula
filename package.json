@@ -15,26 +15,25 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "drupal-canvas": "^0.3.1",
-    "drupal-jsonapi-params": "^3.0.0",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0",
-    "swr": "^2.3.7",
-    "tailwind-merge": "^3.4.0"
+    "drupal-jsonapi-params": "^3.0.1",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "swr": "^2.4.1",
+    "tailwind-merge": "^3.5.0"
   },
   "devDependencies": {
     "@drupal-canvas/cli": "^0.10.0",
     "@drupal-canvas/eslint-config": "^0.2.0",
     "@drupal-canvas/workbench": "^0.2.0",
-    "@eslint/js": "^9.39.1",
-    "@ianvs/prettier-plugin-sort-imports": "^4.7.0",
-    "eslint": "^9.39.1",
+    "@eslint/js": "^9.39.4",
+    "@ianvs/prettier-plugin-sort-imports": "^4.7.1",
+    "eslint": "^9.39.4",
     "husky": "^9.1.7",
-    "js-yaml": "^4.1.1",
-    "lint-staged": "^16.2.6",
+    "lint-staged": "^16.4.0",
     "npm-run-all": "^4.1.5",
-    "playwright": "^1.57.0",
-    "prettier": "^3.6.2",
-    "prettier-plugin-tailwindcss": "^0.7.1"
+    "playwright": "^1.59.1",
+    "prettier": "^3.8.1",
+    "prettier-plugin-tailwindcss": "^0.7.2"
   },
   "lint-staged": {
     "*.{css,js,jsx,json,html,md,mdx,yml}": "prettier --write",
