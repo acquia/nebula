@@ -89,3 +89,20 @@ Example scenario:
 
 If uploads continue to fail after multiple retries, check that all dependency
 components are included in the upload command.
+
+## Upload Global CSS (MANDATORY)
+
+**After uploading components, ALWAYS upload the global CSS.** Components depend
+on Tailwind theme tokens and custom properties defined in `global.css`. Without
+this step, components will render without styles on Canvas.
+
+```bash
+npx canvas upload -d ./src/components --css-only -y
+```
+
+This builds Tailwind CSS from all component classes and uploads the resulting
+stylesheet to Canvas. **Do NOT skip this step** — even if only component code
+changed, the CSS must be re-uploaded to include any new utility classes.
+
+The upload is only complete when both components AND global CSS have been
+pushed.

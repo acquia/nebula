@@ -13,6 +13,27 @@ for story naming, structure, and CSF details).
 
 ## Workflow
 
+### Static vs. dynamic components — decide before building
+
+Before writing any code, classify the component:
+
+| Type        | Signals                                                                                                                   | Approach                                                                                                                   |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| **Static**  | Single fixed section — hero, navbar, footer, page hero, CTA banner                                                        | Build with props; expose scalar values in `component.yml`                                                                  |
+| **Dynamic** | Repeating collection of content entities — news cards, article listing, brands carousel, FAQ accordion, testimonials grid | Use SWR + `canvas-data-fetching`; do **not** accept a list prop; do **not** hardcode list defaults as the real data source |
+
+**For dynamic components:**
+
+- Wire data fetching with `JsonApiClient` + `useSWR` from the appropriate
+  `node--<type>` endpoint
+- Map CT field names to render props (strip `field_` prefix, camelCase the rest:
+  `field_read_time` → `readTime`)
+- Fetch filter options (taxonomy terms, categories) dynamically — never hardcode
+  them
+- Storybook story shows a loading/empty state, not mocked list data
+- Do **not** expose the list as a `component.yml` prop — Canvas editors set
+  scalar config only (heading, CTA label, etc.)
+
 ### Creating a new component
 
 Always start from an example. When asked to create a new component:

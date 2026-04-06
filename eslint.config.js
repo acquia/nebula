@@ -3,7 +3,7 @@ import storybook from "eslint-plugin-storybook";
 import globals from "globals";
 
 export default [
-  { ignores: ["dist", "node_modules", "storybook-static"] },
+  { ignores: ["dist", "node_modules", "storybook-static", ".playwright-cli"] },
   ...drupalCanvasRecommended,
   ...storybook.configs["flat/recommended"],
   {

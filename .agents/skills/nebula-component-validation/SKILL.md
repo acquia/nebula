@@ -27,3 +27,14 @@ This runs Prettier and ESLint with auto-fix, ensuring:
 - Drupal Canvas Code Component requirements
 
 If errors remain after auto-fix, address them manually and re-run until passing.
+
+## Post-validation visual QA (mandatory)
+
+After `code:fix` passes, always run the `visual-qa-loop` again for every
+component that was validated. ESLint/Prettier auto-fix can rewrite JSX
+formatting in ways that shift visual output. A clean lint run does **not** mean
+the component still matches the design reference — you must confirm visually.
+
+> ⛔ **Never consider validation complete until the post-validation QA pass
+> confirms the component still matches the reference.** Upload only happens
+> after this second QA pass.
