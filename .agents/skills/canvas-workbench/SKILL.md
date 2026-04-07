@@ -84,6 +84,10 @@ instead of starting a second instance.
 
 ## Verification workflow
 
+Workbench is the runtime surface used by downstream visual review workflows.
+When verification is iterative, reuse the same Workbench server and preview
+route across fix/review loops.
+
 Use Workbench as part of the normal implementation loop:
 
 1. Start or reuse Workbench.

@@ -16,6 +16,11 @@ examples only and should not replace the canonical Workbench pages directory.
 If the repository includes `examples/pages/`, use those files as reference input
 when authoring real Workbench pages in `pages/`.
 
+Only pages in the canonical `pages/` directory are valid local verification
+targets in this repository. After creating or visually modifying a page, use
+`nebula-component-validation` to run repo-local validation and visual
+verification.
+
 Use `canvas-page-definition` for the generic page-spec contract, and
 `canvas-workbench/references/pages.md` for the Workbench-specific page preview
 flow.

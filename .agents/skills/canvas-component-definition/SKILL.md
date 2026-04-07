@@ -48,6 +48,9 @@ component source and metadata:
   the auto-generated `Default` tab, which renders the component using the first
   example value for each prop from `component.yml`
 
+Rendered-output changes are incomplete unless the component has sufficient
+Workbench preview coverage for downstream validation and visual review.
+
 ## Naming guidance
 
 Use `references/naming.md` for naming rules and examples.
@@ -76,6 +79,9 @@ Evaluate using companion skills in this order.
 5. `canvas-data-fetching`
    - Use when fetching/rendering Drupal content with JSON:API, SWR, includes,
      and filter patterns.
-6. `canvas-component-push`
+6. Downstream validation and visual review
+   - Ensure `Default` examples and any authored `mocks.json` states are
+     sufficient for downstream visual review.
+7. `canvas-component-push`
    - Use after implementation is complete and validated, when pushing changes
      and recovering from push failures.

@@ -54,6 +54,9 @@ Treat files in the configured `pagesDir` as the source of truth for local page
 definitions that can be previewed in Workbench and synced with Canvas via the
 CLI.
 
+Authored page work is incomplete unless the page is previewable from the
+configured `pagesDir` and ready for downstream validation and visual review.
+
 ## Page file format
 
 Each page file must be a JSON object with:

@@ -45,6 +45,10 @@ Components use the `@/components` import alias, which points to
 `src/components`. When you copy and modify examples, the imports will work
 automatically.
 
+After creating or visually modifying a component, leave it in a reviewable
+Workbench state and use `nebula-component-validation` before considering the
+task complete.
+
 ### Copying an existing example component
 
 **Workflow for copying example components:**

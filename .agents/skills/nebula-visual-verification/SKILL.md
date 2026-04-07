@@ -1,0 +1,131 @@
+---
+name: nebula-visual-verification
+description:
+  Focused visual QA for changed Canvas components and pages in local Canvas
+  Workbench. Use when (1) A component or page change needs post-change visual
+  review, (2) Codex needs to verify contrast, spacing, layout, overflow,
+  responsive behavior, typography, image/copy fit, or other visual issues, or
+  (3) A changed Workbench surface needs an `agent-browser` verify/fix/reverify
+  loop until it passes or the work is stuck.
+---
+
+# Visual verification
+
+Use this skill for the changed Workbench target only. Do not broaden into full
+app QA unless the user explicitly asks for exploratory testing; use `dogfood`
+for that.
+
+## Reference map
+
+- Checklist and pass/fail heuristics: `references/checklist.md`
+- Browser-side signal collector: `scripts/collect-visual-signals.js`
+- Start or reuse Canvas Workbench with the `canvas-workbench` skill
+
+## Preconditions
+
+- The changed surface must be discoverable in Workbench.
+- Component work must have sufficient `component.yml` examples and any authored
+  `mocks.json` states needed for review.
+- Page work must exist in the canonical `pages/` directory for this repo.
+- Static validation should already have run through
+  `nebula-component-validation` before this skill starts browser review.
+
+If the changed surface is not reviewable in Workbench, stop immediately. Missing
+preview coverage is a blocker; do not treat the task as visually verified.
+
+## Target resolution
+
+- **Component work**: verify the changed `/component/<component-id>` route, any
+  relevant authored `mocks.json` states, and `Default` when the prop examples
+  provide a meaningful baseline.
+- **Page work**: verify the changed `/page/<slug>` route.
+- Keep the review surface tight. Do not sweep unrelated components or example
+  pages by default.
+
+## Viewports
+
+Verify every target and named state at:
+
+- Desktop: `1440x900`
+- Tablet: `768x1024`
+- Mobile: `390x844`
+
+## Browser workflow
+
+1. Use the `canvas-workbench` skill to start or reuse Canvas Workbench and
+   record the base URL.
+2. Resolve the exact review target and state list from the changed component or
+   page.
+3. For each target/state/viewport combination:
+   - Open the preview route.
+   - Wait for `networkidle` and for any obvious loading UI to settle.
+   - Capture a screenshot and an annotated screenshot when a failure needs to be
+     documented.
+   - Use `snapshot` for structural review.
+   - Run the browser-side helper script for deterministic signals:
+
+     ```bash
+     node .agents/skills/nebula-visual-verification/scripts/collect-visual-signals.js \
+       --scope body \
+       --sample-limit 60 \
+       | agent-browser --session "$SESSION" eval --stdin
+     ```
+
+   - Use `get styles`, `get box`, and focused `eval` calls when a specific
+     element needs more evidence.
+
+4. Compare the rendered result against the checklist in
+   `references/checklist.md`.
+5. If all checks pass for every required state and viewport, finish.
+6. If any check fails, fix the changed surface and direct dependencies only,
+   rerun static validation when code changed, and re-run this skill against the
+   same routes, states, and viewports.
+
+Prefer the direct `agent-browser` binary when it is available in the current
+environment. Fall back to `npx agent-browser` only if the direct binary is not
+available.
+
+## Auto-fix loop
+
+Use this loop until the changed surface passes or is stuck:
+
+1. Verify the current implementation.
+2. If failures exist, fix only the changed component/page and direct
+   dependencies.
+3. Rerun `npm run code:fix` when code changed.
+4. Reopen the same preview route and named state.
+5. Re-run verification for all required viewports.
+
+Keep the fix scope narrow. Do not turn a focused visual correction into a broad
+refactor or unrelated design rewrite.
+
+## Judgment rules
+
+- Use deterministic evidence for contrast, overflow, and viewport-level scroll
+  problems whenever possible.
+- Use human judgment for spacing, alignment, typography hierarchy, and image
+  relevance.
+- Flag image/copy mismatch only when the mismatch is obvious. Do not reject
+  images based on taste or subjective style preference alone.
+- When an image mismatch comes from a newly added image in the current task, you
+  may fetch a better replacement. Otherwise stay conservative and avoid
+  speculative image churn.
+
+## Stuck rules
+
+Stop the auto-fix loop and report a blocker when any of these are true:
+
+- The same failing checks persist across two consecutive loops.
+- There is no material code change between loops.
+- Workbench will not start or cannot render the changed target.
+- Preview coverage is missing.
+- The remaining failure needs a product decision or an unresolved image source.
+
+When stuck, explain the blocker clearly. Do not claim the task passed.
+
+## Artifacts
+
+- On failure or stuck status, save screenshots and a short findings summary
+  under `./visual-verification-output/<timestamp>/`.
+- On success, keep the closeout concise and avoid noisy artifact output unless
+  the user asks for it.

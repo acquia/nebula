@@ -20,7 +20,7 @@ Correct:
 
 Avoid prefixed names:
 
-- `nebula-footer`
+- `site-footer`
 - `acme-hero`
 - `mysite-navigation`
 - `projectx-contact-form`
