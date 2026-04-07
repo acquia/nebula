@@ -1,17 +1,17 @@
-import { useState } from "react";
-import { JsonApiClient } from "drupal-canvas";
-import { DrupalJsonApiParams } from "drupal-jsonapi-params";
-import useSWR from "swr";
+import { useState } from 'react';
+import { JsonApiClient } from 'drupal-canvas';
+import { DrupalJsonApiParams } from 'drupal-jsonapi-params';
+import useSWR from 'swr';
 
 const searchParams = new URLSearchParams(window.location.search);
-const q = searchParams.get("q") || "";
+const q = searchParams.get('q') || '';
 const client = new JsonApiClient();
 
 function getOffsetFromLink(link) {
   if (!link || !link.href) return null;
   try {
     const url = new URL(link.href);
-    const offset = url.searchParams.get("page[offset]");
+    const offset = url.searchParams.get('page[offset]');
     return offset ? parseInt(offset, 10) : null;
   } catch {
     return null;
@@ -23,12 +23,12 @@ export default function List() {
 
   const { data, error, isLoading } = useSWR(
     [
-      "index--cms_content",
+      'index--cms_content',
       {
         queryString: new DrupalJsonApiParams()
-          .addFields("node--article", ["title", "path"])
-          .addFields("canvas_page--canvas_page", ["title", "path"])
-          .addFilter("fulltext", q)
+          .addFields('node--article', ['title', 'path'])
+          .addFields('canvas_page--canvas_page', ['title', 'path'])
+          .addFilter('fulltext', q)
           .addPageLimit(10)
           .addPageOffset(pageOffset)
           .getQueryString(),
@@ -51,8 +51,8 @@ export default function List() {
     }
   };
 
-  if (error) return "An error has occurred.";
-  if (isLoading) return "Loading...";
+  if (error) return 'An error has occurred.';
+  if (isLoading) return 'Loading...';
 
   const results = data?.results || [];
   const links = data?.links || {};

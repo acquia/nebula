@@ -1,16 +1,16 @@
-import { recommended } from "@drupal-canvas/eslint-config";
+import { recommended } from '@drupal-canvas/eslint-config';
 
 export default [
   ...recommended,
   {
-    files: ["scripts/**/*.js"],
+    files: ['scripts/**/*.js'],
     languageOptions: {
       globals: {
-        process: "readonly",
+        process: 'readonly',
       },
     },
   },
   {
-    ignores: ["dist/**"],
+    ignores: ['dist/**'],
   },
 ];

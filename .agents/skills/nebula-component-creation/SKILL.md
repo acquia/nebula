@@ -138,7 +138,7 @@ exists in `examples/components/`. If so, copy it to `src/components/` first (see
 
 ```jsx
 // Correct
-import Button from "@/components/button";
+import Button from '@/components/button';
 
 const NewsletterSignup = ({ onSubmit }) => (
   <form onSubmit={onSubmit}>

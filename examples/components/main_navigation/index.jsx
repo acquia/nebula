@@ -1,12 +1,12 @@
-import { useState } from "react";
-import { cn, JsonApiClient, sortMenu } from "drupal-canvas";
-import useSWR from "swr";
+import { useState } from 'react';
+import { cn, JsonApiClient, sortMenu } from 'drupal-canvas';
+import useSWR from 'swr';
 
 const client = new JsonApiClient();
 
 const MainNavigation = () => {
   const { data, error, isLoading } = useSWR(
-    ["menu_items", "main"],
+    ['menu_items', 'main'],
     ([type, resourceId]) => client.getResource(type, resourceId),
   );
 
@@ -25,7 +25,7 @@ const MainNavigation = () => {
           }}
         >
           <svg
-            className={cn("size-4", open ? "hidden" : "")}
+            className={cn('size-4', open ? 'hidden' : '')}
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
@@ -41,7 +41,7 @@ const MainNavigation = () => {
             <line x1="3" x2="21" y1="18" y2="18" />
           </svg>
           <svg
-            className={cn("size-4 shrink-0", open ? "" : "hidden")}
+            className={cn('size-4 shrink-0', open ? '' : 'hidden')}
             xmlns="http://www.w3.org/2000/svg"
             width="24"
             height="24"
@@ -60,8 +60,8 @@ const MainNavigation = () => {
       </div>
       <nav
         className={cn(
-          "absolute left-0 w-screen bg-white px-10 py-6 md:static md:block md:w-full md:px-8 md:py-0",
-          open ? "" : "hidden",
+          'absolute left-0 w-screen bg-white px-10 py-6 md:static md:block md:w-full md:px-8 md:py-0',
+          open ? '' : 'hidden',
         )}
         role="navigation"
         aria-label="Main navigation"

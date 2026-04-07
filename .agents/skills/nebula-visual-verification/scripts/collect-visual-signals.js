@@ -1,28 +1,28 @@
 #!/usr/bin/env node
-import { readFileSync } from "node:fs";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const proc = globalThis.process;
 const args = proc.argv.slice(2);
 
 function parseArgs(argv) {
   const options = {
-    scope: "body",
+    scope: 'body',
     sampleLimit: 60,
   };
 
   for (let i = 0; i < argv.length; i += 1) {
     const arg = argv[i];
 
-    if (arg === "--scope") {
+    if (arg === '--scope') {
       options.scope = argv[i + 1] ?? options.scope;
       i += 1;
       continue;
     }
 
-    if (arg === "--sample-limit") {
-      const next = Number.parseInt(argv[i + 1] ?? "", 10);
+    if (arg === '--sample-limit') {
+      const next = Number.parseInt(argv[i + 1] ?? '', 10);
       if (Number.isFinite(next) && next > 0) {
         options.sampleLimit = next;
       }
@@ -30,7 +30,7 @@ function parseArgs(argv) {
       continue;
     }
 
-    if (arg === "--help" || arg === "-h") {
+    if (arg === '--help' || arg === '-h') {
       proc.stdout
         .write(`Usage: node collect-visual-signals.js [--scope <selector>] [--sample-limit <n>]
 
@@ -53,10 +53,10 @@ const currentFilePath = fileURLToPath(import.meta.url);
 const currentDir = path.dirname(currentFilePath);
 const browserScriptPath = path.join(
   currentDir,
-  "collect-visual-signals.browser.js",
+  'collect-visual-signals.browser.js',
 );
 
-const browserScript = readFileSync(browserScriptPath, "utf8")
+const browserScript = readFileSync(browserScriptPath, 'utf8')
   .replaceAll('"__SCOPE_SELECTOR__"', JSON.stringify(options.scope))
   .replaceAll('"__SAMPLE_LIMIT__"', JSON.stringify(options.sampleLimit));
 

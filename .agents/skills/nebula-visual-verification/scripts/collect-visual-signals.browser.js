@@ -1,6 +1,6 @@
 (() => {
-  const scope = document.querySelector("__SCOPE_SELECTOR__") || document.body;
-  const SAMPLE_LIMIT = Number("__SAMPLE_LIMIT__");
+  const scope = document.querySelector('__SCOPE_SELECTOR__') || document.body;
+  const SAMPLE_LIMIT = Number('__SAMPLE_LIMIT__');
 
   const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 
@@ -9,16 +9,16 @@
     const style = window.getComputedStyle(element);
     const rect = element.getBoundingClientRect();
     return (
-      style.display !== "none" &&
-      style.visibility !== "hidden" &&
-      Number.parseFloat(style.opacity || "1") > 0 &&
+      style.display !== 'none' &&
+      style.visibility !== 'hidden' &&
+      Number.parseFloat(style.opacity || '1') > 0 &&
       rect.width > 0 &&
       rect.height > 0
     );
   };
 
   const parseColor = (input) => {
-    if (!input || input === "transparent") {
+    if (!input || input === 'transparent') {
       return null;
     }
 
@@ -28,7 +28,7 @@
     }
 
     const parts = match[1]
-      .split(",")
+      .split(',')
       .map((part) => Number.parseFloat(part.trim()))
       .filter((part) => Number.isFinite(part));
 
@@ -95,7 +95,7 @@
 
     while (current) {
       const style = window.getComputedStyle(current);
-      if (style.backgroundImage && style.backgroundImage !== "none") {
+      if (style.backgroundImage && style.backgroundImage !== 'none') {
         backgroundImage = true;
       }
       const parsed = parseColor(style.backgroundColor);
@@ -112,7 +112,7 @@
   };
 
   const truncate = (value, length = 140) => {
-    const normalized = (value || "").replace(/\s+/g, " ").trim();
+    const normalized = (value || '').replace(/\s+/g, ' ').trim();
     if (normalized.length <= length) {
       return normalized;
     }
@@ -121,7 +121,7 @@
 
   const textNodes = Array.from(
     scope.querySelectorAll(
-      "h1,h2,h3,h4,h5,h6,p,li,a,button,label,span,strong,em,small,blockquote",
+      'h1,h2,h3,h4,h5,h6,p,li,a,button,label,span,strong,em,small,blockquote',
     ),
   );
 
@@ -130,7 +130,7 @@
   const textSignals = textNodes
     .filter((element) => isVisible(element))
     .map((element) => {
-      const text = truncate(element.innerText || element.textContent || "");
+      const text = truncate(element.innerText || element.textContent || '');
       if (!text) {
         return null;
       }
@@ -143,8 +143,8 @@
         return null;
       }
 
-      const fontSize = Number.parseFloat(style.fontSize || "0");
-      const fontWeight = Number.parseInt(style.fontWeight || "400", 10);
+      const fontSize = Number.parseFloat(style.fontSize || '0');
+      const fontWeight = Number.parseInt(style.fontWeight || '400', 10);
       const largeText =
         fontSize >= 24 || (fontSize >= 18.66 && fontWeight >= 700);
       const ratio = contrastRatio(foreground, background.color);
@@ -169,7 +169,7 @@
 
   // Look for the two most common layout regressions: content overflowing its
   // own box and content being pushed outside the viewport.
-  const overflowSignals = Array.from(scope.querySelectorAll("*"))
+  const overflowSignals = Array.from(scope.querySelectorAll('*'))
     .filter((element) => isVisible(element))
     .map((element) => {
       const rect = element.getBoundingClientRect();
@@ -189,7 +189,7 @@
 
       return {
         tag: element.tagName.toLowerCase(),
-        text: truncate(element.innerText || element.textContent || ""),
+        text: truncate(element.innerText || element.textContent || ''),
         overflowX: Math.round(overflowX),
         overflowY: Math.round(overflowY),
         clippedRight: Math.round(clippedRight),
@@ -203,17 +203,17 @@
 
   // Gather basic image context so the verifier can judge obvious broken-image
   // cases and image/copy mismatches without scraping the full DOM.
-  const imageSignals = Array.from(scope.querySelectorAll("img"))
+  const imageSignals = Array.from(scope.querySelectorAll('img'))
     .filter((element) => isVisible(element))
     .map((element) => {
-      const container = element.closest("figure,article,section,li,div");
+      const container = element.closest('figure,article,section,li,div');
       const nearbyText = truncate(
-        (container?.innerText || element.alt || "").replace(/\s+/g, " "),
+        (container?.innerText || element.alt || '').replace(/\s+/g, ' '),
       );
 
       return {
-        src: element.currentSrc || element.src || "",
-        alt: element.alt || "",
+        src: element.currentSrc || element.src || '',
+        alt: element.alt || '',
         width: element.naturalWidth || element.width || 0,
         height: element.naturalHeight || element.height || 0,
         nearbyText,

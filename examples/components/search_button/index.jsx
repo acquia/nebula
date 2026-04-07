@@ -1,6 +1,6 @@
-import { useState } from "react";
-import SearchForm from "@/components/search_form";
-import Section from "@/components/section";
+import { useState } from 'react';
+import SearchForm from '@/components/search_form';
+import Section from '@/components/section';
 
 const SearchButton = ({ positionTop = 50 }) => {
   const [open, setOpen] = useState(false);

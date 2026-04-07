@@ -1,32 +1,32 @@
-import { cva } from "class-variance-authority";
-import { FormattedText } from "drupal-canvas";
+import { cva } from 'class-variance-authority';
+import { FormattedText } from 'drupal-canvas';
 
-const blockquoteVariants = cva("my-8 flex w-full flex-col leading-[normal]", {
+const blockquoteVariants = cva('my-8 flex w-full flex-col leading-[normal]', {
   variants: {
     textColor: {
-      dark: "",
-      light: "text-white",
+      dark: '',
+      light: 'text-white',
     },
   },
 });
 
 const nameVariants = cva(
-  "flex items-end self-stretch pt-5 leading-6 font-bold whitespace-pre-wrap",
+  'flex items-end self-stretch pt-5 leading-6 font-bold whitespace-pre-wrap',
   {
     variants: {
       textColor: {
-        dark: "",
-        light: "text-white",
+        dark: '',
+        light: 'text-white',
       },
     },
   },
 );
 
-const titleVariants = cva("text-sm leading-5 whitespace-pre-wrap", {
+const titleVariants = cva('text-sm leading-5 whitespace-pre-wrap', {
   variants: {
     textColor: {
-      dark: "text-gray-500",
-      light: "text-gray-200",
+      dark: 'text-gray-500',
+      light: 'text-gray-200',
     },
   },
 });

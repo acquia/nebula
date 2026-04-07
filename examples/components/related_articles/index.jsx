@@ -1,8 +1,8 @@
-import Card from "@/components/card";
-import CardContainer from "@/components/card_container";
-import { getNodePath, getPageData, JsonApiClient } from "drupal-canvas";
-import { DrupalJsonApiParams } from "drupal-jsonapi-params";
-import useSWR from "swr";
+import Card from '@/components/card';
+import CardContainer from '@/components/card_container';
+import { getNodePath, getPageData, JsonApiClient } from 'drupal-canvas';
+import { DrupalJsonApiParams } from 'drupal-jsonapi-params';
+import useSWR from 'swr';
 
 const client = new JsonApiClient();
 
@@ -17,12 +17,12 @@ export const RelatedArticles = ({
 }) => {
   const { data } = useSWR(
     [
-      "node--article",
+      'node--article',
       {
         queryString: new DrupalJsonApiParams()
-          .addInclude(["field_image", "uid"])
-          .addFilter("id", mainEntity.uuid, "<>")
-          .addSort("created", "DESC")
+          .addInclude(['field_image', 'uid'])
+          .addFilter('id', mainEntity.uuid, '<>')
+          .addSort('created', 'DESC')
           .addPageLimit(4)
           .getQueryString(),
       },
@@ -32,14 +32,14 @@ export const RelatedArticles = ({
 
   const formatDayMonthYear = (iso) => {
     const d = new Date(iso);
-    const parts = new Intl.DateTimeFormat("en-US", {
-      day: "numeric",
-      month: "short",
-      year: "numeric",
+    const parts = new Intl.DateTimeFormat('en-US', {
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric',
     }).formatToParts(d);
-    const day = parts.find((p) => p.type === "day")?.value ?? "";
-    const month = parts.find((p) => p.type === "month")?.value ?? "";
-    const year = parts.find((p) => p.type === "year")?.value ?? "";
+    const day = parts.find((p) => p.type === 'day')?.value ?? '';
+    const month = parts.find((p) => p.type === 'month')?.value ?? '';
+    const year = parts.find((p) => p.type === 'year')?.value ?? '';
     return `${day} ${month.toUpperCase()}, ${year}`;
   };
 
@@ -62,7 +62,7 @@ export const RelatedArticles = ({
                 byline: `${uid.display_name} - ${formatDayMonthYear(created)}`,
                 image: {
                   src: field_image.uri.url,
-                  alt: field_image.resourceIdObjMeta.alt || "Article image",
+                  alt: field_image.resourceIdObjMeta.alt || 'Article image',
                   width: field_image.resourceIdObjMeta.width,
                   height: field_image.resourceIdObjMeta.height,
                 },
@@ -77,7 +77,7 @@ export const RelatedArticles = ({
 };
 
 const RelatedArticlesContainer = ({
-  heading = "More articles",
+  heading = 'More articles',
   headingPosition,
   headingElement,
   headingSize,

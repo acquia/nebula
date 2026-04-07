@@ -25,45 +25,45 @@
  * Use --headless flag if the site doesn't have bot protection.
  */
 
-import { mkdir, writeFile } from "fs/promises";
-import { dirname, join } from "path";
-import { fileURLToPath } from "url";
-import { chromium } from "playwright";
+import { mkdir, writeFile } from 'fs/promises';
+import { dirname, join } from 'path';
+import { fileURLToPath } from 'url';
+import { chromium } from 'playwright';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-const projectRoot = join(__dirname, "..");
+const projectRoot = join(__dirname, '..');
 
 // Parse command line arguments
 const args = process.argv.slice(2);
-const url = args.find((arg) => !arg.startsWith("--"));
-const headless = args.includes("--headless");
-const noScreenshots = args.includes("--no-screenshots");
+const url = args.find((arg) => !arg.startsWith('--'));
+const headless = args.includes('--headless');
+const noScreenshots = args.includes('--no-screenshots');
 
 if (!url) {
   console.error(
-    "Usage: node scripts/scrape-page.js <url> [--headless] [--no-screenshots]",
+    'Usage: node scripts/scrape-page.js <url> [--headless] [--no-screenshots]',
   );
-  console.error("Example: node scripts/scrape-page.js https://example.com");
+  console.error('Example: node scripts/scrape-page.js https://example.com');
   process.exit(1);
 }
 
 // Viewport configurations
 const viewports = [
-  { name: "mobile", width: 375, height: 812 },
-  { name: "tablet", width: 768, height: 1024 },
-  { name: "desktop", width: 1280, height: 900 },
+  { name: 'mobile', width: 375, height: 812 },
+  { name: 'tablet', width: 768, height: 1024 },
+  { name: 'desktop', width: 1280, height: 900 },
 ];
 
 async function scrapePage() {
   // Create output directory with timestamp
-  const timestamp = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 19);
-  const outputDir = join(projectRoot, "scraped", timestamp);
+  const timestamp = new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19);
+  const outputDir = join(projectRoot, 'scraped', timestamp);
   await mkdir(outputDir, { recursive: true });
 
   console.log(`\nScraping: ${url}`);
   console.log(`Output directory: scraped/${timestamp}`);
-  console.log(`Mode: ${headless ? "headless" : "visible browser"}\n`);
+  console.log(`Mode: ${headless ? 'headless' : 'visible browser'}\n`);
 
   const browser = await chromium.launch({
     headless,
@@ -74,7 +74,7 @@ async function scrapePage() {
   const context = await browser.newContext({
     // Use a realistic user agent
     userAgent:
-      "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+      'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
     // Set realistic viewport
     viewport: { width: 1280, height: 900 },
   });
@@ -83,37 +83,37 @@ async function scrapePage() {
 
   try {
     // Navigate to the page
-    console.log("Loading page...");
-    await page.goto(url, { waitUntil: "networkidle", timeout: 60000 });
+    console.log('Loading page...');
+    await page.goto(url, { waitUntil: 'networkidle', timeout: 60000 });
 
     // Wait a bit more for any JavaScript to settle (helps with CloudFlare)
     await page.waitForTimeout(2000);
 
     // Check if we hit a CloudFlare challenge
     const title = await page.title();
-    if (title.includes("Cloudflare") || title.includes("Attention Required")) {
-      console.log("CloudFlare challenge detected. Waiting for it to pass...");
-      console.log("   (If using --headless, try without it)");
+    if (title.includes('Cloudflare') || title.includes('Attention Required')) {
+      console.log('CloudFlare challenge detected. Waiting for it to pass...');
+      console.log('   (If using --headless, try without it)');
       // Wait up to 30 seconds for the challenge to resolve
       await page.waitForFunction(
         () =>
-          !document.title.includes("Cloudflare") &&
-          !document.title.includes("Attention"),
+          !document.title.includes('Cloudflare') &&
+          !document.title.includes('Attention'),
         { timeout: 30000 },
       );
       await page.waitForTimeout(2000);
     }
 
-    console.log("Page loaded\n");
+    console.log('Page loaded\n');
 
     // Save HTML
-    console.log("Saving HTML...");
+    console.log('Saving HTML...');
     const html = await page.content();
-    await writeFile(join(outputDir, "page.html"), html);
+    await writeFile(join(outputDir, 'page.html'), html);
 
     // Take screenshots at different viewports (unless skipped)
     if (!noScreenshots) {
-      console.log("📸 Taking screenshots...");
+      console.log('📸 Taking screenshots...');
       for (const viewport of viewports) {
         await page.setViewportSize({
           width: viewport.width,
@@ -133,7 +133,7 @@ async function scrapePage() {
 
     // Save metadata
     await writeFile(
-      join(outputDir, "metadata.json"),
+      join(outputDir, 'metadata.json'),
       JSON.stringify(
         {
           url: page.url(),
@@ -149,7 +149,7 @@ async function scrapePage() {
       ),
     );
 
-    console.log("\nDone. Files saved to:");
+    console.log('\nDone. Files saved to:');
     console.log(`   scraped/${timestamp}/`);
     if (!noScreenshots) {
       console.log(`   ├── screenshot-mobile.png`);
@@ -159,7 +159,7 @@ async function scrapePage() {
     console.log(`   ├── page.html`);
     console.log(`   └── metadata.json`);
   } catch (error) {
-    console.error("Error:", error.message);
+    console.error('Error:', error.message);
     process.exit(1);
   } finally {
     await browser.close();

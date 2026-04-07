@@ -1,4 +1,4 @@
-import { Image as ResponsiveImage } from "drupal-canvas";
+import { Image as ResponsiveImage } from 'drupal-canvas';
 
 const Image = ({ image }) => {
   if (!image?.src) {

@@ -8,11 +8,11 @@
  */
 /* @import url("https://rsms.me/inter/inter.css"); */
 
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
   --font-sans:
-    Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans", Arial,
+    Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial,
     sans-serif;
 
   --color-primary-100: var(--color-blue-100);

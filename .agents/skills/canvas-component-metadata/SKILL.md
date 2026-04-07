@@ -49,7 +49,7 @@ props:
 const Hero = ({ heading }) => <h1>{heading}</h1>;
 
 // Wrong: required prop fallback masks missing required data
-const Hero = ({ heading = "Default heading" }) => <h1>{heading}</h1>;
+const Hero = ({ heading = 'Default heading' }) => <h1>{heading}</h1>;
 ```
 
 **Prop IDs must be camelCase versions of their titles.**
@@ -273,11 +273,11 @@ component, the variant keys must exactly match the enum values defined in
 ```jsx
 // component.yml defines: enum: [left_aligned, center_aligned]
 // CVA variants must match:
-const variants = cva("base-classes", {
+const variants = cva('base-classes', {
   variants: {
     layout: {
-      left_aligned: "text-left", // matches enum value
-      center_aligned: "text-center", // matches enum value
+      left_aligned: 'text-left', // matches enum value
+      center_aligned: 'text-center', // matches enum value
     },
   },
 });
