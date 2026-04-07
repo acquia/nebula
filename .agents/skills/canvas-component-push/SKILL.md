@@ -15,19 +15,24 @@ for their target site.
 
 Before running any push command:
 
-1. Check that a `.env` file exists in the project root.
-2. If `.env` exists, verify these values are set:
-   - `CANVAS_SITE_URL`
-   - `CANVAS_CLIENT_ID`
-   - `CANVAS_CLIENT_SECRET`
-3. If `.env` is missing, or any required value is missing, **stop** and ask the
-   user to complete setup first.
-4. **Do not guess setup steps**. Point the user to the official docs:
+1. Check that Canvas CLI auth is configured from a supported source. For local
+   project work, prefer a `.env` file in the project root. The CLI also reads
+   shell environment variables and `~/.canvasrc`.
+2. Verify `CANVAS_SITE_URL` is set.
+3. Verify one auth mode is configured:
+   - `CANVAS_ACCESS_TOKEN` is set and non-empty, or
+   - both `CANVAS_CLIENT_ID` and `CANVAS_CLIENT_SECRET` are set.
+4. If `CANVAS_ACCESS_TOKEN` is set, treat it as the active auth mode. It skips
+   the OAuth client credentials flow entirely, and `CANVAS_CLIENT_ID`,
+   `CANVAS_CLIENT_SECRET`, and `CANVAS_SCOPE` are ignored.
+5. If required setup is missing, **stop** and ask the user to complete setup
+   first.
+6. **Do not guess setup steps**. Point the user to the official docs:
    - Drupal Canvas OAuth module setup:
      <https://git.drupalcode.org/project/canvas/-/tree/1.x/modules/canvas_oauth#2-setup>
    - Drupal Canvas CLI package/docs:
      <https://www.npmjs.com/package/@drupal-canvas/cli>
-5. Continue only after the user confirms setup is complete.
+7. Continue only after the user confirms setup is complete.
 
 ## Run push
 
@@ -59,6 +64,10 @@ like invalid credentials, unauthorized/forbidden responses, DNS issues,
 connection refused, host unreachable, request timeout before reaching Canvas, or
 TLS/SSL handshake/certificate failures.
 
+If `CANVAS_ACCESS_TOKEN` is the active auth mode, treat token-related failures
+as setup failures. Do not retry on errors like an invalid or expired token, or
+401 responses that indicate the token is not accepted.
+
 Point the user to the official setup docs:
 
 - Drupal Canvas OAuth module setup:
@@ -67,8 +76,9 @@ Point the user to the official setup docs:
   <https://www.npmjs.com/package/@drupal-canvas/cli>
 
 Ask them to verify and update `.env` values (`CANVAS_SITE_URL`,
-`CANVAS_CLIENT_ID`, `CANVAS_CLIENT_SECRET`) and OAuth/CLI setup, then retry the
-push only after they confirm setup updates are complete.
+`CANVAS_ACCESS_TOKEN`, `CANVAS_CLIENT_ID`, `CANVAS_CLIENT_SECRET`) and the
+relevant Canvas auth setup for their chosen auth mode, then retry the push only
+after they confirm setup updates are complete.
 
 ### Dependency-related failures
 
