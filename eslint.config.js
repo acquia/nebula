@@ -1,17 +1,16 @@
-import { recommended as drupalCanvasRecommended } from "@drupal-canvas/eslint-config";
-import storybook from "eslint-plugin-storybook";
-import globals from "globals";
+import { recommended } from '@drupal-canvas/eslint-config';
 
 export default [
-  { ignores: ["dist", "node_modules", "storybook-static"] },
-  ...drupalCanvasRecommended,
-  ...storybook.configs["flat/recommended"],
+  ...recommended,
   {
-    files: ["scripts/**/*.js"],
+    files: ['scripts/**/*.js'],
     languageOptions: {
       globals: {
-        ...globals.node,
+        process: 'readonly',
       },
     },
+  },
+  {
+    ignores: ['dist/**'],
   },
 ];

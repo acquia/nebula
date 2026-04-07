@@ -1,0 +1,52 @@
+{
+  "mocks": [
+    {
+      "name": "Extra small",
+      "props": {
+        "text": "Enter some text...",
+        "textSize": "extra_small",
+        "textColor": "dark"
+      }
+    },
+    {
+      "name": "Small",
+      "props": {
+        "text": "Enter some text...",
+        "textSize": "small",
+        "textColor": "dark"
+      }
+    },
+    {
+      "name": "Large",
+      "props": {
+        "text": "Enter some text...",
+        "textSize": "large",
+        "textColor": "dark"
+      }
+    },
+    {
+      "name": "Extra large",
+      "props": {
+        "text": "Enter some text...",
+        "textSize": "extra_large",
+        "textColor": "dark"
+      }
+    },
+    {
+      "name": "Light on dark",
+      "props": {
+        "text": "Enter some text...",
+        "textSize": "normal",
+        "textColor": "light"
+      }
+    },
+    {
+      "name": "With HTML",
+      "props": {
+        "text": "<p>This is a <strong>bold</strong> and <em>italic</em> text with a <a href='#'>link</a>.</p>",
+        "textSize": "normal",
+        "textColor": "dark"
+      }
+    }
+  ]
+}

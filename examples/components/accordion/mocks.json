@@ -1,0 +1,142 @@
+{
+  "mocks": [
+    {
+      "name": "Bordered",
+      "props": {
+        "borderColor": "gray_200",
+        "variant": "bordered"
+      },
+      "slots": {
+        "items": ["bordered-support", "bordered-multiple", "bordered-editors"]
+      },
+      "elements": {
+        "bordered-support": {
+          "type": "accordion-item",
+          "props": {
+            "anchorId": "faq-support",
+            "defaultOpen": true,
+            "title": "What does this accordion support?"
+          },
+          "slots": {
+            "content": ["bordered-support-content"]
+          }
+        },
+        "bordered-support-content": {
+          "type": "text",
+          "props": {
+            "text": "Accordion items support slot-based content, including nested components.",
+            "textColor": "dark",
+            "textSize": "normal"
+          }
+        },
+        "bordered-multiple": {
+          "type": "accordion-item",
+          "props": {
+            "anchorId": "faq-multiple",
+            "title": "Can multiple items be open?"
+          },
+          "slots": {
+            "content": ["bordered-multiple-content"]
+          }
+        },
+        "bordered-multiple-content": {
+          "type": "text",
+          "props": {
+            "text": "Multiple panels can be open at the same time.",
+            "textColor": "dark",
+            "textSize": "normal"
+          }
+        },
+        "bordered-editors": {
+          "type": "accordion-item",
+          "props": {
+            "anchorId": "faq-editors",
+            "title": "How do editors preview content?"
+          },
+          "slots": {
+            "content": ["bordered-editors-content"]
+          }
+        },
+        "bordered-editors-content": {
+          "type": "text",
+          "props": {
+            "text": "Use the Default Open prop in Canvas when you need editorial visibility for an item.",
+            "textColor": "dark",
+            "textSize": "normal"
+          }
+        }
+      }
+    },
+    {
+      "name": "Separated",
+      "props": {
+        "borderColor": "gray_200",
+        "variant": "separated"
+      },
+      "slots": {
+        "items": [
+          "separated-support",
+          "separated-multiple",
+          "separated-editors"
+        ]
+      },
+      "elements": {
+        "separated-support": {
+          "type": "accordion-item",
+          "props": {
+            "anchorId": "faq-support",
+            "defaultOpen": true,
+            "title": "What does this accordion support?"
+          },
+          "slots": {
+            "content": ["separated-support-content"]
+          }
+        },
+        "separated-support-content": {
+          "type": "text",
+          "props": {
+            "text": "Accordion items support slot-based content, including nested components.",
+            "textColor": "dark",
+            "textSize": "normal"
+          }
+        },
+        "separated-multiple": {
+          "type": "accordion-item",
+          "props": {
+            "anchorId": "faq-multiple",
+            "title": "Can multiple items be open?"
+          },
+          "slots": {
+            "content": ["separated-multiple-content"]
+          }
+        },
+        "separated-multiple-content": {
+          "type": "text",
+          "props": {
+            "text": "Multiple panels can be open at the same time.",
+            "textColor": "dark",
+            "textSize": "normal"
+          }
+        },
+        "separated-editors": {
+          "type": "accordion-item",
+          "props": {
+            "anchorId": "faq-editors",
+            "title": "How do editors preview content?"
+          },
+          "slots": {
+            "content": ["separated-editors-content"]
+          }
+        },
+        "separated-editors-content": {
+          "type": "text",
+          "props": {
+            "text": "Use the Default Open prop in Canvas when you need editorial visibility for an item.",
+            "textColor": "dark",
+            "textSize": "normal"
+          }
+        }
+      }
+    }
+  ]
+}

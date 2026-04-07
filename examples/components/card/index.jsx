@@ -1,35 +1,35 @@
-import Button from "@/components/button";
-import Heading from "@/components/heading";
-import { cva } from "class-variance-authority";
-import { cn, FormattedText, Image } from "drupal-canvas";
+import Button from '@/components/button';
+import Heading from '@/components/heading';
+import { cva } from 'class-variance-authority';
+import { cn, FormattedText, Image } from 'drupal-canvas';
 
 const cardVariants = cva(
-  "flex w-full max-w-md flex-col items-center gap-4 rounded-2xl pb-6 leading-[normal]",
+  'flex w-full max-w-md flex-col items-center gap-4 rounded-2xl pb-6 leading-[normal]',
   {
     variants: {
       layout: {
-        left_aligned: "items-start text-left",
-        center_aligned: "items-center text-center",
-        right_aligned: "items-end text-right",
+        left_aligned: 'items-start text-left',
+        center_aligned: 'items-center text-center',
+        right_aligned: 'items-end text-right',
       },
       textColor: {
         Default: null,
-        Dark: "text-primary-dark",
-        Light: "text-white",
+        Dark: 'text-primary-dark',
+        Light: 'text-white',
       },
       image: {
         true: null,
-        false: "pt-8",
+        false: 'pt-8',
       },
     },
     defaultVariants: {
-      textColor: "Default",
+      textColor: 'Default',
     },
   },
 );
 
 const linkCardStyles =
-  "group flex flex-col rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-md focus:shadow-md focus:outline-none";
+  'group flex flex-col rounded-xl border border-gray-200 bg-white shadow-sm transition hover:shadow-md focus:shadow-md focus:outline-none';
 
 const ChevronIcon = () => (
   <svg
@@ -49,9 +49,9 @@ const ChevronIcon = () => (
 );
 
 const linkCardTextAlign = {
-  left_aligned: "text-left",
-  center_aligned: "text-center",
-  right_aligned: "text-right",
+  left_aligned: 'text-left',
+  center_aligned: 'text-center',
+  right_aligned: 'text-right',
 };
 
 const LinkCard = ({
@@ -60,7 +60,7 @@ const LinkCard = ({
   text,
   image,
   link,
-  layout = "left_aligned",
+  layout = 'left_aligned',
 }) => (
   <a className={cn(linkCardStyles, className)} href={link}>
     <div className="p-4 md:p-5">
@@ -76,7 +76,7 @@ const LinkCard = ({
               sizes="38px"
             />
           )}
-          <div className={cn("grow", linkCardTextAlign[layout])}>
+          <div className={cn('grow', linkCardTextAlign[layout])}>
             <h3 className="font-semibold text-gray-800 group-hover:text-primary-600">
               {heading}
             </h3>
@@ -94,17 +94,17 @@ const LinkCard = ({
 );
 
 const DefaultCard = ({
-  backgroundColor = "#ffffff",
-  backgroundColorOnHover = "#E2E8F0",
+  backgroundColor = '#ffffff',
+  backgroundColorOnHover = '#E2E8F0',
   byline,
   className,
   image,
   heading,
-  headingElement = "h2",
-  layout = "left_aligned",
+  headingElement = 'h2',
+  layout = 'left_aligned',
   link,
   linkLabel,
-  linkVariant = "link",
+  linkVariant = 'link',
   text,
   textColor,
 }) => {
@@ -173,9 +173,9 @@ const DefaultCard = ({
   );
 };
 
-const Card = ({ variant = "default", ...props }) => {
+const Card = ({ variant = 'default', ...props }) => {
   switch (variant) {
-    case "link_card":
+    case 'link_card':
       return <LinkCard {...props} />;
     default:
       return <DefaultCard {...props} />;

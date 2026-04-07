@@ -1,17 +1,17 @@
-import { cva } from "class-variance-authority";
+import { cva } from 'class-variance-authority';
 
-const spacerVariants = cva("", {
+const spacerVariants = cva('', {
   variants: {
     height: {
-      small: "h-8",
-      medium: "h-12",
-      large: "h-16",
-      extra_large: "h-24",
+      small: 'h-8',
+      medium: 'h-12',
+      large: 'h-16',
+      extra_large: 'h-24',
     },
   },
 });
 
-const Spacer = ({ height = "small" }) => {
+const Spacer = ({ height = 'small' }) => {
   return <div className={spacerVariants({ height })}>&nbsp;</div>;
 };
 

@@ -15,13 +15,13 @@ Use [SWR](https://swr.vercel.app/) for all data fetching. It provides caching,
 revalidation, and a clean hook-based API.
 
 ```jsx
-import useSWR from "swr";
+import useSWR from 'swr';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 export default function Profile() {
   const { data, error, isLoading } = useSWR(
-    "https://my-site.com/api/user",
+    'https://my-site.com/api/user',
     fetcher,
   );
 
@@ -37,30 +37,32 @@ To fetch content from Drupal (e.g., articles, events, or other content types),
 use the autoconfigured `JsonApiClient` from the `drupal-canvas` package combined
 with `DrupalJsonApiParams` for query building.
 
-**Important:** Do not mock JSON:API resources in Storybook stories. Components
-that fetch data will display their loading or empty states in Storybook.
+**Important:** Do not fabricate JSON:API resource payloads in Workbench mocks.
+Components that fetch data should render their real loading, empty, or error
+states in Workbench unless the user explicitly asks for a static, non-fetching
+preview shape.
 
 ```jsx
-import { getNodePath, JsonApiClient } from "drupal-canvas";
-import { DrupalJsonApiParams } from "drupal-jsonapi-params";
-import useSWR from "swr";
+import { getNodePath, JsonApiClient } from 'drupal-canvas';
+import { DrupalJsonApiParams } from 'drupal-jsonapi-params';
+import useSWR from 'swr';
 
 const Articles = () => {
   const client = new JsonApiClient();
   const { data, error, isLoading } = useSWR(
     [
-      "node--article",
+      'node--article',
       {
         queryString: new DrupalJsonApiParams()
-          .addSort("created", "DESC")
+          .addSort('created', 'DESC')
           .getQueryString(),
       },
     ],
     ([type, options]) => client.getCollection(type, options),
   );
 
-  if (error) return "An error has occurred.";
-  if (isLoading) return "Loading...";
+  if (error) return 'An error has occurred.';
+  if (isLoading) return 'Loading...';
   return (
     <ul>
       {data.map((article) => (
@@ -95,18 +97,18 @@ need. This improves performance and helps avoid circular reference issues:
 
 ```jsx
 const params = new DrupalJsonApiParams();
-params.addSort("created", "DESC");
-params.addInclude(["field_category", "field_image"]);
+params.addSort('created', 'DESC');
+params.addInclude(['field_category', 'field_image']);
 
 // Limit fields for each entity type
-params.addFields("node--article", [
-  "title",
-  "created",
-  "field_category",
-  "field_image",
+params.addFields('node--article', [
+  'title',
+  'created',
+  'field_category',
+  'field_image',
 ]);
-params.addFields("taxonomy_term--categories", ["name"]);
-params.addFields("file--file", ["uri", "url"]);
+params.addFields('taxonomy_term--categories', ['name']);
+params.addFields('file--file', ['uri', 'url']);
 ```
 
 ## Creating content list components

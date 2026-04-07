@@ -1,0 +1,297 @@
+{
+  "mocks": [
+    {
+      "name": "Default layout",
+      "props": {
+        "layout": "33-33-33",
+        "gap": "medium"
+      },
+      "slots": {
+        "content": ["card-one", "card-two", "card-three"]
+      },
+      "elements": {
+        "card-one": {
+          "type": "card",
+          "props": {
+            "layout": "left_aligned",
+            "linkVariant": "link",
+            "heading": "Card One",
+            "text": "<p>Short description for the first card.</p>",
+            "backgroundColor": "#F0F9FF",
+            "backgroundColorOnHover": "#E0F2FE"
+          }
+        },
+        "card-two": {
+          "type": "card",
+          "props": {
+            "layout": "left_aligned",
+            "linkVariant": "link",
+            "heading": "Card Two",
+            "text": "<p>Short description for the second card.</p>",
+            "backgroundColor": "#F0F9FF",
+            "backgroundColorOnHover": "#E0F2FE"
+          }
+        },
+        "card-three": {
+          "type": "card",
+          "props": {
+            "layout": "left_aligned",
+            "linkVariant": "link",
+            "heading": "Card Three",
+            "text": "<p>Short description for the third card.</p>",
+            "backgroundColor": "#F0F9FF",
+            "backgroundColorOnHover": "#E0F2FE"
+          }
+        }
+      }
+    },
+    {
+      "name": "Two columns equal",
+      "props": {
+        "layout": "50-50",
+        "gap": "medium"
+      },
+      "slots": {
+        "content": ["card-one", "card-two"]
+      },
+      "elements": {
+        "card-one": {
+          "type": "card",
+          "props": {
+            "layout": "left_aligned",
+            "linkVariant": "link",
+            "heading": "Card One",
+            "text": "<p>Short description for the first card.</p>",
+            "backgroundColor": "#F0F9FF",
+            "backgroundColorOnHover": "#E0F2FE"
+          }
+        },
+        "card-two": {
+          "type": "card",
+          "props": {
+            "layout": "left_aligned",
+            "linkVariant": "link",
+            "heading": "Card Two",
+            "text": "<p>Short description for the second card.</p>",
+            "backgroundColor": "#F0F9FF",
+            "backgroundColorOnHover": "#E0F2FE"
+          }
+        }
+      }
+    },
+    {
+      "name": "Two columns wide left",
+      "props": {
+        "layout": "75-25",
+        "gap": "medium"
+      },
+      "slots": {
+        "content": ["card-one", "card-two"]
+      },
+      "elements": {
+        "card-one": {
+          "type": "card",
+          "props": {
+            "layout": "left_aligned",
+            "linkVariant": "link",
+            "heading": "Card One",
+            "text": "<p>Short description for the first card.</p>",
+            "backgroundColor": "#F0F9FF",
+            "backgroundColorOnHover": "#E0F2FE"
+          }
+        },
+        "card-two": {
+          "type": "card",
+          "props": {
+            "layout": "left_aligned",
+            "linkVariant": "link",
+            "heading": "Card Two",
+            "text": "<p>Short description for the second card.</p>",
+            "backgroundColor": "#F0F9FF",
+            "backgroundColorOnHover": "#E0F2FE"
+          }
+        }
+      }
+    },
+    {
+      "name": "Two columns wide right",
+      "props": {
+        "layout": "25-75",
+        "gap": "medium"
+      },
+      "slots": {
+        "content": ["card-one", "card-two"]
+      },
+      "elements": {
+        "card-one": {
+          "type": "card",
+          "props": {
+            "layout": "left_aligned",
+            "linkVariant": "link",
+            "heading": "Card One",
+            "text": "<p>Short description for the first card.</p>",
+            "backgroundColor": "#F0F9FF",
+            "backgroundColorOnHover": "#E0F2FE"
+          }
+        },
+        "card-two": {
+          "type": "card",
+          "props": {
+            "layout": "left_aligned",
+            "linkVariant": "link",
+            "heading": "Card Two",
+            "text": "<p>Short description for the second card.</p>",
+            "backgroundColor": "#F0F9FF",
+            "backgroundColorOnHover": "#E0F2FE"
+          }
+        }
+      }
+    },
+    {
+      "name": "Four columns equal",
+      "props": {
+        "layout": "25-25-25-25",
+        "gap": "medium"
+      },
+      "slots": {
+        "content": ["card-one", "card-two", "card-three", "card-four"]
+      },
+      "elements": {
+        "card-one": {
+          "type": "card",
+          "props": {
+            "layout": "left_aligned",
+            "linkVariant": "link",
+            "heading": "Card One",
+            "text": "<p>Short description for the first card.</p>",
+            "backgroundColor": "#F0F9FF",
+            "backgroundColorOnHover": "#E0F2FE"
+          }
+        },
+        "card-two": {
+          "type": "card",
+          "props": {
+            "layout": "left_aligned",
+            "linkVariant": "link",
+            "heading": "Card Two",
+            "text": "<p>Short description for the second card.</p>",
+            "backgroundColor": "#F0F9FF",
+            "backgroundColorOnHover": "#E0F2FE"
+          }
+        },
+        "card-three": {
+          "type": "card",
+          "props": {
+            "layout": "left_aligned",
+            "linkVariant": "link",
+            "heading": "Card Three",
+            "text": "<p>Short description for the third card.</p>",
+            "backgroundColor": "#F0F9FF",
+            "backgroundColorOnHover": "#E0F2FE"
+          }
+        },
+        "card-four": {
+          "type": "card",
+          "props": {
+            "layout": "left_aligned",
+            "linkVariant": "link",
+            "heading": "Card Four",
+            "text": "<p>Short description for the fourth card.</p>",
+            "backgroundColor": "#F0F9FF",
+            "backgroundColorOnHover": "#E0F2FE"
+          }
+        }
+      }
+    },
+    {
+      "name": "Large gap",
+      "props": {
+        "layout": "33-33-33",
+        "gap": "extra_large"
+      },
+      "slots": {
+        "content": ["card-one", "card-two", "card-three"]
+      },
+      "elements": {
+        "card-one": {
+          "type": "card",
+          "props": {
+            "layout": "left_aligned",
+            "linkVariant": "link",
+            "heading": "Card One",
+            "text": "<p>Short description for the first card.</p>",
+            "backgroundColor": "#F0F9FF",
+            "backgroundColorOnHover": "#E0F2FE"
+          }
+        },
+        "card-two": {
+          "type": "card",
+          "props": {
+            "layout": "left_aligned",
+            "linkVariant": "link",
+            "heading": "Card Two",
+            "text": "<p>Short description for the second card.</p>",
+            "backgroundColor": "#F0F9FF",
+            "backgroundColorOnHover": "#E0F2FE"
+          }
+        },
+        "card-three": {
+          "type": "card",
+          "props": {
+            "layout": "left_aligned",
+            "linkVariant": "link",
+            "heading": "Card Three",
+            "text": "<p>Short description for the third card.</p>",
+            "backgroundColor": "#F0F9FF",
+            "backgroundColorOnHover": "#E0F2FE"
+          }
+        }
+      }
+    },
+    {
+      "name": "Small gap",
+      "props": {
+        "layout": "33-33-33",
+        "gap": "small"
+      },
+      "slots": {
+        "content": ["card-one", "card-two", "card-three"]
+      },
+      "elements": {
+        "card-one": {
+          "type": "card",
+          "props": {
+            "layout": "left_aligned",
+            "linkVariant": "link",
+            "heading": "Card One",
+            "text": "<p>Short description for the first card.</p>",
+            "backgroundColor": "#F0F9FF",
+            "backgroundColorOnHover": "#E0F2FE"
+          }
+        },
+        "card-two": {
+          "type": "card",
+          "props": {
+            "layout": "left_aligned",
+            "linkVariant": "link",
+            "heading": "Card Two",
+            "text": "<p>Short description for the second card.</p>",
+            "backgroundColor": "#F0F9FF",
+            "backgroundColorOnHover": "#E0F2FE"
+          }
+        },
+        "card-three": {
+          "type": "card",
+          "props": {
+            "layout": "left_aligned",
+            "linkVariant": "link",
+            "heading": "Card Three",
+            "text": "<p>Short description for the third card.</p>",
+            "backgroundColor": "#F0F9FF",
+            "backgroundColorOnHover": "#E0F2FE"
+          }
+        }
+      }
+    }
+  ]
+}

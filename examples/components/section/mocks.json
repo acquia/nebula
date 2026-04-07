@@ -1,0 +1,48 @@
+{
+  "mocks": [
+    {
+      "name": "Default layout",
+      "props": {
+        "width": "normal"
+      },
+      "slots": {
+        "content": ["section-card"]
+      },
+      "elements": {
+        "section-card": {
+          "type": "card",
+          "props": {
+            "layout": "left_aligned",
+            "linkVariant": "link",
+            "heading": "Section Card",
+            "text": "<p>Short description for the section card.</p>",
+            "backgroundColor": "#F0F9FF",
+            "backgroundColorOnHover": "#E0F2FE"
+          }
+        }
+      }
+    },
+    {
+      "name": "Wide",
+      "props": {
+        "width": "wide"
+      },
+      "slots": {
+        "content": ["section-card"]
+      },
+      "elements": {
+        "section-card": {
+          "type": "card",
+          "props": {
+            "layout": "left_aligned",
+            "linkVariant": "link",
+            "heading": "Section Card",
+            "text": "<p>Short description for the section card.</p>",
+            "backgroundColor": "#F0F9FF",
+            "backgroundColorOnHover": "#E0F2FE"
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "title": "Homepage",
+  "elements": {
+    "cf8abf57-3d3f-4624-bc2c-773a5c28391f": {
+      "type": "js.hero",
+      "props": {
+        "text": "This is a space to welcome visitors to the site. Grab their attention with copy that clearly states what the site is about.",
+        "layout": "left_aligned",
+        "heading": "This space deserves a hero.",
+        "textColor": "light",
+        "headingSize": "extra_large",
+        "headingElement": "h2",
+        "backgroundImage": {
+          "src": "https://images.unsplash.com/photo-1439923274069-a6f070db0c99?q=80&w=4327&auto=format&fit=crop&ixlib=rb-4.1.0"
+        }
+      }
+    },
+    "12d3886b-3d53-447d-914f-c4c0afe5aec8": {
+      "type": "js.spacer",
+      "props": {
+        "height": "medium"
+      }
+    },
+    "cc1b44a4-bd8e-4dae-8552-4bc34147b064": {
+      "type": "js.card_container",
+      "props": {
+        "layout": "33-33-33",
+        "heading": "What we offer.",
+        "textColor": "dark",
+        "preHeading": "Featured services",
+        "headingSize": "large",
+        "headingElement": "h2",
+        "headingPosition": "center_aligned"
+      },
+      "slots": {
+        "content": [
+          "6e6d696c-b0c5-46a7-b072-250ef5295fc1",
+          "d4f1ea7d-bbd1-44c6-b478-830c08f4a71d",
+          "81745bd6-6ed9-4647-b1fa-2ebcabd7ec31"
+        ]
+      }
+    },
+    "4d6690cb-7904-4d72-9909-f27adb412c29": {
+      "type": "js.spacer",
+      "props": {
+        "height": "medium"
+      }
+    },
+    "95911a16-a965-4358-ad68-a494d452b808": {
+      "type": "js.card_container",
+      "props": {
+        "layout": "25-25-25-25",
+        "heading": "Our customers",
+        "textColor": "dark",
+        "preHeading": "You're in good company",
+        "headingSize": "large",
+        "headingElement": "h2",
+        "headingPosition": "center_aligned"
+      },
+      "slots": {
+        "content": [
+          "b0a9685b-4eca-4b1f-ad0f-0865a228d915",
+          "28b9729f-a84c-4985-b20e-80d3c09e34b7",
+          "2ef9e7e1-9454-472b-8509-991be553e0bc",
+          "fd2ccfbc-bd43-4284-8e7d-36be02c1220d"
+        ]
+      }
+    },
+    "9caf48b9-f45c-45fb-bf9d-9a180c8f1a0f": {
+      "type": "js.spacer",
+      "props": {
+        "height": "extra_large"
+      }
+    },
+    "b0a9685b-4eca-4b1f-ad0f-0865a228d915": {
+      "type": "js.logo_card",
+      "props": {
+        "image": {
+          "src": "data:image/svg+xml;base64,PHN2ZyBpZD0ibG9nby0xNCIgd2lkdGg9IjczIiBoZWlnaHQ9IjQ5IiB2aWV3Qm94PSIwIDAgNzMgNDkiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+IDxwYXRoIGQ9Ik00Ni44Njc2IDI0QzQ2Ljg2NzYgMzYuNDI2NCAzNi43OTQgNDYuNSAyNC4zNjc2IDQ2LjVDMTEuOTQxMyA0Ni41IDEuODY3NjUgMzYuNDI2NCAxLjg2NzY1IDI0QzEuODY3NjUgMTEuNTczNiAxMS45NDEzIDEuNSAyNC4zNjc2IDEuNUMzNi43OTQgMS41IDQ2Ljg2NzYgMTEuNTczNiA0Ni44Njc2IDI0WiIgY2xhc3M9ImNjdXN0b20iIGZpbGw9IiM2OERCRkYiPjwvcGF0aD4gPHBhdGggZD0iTTcxLjEzMjQgMjRDNzEuMTMyNCAzNi40MjY0IDYxLjE1NzQgNDYuNSA0OC44NTI5IDQ2LjVDMzYuNTQ4NCA0Ni41IDI2LjU3MzUgMzYuNDI2NCAyNi41NzM1IDI0QzI2LjU3MzUgMTEuNTczNiAzNi41NDg0IDEuNSA0OC44NTI5IDEuNUM2MS4xNTc0IDEuNSA3MS4xMzI0IDExLjU3MzYgNzEuMTMyNCAyNFoiIGNsYXNzPSJjY29tcGxpMSIgZmlsbD0iI0ZGNzkxNyI+PC9wYXRoPiA8cGF0aCBkPSJNMzYuNjcwNSA0Mi44NDE2QzQyLjgxMDkgMzguODIzOSA0Ni44Njc2IDMxLjg4NTggNDYuODY3NiAyNEM0Ni44Njc2IDE2LjExNDQgNDIuODEwOSA5LjE3NjE0IDM2LjY3MDUgNS4xNTg1NEMzMC41OTA0IDkuMTc2MTQgMjYuNTczNSAxNi4xMTQ0IDI2LjU3MzUgMjRDMjYuNTczNSAzMS44ODU4IDMwLjU5MDQgMzguODIzOSAzNi42NzA1IDQyLjg0MTZaIiBjbGFzcz0iY2NvbXBsaTIiIGZpbGw9IiM1RDJDMDIiPjwvcGF0aD4gPC9zdmc+"
+        }
+      }
+    },
+    "28b9729f-a84c-4985-b20e-80d3c09e34b7": {
+      "type": "js.logo_card",
+      "props": {
+        "image": {
+          "src": "data:image/svg+xml;base64,PHN2ZyBpZD0ibG9nby04MiIgd2lkdGg9IjQwIiBoZWlnaHQ9IjI4IiB2aWV3Qm94PSIwIDAgNDAgMjgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggY2xhc3M9ImNjdXN0b20iIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMS4wNDE2NSA4LjY0MjRDMC4wMDU5MTg1IDExLjIwMDYgLTAuMjY1MDc3IDE0LjAxNTUgMC4yNjI5NzMgMTYuNzMxM0MwLjc5MDk1OSAxOS40NDcgMi4wOTQyOCAyMS45NDE2IDQuMDA4MDIgMjMuODk5NUM1LjkyMTc2IDI1Ljg1NzQgOC4zNjAwOSAyNy4xOTA4IDExLjAxNDUgMjcuNzMxQzEzLjY2OTEgMjguMjcxMiAxNi40MjA1IDI3Ljk5MzkgMTguOTIxIDI2LjkzNDNDMjEuNDIxNCAyNS44NzQ3IDIzLjU1ODYgMjQuMDgwMiAyNS4wNjIyIDIxLjc3OEMyNS4xMDIzIDIxLjcxNjYgMjUuMTQxOSAyMS42NTQ5IDI1LjE4MSAyMS41OTI5QzI1LjIwODYgMjEuNTQ5MiAyNS4yMzYgMjEuNTA1MiAyNS4yNjMyIDIxLjQ2MTFWMjhIMjYuMzE1OEMyOS4wMjIzIDI4IDMxLjY2OCAyNy4xNzg5IDMzLjkxODMgMjUuNjQwNUMzNi4xNjg3IDI0LjEwMjMgMzcuOTIyNiAyMS45MTU3IDM4Ljk1ODMgMTkuMzU3NUMzOS45OTQxIDE2Ljc5OTQgNDAuMjY1MSAxMy45ODQ1IDM5LjczNyAxMS4yNjg3QzM5LjIwOSA4LjU1MzAxIDM3LjkwNTggNi4wNTg0MiAzNS45OTIgNC4xMDA1MkMzNC4wNzgyIDIuMTQyNTUgMzEuNjM5OSAwLjgwOTIxMiAyOC45ODU1IDAuMjY5MDQxQzI2LjMzMDkgLTAuMjcxMTk1IDIzLjU3OTUgMC4wMDYwNTUxMiAyMS4wNzkgMS4wNjU2OUMxOC41Nzg2IDIuMTI1MzMgMTYuNDQxNCAzLjkxOTc2IDE0LjkzNzggNi4yMjIwMkMxNC44Njk0IDYuMzI2OCAxNC44MDI0IDYuNDMyNDkgMTQuNzM2OCA2LjUzODkxVjcuOTk0NDllLTA2SDEzLjY4NDJDMTAuOTc3NyA3Ljk5NDQ5ZS0wNiA4LjMzMjAxIDAuODIxMTA5IDYuMDgxNjggMi4zNTk0NkMzLjgzMTM0IDMuODk3NzQgMi4wNzczOSA2LjA4NDI1IDEuMDQxNjUgOC42NDI0Wk0xMi42MzE2IDE0VjIuMjAyODlDMTAuNzEzIDIuMzgyMDcgOC44NjI0NCAzLjA0ODk3IDcuMjUxMyA0LjE1MDI3QzUuMzQ3MTQgNS40NTE5MyAzLjg2MzA4IDcuMzAyMSAyLjk4NjY4IDkuNDY2NjZDMi4xMTAyOCAxMS42MzEzIDEuODgwOTggMTQuMDEzMSAyLjMyNzc2IDE2LjMxMTFDMi43NzQ1NCAxOC42MDkgMy44NzczNSAyMC43MTk4IDUuNDk2NjQgMjIuMzc2NUM3LjExNiAyNC4wMzMyIDkuMTc5MTggMjUuMTYxNCAxMS40MjUzIDI1LjYxODVDMTMuNjcxNCAyNi4wNzU2IDE1Ljk5OTUgMjUuODQxIDE4LjExNTMgMjQuOTQ0NEMyMC4xNDYxIDI0LjA4MzggMjEuODkzNyAyMi42NTA0IDIzLjE1NTkgMjAuODE0QzIyLjE5OTMgMjEuMjc4NiAyMS4xMjkzIDIxLjUzODUgMjAgMjEuNTM4NUMxNS45MzA2IDIxLjUzODUgMTIuNjMxNiAxOC4xNjMzIDEyLjYzMTYgMTRaTTI3LjM2ODQgMjUuNzk3MVYxNEMyNy4zNjg0IDkuODM2NjUgMjQuMDY5NCA2LjQ2MTU0IDIwIDYuNDYxNTRDMTguODcwNyA2LjQ2MTU0IDE3LjgwMDcgNi43MjE0NCAxNi44NDQxIDcuMTg2MDJDMTguMTA2MyA1LjM0OTU5IDE5Ljg1MzkgMy45MTYxNCAyMS44ODQ3IDMuMDU1NkMyNC4wMDA1IDIuMTU4OTggMjYuMzI4NiAxLjkyNDM5IDI4LjU3NDcgMi4zODE0OEMzMC44MjA4IDIuODM4NTYgMzIuODg0IDMuOTY2ODIgMzQuNTAzNCA1LjYyMzQ4QzM2LjEyMjcgNy4yODAyMSAzNy4yMjU1IDkuMzkxIDM3LjY3MjIgMTEuNjg4OUMzOC4xMTkgMTMuOTg2OSAzNy44ODk3IDE2LjM2ODcgMzcuMDEzMyAxOC41MzMzQzM2LjEzNyAyMC42OTc5IDM0LjY1MjkgMjIuNTQ4MSAzMi43NDg3IDIzLjg0OTdDMzEuMTM3NiAyNC45NTEgMjkuMjg3IDI1LjYxNzkgMjcuMzY4NCAyNS43OTcxWk0xOS44OTQ3IDE5LjM4MzZDMTcuMDcxNSAxOS4zMjY5IDE0Ljc5MzMgMTYuOTk2IDE0LjczNzkgMTQuMTA3N0gxNi43MjkxQzE4LjI5OTkgMTQuNDc0IDE5LjUzNjUgMTUuNzM5IDE5Ljg5NDcgMTcuMzQ2MVYxOS4zODM2Wk0yMC4xMDUyIDE5LjM4MzZDMjIuOTI4NCAxOS4zMjY5IDI1LjIwNjcgMTYuOTk2IDI1LjI2MjEgMTQuMTA3N0gyMy4yNzA5QzIxLjY5OTkgMTQuNDc0IDIwLjQ2MzMgMTUuNzM5MiAyMC4xMDUyIDE3LjM0NjVWMTkuMzgzNlpNMjUuMjYyMSAxMy44OTIzQzI1LjIwNjcgMTEuMDA0IDIyLjkyODQgOC42NzMxIDIwLjEwNTIgOC42MTY0NFYxMC42NTM1QzIwLjQ2MzMgMTIuMjYwNyAyMS42OTk4IDEzLjUyNTkgMjMuMjcwNiAxMy44OTIzSDI1LjI2MjFaTTE5Ljg5NDcgOC42MTY0NEMxNy4wNzE2IDguNjczMSAxNC43OTMzIDExLjAwNCAxNC43Mzc5IDEzLjg5MjNIMTYuNzI5NEMxOC4zMDAxIDEzLjUyNTkgMTkuNTM2NiAxMi4yNjA5IDE5Ljg5NDcgMTAuNjUzOVY4LjYxNjQ0WiIgZmlsbD0iIzgwNDZGRCI+PC9wYXRoPjwvc3ZnPg=="
+        }
+      }
+    },
+    "2ef9e7e1-9454-472b-8509-991be553e0bc": {
+      "type": "js.logo_card",
+      "props": {
+        "image": {
+          "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA3MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTM3LjI1NTEgMS42MTU4NkMzOC4xODAzIDAuNjUzMzg0IDM5LjQzNjggMC4xMTI2NzEgNDAuNzQ1MiAwLjExMjY3MUM0Ni42MzE4IDAuMTEyNjcxIDUyLjE3OTMgMC4xMTI2NzQgNTcuNjQyNCAwLjExMjY4NUM2OC42MzAyIDAuMTEyNzA4IDc0LjEzMjQgMTMuOTMyOSA2Ni4zNjI5IDIyLjAxNTZMNDkuNDM4OSAzOS42MjE3QzQ4LjY2MiA0MC40MyA0Ny4zMzM1IDM5Ljg1NzUgNDcuMzMzNSAzOC43MTQ0VjIzLjIwNzZMNDkuMjg5MyAyMS4xNzI5QzUwLjg0MzIgMTkuNTU2NCA0OS43NDI3IDE2Ljc5MjMgNDcuNTQ1MSAxNi43OTIzSDIyLjY2NjdMMzcuMjU1MSAxLjYxNTg2WiIgZmlsbD0iIzNBMDRGRiI+PC9wYXRoPgo8cGF0aCBkPSJNMzIuNzQ0OSAzOC4zODQyQzMxLjgxOTggMzkuMzQ2NyAzMC41NjMzIDM5Ljg4NzQgMjkuMjU0OSAzOS44ODc0QzIzLjM2ODMgMzkuODg3NCAxNy44MjA4IDM5Ljg4NzQgMTIuMzU3NyAzOS44ODc0QzEuMzY5ODMgMzkuODg3MyAtNC4xMzIzNiAyNi4wNjcyIDMuNjM3MjEgMTcuOTg0NEwyMC41NjEyIDAuMzc4MzY5QzIxLjMzODEgLTAuNDI5OTA4IDIyLjY2NjYgMC4xNDI1NDcgMjIuNjY2NiAxLjI4NTYyTDIyLjY2NjcgMTYuNzkyM0wyMC43MTA4IDE4LjgyNzFDMTkuMTU2OSAyMC40NDM3IDIwLjI1NzQgMjMuMjA3NyAyMi40NTUgMjMuMjA3N0w0Ny4zMzM1IDIzLjIwNzZMMzIuNzQ0OSAzOC4zODQyWiIgZmlsbD0iIzNBMDRGRiI+PC9wYXRoPgo8L3N2Zz4="
+        }
+      }
+    },
+    "fd2ccfbc-bd43-4284-8e7d-36be02c1220d": {
+      "type": "js.logo_card",
+      "props": {
+        "image": {
+          "src": "data:image/svg+xml;base64,PHN2ZyBpZD0ibG9nby0zOCIgd2lkdGg9Ijc4IiBoZWlnaHQ9IjMyIiB2aWV3Qm94PSIwIDAgNzggMzIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+IDxwYXRoIGQ9Ik01NS41IDBINzcuNUw1OC41IDMySDM2LjVMNTUuNSAwWiIgY2xhc3M9ImNjdXN0b20iIGZpbGw9IiNGRjdBMDAiPjwvcGF0aD4gPHBhdGggZD0iTTM1LjUgMEg1MS41TDMyLjUgMzJIMTYuNUwzNS41IDBaIiBjbGFzcz0iY2NvbXBsaTEiIGZpbGw9IiNGRjk3MzYiPjwvcGF0aD4gPHBhdGggZD0iTTE5LjUgMEgzMS41TDEyLjUgMzJIMC41TDE5LjUgMFoiIGNsYXNzPSJjY29tcGxpMiIgZmlsbD0iI0ZGQkM3RCI+PC9wYXRoPiA8L3N2Zz4="
+        }
+      }
+    },
+    "6e6d696c-b0c5-46a7-b072-250ef5295fc1": {
+      "type": "js.card",
+      "props": {
+        "link": {
+          "uri": "/",
+          "options": []
+        },
+        "text": "Help people become familiar with the organization and its offerings, creating a sense of connection and trust.",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1666706565326-3a782f69b54e?q=80&w=4374&auto=format&fit=crop&ixlib=rb-4.1.0"
+        },
+        "layout": "left_aligned",
+        "heading": "Feature or benefit",
+        "linkVariant": "link",
+        "headingElement": "h3"
+      }
+    },
+    "d4f1ea7d-bbd1-44c6-b478-830c08f4a71d": {
+      "type": "js.card",
+      "props": {
+        "link": {
+          "uri": "/",
+          "options": []
+        },
+        "text": "Help people become familiar with the organization and its offerings, creating a sense of connection and trust.",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1666706565326-3a782f69b54e?q=80&w=4374&auto=format&fit=crop&ixlib=rb-4.1.0"
+        },
+        "layout": "left_aligned",
+        "heading": "Feature or benefit",
+        "linkVariant": "link",
+        "headingElement": "h3"
+      }
+    },
+    "81745bd6-6ed9-4647-b1fa-2ebcabd7ec31": {
+      "type": "js.card",
+      "props": {
+        "link": {
+          "uri": "/",
+          "options": []
+        },
+        "text": "Help people become familiar with the organization and its offerings, creating a sense of connection and trust.",
+        "image": {
+          "src": "https://images.unsplash.com/photo-1666706565326-3a782f69b54e?q=80&w=4374&auto=format&fit=crop&ixlib=rb-4.1.0"
+        },
+        "layout": "left_aligned",
+        "heading": "Feature or benefit",
+        "linkVariant": "link",
+        "headingElement": "h3"
+      }
+    }
+  }
+}

@@ -1,26 +1,26 @@
-import { useEffect, useRef, useState } from "react";
-import SearchButton from "@/components/search_button";
-import { cva } from "class-variance-authority";
-import { cn } from "drupal-canvas";
+import { useEffect, useRef, useState } from 'react';
+import SearchButton from '@/components/search_button';
+import { cva } from 'class-variance-authority';
+import { cn } from 'drupal-canvas';
 
 const headerVariants = cva(
   cn(
-    "relative grid w-full justify-center gap-4 px-8 py-3 leading-[normal]",
-    "border-b border-solid border-gray-200",
-    "bg-[var(--color-bg)]",
+    'relative grid w-full justify-center gap-4 px-8 py-3 leading-[normal]',
+    'border-b border-solid border-gray-200',
+    'bg-[var(--color-bg)]',
   ),
   {
     variants: {
       displaySearchForm: {
-        false: "grid-cols-2",
-        true: "grid-cols-2 md:grid-cols-[1fr_auto_1fr]",
+        false: 'grid-cols-2',
+        true: 'grid-cols-2 md:grid-cols-[1fr_auto_1fr]',
       },
     },
   },
 );
 
 const Header = ({
-  backgroundColor = "#ffffff",
+  backgroundColor = '#ffffff',
   className,
   logo,
   menu,
@@ -54,7 +54,7 @@ const Header = ({
       className={cn(headerVariants({ displaySearchForm }), className)}
       ref={ref}
       style={{
-        "--color-bg": backgroundColor,
+        '--color-bg': backgroundColor,
       }}
     >
       {/* Logo - always first */}

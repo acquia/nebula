@@ -1,0 +1,25 @@
+{
+  "mocks": [
+    {
+      "name": "Open",
+      "props": {
+        "title": "Can this item start expanded?",
+        "headingElement": "h3",
+        "defaultOpen": true
+      },
+      "slots": {
+        "content": ["open-content"]
+      },
+      "elements": {
+        "open-content": {
+          "type": "text",
+          "props": {
+            "text": "Add any Canvas components into the content slot.",
+            "textSize": "normal",
+            "textColor": "dark"
+          }
+        }
+      }
+    }
+  ]
+}

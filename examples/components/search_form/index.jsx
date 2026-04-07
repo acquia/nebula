@@ -1,14 +1,14 @@
-import { cn } from "drupal-canvas";
+import { cn } from 'drupal-canvas';
 
 const searchParams = new URLSearchParams(window.location.search);
-const q = searchParams.get("q") || "";
+const q = searchParams.get('q') || '';
 
 export default function SearchForm({ className }) {
   return (
     <form
       action="/search"
       method="get"
-      className={cn("flex gap-2 leading-5", className)}
+      className={cn('flex gap-2 leading-5', className)}
     >
       <div className="flex w-full items-center">
         <input

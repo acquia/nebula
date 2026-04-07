@@ -8,5 +8,5 @@ props:
       title: Text
       type: string
       examples:
-        - "© 2025 Company Name. All rights reserved."
+        - '© 2025 Company Name. All rights reserved.'
 slots: []

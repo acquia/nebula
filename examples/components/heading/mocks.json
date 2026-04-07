@@ -1,0 +1,75 @@
+{
+  "mocks": [
+    {
+      "name": "Extra large",
+      "props": {
+        "heading": "Enter a heading...",
+        "textColor": "dark",
+        "headingElement": "h2",
+        "headingSize": "extra_large",
+        "layout": "left_aligned"
+      }
+    },
+    {
+      "name": "Large",
+      "props": {
+        "heading": "Enter a heading...",
+        "textColor": "dark",
+        "headingElement": "h2",
+        "headingSize": "large",
+        "layout": "left_aligned"
+      }
+    },
+    {
+      "name": "Small",
+      "props": {
+        "heading": "Enter a heading...",
+        "textColor": "dark",
+        "headingElement": "h2",
+        "headingSize": "small",
+        "layout": "left_aligned"
+      }
+    },
+    {
+      "name": "Center aligned",
+      "props": {
+        "heading": "Enter a heading...",
+        "textColor": "dark",
+        "headingElement": "h2",
+        "headingSize": "medium",
+        "layout": "center_aligned"
+      }
+    },
+    {
+      "name": "Right aligned",
+      "props": {
+        "heading": "Enter a heading...",
+        "textColor": "dark",
+        "headingElement": "h2",
+        "headingSize": "medium",
+        "layout": "right_aligned"
+      }
+    },
+    {
+      "name": "With pre-heading",
+      "props": {
+        "preHeading": "Pre-heading text",
+        "heading": "Main heading text",
+        "textColor": "dark",
+        "headingElement": "h2",
+        "headingSize": "medium",
+        "layout": "left_aligned"
+      }
+    },
+    {
+      "name": "Light on dark",
+      "props": {
+        "heading": "Enter a heading...",
+        "textColor": "light",
+        "headingElement": "h2",
+        "headingSize": "medium",
+        "layout": "left_aligned"
+      }
+    }
+  ]
+}

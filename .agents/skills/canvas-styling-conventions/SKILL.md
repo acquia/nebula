@@ -33,9 +33,9 @@ with `tailwind-merge` to resolve conflicting utilities. Import from either
 source:
 
 ```jsx
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils';
 // or
-import { cn } from "drupal-canvas";
+import { cn } from 'drupal-canvas';
 ```
 
 Example usage:
@@ -44,9 +44,9 @@ Example usage:
 const Button = ({ variant, className, children }) => (
   <button
     className={cn(
-      "rounded px-4 py-2",
-      variant === "primary" && "bg-primary-600 text-white",
-      variant === "secondary" && "bg-gray-200 text-gray-800",
+      'rounded px-4 py-2',
+      variant === 'primary' && 'bg-primary-600 text-white',
+      variant === 'secondary' && 'bg-gray-200 text-gray-800',
       className,
     )}
   >
@@ -192,7 +192,7 @@ props:
       title: Background Color
       type: string
       examples:
-        - "#3b82f6"
+        - '#3b82f6'
 ```
 
 ```jsx
@@ -227,19 +227,19 @@ props:
 
 ```jsx
 // Correct
-import { cva } from "class-variance-authority";
+import { cva } from 'class-variance-authority';
 
-const cardVariants = cva("rounded-lg p-6", {
+const cardVariants = cva('rounded-lg p-6', {
   variants: {
     colorScheme: {
-      default: "bg-white text-black",
-      primary: "bg-primary-600 text-white",
-      muted: "bg-gray-100 text-gray-700",
-      dark: "bg-gray-900 text-white",
+      default: 'bg-white text-black',
+      primary: 'bg-primary-600 text-white',
+      muted: 'bg-gray-100 text-gray-700',
+      dark: 'bg-gray-900 text-white',
     },
   },
   defaultVariants: {
-    colorScheme: "default",
+    colorScheme: 'default',
   },
 });
 

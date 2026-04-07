@@ -9,7 +9,7 @@ description:
 Import utilities from the `drupal-canvas` package:
 
 ```jsx
-import { FormattedText, Image } from "drupal-canvas";
+import { FormattedText, Image } from 'drupal-canvas';
 ```
 
 ## FormattedText
@@ -31,7 +31,7 @@ props:
 ```
 
 ```jsx
-import { FormattedText } from "drupal-canvas";
+import { FormattedText } from 'drupal-canvas';
 
 const Text = ({ text, className }) => (
   <FormattedText className={className}>{text}</FormattedText>
@@ -70,7 +70,7 @@ props:
 ```
 
 ```jsx
-import { Image } from "drupal-canvas";
+import { Image } from 'drupal-canvas';
 
 const Card = ({ image }) => {
   const { src, alt, width, height } = image;

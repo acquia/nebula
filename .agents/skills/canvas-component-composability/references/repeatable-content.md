@@ -15,7 +15,8 @@ Canvas does not support array props whose items are objects.
 1. Create a child component for one repeated item
 2. Define a named slot on the parent component
 3. Render the named slot prop in parent JSX
-4. Compose parent + multiple child instances in stories
+4. Compose the parent with multiple child instances in Workbench mocks, using
+   slot arrays that reference authored `elements`
 
 ### Example pairings
 

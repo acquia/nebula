@@ -1,20 +1,30 @@
 {
   "version": 1,
   "skills": {
+    "agent-browser": {
+      "source": "vercel-labs/agent-browser",
+      "sourceType": "github",
+      "computedHash": "da901a619fa097fa5c70bedccfd728c03901e409bcbb375006cceba5aad535b9"
+    },
     "canvas-component-composability": {
       "source": "drupal-canvas/skills",
       "sourceType": "github",
-      "computedHash": "a429d7b61a2e998d194414463bce9eaac855ae73f422433a861ff9618e1b8152"
+      "computedHash": "bb17034ae2471469338d5fd65bd30f3b3dba2889b5b7d03be758df0c3b3dee09"
     },
     "canvas-component-definition": {
       "source": "drupal-canvas/skills",
       "sourceType": "github",
-      "computedHash": "15990a094c84ced9102e26edece5bca030fded9a4afd01b40f8a30074886e485"
+      "computedHash": "089850f35401a4ecf47ffef3d664213b27cc101fb0ed54365c6939213009d75a"
     },
     "canvas-component-metadata": {
       "source": "drupal-canvas/skills",
       "sourceType": "github",
-      "computedHash": "367e733d17665fa57259962e660740f3fde6f022ebad05c96be2e4ef52edcc94"
+      "computedHash": "2a3bf713d0631207175227d67e1286bb7b280a5f51f1cfa5b53810132ae6968d"
+    },
+    "canvas-component-push": {
+      "source": "drupal-canvas/skills",
+      "sourceType": "github",
+      "computedHash": "4e6953574e659700ab4cea6ebe47a67badb83f77e84645cbc3921996269696f8"
     },
     "canvas-component-upload": {
       "source": "drupal-canvas/skills",
@@ -24,17 +34,32 @@
     "canvas-component-utils": {
       "source": "drupal-canvas/skills",
       "sourceType": "github",
-      "computedHash": "fdfaf7c006fa4ffa6a0104d8fd9af1723044f3726b8cc16a556dcb1f2c45285b"
+      "computedHash": "794dac9098888870a614e239dd683b5dc688d68559853d43e6cbafa40596632f"
     },
     "canvas-data-fetching": {
       "source": "drupal-canvas/skills",
       "sourceType": "github",
-      "computedHash": "a629ec0a41a40e2c2fd60dd6dfd86c6b2131b126c435cbcf8f3e2d80f1be3a8d"
+      "computedHash": "381dc24ab7ad49a80e7084a870730d56f2e546e1343045f8b4013dcb03e5a007"
+    },
+    "canvas-page-definition": {
+      "source": "drupal-canvas/skills",
+      "sourceType": "github",
+      "computedHash": "ea3bb0f48995f06ba2ce1d494ae8ad6142e043dd32408a06120a36cf799eef41"
     },
     "canvas-styling-conventions": {
       "source": "drupal-canvas/skills",
       "sourceType": "github",
-      "computedHash": "330b1ce2a50a1b8ea24d44dc10fec30b462a1f71bfc5e842dbcee5d8fe6b0c0d"
+      "computedHash": "3ed6a381e96ecd29f2fa12e6770a38c80ecb4c3fb2b02de16b19062bf559fd48"
+    },
+    "canvas-workbench": {
+      "source": "drupal-canvas/skills",
+      "sourceType": "github",
+      "computedHash": "0981fcc185fccf92bf61a05837f0cdae28b49a3aec214f6ebeab5a34005e3e20"
+    },
+    "dogfood": {
+      "source": "vercel-labs/agent-browser",
+      "sourceType": "github",
+      "computedHash": "055e73cddeec68e7eb75eab0c3f8490415384f72e98ac05405821427ed0e74b1"
     }
   }
 }

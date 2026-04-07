@@ -1,0 +1,13 @@
+{
+  "mocks": [
+    {
+      "name": "With video",
+      "props": {
+        "video": {
+          "src": "https://www.w3schools.com/html/mov_bbb.mp4",
+          "poster": "https://placehold.co/1920x1080.png?text=Widescreen"
+        }
+      }
+    }
+  ]
+}
