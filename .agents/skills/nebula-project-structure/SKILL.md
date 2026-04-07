@@ -14,8 +14,9 @@ specs:
 ```
 src/
 ├── components/     # Working component implementations and metadata
-├── pages/          # Working Canvas Workbench page specs
 └── global.css      # Base styles loaded by Canvas Workbench
+
+pages/              # Working Canvas Workbench page specs
 
 examples/
 ├── components/     # Example components to copy from (may include mocks.json)
