@@ -44,6 +44,22 @@ browser automation for this skill.
 If the changed surface is not reviewable in Workbench, stop immediately. Missing
 preview coverage is a blocker; do not treat the task as visually verified.
 
+## Mandatory deterministic check
+
+For every visual verification run, run the browser-side helper script below for
+each required target/state/viewport combination before claiming success:
+
+```bash
+node .agents/skills/nebula-visual-verification/scripts/collect-visual-signals.js \
+  --scope body \
+  --sample-limit 60 \
+  | agent-browser --session "$SESSION" eval --stdin
+```
+
+If this helper is not executed, the verification is incomplete and must be
+reported as not fully validated. Screenshots, manual inspection, and ad hoc
+`eval` checks do not replace this requirement.
+
 ## Target resolution
 
 - **Component work**: verify the changed `/component/<component-id>` route, any
@@ -69,21 +85,15 @@ Verify every target and named state at:
    interactions in this workflow.
 3. Resolve the exact review target and state list from the changed component or
    page.
-4. For each target/state/viewport combination:
+4. For each target/state/viewport combination, perform all of the following:
    - Open the preview route.
    - Wait for `networkidle` and for any obvious loading UI to settle.
    - Capture a screenshot and an annotated screenshot when a failure needs to be
      documented.
    - Use `snapshot` for structural review.
-   - Run the browser-side helper script for deterministic signals:
-
-     ```bash
-     node .agents/skills/nebula-visual-verification/scripts/collect-visual-signals.js \
-       --scope body \
-       --sample-limit 60 \
-       | agent-browser --session "$SESSION" eval --stdin
-     ```
-
+   - Run the mandatory deterministic check command from "Mandatory deterministic
+     check".
+   - Review the helper output before deciding pass/fail.
    - Use `get styles`, `get box`, and focused `eval` calls when a specific
      element needs more evidence.
 
@@ -120,6 +130,16 @@ refactor or unrelated design rewrite.
   may fetch a better replacement. Otherwise stay conservative and avoid
   speculative image churn.
 
+## Completion gate
+
+Do not say the changed surface "passed", "was verified", or "is visually
+validated" unless the helper script was run for every required
+target/state/viewport combination and the results were reviewed.
+
+If screenshots or manual inspection were done without the helper script, report
+that outcome as "manual review only" or "partial verification", not full visual
+verification.
+
 ## Stuck rules
 
 Stop the auto-fix loop and report a blocker when any of these are true:
@@ -128,9 +148,25 @@ Stop the auto-fix loop and report a blocker when any of these are true:
 - There is no material code change between loops.
 - Workbench will not start or cannot render the changed target.
 - Preview coverage is missing.
+- `collect-visual-signals.js` cannot be run successfully for the required
+  target/state/viewport combinations.
 - The remaining failure needs a product decision or an unresolved image source.
 
 When stuck, explain the blocker clearly. Do not claim the task passed.
+
+## Required closeout
+
+Every verification closeout must include:
+
+- target route(s) reviewed
+- viewport(s) reviewed
+- whether `collect-visual-signals.js` was run
+- a short summary of deterministic findings
+- a short summary of manual visual findings
+
+If the helper script was not run, explicitly state:
+
+`Deterministic verification was not completed.`
 
 ## Artifacts
 
