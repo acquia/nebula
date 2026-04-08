@@ -19,7 +19,18 @@ for that.
 
 - Checklist and pass/fail heuristics: `references/checklist.md`
 - Browser-side signal collector: `scripts/collect-visual-signals.js`
+- Browser CLI command guide: `agent-browser` skill
 - Start or reuse Canvas Workbench with the `canvas-workbench` skill
+
+## Tooling note
+
+Always consult the `agent-browser` skill before running browser verification for
+this skill. Treat it as the canonical source for command semantics, session
+behavior, and interaction patterns.
+
+Do not assume a separate browser tool wrapper is required. If `agent-browser` is
+available in the environment, run it through the shell and treat that as valid
+browser automation for this skill.
 
 ## Preconditions
 
@@ -54,9 +65,11 @@ Verify every target and named state at:
 
 1. Use the `canvas-workbench` skill to start or reuse Canvas Workbench and
    record the base URL.
-2. Resolve the exact review target and state list from the changed component or
+2. Review the `agent-browser` skill and use its command patterns for all browser
+   interactions in this workflow.
+3. Resolve the exact review target and state list from the changed component or
    page.
-3. For each target/state/viewport combination:
+4. For each target/state/viewport combination:
    - Open the preview route.
    - Wait for `networkidle` and for any obvious loading UI to settle.
    - Capture a screenshot and an annotated screenshot when a failure needs to be
@@ -74,16 +87,12 @@ Verify every target and named state at:
    - Use `get styles`, `get box`, and focused `eval` calls when a specific
      element needs more evidence.
 
-4. Compare the rendered result against the checklist in
+5. Compare the rendered result against the checklist in
    `references/checklist.md`.
-5. If all checks pass for every required state and viewport, finish.
-6. If any check fails, fix the changed surface and direct dependencies only,
+6. If all checks pass for every required state and viewport, finish.
+7. If any check fails, fix the changed surface and direct dependencies only,
    rerun static validation when code changed, and re-run this skill against the
    same routes, states, and viewports.
-
-Prefer the direct `agent-browser` binary when it is available in the current
-environment. Fall back to `npx agent-browser` only if the direct binary is not
-available.
 
 ## Auto-fix loop
 
