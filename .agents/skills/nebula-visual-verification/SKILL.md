@@ -2,14 +2,22 @@
 name: nebula-visual-verification
 description:
   Focused visual QA for changed Canvas components and pages in local Canvas
-  Workbench. Use when (1) A component or page change needs post-change visual
-  review, (2) Codex needs to verify contrast, spacing, layout, overflow,
-  responsive behavior, typography, image/copy fit, or other visual issues, or
-  (3) A changed Workbench surface needs an `agent-browser` verify/fix/reverify
-  loop until it passes or the work is stuck.
+  Workbench. Use only when the user explicitly asks for visual verification,
+  visual QA, or Workbench rendering review of a changed component or page.
 ---
 
 # Visual verification
+
+## Activation guard
+
+Run this skill only when the user explicitly requests visual verification.
+
+Do not run this skill automatically after component or page changes, and do not
+infer consent from generic requests such as "validate", "run checks", or "finish
+the task".
+
+If explicit visual verification was not requested, do not run browser steps and
+report that visual verification was not performed.
 
 Use this skill for the changed Workbench target only. Do not broaden into full
 app QA unless the user explicitly asks for exploratory testing; use `dogfood`

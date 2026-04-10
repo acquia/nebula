@@ -15,5 +15,5 @@ For all operations involving React components, the `component.yml` files, and
 
 ## Validation
 
-Use the `nebula-component-validation` skill for static validation and repo-local
-visual verification after rendered-output changes.
+Use the `nebula-component-validation` skill for static validation after
+rendered-output changes.
