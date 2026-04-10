@@ -1,9 +1,9 @@
 ---
 name: nebula-component-validation
 description:
-  Validate components before uploading to Canvas. Use after creating or
-  modifying components, and after page work that changes rendered output, before
-  considering work complete. Runs `npm run code:fix` for static validation.
+  Validate components after creating or modifying components, and after page
+  work that changes rendered output, before considering work complete. Runs `npm
+  run code:fix` for static validation.
 ---
 
 # Validate

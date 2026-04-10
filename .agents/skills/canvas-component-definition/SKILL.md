@@ -82,6 +82,7 @@ Evaluate using companion skills in this order.
 6. Downstream validation and visual review
    - Ensure `Default` examples and any authored `mocks.json` states are
      sufficient for downstream visual review.
-7. `canvas-component-push`
-   - Use after implementation is complete and validated, when pushing changes
-     and recovering from push failures.
+7. `canvas-component-push` (optional)
+   - Use only when the user explicitly asks to push/publish/sync components to
+     Canvas.
+   - Do not run push automatically after implementation or static validation.

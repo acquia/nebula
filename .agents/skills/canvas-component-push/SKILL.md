@@ -2,11 +2,18 @@
 name: canvas-component-push
 description:
   Push validated Canvas component changes to Drupal Canvas and recover from
-  common push failures. Use after component work is complete and validated.
-  Handles dependency-related push failures that require retry.
+  common push failures. Use only when the user explicitly requests a
+  push/publish/sync action. Handles dependency-related push failures that
+  require retry.
 ---
 
-## Push to Canvas
+## Activation guard
+
+Run this skill only when the user explicitly asks to push, publish, sync, or
+upload components to Canvas.
+
+Do not run this skill automatically after component edits, validation, or task
+completion.
 
 Before pushing, confirm the user has Drupal Canvas CLI installed and configured
 for their target site.
