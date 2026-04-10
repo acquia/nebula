@@ -20,9 +20,6 @@ Only pages in the canonical `pages/` directory are valid local verification
 targets in this repository. After creating or visually modifying a page, use
 `nebula-component-validation` to run repo-local static validation.
 
-Run `nebula-visual-verification` only when the user explicitly asks for visual
-verification.
-
 Use `canvas-page-definition` for the generic page-spec contract, and
 `canvas-workbench/references/pages.md` for the Workbench-specific page preview
 flow.

@@ -32,10 +32,4 @@ This runs Prettier and ESLint with auto-fix, ensuring:
 
 If errors remain after auto-fix, address them manually and re-run until passing.
 
-When the task changes rendered output, this skill ends at static validation. Do
-not run browser-based visual verification automatically.
-
-Run `nebula-visual-verification` only when the user explicitly asks for visual
-verification. When explicitly requested, run it only after static validation
-passes. If visual verification fails, fix the changed surface, rerun static
-validation when code changed, and re-run `nebula-visual-verification`.
+When the task changes rendered output, this skill ends at static validation.
