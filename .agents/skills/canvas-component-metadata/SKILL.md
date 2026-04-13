@@ -238,6 +238,56 @@ examples:
   - 1
 ```
 
+## Array and object data — MANDATORY decision gate
+
+Canvas **does not support** `type: array` or inline `properties` objects in
+`component.yml`. Whenever you encounter or author a prop that holds a list or
+object value, you **must** decompose it into slots and child components.
+**Silently removing the array prop with no replacement is never acceptable** —
+it leaves components rendering empty/broken content.
+
+### Only strategy — Slots
+
+Every list or structured object prop must become a slot. Decompose the parent
+component to accept child components via a named slot, and create a child
+component for each item type. See the **Slots** section and the
+`canvas-component-composability` skill for full decomposition rules.
+
+```yaml
+# parent component.yml
+slots:
+  links:
+    title: Links
+```
+
+```jsx
+// parent index.jsx
+const Hero = ({ heading, links }) => (
+  <section>
+    <h1>{heading}</h1>
+    <ul>{links}</ul>
+  </section>
+);
+```
+
+Child components (e.g., `link_item`) are placed inside the slot via
+`parent_uuid` + `slot` on the Canvas page.
+
+> ⛔ **Do NOT use JSON string serialization** (`propNameJson: type: string` +
+> `JSON.parse`). It is not a supported pattern — it bypasses the Canvas editor
+> and makes content uneditable by authors.
+
+### Checklist when touching any array/object prop
+
+- [ ] Decomposed array prop into a named slot in `component.yml`
+- [ ] Created or reused a child component for each item type
+- [ ] Parent JSX consumes the named slot prop directly (no `JSON.parse`)
+- [ ] Canvas page updated — child components reference the correct `parent_uuid`
+      and `slot` name
+- [ ] **Never left an array prop removed with no replacement**
+
+---
+
 ## Enums
 
 Enum values must use lowercase, machine-friendly identifiers. Use `meta:enum` to
