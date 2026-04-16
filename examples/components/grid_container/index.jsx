@@ -30,7 +30,7 @@ const gridVariants = cva('grid w-full', {
 
 const GridContainer = ({ layout, gap, className, content, ...props }) => {
   return (
-    <div className="m-auto mx-6 w-full max-w-[1360px]">
+    <div className="mx-auto w-full max-w-[1360px] px-6">
       <div
         className={cn(gridVariants({ layout, gap, className }), className)}
         {...props}
