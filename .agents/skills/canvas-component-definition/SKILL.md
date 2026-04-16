@@ -49,7 +49,7 @@ component source and metadata:
   example value for each prop from `component.yml`
 
 Rendered-output changes are incomplete unless the component has sufficient
-Workbench preview coverage for downstream validation and visual review.
+Workbench preview coverage.
 
 ## Naming guidance
 
@@ -79,9 +79,10 @@ Evaluate using companion skills in this order.
 5. `canvas-data-fetching`
    - Use when fetching/rendering Drupal content with JSON:API, SWR, includes,
      and filter patterns.
-6. Downstream validation and visual review
+6. Preview coverage readiness
    - Ensure `Default` examples and any authored `mocks.json` states are
-     sufficient for downstream visual review.
-7. `canvas-component-push`
-   - Use after implementation is complete and validated, when pushing changes
-     and recovering from push failures.
+     sufficient for review of the requested change.
+7. `canvas-component-push` (optional)
+   - Use only when the user explicitly asks to push/publish/sync components to
+     Canvas.
+   - Do not run push automatically after implementation or static validation.

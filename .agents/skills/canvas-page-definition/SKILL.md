@@ -55,7 +55,7 @@ definitions that can be previewed in Workbench and synced with Canvas via the
 CLI.
 
 Authored page work is incomplete unless the page is previewable from the
-configured `pagesDir` and ready for downstream validation and visual review.
+configured `pagesDir` and ready for validation.
 
 ## Page file format
 

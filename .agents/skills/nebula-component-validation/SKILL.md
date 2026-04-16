@@ -1,10 +1,9 @@
 ---
 name: nebula-component-validation
 description:
-  Validate components before uploading to Canvas. Use after creating or
-  modifying components, and after page work that changes rendered output, before
-  considering work complete. Runs `npm run code:fix` and the repo-local visual
-  verification workflow.
+  Validate components after creating or modifying components, and after page
+  work that changes rendered output, before considering work complete. Runs `npm
+  run code:fix` for static validation.
 ---
 
 # Validate
@@ -33,9 +32,4 @@ This runs Prettier and ESLint with auto-fix, ensuring:
 
 If errors remain after auto-fix, address them manually and re-run until passing.
 
-When the task changes rendered output, start or reuse Canvas Workbench and run
-`nebula-visual-verification` against the changed component or page after static
-validation passes. If visual verification fails, fix the changed surface, rerun
-static validation when code changed, and re-run `nebula-visual-verification`.
-Finish only when the verification loop passes or is stuck under the verifier's
-blocker rules.
+When the task changes rendered output, this skill ends at static validation.
