@@ -53,6 +53,12 @@ Workbench preview coverage.
 
 ## Naming guidance
 
+Default to the shortest reusable base name. Requests like "simple hero", "solid
+hero", "cream hero", or "two cards" should still usually result in `Hero` or
+`Card`, with differences expressed through props, variants, composition, or mock
+names, not the component name itself. Use a specialized name only when the
+component is truly one-off.
+
 Use `references/naming.md` for naming rules and examples.
 
 ## Workbench mocks
