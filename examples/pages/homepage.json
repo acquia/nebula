@@ -1,5 +1,7 @@
 {
   "title": "Homepage",
+  "path": "/home",
+  "description": "",
   "elements": {
     "cf8abf57-3d3f-4624-bc2c-773a5c28391f": {
       "type": "js.hero",
