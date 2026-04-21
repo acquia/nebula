@@ -4,13 +4,28 @@ description:
   Design Canvas-ready React components with slots and decomposition-first
   patterns. Use when (1) Designing a component's prop/slot structure, (2) A
   component is growing too large, (3) Deciding between props vs slots, (4)
-  Refactoring monolithic components, (5) Modeling repeatable list/grid content.
-  Ensures Canvas compatibility.
+  Refactoring monolithic components, (5) Modeling repeatable list/grid content,
+  (6) Reusing, composing, or wrapping existing workspace components. Ensures
+  Canvas compatibility.
 ---
 
 Prefer small, focused components over monolithic ones with many props. When a
 component starts accumulating many unrelated props, decompose it into smaller,
 composable pieces.
+
+## Reuse existing components first
+
+When the task names existing components or clearly implies composition, start by
+trying to reuse those components instead of rebuilding them inline.
+
+If a requested existing component's props do not fit the use case:
+
+- Do not silently create a replacement that bypasses the existing component.
+- Prefer one of these options: extend the existing component, add a thin
+  wrapper/variant, or create a new purpose-specific component only when reuse is
+  not reasonable.
+- Surface the mismatch and tradeoff when it affects whether the request is still
+  being followed.
 
 ## Reference map
 

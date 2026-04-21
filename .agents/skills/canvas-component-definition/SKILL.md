@@ -61,6 +61,19 @@ component is truly one-off.
 
 Use `references/naming.md` for naming rules and examples.
 
+## Reuse check before creation
+
+Before creating a new component, check whether existing workspace components can
+satisfy the request, especially when the user names specific components to
+reuse, compose, or wrap.
+
+- Reuse existing components when they already fit or can fit with a reasonable
+  extension, variant, or thin wrapper.
+- Do not silently replace a named existing component with a new implementation.
+- If an existing component does not fit, explain the mismatch and choose
+  deliberately between extending it, wrapping it, or creating a new
+  purpose-specific component.
+
 ## Workbench mocks
 
 Use `references/component-mocks.md` for mock naming, placement, format
@@ -75,7 +88,8 @@ Evaluate using companion skills in this order.
      prop validation errors.
 2. `canvas-component-composability`
    - Use when designing prop/slot structure, decomposing large components,
-     deciding props vs slots, or modeling repeatable list/grid content.
+     deciding props vs slots, reusing/composing/wrapping existing components, or
+     modeling repeatable list/grid content.
 3. `canvas-styling-conventions`
    - Use for all styling work: new components, style props, Tailwind token
      usage, CVA variants, class changes, and prop changes that affect styles.
