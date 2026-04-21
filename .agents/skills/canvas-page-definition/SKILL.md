@@ -156,15 +156,6 @@ exists, create it as a component before using it in a page spec.
 
 Validate every authored page before finishing.
 
-Use the published schema:
-
-`https://git.drupalcode.org/project/canvas/-/raw/1.x/packages/workbench/src/lib/schemas/page-spec.schema.json`
-
-Example with `ajv-cli`:
-
 ```bash
-npx ajv-cli validate \
-  --spec=draft2020 \
-  -s https://git.drupalcode.org/project/canvas/-/raw/1.x/packages/workbench/src/lib/schemas/page-spec.schema.json \
-  -d path/to/page.validation.json
+npx canvas validate
 ```
