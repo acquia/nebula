@@ -282,3 +282,73 @@ category, filter by author):
 
 This ensures filters stay in sync with the actual content in Drupal and new
 options appear automatically without code changes.
+
+## Navigation / Menu Components
+
+Components like headers, footers, and sidebars often need menu links from
+Drupal. Use a **dual implementation**: fetch from a Drupal menu when one exists,
+and fall back to a static array when no menu is configured yet.
+
+This means the component works immediately (using the hardcoded fallback), and
+automatically upgrades to live Drupal-managed links once the CMS editor creates
+the corresponding menu.
+
+```jsx
+import { JsonApiClient, sortMenu } from 'drupal-canvas';
+import useSWR from 'swr';
+
+// Static fallback — always define this; it renders when no Drupal menu exists
+const FALLBACK_LINKS = [
+  { id: 'home', title: 'Home', url: '/' },
+  { id: 'about', title: 'About', url: '/about' },
+];
+
+const client = new JsonApiClient();
+
+const Navigation = ({ menuName = 'main' }) => {
+  const { data, error, isLoading } = useSWR(
+    menuName ? ['menu_items', menuName] : null,
+    ([type, id]) => client.getResource(type, id),
+  );
+
+  // Use live Drupal menu links when available; otherwise use fallback
+  const links =
+    !error && !isLoading && data ? Array.from(sortMenu(data)) : FALLBACK_LINKS;
+
+  return (
+    <nav>
+      {links.map(({ id, title, url }) => (
+        <a key={id} href={url}>
+          {title}
+        </a>
+      ))}
+    </nav>
+  );
+};
+```
+
+**Rules for menu components:**
+
+- Always define a `FALLBACK_LINKS` constant with representative links. This
+  makes the component useful in Workbench and on sites where the Drupal menu
+  hasn't been created yet.
+- Expose `menuName` as a prop and register it in `component.yml` so CMS editors
+  can configure which Drupal menu to use without code changes.
+- `menuName = null` disables fetching (SWR key is `null`) and renders the
+  fallback — useful for pure static previews.
+- After building a nav-type component, include a note in the manual steps
+  summary telling the user to create the corresponding menu in Drupal at
+  `/admin/structure/menu/add`.
+
+**`component.yml` example for `menuName`:**
+
+```yaml
+props:
+  properties:
+    menuName:
+      title: Menu name
+      type: string
+      examples:
+        - main
+        - footer
+```

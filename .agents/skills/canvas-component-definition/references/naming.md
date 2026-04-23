@@ -1,7 +1,9 @@
 # Naming
 
 Use simple, generic names. Do not prefix component names with project or site
-identifiers.
+identifiers. The repository may already be dedicated to one project—that is not
+a reason to repeat the project name in every component; names should still read
+as reusable building blocks.
 
 Use the same base name consistently across the component package:
 

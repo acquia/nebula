@@ -26,8 +26,6 @@ Every Canvas page MUST satisfy all checks below:
   `canvas.config.json`; default `./pages`)
 - The page file is a JSON object
 - The page includes a non-empty `title`
-- The page includes a `path` that starts with `/` and is unique within the
-  project
 - The page includes an `elements` object with at least one element
 - Every element in `elements` includes a discovered component `type`
 - Any `slots` entries reference element IDs defined in the same file
@@ -64,14 +62,7 @@ configured `pagesDir` and ready for validation.
 Each page file must be a JSON object with:
 
 - `title`: the actual page title
-- `path`: the page's URL path (e.g., `/about`). Must start with `/` and be
-  unique within the project. Other pages link to this page using this value.
 - `elements`: an object of authored page elements
-
-The page file may also include:
-
-- `description`: a short plain-text summary of the page. Surfaced as page
-  metadata (e.g., for listings or SEO). Leave as an empty string if not set.
 
 Each entry in `elements` must include:
 
@@ -89,17 +80,11 @@ Use the discovered machine-readable component type for each element, such as
 `card`, `heading`, or `js.hero`, depending on what Workbench finds in the local
 project.
 
-## Linking between pages
-
-To link to another page in the project, reference the target page's `path`.
-
 ## Example
 
 ```json
 {
   "title": "About",
-  "path": "/about",
-  "description": "",
   "elements": {
     "hero": {
       "type": "js.hero",
@@ -189,6 +174,15 @@ exists, create it as a component before using it in a page spec.
 
 Validate every authored page before finishing.
 
+Use the published schema:
+
+`https://git.drupalcode.org/project/canvas/-/raw/1.x/packages/workbench/src/lib/schemas/page-spec.schema.json`
+
+Example with `ajv-cli`:
+
 ```bash
-npx canvas validate
+npx ajv-cli validate \
+  --spec=draft2020 \
+  -s https://git.drupalcode.org/project/canvas/-/raw/1.x/packages/workbench/src/lib/schemas/page-spec.schema.json \
+  -d path/to/page.validation.json
 ```
