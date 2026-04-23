@@ -13,6 +13,11 @@ Prefer small, focused components over monolithic ones with many props. When a
 component starts accumulating many unrelated props, decompose it into smaller,
 composable pieces.
 
+For repeatable card/list/grid UI, default to two Canvas components: a parent
+layout component with a slot for the repeated children, and a child component
+for one item. Do not flatten repeated items into numbered prop groups such as
+`car1Name`, `car2Name`, `feature1Title`, or `card3Image`.
+
 ## Reuse existing components first
 
 When the task names existing components or clearly implies composition, start by
@@ -45,6 +50,8 @@ Consider breaking up a component when it has:
   titles, metadata, navigation)
 - Built-in layout assumptions that limit where the component can be used
 - Multiple distinct visual sections that could be reused independently
+- Repeated prop groups that differ only by an index or prefix/suffix
+  (`item1Title`, `item2Title`, `item3Title`)
 
 ## Use slots for flexible composition
 
@@ -65,6 +72,10 @@ components.
 Treat a single image as one prop, not as a slot and not as multiple URL/alt
 props. If a component needs one image, use a semantic image prop such as `image`
 or `backgroundImage` with the Canvas image schema ref.
+
+For repeatable cards/items, the parent usually owns layout props such as
+heading, intro text, alignment, or column count, while each child owns item
+content props such as title, image, price, label, CTA, or metadata.
 
 ### Declare slots in component.yml
 
@@ -88,6 +99,8 @@ When the same combination of elements is repeated, extract it:
 - Cover image + download button -> `resource-cover`
 - Label + value pairs -> `metadata-item`
 - Icon + text link -> `icon-link`
+- Grid/list wrapper + repeated card -> `card-grid` + `card`
+- Featured cars wrapper + repeated car card -> `featured-cars-grid` + `car-card`
 
 ### Use layout components instead of built-in layouts
 

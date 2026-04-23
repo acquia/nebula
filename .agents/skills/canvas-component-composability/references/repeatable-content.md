@@ -9,26 +9,56 @@ Canvas does not support array props whose items are objects.
 
 - Avoid modeling repeatable cards/items as `type: array` with object `items`
 - Model repeatable content with a parent slot and child components instead
+- Avoid fixed-count numbered prop groups such as `card1Title`, `card2Title`,
+  `card3Title`
+- Avoid hiding the repeated item as a local helper inside the parent when that
+  item has its own meaningful authorable props; make it a separate Canvas
+  component
 
 ## Parent/child slot pattern
 
 1. Create a child component for one repeated item
-2. Define a named slot on the parent component
-3. Render the named slot prop in parent JSX
-4. Compose the parent with multiple child instances in Workbench mocks, using
+2. Keep content props on the child, and keep container/layout props on the
+   parent
+3. Define a named slot on the parent component
+4. Render the named slot prop in parent JSX
+5. Compose the parent with multiple child instances in Workbench mocks, using
    slot arrays that reference authored `elements`
+
+### Good default split
+
+- Parent component: section heading, intro text, spacing, layout, slot wrapper
+- Child component: image, title, category, price, CTA, item-specific styling
+
+If the design is "a grid of X cards", the default implementation should usually
+be `x-grid` plus `x-card` rather than one component with repeated indexed props.
 
 ### Example pairings
 
 - `footer` + `footer-link-group`
 - `footer-link-group` + `footer-link`
 - `card-grid` + `card`
+- `featured-cars-grid` + `car-card`
 - `testimonials` + `testimonial-card`
 - `cta-section` + `cta-card`
 - `features-section` + `feature-card`
 - `stats-hero` + `stat-item`
 - `metadata-list` + `metadata-item`
 - `carousel` + `carousel-item`
+
+### Anti-pattern example
+
+Avoid this shape:
+
+- One `featured-cars-grid` component with props like `car1Name`, `car1Category`,
+  `car1Image`, `car2Name`, `car2Category`, `car2Image`
+
+Prefer this shape:
+
+- `featured-cars-grid` with props like `heading`, `subheading`, and a `cars`
+  slot
+- `car-card` with props like `name`, `category`, `pricePerDay`, `image`,
+  `ctaUrl`
 
 ## Slot schema authority
 

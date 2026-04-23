@@ -37,6 +37,9 @@ Every Canvas component MUST satisfy all checks below:
 - Folder name exactly matches `machineName` in `component.yml` (kebab-case)
 - Props/slots follow Canvas rules (for example, avoid unsupported
   array-of-object prop shapes; use slots for repeatable complex content)
+- Repeatable cards/items are not flattened into numbered prop groups such as
+  `card1Title`, `card2Title`, or `car3Image`; model them as parent slot content
+  plus a child item component instead
 - Any prop that represents an image uses a single object prop with
   `$ref: json-schema-definitions://canvas.module/image`; do not split one image
   into `imageUrl`, `imageAlt`, `imageWidth`, or similar string/number props
