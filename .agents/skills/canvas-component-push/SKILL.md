@@ -54,6 +54,58 @@ example, if using npm, run the following command:
 npx canvas push --yes
 ```
 
+If pages are included and they contain image props with external URLs, the first
+push may fail with an error like "Some pages contain media that references
+external URLs". This is expected until media is reconciled.
+
+Supported authored page image sources:
+
+- External `http://` or `https://` URLs
+- `data:image/...` URLs
+
+Supported image formats for reconciliation: `.jpg`, `.png`, `.gif`, `.webp`, and
+`.avif`.
+
+Local filesystem image upload through the CLI is not supported.
+
+### Media reconciliation for pages
+
+When working with pages that include image props:
+
+1. Run the page push, for example:
+
+   ```bash
+   npx canvas push --yes --include-pages
+   ```
+
+2. If Canvas reports external media references, run:
+
+   ```bash
+   npx canvas reconcile-media
+   ```
+
+3. Re-run the page push:
+
+   ```bash
+   npx canvas push --yes --include-pages
+   ```
+
+4. Pull pages back down to sync resolved inputs locally:
+
+   ```bash
+   npx canvas pull --include-pages
+   ```
+
+After reconciliation/pull, page JSON may be updated so that:
+
+- The image prop keeps the same object shape but now includes resolved `src`,
+  `alt`, `width`, and `height`
+- A `_provenance` object may be added with values such as `target_id` and
+  `source_url`
+
+Preserve resolved image props and `_provenance` during later edits unless you
+are intentionally replacing the media.
+
 ## Handling push failures
 
 Default behavior: **always retry failed pushes** unless the error is clearly a

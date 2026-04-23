@@ -52,7 +52,9 @@ const Text = ({ text, className }) => (
 ## Image
 
 Use `Image` for responsive image rendering. It handles responsive behavior and
-optimization automatically.
+optimization automatically. The component contract should accept a single image
+object prop that matches `$ref: json-schema-definitions://canvas.module/image`;
+do not split that data into separate `imageUrl`/`imageAlt` props.
 
 ```yaml
 # component.yml
@@ -73,6 +75,8 @@ props:
 import { Image } from 'drupal-canvas';
 
 const Card = ({ image }) => {
+  if (!image?.src) return null;
+
   const { src, alt, width, height } = image;
   return (
     <Image

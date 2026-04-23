@@ -145,8 +145,13 @@ examples:
 #### Image
 
 Reference to an image object with metadata like alt text, dimensions, and file
-URL. Only the file URL is required to exist, all other metadata is always
-optional.
+URL. Use this shape for any prop that represents one image. Do not model a
+single image as separate props like `imageUrl`, `imageAlt`, `imageWidth`, or
+`imageHeight`.
+
+Use semantic prop IDs such as `image`, `backgroundImage`, `logoImage`, or
+`cardImage`, but keep the value shape identical: `type: object` plus the Canvas
+image schema ref.
 
 ```yaml
 type: object
@@ -157,6 +162,32 @@ examples:
     alt: Woman playing the violin
     width: 1770
     height: 1180
+```
+
+Model the prop as one image object, not separate URL/alt fields:
+
+```yaml
+# Correct
+props:
+  properties:
+    image:
+      title: Image
+      type: object
+      $ref: json-schema-definitions://canvas.module/image
+      examples:
+        - src: https://example.com/photo.webp
+          alt: Product hero image
+
+# Wrong
+props:
+  properties:
+    imageUrl:
+      title: Image URL
+      type: string
+      format: uri-reference
+    imageAlt:
+      title: Image Alt
+      type: string
 ```
 
 #### Video

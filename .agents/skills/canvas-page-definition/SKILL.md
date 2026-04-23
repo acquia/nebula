@@ -137,6 +137,39 @@ To link to another page in the project, reference the target page's `path`.
 Use stable, descriptive element IDs unless you are intentionally preserving IDs
 from another source such as an exported Canvas page.
 
+## Image props in pages
+
+When a component prop is defined as an image in `component.yml`, page JSON must
+pass that prop as a single image object. Match the component prop name exactly
+and use the Canvas image shape inside `props`.
+
+```json
+{
+  "type": "js.card",
+  "props": {
+    "image": {
+      "src": "https://placehold.co/400x300/png",
+      "alt": "Card placeholder image",
+      "width": "400",
+      "height": "300"
+    },
+    "heading": "Featured card"
+  }
+}
+```
+
+Supported authored page image sources:
+
+- External `http://` or `https://` URLs
+- `data:image/...` URLs
+
+Do not use local file paths in page JSON. CLI media upload from local files is
+not supported.
+
+If page media reconciliation or page sync adds resolved image data such as
+`width`, `height`, or `_provenance`, preserve that data unless you are
+intentionally changing the image source.
+
 ## Format constraints
 
 The page-spec format only supports discovered component elements plus their

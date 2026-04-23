@@ -9,22 +9,22 @@
     "canvas-component-composability": {
       "source": "drupal-canvas/skills",
       "sourceType": "github",
-      "computedHash": "6f561fe17844f89bf6d8f8db39644cedde89d2c6a3e65eed7b5ba084e4f16c79"
+      "computedHash": "f5bb820343ea6ea92394815d72fae34ce8e9d59a5d751545ffe3f95d11606663"
     },
     "canvas-component-definition": {
       "source": "drupal-canvas/skills",
       "sourceType": "github",
-      "computedHash": "67102d647da362be30d96fa4b79eb310d97ed7612064b833ae134a2b6ee67b2c"
+      "computedHash": "d9eb325fb603e9847947d6040dc520ed970d4f60f547cc3af7cf1ceb089c457f"
     },
     "canvas-component-metadata": {
       "source": "drupal-canvas/skills",
       "sourceType": "github",
-      "computedHash": "2a3bf713d0631207175227d67e1286bb7b280a5f51f1cfa5b53810132ae6968d"
+      "computedHash": "0252c8df1a0778eef53bf5d747960e4f3a2cda704c4c092961d5b23d984b1bd9"
     },
     "canvas-component-push": {
       "source": "drupal-canvas/skills",
       "sourceType": "github",
-      "computedHash": "c9086edb0dad579862d56510751316349407f760c32ace3adf0c46c485143ecb"
+      "computedHash": "0a73c1a2a6fa6ca202f6cead1dd64de82dbaa6b6e85a3a8108006acc64d5eec5"
     },
     "canvas-component-upload": {
       "source": "drupal-canvas/skills",
@@ -34,7 +34,7 @@
     "canvas-component-utils": {
       "source": "drupal-canvas/skills",
       "sourceType": "github",
-      "computedHash": "794dac9098888870a614e239dd683b5dc688d68559853d43e6cbafa40596632f"
+      "computedHash": "f61c530166f8852ca1f4bd210ec76a151fc0a8a442589d012ee37559f34be579"
     },
     "canvas-data-fetching": {
       "source": "drupal-canvas/skills",
@@ -44,7 +44,7 @@
     "canvas-page-definition": {
       "source": "drupal-canvas/skills",
       "sourceType": "github",
-      "computedHash": "20b486dd2908a5ab00b78c704d8bb4d04fcb5e71e66183a8aab6961bc69bab58"
+      "computedHash": "52c0fbbc12619640e38e7f7f14939930337bc51b822a4142e231cd71a4483187"
     },
     "canvas-styling-conventions": {
       "source": "drupal-canvas/skills",

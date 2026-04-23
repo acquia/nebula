@@ -62,6 +62,10 @@ components.
 | Complex nested structures             | Simple data (strings, booleans)     |
 | Content that varies between instances | Content consistent across instances |
 
+Treat a single image as one prop, not as a slot and not as multiple URL/alt
+props. If a component needs one image, use a semantic image prop such as `image`
+or `backgroundImage` with the Canvas image schema ref.
+
 ### Declare slots in component.yml
 
 Declare slots in `component.yml` and render them as named props in JSX.
