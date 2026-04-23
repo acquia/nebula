@@ -34,6 +34,16 @@ For React, `component.yml`, and `src/global.css`, also load
 - `acquia-source-*` skills are specific to Acquia Source workflows (only
   relevant when these skills exist), which is a specific Drupal implementation.
 
+### Individual node / entity page UI (not lists)
+
+When the ask is to add **single-node / detail** screens (article detail,
+one-entity pages, content-type **templates** for one node) as **components plus
+an example `pages/` spec**—and **not** to wire each instance through APIs or
+Source MCP—load
+[`nebula-node-page-scaffold`](.agents/skills/nebula-node-page-scaffold/SKILL.md).
+That skill does **not** apply to **list/index** UIs (blog feeds, archives,
+search results); use normal Canvas and data-fetching patterns for those.
+
 ### Acquia Source (`acquia-source-*`)
 
 Load these skills when the **remote** Drupal/Canvas target (push, migration,
