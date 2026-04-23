@@ -2,9 +2,12 @@
 name: canvas-data-fetching
 description:
   Fetch and render Drupal content in Canvas components with JSON:API and SWR
-  patterns. Use when building content lists, integrating with SWR, or querying
-  related entities. Covers JsonApiClient, DrupalJsonApiParams, relationship
-  handling, and filter patterns.
+  patterns. Use when building content lists, integrating with SWR, querying
+  related entities, or constructing/changing any JSON:API request — every
+  generated request must be executed and verified to return the expected results
+  before rendering logic is written against it. Covers JsonApiClient,
+  DrupalJsonApiParams, relationship handling, filter patterns, and request
+  verification.
 ---
 
 # Data fetching
@@ -58,6 +61,43 @@ using `JsonApiClient` receive deserialized objects instead.
 - If you inspect the raw JSON:API document for debugging, treat it as a
   secondary diagnostic view, not the source of truth for component code.
 - Do not disable the serializer in final component code.
+
+### Verify every JSON:API request returns the expected results
+
+Any JSON:API request you generate — for a new component, a refactor, a filter
+change, an added include, a changed sort, or a new query for an existing
+component — must be **executed and verified** before any rendering logic is
+written or changed against it. Do not assume a query is correct because it
+"looks right". Build the query, run it, and confirm the response matches
+expectations.
+
+A request is verified only after **all** of these checks pass:
+
+- **It runs.** No HTTP error, no JSON:API error document, no client exception.
+- **The result count matches expectations.** A list query should return a
+  non-empty collection when content of that type exists. A filtered query should
+  return fewer items than the unfiltered query (and zero only when zero is
+  genuinely expected). A single-resource fetch should return one resource, not
+  `null`.
+- **The expected fields are present and populated** on the deserialized objects
+  — including fields requested via `addFields`. Missing or consistently `null`
+  fields mean the query, the field name, or the content type is wrong.
+- **Includes resolved** to real related entities, not bare references. If you
+  used `addInclude`, confirm the relationship is hydrated on the deserialized
+  object the component will read.
+- **Filters and sorts behave as intended.** Spot-check that filtered items
+  actually match the filter criteria and sorted items are in the requested
+  order.
+
+If any check fails, **fix the query, the field names, or the content-type
+assumptions — not the component**. Do not paper over an empty or wrong response
+with optional chaining, fallback strings, or "looks fine in the UI" reasoning.
+Re-run the probe after each fix and only proceed once the response matches
+expectations.
+
+Use the probe pattern in the next section as the default mechanism for these
+checks. A probe that prints `count: 0`, `keys: []`, or a shape missing the
+fields the component needs is a failed verification, not a green light.
 
 ### Probe the deserialized shape before coding
 

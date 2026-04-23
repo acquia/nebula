@@ -66,9 +66,9 @@ Unless the user **clearly** asks for remote integration in the same request:
   to consider the scaffold **complete**.
 
 Workbench can use **props examples**, **optional preview data inside
-components** (e.g. when `getJsonApiClient()` is null), or **example page
-props**—that is fine. The line this skill draws is: **no attempt to build or
-sync a fleet of real node pages via APIs** as part of “create the node page UI.”
+components** or **example page props**—that is fine. The line this skill draws
+is: **no attempt to build or sync a fleet of real node pages via APIs** as part
+of “create the node page UI.”
 
 ## How this coexists with other skills
 
