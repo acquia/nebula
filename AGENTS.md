@@ -5,21 +5,25 @@ building Drupal Canvas Code Components.
 
 ## Design intake (component library and screen breakdown)
 
-Load **`canvas-design-decomposition` first**—before a component library,
-implementation plan, `component.yml`, or React—whenever UI is being turned into
-Canvas structure: **library design/refactor**, **new components** under
-`src/components/` (skip decomposition only for tiny edits inside a stable
-existing API), **Figma** links or frames, **implement / match / break down this
-screen** language, **reference visuals** (screenshots, scraped or live URLs—use
-[`nebula-scrape-url`](.agents/skills/nebula-scrape-url/SKILL.md) when scraping a
-URL fits), or **brief / prose / AI-generated** specs that still need a real
-tree.
+Before a component library, implementation plan, `component.yml`, or React, load
+**`canvas-design-decomposition`** whenever UI becomes Canvas structure: library
+design/refactor; new `src/components/` (except tiny edits inside a stable API);
+**Figma** links or frames; **implement / match / break down this screen**;
+reference visuals (scraped/live URLs →
+[`nebula-scrape-url`](.agents/skills/nebula-scrape-url/SKILL.md) when useful);
+or prose/AI specs that still need a real tree.
 
-Apply it to **plan-only** deliverables too (plans, breakdowns, structure)—run
-phases **A–G** (or through the answering phase), not improvised regions from
-tool output. Treat generated markup or Figma MCP JSX as **input**, not the API.
+Read
+[`canvas-design-decomposition`](.agents/skills/canvas-design-decomposition/SKILL.md)
+end-to-end and run phases **A–G** for **each** artifact—**including greenfield
+Figma work and plan-only deliverables.** Do not skip because `pages/` or
+`src/components/` already has drafts; reconcile those with the skill’s output
+for **this** screen. Figma MCP JSX and other generated markup are **input**, not
+the component API. For plans or the first structured answer after a design/Figma
+request, add a short **Decomposition summary** (regions → components → page
+order → open questions).
 
-For React components, `component.yml`, and `src/global.css`, also load
+For React, `component.yml`, and `src/global.css`, also load
 **`canvas-component-definition`**.
 
 ## Skill prefixes

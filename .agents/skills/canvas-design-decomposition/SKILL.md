@@ -4,7 +4,9 @@ description:
   Plans structure for a component library with props/slots and right-sized
   component granularity. Run before building or adding Canvas components (new
   `src/components/` folders, component.yml, React), or for plan-only /
-  breakdown-only work, whenever UI must map to a coherent tree.
+  breakdown-only work, whenever UI must map to a coherent tree. Mandatory for
+  every new Figma frame or greenfield screen—repository drafts do not replace
+  phases A–G.
 ---
 
 # Canvas design decomposition
@@ -42,6 +44,20 @@ below). Treat any of the following as a trigger:
 - The user asks to **implement**, **build**, **match**, **recreate**, or **plan
   implementation** of a **design**, **frame**, **screen**, or **page** from any
   artifact or description.
+
+### Do not skip (common failure mode)
+
+- **Greenfield work is not exempt.** Implementing a **new** page or Figma frame
+  from scratch still requires this skill—you map the design to a coherent tree,
+  props, and slots before locking implementation details.
+- **Draft files in the repo are not a shortcut.** Existing `pages/*.json`,
+  partial components under `src/components/`, or scraped assets may be helpful
+  **starting points**, but they do **not** replace reading this skill and
+  completing phases **A–G** for the **current** artifact. Reconcile draft code
+  with the breakdown; do not assume prior work already did decomposition.
+- **Plans count.** If the user asks only for an implementation **plan**, you
+  still load this skill and summarize regions → components → placement before
+  pixel work or tooling shortcuts.
 
 Automated tool output (for example **Figma MCP reference JSX**, HTML export, or
 generated code) is **input** to this workflow—not a substitute for completing
