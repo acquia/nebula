@@ -9,12 +9,12 @@
     "canvas-component-composability": {
       "source": "drupal-canvas/skills",
       "sourceType": "github",
-      "computedHash": "f8c6eaf51df2611b7a2cc0c197a687e5461bcde664d96bc1c684a7388b802029"
+      "computedHash": "ecfd802151d7c3ac340f188e61fc7ddbbec4dec8745bc34e96ed11a0bb7ddef6"
     },
     "canvas-component-definition": {
       "source": "drupal-canvas/skills",
       "sourceType": "github",
-      "computedHash": "a28741f9c1c156c81020092e4a83f3a738fe265d9477b97f7ee71b54a0bfc8c1"
+      "computedHash": "e193ed923cdd1cef12e51591dca6591991839c5f556316498f3cbb116b369184"
     },
     "canvas-component-metadata": {
       "source": "drupal-canvas/skills",
@@ -39,7 +39,17 @@
     "canvas-data-fetching": {
       "source": "drupal-canvas/skills",
       "sourceType": "github",
-      "computedHash": "02c1d783cbbb69792858c0fbb3b10dd0ea3c247cb41282d888e14461f1d34be3"
+      "computedHash": "22e33ad41e25b549be912d1e5a2450a2a127fe1ee34c364c685fa92707c97f27"
+    },
+    "canvas-design-decomposition": {
+      "source": "drupal-canvas/skills",
+      "sourceType": "github",
+      "computedHash": "8ff0b9fda72c473104fb0de518efbc18337cbf52f85f389cce7d11da07a74c10"
+    },
+    "canvas-navigation-components": {
+      "source": "drupal-canvas/skills",
+      "sourceType": "github",
+      "computedHash": "2ba6ebfc5cde42d58ebc03df873dfa1baccd3b92fc69fed0bfa28c31affd7dfc"
     },
     "canvas-page-definition": {
       "source": "drupal-canvas/skills",
