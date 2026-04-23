@@ -59,6 +59,11 @@ Workbench preview coverage.
 
 ## Naming guidance
 
+This codebase is already specific to one project or product, so component names
+do **not** need (and must not use) a project or product prefix. Keep
+`machineName`, folder names, and display names generic and portable (e.g.
+`hero`, `contact-form`), not `acme-hero` or `nebula-contact-form`.
+
 Default to the shortest reusable base name. Requests like "simple hero", "solid
 hero", "cream hero", or "two cards" should still usually result in `Hero` or
 `Card`, with differences expressed through props, variants, composition, or mock
@@ -73,12 +78,18 @@ Before creating a new component, check whether existing workspace components can
 satisfy the request, especially when the user names specific components to
 reuse, compose, or wrap.
 
+This is the canonical reuse-first policy. Other skills should link here instead
+of restating the same decision tree.
+
 - Reuse existing components when they already fit or can fit with a reasonable
   extension, variant, or thin wrapper.
+- Do not silently create a replacement that bypasses the existing component.
 - Do not silently replace a named existing component with a new implementation.
 - If an existing component does not fit, explain the mismatch and choose
   deliberately between extending it, wrapping it, or creating a new
   purpose-specific component.
+- Surface the mismatch and tradeoff when it affects whether the request is still
+  being followed.
 
 ## Workbench mocks
 
@@ -89,6 +100,13 @@ selection, and validation.
 
 Evaluate using companion skills in this order.
 
+0. `canvas-design-decomposition`
+   - Use **before** structuring work when you need to **break down** a design
+     (Figma frame, screenshot, scraped page, or verbal spec) into regions, a
+     component tree, and intentional props vs slots. This skill produces the
+     plan; **this** skill (`canvas-component-definition`) enforces the resulting
+     folder contract and implementation. Skip step 0 when you are only editing
+     an existing component whose boundaries are already known.
 1. `canvas-component-metadata`
    - Use when creating/changing `component.yml`, props/slots, enums, or fixing
      prop validation errors.

@@ -2,9 +2,12 @@
 name: canvas-data-fetching
 description:
   Fetch and render Drupal content in Canvas components with JSON:API and SWR
-  patterns. Use when building content lists, integrating with SWR, or querying
-  related entities. Covers JsonApiClient, DrupalJsonApiParams, relationship
-  handling, and filter patterns.
+  patterns. Use when building content lists, integrating with SWR, querying
+  related entities, or constructing/changing any JSON:API request — every
+  generated request must be executed and verified to return the expected results
+  before rendering logic is written against it. Covers JsonApiClient,
+  DrupalJsonApiParams, relationship handling, filter patterns, and request
+  verification.
 ---
 
 # Data fetching
@@ -58,6 +61,43 @@ using `JsonApiClient` receive deserialized objects instead.
 - If you inspect the raw JSON:API document for debugging, treat it as a
   secondary diagnostic view, not the source of truth for component code.
 - Do not disable the serializer in final component code.
+
+### Verify every JSON:API request returns the expected results
+
+Any JSON:API request you generate — for a new component, a refactor, a filter
+change, an added include, a changed sort, or a new query for an existing
+component — must be **executed and verified** before any rendering logic is
+written or changed against it. Do not assume a query is correct because it
+"looks right". Build the query, run it, and confirm the response matches
+expectations.
+
+A request is verified only after **all** of these checks pass:
+
+- **It runs.** No HTTP error, no JSON:API error document, no client exception.
+- **The result count matches expectations.** A list query should return a
+  non-empty collection when content of that type exists. A filtered query should
+  return fewer items than the unfiltered query (and zero only when zero is
+  genuinely expected). A single-resource fetch should return one resource, not
+  `null`.
+- **The expected fields are present and populated** on the deserialized objects
+  — including fields requested via `addFields`. Missing or consistently `null`
+  fields mean the query, the field name, or the content type is wrong.
+- **Includes resolved** to real related entities, not bare references. If you
+  used `addInclude`, confirm the relationship is hydrated on the deserialized
+  object the component will read.
+- **Filters and sorts behave as intended.** Spot-check that filtered items
+  actually match the filter criteria and sorted items are in the requested
+  order.
+
+If any check fails, **fix the query, the field names, or the content-type
+assumptions — not the component**. Do not paper over an empty or wrong response
+with optional chaining, fallback strings, or "looks fine in the UI" reasoning.
+Re-run the probe after each fix and only proceed once the response matches
+expectations.
+
+Use the probe pattern in the next section as the default mechanism for these
+checks. A probe that prints `count: 0`, `keys: []`, or a shape missing the
+fields the component needs is a failed verification, not a green light.
 
 ### Probe the deserialized shape before coding
 
@@ -282,3 +322,73 @@ category, filter by author):
 
 This ensures filters stay in sync with the actual content in Drupal and new
 options appear automatically without code changes.
+
+## Navigation / Menu Components
+
+Components like headers, footers, and sidebars often need menu links from
+Drupal. Use a **dual implementation**: fetch from a Drupal menu when one exists,
+and fall back to a static array when no menu is configured yet.
+
+This means the component works immediately (using the hardcoded fallback), and
+automatically upgrades to live Drupal-managed links once the CMS editor creates
+the corresponding menu.
+
+```jsx
+import { JsonApiClient, sortMenu } from 'drupal-canvas';
+import useSWR from 'swr';
+
+// Static fallback — always define this; it renders when no Drupal menu exists
+const FALLBACK_LINKS = [
+  { id: 'home', title: 'Home', url: '/' },
+  { id: 'about', title: 'About', url: '/about' },
+];
+
+const client = new JsonApiClient();
+
+const Navigation = ({ menuName = 'main' }) => {
+  const { data, error, isLoading } = useSWR(
+    menuName ? ['menu_items', menuName] : null,
+    ([type, id]) => client.getResource(type, id),
+  );
+
+  // Use live Drupal menu links when available; otherwise use fallback
+  const links =
+    !error && !isLoading && data ? Array.from(sortMenu(data)) : FALLBACK_LINKS;
+
+  return (
+    <nav>
+      {links.map(({ id, title, url }) => (
+        <a key={id} href={url}>
+          {title}
+        </a>
+      ))}
+    </nav>
+  );
+};
+```
+
+**Rules for menu components:**
+
+- Always define a `FALLBACK_LINKS` constant with representative links. This
+  makes the component useful in Workbench and on sites where the Drupal menu
+  hasn't been created yet.
+- Expose `menuName` as a prop and register it in `component.yml` so CMS editors
+  can configure which Drupal menu to use without code changes.
+- `menuName = null` disables fetching (SWR key is `null`) and renders the
+  fallback — useful for pure static previews.
+- After building a nav-type component, include a note in the manual steps
+  summary telling the user to create the corresponding menu in Drupal at
+  `/admin/structure/menu/add`.
+
+**`component.yml` example for `menuName`:**
+
+```yaml
+props:
+  properties:
+    menuName:
+      title: Menu name
+      type: string
+      examples:
+        - main
+        - footer
+```
