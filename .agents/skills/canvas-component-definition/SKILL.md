@@ -78,12 +78,18 @@ Before creating a new component, check whether existing workspace components can
 satisfy the request, especially when the user names specific components to
 reuse, compose, or wrap.
 
+This is the canonical reuse-first policy. Other skills should link here instead
+of restating the same decision tree.
+
 - Reuse existing components when they already fit or can fit with a reasonable
   extension, variant, or thin wrapper.
+- Do not silently create a replacement that bypasses the existing component.
 - Do not silently replace a named existing component with a new implementation.
 - If an existing component does not fit, explain the mismatch and choose
   deliberately between extending it, wrapping it, or creating a new
   purpose-specific component.
+- Surface the mismatch and tradeoff when it affects whether the request is still
+  being followed.
 
 ## Workbench mocks
 

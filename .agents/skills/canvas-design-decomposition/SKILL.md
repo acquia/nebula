@@ -78,11 +78,11 @@ the structure and prop/slot sketch first, then hand off.
 
 ## Skill order
 
-1. **This skill** — structure, props/slots, granularity.
-2. [`canvas-component-metadata`](../canvas-component-metadata/SKILL.md) — exact
+1. **This skill** — workflow, tree, and handoff.
+2. [`canvas-component-composability`](../canvas-component-composability/SKILL.md)
+   — shared props/slots rules, repeatable content, and granularity checks.
+3. [`canvas-component-metadata`](../canvas-component-metadata/SKILL.md) — exact
    `component.yml` schema.
-3. [`canvas-component-composability`](../canvas-component-composability/SKILL.md)
-   — slot patterns, repeatable content, reuse.
 4. [`canvas-component-definition`](../canvas-component-definition/SKILL.md) —
    folder contract, mocks, naming authority.
 5. [`implement-design`](../implement-design/SKILL.md) — pixel-level fidelity
@@ -171,72 +171,32 @@ sketch:
 
 - **Props:** configuration and simple values editors should set directly
   (variants, booleans, short strings, URLs, enums). Note intent and broad type
-  class (`string`, `boolean`, `enum`, image/reference)—not final YAML.
-  **Order:** If the component uses **one primary `variant`** enum (the standard
-  name for the layout/visual preset), list **`variant` first** in the sketch and
-  keep the same order in `component.yml`. **Otherwise** (granular styling only,
-  several independent preset enums with no clear primary `variant`, or no preset
-  enum), put **content** props first—headline, body, labels, links, media
-  refs—then **configuration** (density, alignment, toggles, theme). See
-  [references/props-vs-slots-rubric.md](references/props-vs-slots-rubric.md#prop-order-in-forms-and-metadata).
+  class (`string`, `boolean`, `enum`, image/reference)—not final YAML. Follow
+  [`canvas-component-composability`](../canvas-component-composability/SKILL.md)
+  for the actual props-vs-slots rubric, variants-vs-granular guidance, and prop
+  ordering. This phase records the decision; it does not redefine that rubric.
 - **Slots:** areas where authors compose child components or arbitrary blocks.
   Name the slot, describe allowed content, and note **empty** behavior
   (collapse, placeholder, min height).
+- **Implementation style:** record `variants` (default) or `granular props` with
+  a one-line rationale in the handoff. For the Phase E write-up convention, see
+  [references/props-vs-slots-rubric.md](references/props-vs-slots-rubric.md).
 
-**Variant-first vs granular props:** Visual differences often map to one of two
-modeling styles:
-
-1. **Variants (preferred by default):** A **`variant`** enum prop names
-   **cohesive presets** (combined spacing, alignment, media placement, chrome).
-   Use **`variant`** as the prop ID for every primary preset field—do not use
-   `appearance`, `layout`, `layoutVariant`, or other synonyms for the same role.
-   Optional **orthogonal** enums (`size`, `density`, …) are separate props only
-   when axes are truly independent. Editors pick values; implementation maps
-   them to class sets (for example CVA). See
-   [`canvas-component-metadata`](../canvas-component-metadata/SKILL.md) for enum
-   authoring.
-2. **Granular props:** Separate props per axis (`showMedia`, `mediaPosition`,
-   `density`, `align`) so authors **mix** combinations. Use when axes are truly
-   independent, when analytics or CMS rules require toggling one field at a
-   time, or when the **user explicitly prefers** granular control.
-
-**Default:** choose **variants** unless the user states a preference for
-granular props or independent axes clearly win. Record the choice in the handoff
-(see template). Detail:
-[references/props-vs-slots-rubric.md](references/props-vs-slots-rubric.md#variants-vs-granular-props).
-
-**Canvas rule of thumb:** complex repeatable structures belong in **slots** and
-child components, not array-of-object props. Authoritative schema:
-[`canvas-component-metadata`](../canvas-component-metadata/SKILL.md).
-
-**Exit:** Every node has a prop/slot sketch; repeatable rich children are not
-modeled as object arrays in props.
+**Exit:** Every node has a prop/slot sketch, implementation style is stated, and
+repeatable rich children are not modeled as object arrays in props.
 
 ### Phase F — Granularity audit
 
-Run the checklist below. For detail, see
-[references/granularity.md](references/granularity.md).
+Run the shared granularity checklist in
+[`canvas-component-composability`](../canvas-component-composability/SKILL.md).
+In this phase, audit the candidate tree against that shared rule set and record
+the result; do not create a second split/merge rubric here. For the Phase F
+audit note, see [references/granularity.md](references/granularity.md).
 
-**Too coarse**
-
-- One node owns many unrelated concerns.
-- Props stand in for what should be separate components or slots.
-- A single component couples layout shell to multiple independent content blocks
-  that could vary separately.
-
-**Too fine**
-
-- Leaves that only wrap static copy with **no** reuse.
-- Slots that always accept a single fixed child type with no authoring benefit
-  (consider merging or converting to props).
-
-**Soft signal:** many distinct prop purposes or more than ~6–8 props can mean
-split or slot extraction is needed—justify with reuse and editor experience, not
-the number alone
-([`canvas-component-composability`](../canvas-component-composability/SKILL.md)).
-
-**Rework:** If any node fails, merge, split, or extract, then repeat Phase E for
-changed nodes.
+- Mark each node pass/fail with a short rationale.
+- If any node fails, merge, split, or extract, then repeat Phase E for changed
+  nodes only.
+- Document intentional exceptions explicitly.
 
 **Exit:** All nodes pass or failures are documented with explicit rationale.
 
@@ -318,14 +278,16 @@ primary variation enum; **content first** otherwise—then configuration)
 
 ## Next steps
 
+- [ ] `canvas-component-composability` — edge cases for props/slots,
+      repeatability, or granularity
 - [ ] `canvas-component-metadata` — draft `component.yml`
 - [ ] `canvas-component-definition` — folder, `index.jsx`, mocks
-- [ ] `canvas-component-composability` — repeatable slots if needed
 - [ ] `implement-design` — Figma fidelity pass (only when matching a Figma file)
 ```
 
 ## Further reading
 
+- [`canvas-component-composability`](../canvas-component-composability/SKILL.md)
 - [references/granularity.md](references/granularity.md)
 - [references/props-vs-slots-rubric.md](references/props-vs-slots-rubric.md)
 - [references/worked-example.md](references/worked-example.md)
@@ -334,5 +296,5 @@ primary variation enum; **content first** otherwise—then configuration)
 
 - Do not restate full `component.yml` grammar—use
   [`canvas-component-metadata`](../canvas-component-metadata/SKILL.md).
-- Do not duplicate composability tables wholesale—summarize and link
+- Do not restate the reusable props/slots or granularity rulebooks here—link
   [`canvas-component-composability`](../canvas-component-composability/SKILL.md).
