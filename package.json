@@ -22,7 +22,7 @@
     "tailwind-merge": "^3.5.0"
   },
   "devDependencies": {
-    "@drupal-canvas/cli": "^0.13.1",
+    "@drupal-canvas/cli": "^0.13.2",
     "@drupal-canvas/eslint-config": "^0.2.1",
     "@drupal-canvas/workbench": "^0.4.1",
     "@eslint/js": "^9.39.4",
