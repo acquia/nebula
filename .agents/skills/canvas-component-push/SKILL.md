@@ -142,10 +142,12 @@ Point the user to the official setup docs:
 - Drupal Canvas CLI package/docs:
   <https://www.npmjs.com/package/@drupal-canvas/cli>
 
-Ask them to verify `CANVAS_SITE_URL` and **`.env` token or client credential
-values first**; if those are unset or invalid, have them run
-**`npx canvas login`** as a fallback (or again, to refresh interactive tokens).
-Retry the push only after they confirm setup updates are complete.
+Ask them to verify `CANVAS_SITE_URL` and the active token or client
+credential values from whichever config source the CLI is using first
+(for example: shell environment variables, `.env`, `~/.canvasrc`, or
+interactive-login config/session); if those are unset or invalid, have them
+run **`npx canvas login`** as a fallback (or again, to refresh interactive
+tokens). Retry the push only after they confirm setup updates are complete.
 
 ### Dependency-related failures
 
