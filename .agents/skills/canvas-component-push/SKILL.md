@@ -24,7 +24,8 @@ Before running any push command:
 
 1. Check that Canvas CLI auth is configured from a supported source. For local
    project work, prefer a `.env` file in the project root. The CLI also reads
-   shell environment variables and `~/.canvasrc`.
+   shell environment variables, `~/.canvasrc`, and interactive-login tokens
+   stored in `~/.config/drupal-canvas/oauth.json` (written by `npx canvas login`).
 2. Verify `CANVAS_SITE_URL` is set.
 3. **Primary auth (prefer env-based):** configure at least one of:
    - **`CANVAS_ACCESS_TOKEN`** — set and non-empty in `.env` / the shell
