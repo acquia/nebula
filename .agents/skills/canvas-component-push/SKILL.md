@@ -24,22 +24,31 @@ Before running any push command:
 
 1. Check that Canvas CLI auth is configured from a supported source. For local
    project work, prefer a `.env` file in the project root. The CLI also reads
-   shell environment variables and `~/.canvasrc`.
+   shell environment variables, `~/.canvasrc`, and interactive-login tokens
+   stored in `~/.config/drupal-canvas/oauth.json` (written by `npx canvas login`).
 2. Verify `CANVAS_SITE_URL` is set.
-3. Verify one auth mode is configured:
-   - `CANVAS_ACCESS_TOKEN` is set and non-empty, or
-   - both `CANVAS_CLIENT_ID` and `CANVAS_CLIENT_SECRET` are set.
-4. If `CANVAS_ACCESS_TOKEN` is set, treat it as the active auth mode. It skips
+3. **Primary auth (prefer env-based):** configure at least one of:
+   - **`CANVAS_ACCESS_TOKEN`** — set and non-empty in `.env` / the shell
+     (simplest for many setups), or
+   - **`CANVAS_CLIENT_ID` and `CANVAS_CLIENT_SECRET`** — both set (typical for
+     CI and service-style access).
+4. **Fallback when tokens are not configured:** if `CANVAS_SITE_URL` is set but
+   **neither** an access token **nor** client credentials appear in `.env` / the
+   shell, use **`npx canvas login`** (browser-based Canvas sign-in). Tokens are
+   stored under `~/.config/drupal-canvas/oauth.json` (keyed by site URL). See
+   [interactive login with Canvas Login](https://git.drupalcode.org/project/canvas/-/tree/1.x/modules/canvas_oauth#23-interactive-login-with-canvas-login).
+   Do not treat auth as missing until this fallback has been tried or ruled out.
+5. If `CANVAS_ACCESS_TOKEN` is set, treat it as the active auth mode. It skips
    the OAuth client credentials flow entirely, and `CANVAS_CLIENT_ID`,
    `CANVAS_CLIENT_SECRET`, and `CANVAS_SCOPE` are ignored.
-5. If required setup is missing, **stop** and ask the user to complete setup
-   first.
-6. **Do not guess setup steps**. Point the user to the official docs:
+6. If required setup is still missing after the checks above, **stop** and ask
+   the user to complete setup first.
+7. **Do not guess setup steps**. Point the user to the official docs:
    - Drupal Canvas OAuth module setup:
      <https://git.drupalcode.org/project/canvas/-/tree/1.x/modules/canvas_oauth#2-setup>
    - Drupal Canvas CLI package/docs:
      <https://www.npmjs.com/package/@drupal-canvas/cli>
-7. Continue only after the user confirms setup is complete.
+8. Continue only after the user confirms setup is complete.
 
 ## Run push
 
@@ -134,10 +143,12 @@ Point the user to the official setup docs:
 - Drupal Canvas CLI package/docs:
   <https://www.npmjs.com/package/@drupal-canvas/cli>
 
-Ask them to verify and update `.env` values (`CANVAS_SITE_URL`,
-`CANVAS_ACCESS_TOKEN`, `CANVAS_CLIENT_ID`, `CANVAS_CLIENT_SECRET`) and the
-relevant Canvas auth setup for their chosen auth mode, then retry the push only
-after they confirm setup updates are complete.
+Ask them to verify `CANVAS_SITE_URL` and the active token or client
+credential values from whichever config source the CLI is using first
+(for example: shell environment variables, `.env`, `~/.canvasrc`, or
+interactive-login config/session); if those are unset or invalid, have them
+run **`npx canvas login`** as a fallback (or again, to refresh interactive
+tokens). Retry the push only after they confirm setup updates are complete.
 
 ### Dependency-related failures
 
