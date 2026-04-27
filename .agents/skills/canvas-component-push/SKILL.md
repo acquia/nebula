@@ -25,7 +25,8 @@ Before running any push command:
 1. Check that Canvas CLI auth is configured from a supported source. For local
    project work, prefer a `.env` file in the project root. The CLI also reads
    shell environment variables, `~/.canvasrc`, and interactive-login tokens
-   stored in `~/.config/drupal-canvas/oauth.json` (written by `npx canvas login`).
+   stored in `~/.config/drupal-canvas/oauth.json` (written by
+   `npx canvas login`).
 2. Verify `CANVAS_SITE_URL` is set.
 3. **Primary auth (prefer env-based):** configure at least one of:
    - **`CANVAS_ACCESS_TOKEN`** — set and non-empty in `.env` / the shell
@@ -143,12 +144,12 @@ Point the user to the official setup docs:
 - Drupal Canvas CLI package/docs:
   <https://www.npmjs.com/package/@drupal-canvas/cli>
 
-Ask them to verify `CANVAS_SITE_URL` and the active token or client
-credential values from whichever config source the CLI is using first
-(for example: shell environment variables, `.env`, `~/.canvasrc`, or
-interactive-login config/session); if those are unset or invalid, have them
-run **`npx canvas login`** as a fallback (or again, to refresh interactive
-tokens). Retry the push only after they confirm setup updates are complete.
+Ask them to verify `CANVAS_SITE_URL` and the active token or client credential
+values from whichever config source the CLI is using first (for example: shell
+environment variables, `.env`, `~/.canvasrc`, or interactive-login
+config/session); if those are unset or invalid, have them run
+**`npx canvas login`** as a fallback (or again, to refresh interactive tokens).
+Retry the push only after they confirm setup updates are complete.
 
 ### Dependency-related failures
 
