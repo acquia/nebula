@@ -1,10 +1,17 @@
 import { getSiteData } from 'drupal-canvas';
 
 const Branding = () => {
-  const { homeUrl, siteName } = getSiteData().branding;
+  const { branding, themeAssets } = getSiteData();
+  const { homeUrl, siteName } = branding;
+  const logoUrl = themeAssets?.logo?.url;
+
   return (
     <a href={homeUrl} aria-label={siteName} className="max-h-full">
-      <LogoIcon />
+      {logoUrl ? (
+        <img src={logoUrl} alt="" className="max-h-full" />
+      ) : (
+        <LogoIcon />
+      )}
       <div className="sr-only">{siteName}</div>
     </a>
   );
