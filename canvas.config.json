@@ -1,5 +1,6 @@
 {
   "componentDir": "src/components",
   "pagesDir": "pages",
+  "contentTemplatesDir": "content-templates",
   "globalCssPath": "src/global.css"
 }
