@@ -22,9 +22,9 @@
     "tailwind-merge": "^3.5.0"
   },
   "devDependencies": {
-    "@drupal-canvas/cli": "^0.15.1",
-    "@drupal-canvas/eslint-config": "^0.4.0",
-    "@drupal-canvas/workbench": "^0.4.2",
+    "@drupal-canvas/cli": "^0.16.0",
+    "@drupal-canvas/eslint-config": "^0.5.0",
+    "@drupal-canvas/workbench": "^0.5.0",
     "@eslint/js": "^9.39.4",
     "@ianvs/prettier-plugin-sort-imports": "^4.7.1",
     "eslint": "^9.39.4",
