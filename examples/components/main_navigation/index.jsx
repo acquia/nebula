@@ -14,7 +14,7 @@ const MainNavigation = () => {
   const [open, setOpen] = useState(false);
   return (
     <>
-      <div className="flex justify-end md:!hidden">
+      <div className="flex justify-end md:hidden">
         <button
           type="button"
           className="relative flex size-9 items-center justify-center rounded-lg border text-sm font-semibold text-gray-800 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none disabled:pointer-events-none"
