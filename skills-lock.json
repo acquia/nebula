@@ -36,6 +36,12 @@
       "sourceType": "github",
       "computedHash": "f61c530166f8852ca1f4bd210ec76a151fc0a8a442589d012ee37559f34be579"
     },
+    "canvas-content-templates": {
+      "source": "drupal-canvas/skills",
+      "sourceType": "github",
+      "skillPath": "skills/canvas-content-templates/SKILL.md",
+      "computedHash": "57370c828f3b6fe302309596197d3556f481ec5d17afeea52f8368eddba318b2"
+    },
     "canvas-data-fetching": {
       "source": "drupal-canvas/skills",
       "sourceType": "github",
