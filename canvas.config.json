@@ -2,5 +2,7 @@
   "componentDir": "src/components",
   "pagesDir": "pages",
   "contentTemplatesDir": "content-templates",
-  "globalCssPath": "src/global.css"
+  "globalCssPath": "src/global.css",
+  "regionsDir": "regions",
+  "layoutPath": "src/layout.jsx"
 }
