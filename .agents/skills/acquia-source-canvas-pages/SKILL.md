@@ -1,8 +1,6 @@
 ---
 name: acquia-source-canvas-pages
-description:
-  Publishes and updates remote Canvas pages on Acquia Source via Source MCP —
-  images, props, layout; page JSON does not CLI-sync to Source.
+description: "Publishes, updates, and manages remote Canvas pages on Acquia Source via Source MCP — creates pages, places components, configures layout and props, wires image media, and publishes drafts. Use when the user wants to publish a Canvas page, deploy page changes to Source, update remote page layout, manage component props on Acquia Source, or mentions Source MCP in a page context. Does not cover local Workbench preview or CLI component pushes."
 ---
 
 # Acquia Source — Canvas pages via Source MCP
@@ -16,24 +14,18 @@ Use this skill when **all** of the following hold:
 2. The work is **Canvas pages** on the **remote** site (create page, place
    components, update layout/props, publish)—not local-only Workbench preview.
 
-## Do not use Canvas CLI for remote pages
+## Key constraint: Canvas CLI does not sync page JSON
 
-**`canvas push` / `canvas pull` do not support syncing page JSON to/from the
-remote Acquia Source environment today.** Do not instruct users to rely on CLI
-page sync for that tenant.
+> **`canvas push` / `canvas pull` do not sync page JSON to/from Acquia Source.**
+> Use the Canvas CLI only for pushing **JavaScript components** (`npx canvas push`
+> via [`canvas-component-push`](../canvas-component-push/SKILL.md)). For all
+> **page operations** (create, layout, props, publish), use **Source MCP tools**.
 
-- **Components:** Continue to use the Canvas CLI (`npx canvas push`) and
-  [`canvas-component-push`](../canvas-component-push/SKILL.md) for pushing
-  **JavaScript components** when the user asks to push component source.
-- **Pages:** Use **Source MCP tools** on the configured server.
+Because page JSON does not sync, local `pages/*.json` files (with placeholders
+or `placehold.co` URLs) serve **Workbench previews only** — they are not the
+remote source of truth.
 
-## Images and media (pages do not CLI-sync)
-
-Because **`canvas push` / `canvas pull` do not sync page JSON** to Acquia
-Source, **nothing in repo `pages/*.json` automatically provisions files or image
-props on the remote site.** Local page specs may use HTTPS placeholders,
-`placehold.co`, or example paths so **Workbench** renders; those values are not
-reliable as the remote source of truth.
+## Images and media
 
 Treat image handling as a **remote-only** concern:
 
@@ -74,7 +66,7 @@ If you are running the full migration pipeline, **do not publish** until every
 image prop on every placed instance is wired—see the Phase A5 gate in
 [`acquia-source-site-build`](../acquia-source-site-build/SKILL.md).
 
-## MCP workflow (outline)
+## MCP workflow
 
 Always **read each tool’s schema** in the MCP filesystem before calling
 `call_mcp_tool`.
@@ -95,7 +87,28 @@ Always **read each tool’s schema** in the MCP filesystem before calling
    `add_component_to_page_region`, `update_component_props`, `move_component`,
    `remove_component`, as needed for the layout.
 
-4. **Publish** — Use the tool that matches the goal:
+   Example — wiring an image prop via MCP after placing a component:
+
+   ```json
+   // update_component_props for a hero component instance
+   {
+     "page_id": "123",
+     "instance_id": "hero-1",
+     "props": {
+       "heroImage": { "target_id": 456 }
+     }
+   }
+   ```
+
+   Confirm the exact prop shape against the component’s `component.yml`.
+
+4. **Validate before publish** — Re-fetch the layout with `get_page_layout` and
+   verify:
+   - All expected component instances are present.
+   - Image props resolve to non-null `resolved` URLs (no leftover placeholders).
+   - If any prop is missing or null, fix it before proceeding.
+
+5. **Publish** — Use the tool that matches the goal:
    - **`publish_canvas_page`** — make a page publicly visible and commit pending
      draft changes when going live is the objective.
    - **`publish_auto_saves`** — commit pending Canvas edits (including layout)
