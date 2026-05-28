@@ -1,0 +1,21 @@
+{
+  "status": true,
+  "elements": {
+    "68fdccf3-114d-446d-bd10-8a8b6005a612": {
+      "type": "js.header",
+      "props": {
+        "displaySearchForm": true
+      },
+      "slots": {
+        "logo": ["9bc3c4e7-81e1-41ef-ba40-061561d358ef"],
+        "menu": ["7d543abc-9be9-4353-b940-38dfa578dd6a"]
+      }
+    },
+    "9bc3c4e7-81e1-41ef-ba40-061561d358ef": {
+      "type": "js.logo"
+    },
+    "7d543abc-9be9-4353-b940-38dfa578dd6a": {
+      "type": "js.main_navigation"
+    }
+  }
+}

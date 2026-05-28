@@ -1,0 +1,11 @@
+{
+  "status": true,
+  "elements": {
+    "bf4d99cc-0951-4b69-a323-04f21c7d53ce": {
+      "type": "js.footer",
+      "props": {
+        "text": "Built with Acquia Source"
+      }
+    }
+  }
+}
