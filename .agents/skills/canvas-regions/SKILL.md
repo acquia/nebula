@@ -1,12 +1,12 @@
 ---
 name: canvas-regions
 description:
-  Use for any task touching site chrome — header, footer, sidebar, or
-  global navigation that repeats across pages — and for any region-spec
-  work (create, modify, review, validate region JSON, or the project-level
-  layout component). Also load when a task creates or edits multiple pages
-  that share chrome, or asks for a "site" or "navigation between pages":
-  shared chrome belongs in regions, never inlined into page JSON.
+  Use for any task touching site chrome — header, footer, sidebar, or global
+  navigation that repeats across pages — and for any region-spec work (create,
+  modify, review, validate region JSON, or the project-level layout component).
+  Also load when a task creates or edits multiple pages that share chrome, or
+  asks for a "site" or "navigation between pages"; shared chrome belongs in
+  regions, never inlined into page JSON.
 ---
 
 ## Canonical definition

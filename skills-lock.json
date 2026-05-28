@@ -9,21 +9,25 @@
     "canvas-component-composability": {
       "source": "drupal-canvas/skills",
       "sourceType": "github",
+      "skillPath": "skills/canvas-component-composability/SKILL.md",
       "computedHash": "ecfd802151d7c3ac340f188e61fc7ddbbec4dec8745bc34e96ed11a0bb7ddef6"
     },
     "canvas-component-definition": {
       "source": "drupal-canvas/skills",
       "sourceType": "github",
+      "skillPath": "skills/canvas-component-definition/SKILL.md",
       "computedHash": "e193ed923cdd1cef12e51591dca6591991839c5f556316498f3cbb116b369184"
     },
     "canvas-component-metadata": {
       "source": "drupal-canvas/skills",
       "sourceType": "github",
+      "skillPath": "skills/canvas-component-metadata/SKILL.md",
       "computedHash": "0252c8df1a0778eef53bf5d747960e4f3a2cda704c4c092961d5b23d984b1bd9"
     },
     "canvas-component-push": {
       "source": "drupal-canvas/skills",
       "sourceType": "github",
+      "skillPath": "skills/canvas-component-push/SKILL.md",
       "computedHash": "0c64b90899960ffe0e739a0f33c50c76f9672e8d06271e7fdd08edbf08a69ea0"
     },
     "canvas-component-upload": {
@@ -34,6 +38,7 @@
     "canvas-component-utils": {
       "source": "drupal-canvas/skills",
       "sourceType": "github",
+      "skillPath": "skills/canvas-component-utils/SKILL.md",
       "computedHash": "f61c530166f8852ca1f4bd210ec76a151fc0a8a442589d012ee37559f34be579"
     },
     "canvas-content-templates": {
@@ -45,31 +50,43 @@
     "canvas-data-fetching": {
       "source": "drupal-canvas/skills",
       "sourceType": "github",
+      "skillPath": "skills/canvas-data-fetching/SKILL.md",
       "computedHash": "22e33ad41e25b549be912d1e5a2450a2a127fe1ee34c364c685fa92707c97f27"
     },
     "canvas-design-decomposition": {
       "source": "drupal-canvas/skills",
       "sourceType": "github",
+      "skillPath": "skills/canvas-design-decomposition/SKILL.md",
       "computedHash": "8ff0b9fda72c473104fb0de518efbc18337cbf52f85f389cce7d11da07a74c10"
     },
     "canvas-navigation-components": {
       "source": "drupal-canvas/skills",
       "sourceType": "github",
+      "skillPath": "skills/canvas-navigation-components/SKILL.md",
       "computedHash": "2ba6ebfc5cde42d58ebc03df873dfa1baccd3b92fc69fed0bfa28c31affd7dfc"
     },
     "canvas-page-definition": {
       "source": "drupal-canvas/skills",
       "sourceType": "github",
+      "skillPath": "skills/canvas-page-definition/SKILL.md",
       "computedHash": "52c0fbbc12619640e38e7f7f14939930337bc51b822a4142e231cd71a4483187"
+    },
+    "canvas-regions": {
+      "source": "drupal-canvas/skills",
+      "sourceType": "github",
+      "skillPath": "skills/canvas-regions/SKILL.md",
+      "computedHash": "e5c4b9c70bc2bd44f94e0c65fc720cd8a91e6c37567a4db2796d62527e34ad71"
     },
     "canvas-styling-conventions": {
       "source": "drupal-canvas/skills",
       "sourceType": "github",
+      "skillPath": "skills/canvas-styling-conventions/SKILL.md",
       "computedHash": "3ed6a381e96ecd29f2fa12e6770a38c80ecb4c3fb2b02de16b19062bf559fd48"
     },
     "canvas-workbench": {
       "source": "drupal-canvas/skills",
       "sourceType": "github",
+      "skillPath": "skills/canvas-workbench/SKILL.md",
       "computedHash": "cae90987c37b250bf8df91e1b81f61eff5a03e7c8efb116b9abcebd6b2e4395e"
     },
     "dogfood": {
