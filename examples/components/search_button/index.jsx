@@ -12,6 +12,7 @@ const SearchButton = ({ positionTop = 50 }) => {
       <button
         type="button"
         aria-label={open ? 'Close' : 'Search'}
+        aria-expanded={open}
         className="rounded bg-blue-600 p-2.5 text-white"
         onClick={toggleOpen}
       >
