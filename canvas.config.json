@@ -4,5 +4,10 @@
   "contentTemplatesDir": "content-templates",
   "globalCssPath": "src/global.css",
   "regionsDir": "regions",
-  "layoutPath": "src/layout.jsx"
+  "layoutPath": "src/layout.jsx",
+  "sync": {
+    "pages": true,
+    "regions": true,
+    "contentTemplates": true
+  }
 }
