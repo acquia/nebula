@@ -22,9 +22,11 @@ export default function SearchForm({ className }) {
       </div>
       <button
         type="submit"
+        aria-label="Search"
         className="rounded bg-blue-600 p-2.5 leading-0 text-white"
       >
         <svg
+          aria-hidden="true"
           className="h-4 w-4 stroke-white text-white"
           width="24"
           height="24"

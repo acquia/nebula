@@ -11,6 +11,8 @@ const SearchButton = ({ positionTop = 50 }) => {
     <>
       <button
         type="button"
+        aria-label={open ? 'Close' : 'Search'}
+        aria-expanded={open}
         className="rounded bg-blue-600 p-2.5 text-white"
         onClick={toggleOpen}
       >
@@ -36,6 +38,7 @@ const SearchOverlay = ({ positionTop }) => {
 const SearchIcon = () => {
   return (
     <svg
+      aria-hidden="true"
       className="h-4 w-4 stroke-white text-white"
       width="24"
       height="24"
@@ -62,6 +65,7 @@ const SearchIcon = () => {
 const CloseIcon = () => {
   return (
     <svg
+      aria-hidden="true"
       className="h-4 w-4 stroke-white text-white"
       width="24"
       height="20"
