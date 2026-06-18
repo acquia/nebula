@@ -170,6 +170,36 @@ If page media reconciliation or page sync adds resolved image data such as
 `width`, `height`, or `_provenance`, preserve that data unless you are
 intentionally changing the image source.
 
+## Content Entity Reference Props In Pages
+
+When a component prop is defined as a content entity reference in
+`component.yml`, page JSON should provide the selected entity value for that
+prop. Do not put `dataDependencies.entityFields` or field-browser expressions in
+the page spec; those belong in the component metadata.
+
+For authored page specs, use the selected entity reference shape with
+`target_id`. If the resolved runtime shape that JSX receives is unclear, run
+`npx canvas agents-context cer-preview <component>` after the component metadata
+exists locally to inspect the resolved prop keys and nested values.
+
+`target_id` is the Drupal entity ID for the selected entity. Get it from a known
+Drupal URL such as `/node/123`, from a content listing/export that includes
+entity IDs, or by querying the site's content API when the task requires
+choosing a real entity. If the correct entity cannot be determined, ask the user
+for the entity ID. Do not use the entity UUID, path alias, title, or resolved
+preview object as `target_id`.
+
+```json
+{
+  "type": "js.article-card",
+  "props": {
+    "article": {
+      "target_id": 123
+    }
+  }
+}
+```
+
 ## Format constraints
 
 The page-spec format only supports discovered component elements plus their

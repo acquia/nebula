@@ -190,6 +190,56 @@ props:
       type: string
 ```
 
+#### Content entity reference
+
+Reference to a selected Drupal content entity as a structured object. Use this
+when the component needs the editor to choose an entity and the JSX should
+receive selected entity fields together on one prop.
+
+```yaml
+props:
+  properties:
+    featuredArticle:
+      title: Featured Article
+      type: object
+      $ref: json-schema-definitions://canvas.module/content-entity-reference
+      x-allowed-entity-type-id: node
+      x-allowed-bundle: article
+```
+
+Content entity reference props must be optional: do not list them in `required`.
+
+Every content entity reference prop must include:
+
+- `x-allowed-entity-type-id`: the Drupal entity type, such as `node`
+- `x-allowed-bundle`: the Drupal bundle, such as `article`
+
+Do not add `examples` for content entity reference props. Preview values are
+resolved from `dataDependencies.entityFields`.
+
+Add `dataDependencies.entityFields.<propName>` with one or more expressions from
+`.agents/drupal-canvas/content-entity-reference-expressions.json`.
+
+If `.agents/drupal-canvas/content-entity-reference-expressions.json` is missing,
+stale, or does not include the needed entity fields, run
+`npx canvas agents-context cer-expressions` to refresh only content entity
+reference expressions from the configured Canvas site.
+
+```yaml
+dataDependencies:
+  entityFields:
+    featuredArticle:
+      - ℹ︎␜entity:node:article␝title␞␟value
+      - ℹ︎␜entity:node:article␝path␞␟alias
+```
+
+All expressions for one content entity reference prop must target the same
+entity type and bundle. Do not infer the final developer-facing object shape
+from expression names alone. After the component metadata exists locally, run
+`npx canvas agents-context cer-preview <component>` to inspect the actual
+resolved prop shape that JSX should consume. Reference expressions can create
+nested objects and include metadata keys such as `__type`.
+
 #### Video
 
 Reference to a video object with metadata like dimensions and file URL. Only the

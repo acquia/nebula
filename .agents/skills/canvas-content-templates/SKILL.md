@@ -232,8 +232,9 @@ view mode to target.
 1. **Ensure agents context is fresh:** check whether
    `.agents/drupal-canvas/prop-sources.json` and
    `.agents/drupal-canvas/view-modes.json` exist. If either file is missing or
-   was last modified more than 1 hour ago, run `npx canvas agents-context` to
-   refresh. If the files are under 1 hour old, skip the refresh
+   was last modified more than 1 hour ago, run
+   `npx canvas agents-context content-templates` to refresh. If the files are
+   under 1 hour old, skip the refresh
 2. **Identify the entity mapping:** determine the entity type, bundle, and view
    mode for the template. Consult available view modes to confirm the
    combination is valid. If the user doesn't specify a view mode, show them the
@@ -257,7 +258,7 @@ view mode to target.
 # Check freshness of agents context files and refresh if missing or older than 1 hour.
 # Use `date -r <file>` to check file modification time (works on macOS and Linux).
 # If stale or missing:
-npx canvas agents-context
+npx canvas agents-context content-templates
 
 # Check available view modes
 cat .agents/drupal-canvas/view-modes.json

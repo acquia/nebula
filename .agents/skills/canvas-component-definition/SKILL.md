@@ -43,6 +43,10 @@ Every Canvas component MUST satisfy all checks below:
 - Any prop that represents an image uses a single object prop with
   `$ref: json-schema-definitions://canvas.module/image`; do not split one image
   into `imageUrl`, `imageAlt`, `imageWidth`, or similar string/number props
+- Any prop that represents a selected Drupal entity uses
+  `$ref: json-schema-definitions://canvas.module/content-entity-reference` and
+  has matching `dataDependencies.entityFields.<propName>` entries in
+  `component.yml`
 
 If any item is missing, the component is incomplete for Canvas usage.
 
