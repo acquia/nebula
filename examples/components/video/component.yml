@@ -12,4 +12,42 @@ props:
         - src: /ui/assets/videos/mountain_wide.mp4
           poster: https://placehold.co/1920x1080.png?text=Widescreen
       $ref: json-schema-definitions://canvas.module/video
+    showControls:
+      title: Show Controls
+      type: boolean
+      examples:
+        - true
+    autoplay:
+      title: Autoplay
+      type: boolean
+      examples:
+        - false
+    loop:
+      title: Loop
+      type: boolean
+      examples:
+        - false
+    muted:
+      title: Muted
+      type: boolean
+      examples:
+        - false
+    playsInline:
+      title: Plays Inline
+      type: boolean
+      examples:
+        - false
+    preload:
+      title: Preload
+      type: string
+      enum:
+        - none
+        - metadata
+        - auto
+      meta:enum:
+        none: None
+        metadata: Metadata
+        auto: Auto
+      examples:
+        - metadata
 slots: []
