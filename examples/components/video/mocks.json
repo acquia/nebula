@@ -8,6 +8,21 @@
           "poster": "https://placehold.co/1920x1080.png?text=Widescreen"
         }
       }
+    },
+    {
+      "name": "Autoplay background loop",
+      "props": {
+        "video": {
+          "src": "https://www.w3schools.com/html/mov_bbb.mp4",
+          "poster": "https://placehold.co/1920x1080.png?text=Widescreen"
+        },
+        "showControls": false,
+        "autoplay": true,
+        "loop": true,
+        "muted": true,
+        "playsInline": true,
+        "preload": "auto"
+      }
     }
   ]
 }
