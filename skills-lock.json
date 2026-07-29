@@ -16,13 +16,13 @@
       "source": "drupal-canvas/skills",
       "sourceType": "github",
       "skillPath": "skills/canvas-component-definition/SKILL.md",
-      "computedHash": "e193ed923cdd1cef12e51591dca6591991839c5f556316498f3cbb116b369184"
+      "computedHash": "5dda2725e49522c26647b13106e587f5874ee75cb3cf8e348ebea89a1fa0e123"
     },
     "canvas-component-metadata": {
       "source": "drupal-canvas/skills",
       "sourceType": "github",
       "skillPath": "skills/canvas-component-metadata/SKILL.md",
-      "computedHash": "0252c8df1a0778eef53bf5d747960e4f3a2cda704c4c092961d5b23d984b1bd9"
+      "computedHash": "2404696b1007f23404c5ff7b66584a64645c9f558c86730e1266091cb4a32a0d"
     },
     "canvas-component-push": {
       "source": "drupal-canvas/skills",
@@ -45,7 +45,7 @@
       "source": "drupal-canvas/skills",
       "sourceType": "github",
       "skillPath": "skills/canvas-content-templates/SKILL.md",
-      "computedHash": "57370c828f3b6fe302309596197d3556f481ec5d17afeea52f8368eddba318b2"
+      "computedHash": "6e806d22ee7db4f6dadb817777930a7c4185d29febdd4e6aff1a7146b3c70ef0"
     },
     "canvas-data-fetching": {
       "source": "drupal-canvas/skills",
@@ -69,7 +69,7 @@
       "source": "drupal-canvas/skills",
       "sourceType": "github",
       "skillPath": "skills/canvas-page-definition/SKILL.md",
-      "computedHash": "52c0fbbc12619640e38e7f7f14939930337bc51b822a4142e231cd71a4483187"
+      "computedHash": "2b2b1656bc0faec26c70b15572d00492312bbcd9c06ebc33ce6f1d3798a424bb"
     },
     "canvas-regions": {
       "source": "drupal-canvas/skills",
