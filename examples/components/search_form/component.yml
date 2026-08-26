@@ -3,5 +3,5 @@ machineName: search_form
 status: true
 required: []
 props:
-  properties: []
-slots: []
+  properties: {}
+slots: {}

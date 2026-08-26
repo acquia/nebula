@@ -50,4 +50,4 @@ props:
         auto: Auto
       examples:
         - metadata
-slots: []
+slots: {}

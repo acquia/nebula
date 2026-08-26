@@ -41,4 +41,4 @@ props:
       meta:enum:
         dark: Dark
         light: Light
-slots: []
+slots: {}

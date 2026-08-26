@@ -19,7 +19,7 @@ required: [] # Array of required prop names
 props:
   properties:
     # ... prop definitions
-slots: [] # Use [] only when there are no slots; otherwise use an object map
+slots: {} # Use an empty object when there are no slots
 ```
 
 ## Props
@@ -203,16 +203,11 @@ props:
       title: Featured Article
       type: object
       $ref: json-schema-definitions://canvas.module/content-entity-reference
-      x-allowed-entity-type-id: node
-      x-allowed-bundle: article
 ```
 
 Content entity reference props must be optional: do not list them in `required`.
-
-Every content entity reference prop must include:
-
-- `x-allowed-entity-type-id`: the Drupal entity type, such as `node`
-- `x-allowed-bundle`: the Drupal bundle, such as `article`
+Do not author `x-allowed-entity-type-id` or `x-allowed-bundle`; Canvas projects
+those values from `dataDependencies.entityFields`.
 
 Do not add `examples` for content entity reference props. Preview values are
 resolved from `dataDependencies.entityFields`.
@@ -383,10 +378,8 @@ Using a slot key named `children` is technically possible, but it is not
 recommended because slot naming often flows into user-facing Canvas labels.
 Prefer explicit slot keys such as `content`, `media`, or `actions`.
 
-`slots` must be either:
-
-1. An object map keyed by slot name (`content`, `sidebar`, etc.)
-2. `[]` when the component has no slots
+`slots` must be an object map keyed by slot name (`content`, `sidebar`, etc.).
+Use an empty object when the component has no slots.
 
 ```yaml
 slots:
@@ -412,10 +405,10 @@ const Section = ({ children }) => {
 };
 ```
 
-Use `slots: []` only when the component has no slots:
+Use `slots: {}` when the component has no slots:
 
 ```yaml
-slots: []
+slots: {}
 ```
 
 Do not use arrays of slot objects:
