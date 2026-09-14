@@ -3,7 +3,7 @@ name: canvas-design-decomposition
 description:
   Plans structure for a component library with props/slots and right-sized
   component granularity. Run before building or adding Canvas components (new
-  `src/components/` folders, component.yml, React), or for plan-only /
+  component folders, component.yml, implementation), or for plan-only /
   breakdown-only work, whenever UI must map to a coherent tree. Mandatory for
   every new Figma frame or greenfield screen—repository drafts do not replace
   phases A–G.
@@ -15,19 +15,20 @@ description:
 
 Load and follow **this** skill **before** proposing component structure for a
 component library, writing implementation plans, or implementing
-React—**including** when the user only asks for a **plan** or
+components—**including** when the user only asks for a **plan** or
 **breakdown**—whenever you are modeling **how** UI should split into Canvas
 components (a **component library**, **section**, or **full page**). The same
 applies when you are about to **build, add, or scaffold components** (see
 below). Treat any of the following as a trigger:
 
 - **Building or adding Canvas components:** creating new folders under
-  `src/components/`, authoring `component.yml` and `index.jsx` (or `.tsx`),
-  **scaffolding** a component from a ticket or spec, **coding** a section from a
-  design, or **implementing** a named block (hero, footer, card, and so on).
-  Decompose **before** writing schema or React so names, slots, variants, and
-  reuse stay aligned—unless the task is a trivial one-line tweak inside an
-  existing, stable API.
+  `src/components/`, authoring `component.yml` and the entry file
+  (`index.jsx`/`.tsx` in React projects; the framework-appropriate file in
+  headless projects), **scaffolding** a component from a ticket or spec,
+  **coding** a section from a design, or **implementing** a named block (hero,
+  footer, card, and so on). Decompose **before** writing schema or
+  implementation code so names, slots, variants, and reuse stay aligned—unless
+  the task is a trivial one-line tweak inside an existing, stable API.
 - **Designing or evolving a component library** for Canvas—naming regions,
   deciding reuse, props/slots, and granularity—whether the stimulus is a file, a
   site, or a conversation.
@@ -281,7 +282,7 @@ primary variation enum; **content first** otherwise—then configuration)
 - [ ] `canvas-component-composability` — edge cases for props/slots,
       repeatability, or granularity
 - [ ] `canvas-component-metadata` — draft `component.yml`
-- [ ] `canvas-component-definition` — folder, `index.jsx`, mocks
+- [ ] `canvas-component-definition` — folder, entry file, mocks
 - [ ] `implement-design` — Figma fidelity pass (only when matching a Figma file)
 ```
 

@@ -12,6 +12,22 @@ description:
 
 # Data fetching
 
+## Project type
+
+Before applying this skill, check `package.json` for a dependency named
+`@drupal-canvas/headless` or starting with `@drupal-canvas/headless-`. If one is
+present, this is a Canvas Headless codebase — read
+[`canvas-headless`](../canvas-headless/SKILL.md) first. In headless projects the
+`drupal-canvas` package (including its `JsonApiClient`) is not supported: fetch
+page trees with the SDK's `fetchPage()` and content with the SDK's JSON:API
+client (`getClient()`), using the framework's idiomatic data-loading path. Do
+not copy the SWR + `JsonApiClient` patterns below into a headless codebase. The
+content-modeling workflow in this skill (identifying content types, verifying
+queries, checking deserialized shapes) still applies conceptually. If no such
+dependency is present, this is a Canvas-rendered React codebase: components are
+React (`index.jsx`/`.tsx`) and everything in this skill applies as written.
+These are the only two project types.
+
 ## Data fetching with SWR
 
 Use [SWR](https://swr.vercel.app/) for all data fetching. It provides caching,

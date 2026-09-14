@@ -1,12 +1,12 @@
 ---
 name: canvas-component-composability
 description:
-  Design Canvas-ready React components with slots and decomposition-first
-  patterns. Use when (1) Designing a component's prop/slot structure, (2) A
-  component is growing too large, (3) Deciding between props vs slots, (4)
-  Refactoring monolithic components, (5) Modeling repeatable list/grid content,
-  (6) Reusing, composing, or wrapping existing workspace components. Ensures
-  Canvas compatibility.
+  Design Canvas-ready components with slots and decomposition-first patterns.
+  Use when (1) Designing a component's prop/slot structure, (2) A component is
+  growing too large, (3) Deciding between props vs slots, (4) Refactoring
+  monolithic components, (5) Modeling repeatable list/grid content, (6) Reusing,
+  composing, or wrapping existing workspace components. Ensures Canvas
+  compatibility.
 ---
 
 Prefer small, focused components over monolithic ones with many props. When a
@@ -143,8 +143,8 @@ still put the dominant preset enum first when it exists.
 - No array-of-object props for repeatable rich items. Use a parent slot plus
   child component instead.
 - Props are editor-facing. Do not expose implementation-only values.
-- Required props should not rely on silent JSX defaults. Metadata and the editor
-  should supply those values explicitly.
+- Required props should not rely on silent implementation defaults. Metadata and
+  the editor should supply those values explicitly.
 - Keep prop IDs camelCase-aligned with their labels and finalize exact shape in
   `canvas-component-metadata`.
 
@@ -164,7 +164,8 @@ narrow prop instead.
 
 ### Declare slots in component.yml
 
-Declare slots in `component.yml` and render them as named props in JSX.
+Declare slots in `component.yml` and consume them through the framework's slot
+mechanism (named props in React; named slots in Vue and Astro).
 
 For exact slot schema and constraints (map vs `[]`, slot keys, `children`
 handling), follow `canvas-component-metadata` as the source of truth.

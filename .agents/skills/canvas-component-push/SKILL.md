@@ -7,6 +7,27 @@ description:
   require retry.
 ---
 
+## Project type
+
+Before applying this skill, check `package.json` for a dependency named
+`@drupal-canvas/headless` or starting with `@drupal-canvas/headless-`. If one is
+present, this is a Canvas Headless codebase — read
+[`canvas-headless`](../canvas-headless/SKILL.md) first. Push behaves differently
+there:
+
+- The CLI detects the headless SDK automatically and pushes every component as
+  `type: external` — metadata only, no component code. This is expected; the CLI
+  logs it.
+- External components are created and updated by push but never deleted, and
+  `canvas pull` excludes them.
+- The dependency-retry guidance below does not apply to external components: no
+  imports are pushed, so dependency-order failures cannot occur.
+
+The setup gate, auth handling, and connection-failure rules below apply
+unchanged. If no such dependency is present, this is a Canvas-rendered React
+codebase: components are React (`index.jsx`/`.tsx`) and everything in this skill
+applies as written. These are the only two project types.
+
 ## Activation guard
 
 Run this skill only when the user explicitly asks to push, publish, sync, or

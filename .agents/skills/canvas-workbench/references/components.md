@@ -13,7 +13,7 @@ stories directory.
 
 ```
 <components-root>/my-card/
-├── index.jsx
+├── index.jsx    (entry file; framework-appropriate extension in headless projects)
 ├── component.yml
 └── mocks.json
 ```

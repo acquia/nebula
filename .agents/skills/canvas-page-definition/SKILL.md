@@ -7,6 +7,20 @@ description:
   including placement, structure, format constraints, and validation.
 ---
 
+## Project type
+
+Before applying this skill, check `package.json` for a dependency named
+`@drupal-canvas/headless` or starting with `@drupal-canvas/headless-`. If one is
+present, this is a Canvas Headless codebase — read
+[`canvas-headless`](../canvas-headless/SKILL.md) first. Page specs work in
+headless codebases, but only create them when `sync.pages` is enabled in
+`canvas.config.json`; projects generated with Canvas Create
+(`@drupal-canvas/create`) disable it by default and ship without a `pages/`
+directory — pages are routes in the framework app. If no such dependency is
+present, this is a Canvas-rendered React codebase: components are React
+(`index.jsx`/`.tsx`) and everything in this skill applies as written. These are
+the only two project types.
+
 ## Canonical definition
 
 A Canvas page is a JSON page spec stored in the repository's configured

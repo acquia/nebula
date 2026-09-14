@@ -1,6 +1,9 @@
 # Component Mocks
 
 Canvas Workbench is the supported tool for local component preview work.
+`mocks.json` files only have an effect in Workbench, and Workbench currently
+supports React projects only — do not create `mocks.json` in non-React headless
+projects (see [`canvas-headless`](../../canvas-headless/SKILL.md)).
 
 Use these rules when authoring component mocks:
 

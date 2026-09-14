@@ -7,6 +7,18 @@ description:
   (4) Mapping enums to CVA variants.
 ---
 
+## Project type
+
+Before applying this skill, check `package.json` for a dependency named
+`@drupal-canvas/headless` or starting with `@drupal-canvas/headless-`. If one is
+present, this is a Canvas Headless codebase — read
+[`canvas-headless`](../canvas-headless/SKILL.md) first; it overrides the
+React-specific guidance below. The `component.yml` schema in this skill is
+identical in headless projects. If no such dependency is present, this is a
+Canvas-rendered React codebase: components are React (`index.jsx`/`.tsx`) and
+everything in this skill applies as written. These are the only two project
+types.
+
 ## File structure
 
 Every `component.yml` must include these top-level keys:
@@ -31,8 +43,8 @@ array is required for required props and recommended for all others. Only the
 first example value is used by Drupal Canvas.
 
 If a prop is listed in `required`, do not add a fallback/default value for that
-prop in the React component signature. Required Canvas props should be provided
-by metadata/editor input rather than silent JSX defaults.
+prop in the component implementation. Required Canvas props should be provided
+by metadata/editor input rather than silent implementation defaults.
 
 ```yaml
 props:
@@ -58,8 +70,8 @@ The prop ID (the key under `properties`) must be the camelCase conversion of the
 `title` value.
 
 Only include user-facing, Canvas-editable props in `component.yml`.
-Implementation-only React props must stay in JSX and must not be added to
-metadata.
+Implementation-only props must stay in the implementation and must not be added
+to metadata.
 
 **Never include `className` in `component.yml`.** Treat it as a composition prop
 for developers, not a Canvas editor control.
@@ -340,11 +352,11 @@ enum:
 
 The `examples` value must be the enum value, not the display label.
 
-### Enum values must match JSX component variants
+### Enum values must match implementation variant keys
 
-When using class-variance-authority (CVA) or similar libraries in the JSX
-component, the variant keys must exactly match the enum values defined in
-`component.yml`.
+When the implementation maps enum props to styles through a variant map —
+class-variance-authority (CVA) or a plain variant object — the variant keys must
+exactly match the enum values defined in `component.yml`.
 
 ```jsx
 // component.yml defines: enum: [left_aligned, center_aligned]
@@ -361,8 +373,12 @@ const variants = cva('base-classes', {
 
 ## Slots
 
-Slots allow other components to be embedded within a component. In React, each
-slot is received as a named prop that matches the slot key.
+Slots allow other components to be embedded within a component. How the
+implementation consumes a slot depends on the framework:
+
+- **React:** each slot is received as a named prop that matches the slot key.
+- **Vue and Astro (headless projects):** each slot is rendered as a named slot,
+  `<slot name="slotKey" />`.
 
 This section is the slot schema source of truth. Other skills should reference
 these rules instead of redefining slot schema details.
@@ -389,7 +405,7 @@ slots:
     title: Buttons
 ```
 
-In the JSX component, slots are destructured as named props and rendered
+In a React component, slots are destructured as named props and rendered
 directly:
 
 ```jsx

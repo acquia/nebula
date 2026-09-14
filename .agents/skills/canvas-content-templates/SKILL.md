@@ -10,6 +10,20 @@ description:
   modes render as Canvas component trees.
 ---
 
+## Project type
+
+Before applying this skill, check `package.json` for a dependency named
+`@drupal-canvas/headless` or starting with `@drupal-canvas/headless-`. If one is
+present, this is a Canvas Headless codebase — read
+[`canvas-headless`](../canvas-headless/SKILL.md) first. Content templates work
+in headless codebases, but only create them when `sync.contentTemplates` is
+enabled in `canvas.config.json`; projects generated with Canvas Create
+(`@drupal-canvas/create`) disable it by default and ship without a
+`content-templates/` directory. If no such dependency is present, this is a
+Canvas-rendered React codebase: components are React (`index.jsx`/`.tsx`) and
+everything in this skill applies as written. These are the only two project
+types.
+
 ## Canonical definition
 
 A content template is a JSON file that maps a Drupal content entity (identified

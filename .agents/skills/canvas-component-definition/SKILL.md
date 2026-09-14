@@ -1,7 +1,7 @@
 ---
 name: canvas-component-definition
 description:
-  Start here for any React component task to enforce the canonical Canvas
+  Start here for any Canvas component task to enforce the canonical Canvas
   component contract. Use for create, modify, refactor, review, migrate, or
   validate work. Establishes the canonical Canvas component contract, assuming
   repository components are Canvas targets, and guides either (1) transforming
@@ -9,11 +9,24 @@ description:
   Canvas-ready components.
 ---
 
+## Project type
+
+Before applying this skill, check `package.json` for a dependency named
+`@drupal-canvas/headless` or starting with `@drupal-canvas/headless-`. If one is
+present, this is a Canvas Headless codebase — read
+[`canvas-headless`](../canvas-headless/SKILL.md) first; it overrides the
+React-specific guidance below. If no such dependency is present, this is a
+Canvas-rendered React codebase: components are React (`index.jsx`/`.tsx`) and
+everything in this skill applies as written. These are the only two project
+types.
+
 ## Canonical definition
 
 A Canvas component is a package of:
 
-1. A React implementation (`index.jsx`)
+1. An implementation entry file (`index.jsx` in React projects; `index.vue`,
+   `index.astro`, or similar in headless projects — see
+   [`canvas-headless`](../canvas-headless/SKILL.md))
 2. Canvas metadata/schema (`component.yml`)
 3. Naming and structure compatibility (`machineName`, folder path, Workbench
    mock path)
@@ -30,7 +43,9 @@ Every Canvas component MUST satisfy all checks below:
 
 - Component folder exists at `<components-root>/<machine-name>/` (use the
   repository's configured components root, which may be defined in `.env`)
-- React implementation exists at `<components-root>/<machine-name>/index.jsx`
+- The implementation entry file exists at
+  `<components-root>/<machine-name>/index.jsx` (or the framework-appropriate
+  extension in a headless project)
 - Metadata exists at `<components-root>/<machine-name>/component.yml`
 - `component.yml` includes required top-level keys (`name`, `machineName`,
   `status`, `required`, `props`, `slots`)
@@ -53,7 +68,7 @@ If any item is missing, the component is incomplete for Canvas usage.
 For local authoring and review, add a matching Workbench mock file beside the
 component source and metadata:
 
-- Use `mocks.json` beside `index.jsx` and `component.yml`
+- Use `mocks.json` beside the component entry file and `component.yml`
 - Author at least one named mock whenever the component needs a preview beyond
   the auto-generated `Default` tab, which renders the component using the first
   example value for each prop from `component.yml`

@@ -6,6 +6,18 @@ description:
   with formatted text or media. Covers FormattedText and Image utilities.
 ---
 
+## Project type
+
+Before applying this skill, check `package.json` for a dependency named
+`@drupal-canvas/headless` or starting with `@drupal-canvas/headless-`. If one is
+present, this is a Canvas Headless codebase and **this skill does not apply**:
+the `drupal-canvas` package is not supported there. Use the framework-native
+alternatives in [`canvas-headless`](../canvas-headless/SKILL.md) instead
+(HTML-injection primitives for formatted text, plain `<img>` for images). If no
+such dependency is present, this is a Canvas-rendered React codebase: components
+are React (`index.jsx`/`.tsx`) and everything in this skill applies as written.
+These are the only two project types.
+
 Import utilities from the `drupal-canvas` package:
 
 ```jsx
