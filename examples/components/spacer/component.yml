@@ -20,4 +20,4 @@ props:
         medium: Medium
         large: Large
         extra_large: Extra Large
-slots: []
+slots: {}

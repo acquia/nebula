@@ -74,4 +74,4 @@ props:
         left_aligned: Left aligned
         center_aligned: Center aligned
         right_aligned: Right aligned
-slots: []
+slots: {}

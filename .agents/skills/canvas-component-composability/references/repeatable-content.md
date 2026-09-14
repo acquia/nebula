@@ -63,7 +63,7 @@ Prefer this shape:
 ## Slot schema authority
 
 Do not redefine slot schema here. For exact `component.yml` slot rules and
-examples (object map vs `slots: []`, slot key naming, and JSX slot consumption),
+examples (object map vs `slots: {}`, slot key naming, and JSX slot consumption),
 follow `canvas-component-metadata`.
 
 ## Slot container minimum size
