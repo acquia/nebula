@@ -10,7 +10,7 @@
       "source": "drupal-canvas/skills",
       "sourceType": "github",
       "skillPath": "skills/canvas-component-composability/SKILL.md",
-      "computedHash": "933d4fbe8f6aeab8a9072ea361feee7428eade42c1909123c78150f2bb4b4fcb"
+      "computedHash": "f83d98aee14351f1b71b54c233688b3d2dd4f9c25a2241d9d325e346b70e073a"
     },
     "canvas-component-definition": {
       "source": "drupal-canvas/skills",
@@ -22,7 +22,7 @@
       "source": "drupal-canvas/skills",
       "sourceType": "github",
       "skillPath": "skills/canvas-component-metadata/SKILL.md",
-      "computedHash": "1e487d7bdb3e47057f9220fcb80fb296c1e308792d2d9f776400816defeafba2"
+      "computedHash": "57ceb25ef8c1eaed78308231aecb92528e820528beaa2605a6189620ac68a0b1"
     },
     "canvas-component-push": {
       "source": "drupal-canvas/skills",
