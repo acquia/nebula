@@ -10,13 +10,14 @@ description:
 
 Before applying this skill, check `package.json` for a dependency named
 `@drupal-canvas/headless` or starting with `@drupal-canvas/headless-`. If one is
-present, this is a Canvas Headless codebase and **this skill does not apply**:
-the `drupal-canvas` package is not supported there. Use the framework-native
-alternatives in [`canvas-headless`](../canvas-headless/SKILL.md) instead
-(HTML-injection primitives for formatted text, plain `<img>` for images). If no
-such dependency is present, this is a Canvas-rendered React codebase: components
-are React (`index.jsx`/`.tsx`) and everything in this skill applies as written.
-These are the only two project types.
+present, this is a Canvas Headless codebase — read
+[`canvas-headless`](../canvas-headless/SKILL.md) first. Portable React
+components can use `FormattedText` and `Image` at their existing public import
+paths; `FormattedText` requires trusted or sanitized HTML. Native Vue, Astro and
+Angular components use framework-native alternatives instead of React utilities.
+If no such dependency is present, this is a Canvas-rendered React codebase:
+components are React (`index.jsx`/`.tsx`) and everything in this skill applies
+as written. These are the only two project types.
 
 Import utilities from the `drupal-canvas` package:
 

@@ -1,7 +1,10 @@
-import { getSiteData } from 'drupal-canvas';
+import { useSiteContext } from 'drupal-canvas/react';
 
 const Branding = () => {
-  const { branding, themeAssets } = getSiteData();
+  const site = useSiteContext();
+  if (!site) return null;
+
+  const { branding, themeAssets } = site;
   const { homeUrl, siteName } = branding;
   const logoUrl = themeAssets?.logo?.url;
 

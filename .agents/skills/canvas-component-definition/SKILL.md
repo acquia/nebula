@@ -141,7 +141,8 @@ Evaluate using companion skills in this order.
      `Image`.
 5. `canvas-data-fetching`
    - Use when fetching/rendering Drupal content with JSON:API, SWR, includes,
-     and filter patterns.
+     and filter patterns, or reading page/site context for breadcrumbs,
+     branding, entity metadata, and language switchers.
 6. Preview coverage readiness
    - Ensure `Default` examples and any authored `mocks.json` states are
      sufficient for review of the requested change.

@@ -5,9 +5,10 @@ description:
   patterns. Use when building content lists, integrating with SWR, querying
   related entities, or constructing/changing any JSON:API request — every
   generated request must be executed and verified to return the expected results
-  before rendering logic is written against it. Covers JsonApiClient,
-  DrupalJsonApiParams, relationship handling, filter patterns, and request
-  verification.
+  before rendering logic is written against it. Also use for page/site context,
+  breadcrumbs, branding, and language switchers. Covers useJsonApiClient,
+  usePageContext, useSiteContext, DrupalJsonApiParams, relationship handling,
+  filter patterns, and request verification.
 ---
 
 # Data fetching
@@ -17,21 +18,88 @@ description:
 Before applying this skill, check `package.json` for a dependency named
 `@drupal-canvas/headless` or starting with `@drupal-canvas/headless-`. If one is
 present, this is a Canvas Headless codebase — read
-[`canvas-headless`](../canvas-headless/SKILL.md) first. In headless projects the
-`drupal-canvas` package (including its `JsonApiClient`) is not supported: fetch
-page trees with the SDK's `fetchPage()` and content with the SDK's JSON:API
-client (`getClient()`), using the framework's idiomatic data-loading path. Do
-not copy the SWR + `JsonApiClient` patterns below into a headless codebase. The
-content-modeling workflow in this skill (identifying content types, verifying
-queries, checking deserialized shapes) still applies conceptually. If no such
-dependency is present, this is a Canvas-rendered React codebase: components are
-React (`index.jsx`/`.tsx`) and everything in this skill applies as written.
+[`canvas-headless`](../canvas-headless/SKILL.md) first. In headless projects,
+fetch page trees with the SDK's `fetchPage()` and server-side content with its
+request-aware `getClient()`, using the framework's idiomatic data-loading path.
+Portable React components use `useJsonApiClient()` from `drupal-canvas/react`
+and the application's same-origin SDK proxy. The React patterns below work in
+Drupal, Workbench, and React-based headless frontends. For headless server
+prefetch and fallback rules, also follow `canvas-headless`; native non-React
+components use their framework's data-loading patterns, not React hooks. If no
+such dependency is present, this is a Canvas-rendered React codebase: components
+are React (`index.jsx`/`.tsx`) and everything in this skill applies as written.
 These are the only two project types.
+
+## Portable React runtime APIs
+
+Use `useJsonApiClient()`, `usePageContext()`, and `useSiteContext()` from
+`drupal-canvas/react`. Drupal islands, Workbench, and configured headless React
+renderers supply the providers. Hooks read context; they do not fetch data or
+create clients on each render. Outside a Canvas tree, the integration must
+supply `CanvasContextProvider` and/or `JsonApiClientProvider` as needed.
+
+Call hooks unconditionally at the top level of components or custom hooks,
+before any possible return. Each hook can return `null` when its context is
+unavailable. Keep components synchronous and keep backend URLs, Drupal globals,
+credentials, proxy configuration, and environment branches out of them. Pass
+data or a client into helpers; do not call hooks from ordinary helpers.
+
+`getPageData()`, `getSiteData()`, and `new JsonApiClient()` are deprecated. They
+still work in Drupal and Workbench, but throw elsewhere, even when the
+constructor receives an explicit backend URL. Do not use them in new code.
+Existing utility imports such as `getNodePath` and `sortMenu` stay unchanged.
+
+### Migrating pulled components
+
+`canvas pull` can rewrite safe `getPageData()` and `getSiteData()` calls to
+context hooks automatically. It requires both the connected site's
+`capabilities.contextHooks` metadata and the installed `drupal-canvas/react`
+entry exporting both hooks as runtime values; do not infer support from a
+version number alone. If support cannot be verified, review the reported
+limitation rather than forcing imports unsupported by the runtime.
+
+Migration is all-or-nothing per component file. Unsafe hook positions,
+identifier conflicts, or direct destructuring of getter results can leave a file
+unchanged. Client construction and helper modules receive diagnostics, not
+automatic conversion. `--skip-overwrite` files remain untouched.
+
+After a pull, review changed sources and diagnostics. The codemod does not add
+null guards or prove subsequent accesses safe; check nullable results, hook
+order, types, and rendered behavior. Migrate remaining client calls manually.
+Outside components/custom hooks, pass data or clients into helpers, or use
+`page.context` and request-aware `getClient()` in headless server code. Preserve
+access controls and never expose credentials.
+
+### Page and site context
+
+```jsx
+import { usePageContext, useSiteContext } from 'drupal-canvas/react';
+
+export default function PageHeader() {
+  const page = usePageContext();
+  const site = useSiteContext();
+  if (!page || !site) return null;
+
+  return (
+    <header>
+      <a href={site.branding.homeUrl}>{site.branding.siteName}</a>
+      <h1>{page.pageTitle}</h1>
+    </header>
+  );
+}
+```
+
+Page context contains `pageTitle`, `breadcrumbs`, and `mainEntity`. Even when
+page context exists, `mainEntity` can be `null`; guard it before using entity
+metadata, translations, or its UUID in a query. Site context contains
+`branding`, `baseUrl`, and `themeAssets`; handle empty asset URLs. Preserve
+Drupal-generated navigation URLs unless the application explicitly adapts them.
 
 ## Data fetching with SWR
 
-Use [SWR](https://swr.vercel.app/) for all data fetching. It provides caching,
-revalidation, and a clean hook-based API.
+Use [SWR](https://swr.vercel.app/) for asynchronous fetching in portable React
+components. It provides caching, revalidation, and a clean hook-based API.
+Page/site context reads do not need SWR.
 
 ```jsx
 import useSWR from 'swr';
@@ -39,13 +107,10 @@ import useSWR from 'swr';
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 export default function Profile() {
-  const { data, error, isLoading } = useSWR(
-    'https://my-site.com/api/user',
-    fetcher,
-  );
+  const { data, error } = useSWR('https://my-site.com/api/user', fetcher);
 
   if (error) return <div>Failed to load</div>;
-  if (isLoading) return <div>Loading...</div>;
+  if (!data) return <div>Loading...</div>;
   return <div>Hello, {data.name}!</div>;
 }
 ```
@@ -53,8 +118,16 @@ export default function Profile() {
 ## Fetching Drupal content with JSON:API
 
 To fetch content from Drupal (e.g., articles, events, or other content types),
-use the autoconfigured `JsonApiClient` from the `drupal-canvas` package combined
-with `DrupalJsonApiParams` for query building.
+read the configured client with `useJsonApiClient()` from `drupal-canvas/react`
+and use `DrupalJsonApiParams` for query building. Pass a `null` SWR key when the
+client is unavailable. Use stable keys containing the resource and all query
+inputs, so distinct filters, languages, and pagination do not share results.
+
+Render available data, including prefetched fallback data, rather than hiding it
+merely because SWR reports `isLoading`. Normal `useSWR` rendering does not run
+or await its fetcher on the server. For data-filled initial HTML, the headless
+application prefetches with server `getClient()` and supplies matching SWR
+fallback keys; see `canvas-headless`.
 
 **Important:** Keep the default serializer enabled in final component code. The
 runtime contract for Canvas components is the deserialized shape returned by
@@ -97,7 +170,8 @@ A request is verified only after **all** of these checks pass:
   `null`.
 - **The expected fields are present and populated** on the deserialized objects
   — including fields requested via `addFields`. Missing or consistently `null`
-  fields mean the query, the field name, or the content type is wrong.
+  fields require investigation: distinguish legitimate optional values and
+  access restrictions from incorrect queries or field names.
 - **Includes resolved** to real related entities, not bare references. If you
   used `addInclude`, confirm the relationship is hydrated on the deserialized
   object the component will read.
@@ -105,15 +179,23 @@ A request is verified only after **all** of these checks pass:
   actually match the filter criteria and sorted items are in the requested
   order.
 
-If any check fails, **fix the query, the field names, or the content-type
-assumptions — not the component**. Do not paper over an empty or wrong response
-with optional chaining, fallback strings, or "looks fine in the UI" reasoning.
-Re-run the probe after each fix and only proceed once the response matches
-expectations.
+If any check fails, investigate the query, field names, content model, and
+access/session state before changing rendering logic. Do not paper over an empty
+or wrong response with optional chaining, fallback strings, or "looks fine in
+the UI" reasoning. Re-run the probe after each fix and only proceed once the
+response matches expectations.
 
 Use the probe pattern in the next section as the default mechanism for these
 checks. A probe that prints `count: 0`, `keys: []`, or a shape missing the
-fields the component needs is a failed verification, not a green light.
+fields the component needs is not a green light unless that result is genuinely
+expected and explained.
+
+Draft collection reads hydrate returned items with working copies, but do not
+make collection filtering/sorting use working-copy values or discover every
+unpublished entity. Raw responses bypass working-copy hydration. An anonymous
+probe verifies public results only; verify draft behavior through the intended
+session-aware integration. Never conceal `DraftSessionError` by retrying as a
+public user or treating static fallback content as a successful draft read.
 
 ### Probe the deserialized shape before coding
 
@@ -122,17 +204,18 @@ same `JsonApiClient` call and `DrupalJsonApiParams` query pattern the component
 will use. Inspect the first returned item and write the component against that
 deserialized shape.
 
-This probe runs outside the Canvas runtime, so it must provide `baseUrl` and
-`apiPrefix` explicitly. Final component code should not copy that setup;
-Canvas-provided component code should use the normal autoconfigured
-`new JsonApiClient()` path instead.
+This public-data probe runs outside the Canvas runtime. Use the shared,
+framework-neutral `createJsonApiClient()` factory with the resolved backend
+configuration. Do not fake `window`, Drupal settings, or a runtime marker to
+bypass legacy guards. For headless draft probes, use the request-aware server
+`getClient()` in the application's server integration. Final React component
+code uses `useJsonApiClient()`, not explicit client construction.
 
 Use a command in this pattern:
 
 ```bash
 node --input-type=module -e "
-globalThis.window = {};
-import { JsonApiClient } from 'drupal-canvas';
+import { createJsonApiClient } from 'drupal-canvas/jsonapi-client';
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params';
 
 const describeShape = (value) => {
@@ -150,7 +233,8 @@ const describeShape = (value) => {
   return typeof value;
 };
 
-const client = new JsonApiClient('https://example.ddev.site', {
+const client = createJsonApiClient({
+  baseUrl: 'https://example.ddev.site',
   apiPrefix: 'jsonapi',
 });
 const queryString = new DrupalJsonApiParams()
@@ -178,26 +262,29 @@ trusts the local certificate chain before assuming the JSON:API client or query
 is wrong.
 
 ```jsx
-import { getNodePath, JsonApiClient } from 'drupal-canvas';
+import { getNodePath } from 'drupal-canvas';
+import { useJsonApiClient } from 'drupal-canvas/react';
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params';
 import useSWR from 'swr';
 
 const Articles = () => {
-  const client = new JsonApiClient();
-  const { data, error, isLoading } = useSWR(
-    [
-      'node--article',
-      {
-        queryString: new DrupalJsonApiParams()
-          .addSort('created', 'DESC')
-          .getQueryString(),
-      },
-    ],
+  const client = useJsonApiClient();
+  const { data, error } = useSWR(
+    client
+      ? [
+          'node--article',
+          {
+            queryString: new DrupalJsonApiParams()
+              .addSort('created', 'DESC')
+              .getQueryString(),
+          },
+        ]
+      : null,
     ([type, options]) => client.getCollection(type, options),
   );
 
   if (error) return 'An error has occurred.';
-  if (isLoading) return 'Loading...';
+  if (!data) return 'Loading...';
   return (
     <ul>
       {data.map((article) => (
@@ -261,16 +348,22 @@ Before any JSON:API discovery or content-type checks, verify local setup:
    - `.env` in the project root
    - `~/.canvasrc`
 2. Determine the effective `CANVAS_SITE_URL`.
-3. Determine the effective `CANVAS_JSONAPI_PREFIX`. If it is not set, default to
-   `jsonapi`.
-4. Record the resolved values before continuing:
-   - `CANVAS_SITE_URL=<resolved site root>`
-   - `CANVAS_JSONAPI_PREFIX=<resolved prefix>`
+3. Resolve the JSON:API endpoint using the project's integration. Read public
+   `/canvas/api/v0/site-data` metadata for the discovered prefix; do not assume
+   `/jsonapi`. In headless projects, `CANVAS_JSONAPI_URL` overrides discovery;
+   if discovery fails, the SDK uses the configured prefix or
+   `CANVAS_JSONAPI_PREFIX`, then `jsonapi`. Preserve site installation paths.
+   For a separate JSON:API site, follow the SDK's `CANVAS_JSONAPI_SITE_URL`
+   guidance for language-prefixed requests. Do not assume headless-only
+   configuration options are supported by Workbench.
+4. Record the resolved site root and JSON:API endpoint (never credentials).
+   Match these in standalone probes; use the factory's `apiUrl` override when
+   appropriate, rather than substituting the API endpoint for `baseUrl`.
 5. Verify that `CANVAS_SITE_URL` is the site root, not the JSON:API endpoint.
    For example, use `https://example.ddev.site`, not
    `https://example.ddev.site/jsonapi`.
-6. Send an HTTP request to `{CANVAS_SITE_URL}/{resolved JSON:API prefix}`.
-   Success means HTTP `200`.
+6. Send an HTTP request to the resolved JSON:API endpoint. Success means HTTP
+   `200`.
 7. If the request is successful, continue with Drupal data fetching.
 8. If the request is unsuccessful (or required values are missing), ask the user
    whether they want to:
@@ -284,7 +377,7 @@ Before any JSON:API discovery or content-type checks, verify local setup:
 10. If the user chooses not to configure connectivity, proceed with static
     content.
 11. Do not start content-type discovery, field inspection, or component coding
-    until the effective `CANVAS_SITE_URL` and JSON:API prefix are known.
+    until the effective `CANVAS_SITE_URL` and JSON:API endpoint are known.
 12. Do not update Vite config (`vite.config.*`) to troubleshoot connectivity.
     Connectivity issues must be resolved via correct config values and Drupal
     site availability, not build tooling changes.
@@ -350,7 +443,8 @@ automatically upgrades to live Drupal-managed links once the CMS editor creates
 the corresponding menu.
 
 ```jsx
-import { JsonApiClient, sortMenu } from 'drupal-canvas';
+import { sortMenu } from 'drupal-canvas';
+import { useJsonApiClient } from 'drupal-canvas/react';
 import useSWR from 'swr';
 
 // Static fallback — always define this; it renders when no Drupal menu exists
@@ -359,17 +453,20 @@ const FALLBACK_LINKS = [
   { id: 'about', title: 'About', url: '/about' },
 ];
 
-const client = new JsonApiClient();
-
 const Navigation = ({ menuName = 'main' }) => {
-  const { data, error, isLoading } = useSWR(
-    menuName ? ['menu_items', menuName] : null,
+  const client = useJsonApiClient();
+  const { data, error } = useSWR(
+    client && menuName ? ['menu_items', menuName] : null,
     ([type, id]) => client.getResource(type, id),
   );
 
-  // Use live Drupal menu links when available; otherwise use fallback
-  const links =
-    !error && !isLoading && data ? Array.from(sortMenu(data)) : FALLBACK_LINKS;
+  // Do not disguise a rejected draft session as a successful static preview.
+  if (error?.name === 'DraftSessionError') {
+    return <div>Preview session expired. Reconnect the preview.</div>;
+  }
+
+  // Keep prefetched/live links visible during revalidation.
+  const links = data ? Array.from(sortMenu(data)) : FALLBACK_LINKS;
 
   return (
     <nav>

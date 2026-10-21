@@ -137,6 +137,11 @@ After reconciliation/pull, page JSON may be updated so that:
 Preserve resolved image props and `_provenance` during later edits unless you
 are intentionally replacing the media.
 
+A pull may also migrate safe component getter calls to context hooks. Review
+source changes and migration diagnostics, including nullable results, before
+considering the workflow complete; follow
+[`Migrating pulled components`](../canvas-data-fetching/SKILL.md#migrating-pulled-components).
+
 ## Handling push failures
 
 Default behavior: **always retry failed pushes** unless the error is clearly a

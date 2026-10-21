@@ -1,11 +1,16 @@
-import { useState } from 'react';
-import { JsonApiClient } from 'drupal-canvas';
+import { useState, useSyncExternalStore } from 'react';
+import { useJsonApiClient } from 'drupal-canvas/react';
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params';
 import useSWR from 'swr';
 
-const searchParams = new URLSearchParams(window.location.search);
-const q = searchParams.get('q') || '';
-const client = new JsonApiClient();
+function subscribeToLocation(callback) {
+  window.addEventListener('popstate', callback);
+  return () => window.removeEventListener('popstate', callback);
+}
+
+function getSearchQuery() {
+  return new URLSearchParams(window.location.search).get('q') || '';
+}
 
 function getOffsetFromLink(link) {
   if (!link || !link.href) return null;
@@ -19,27 +24,35 @@ function getOffsetFromLink(link) {
 }
 
 export default function List() {
+  const client = useJsonApiClient();
+  const q = useSyncExternalStore(
+    subscribeToLocation,
+    getSearchQuery,
+    () => null,
+  );
   const [pageOffset, setPageOffset] = useState(0);
 
   const { data, error, isLoading } = useSWR(
-    [
-      'index--cms_content',
-      {
-        queryString: new DrupalJsonApiParams()
-          .addFields('node--article', ['title', 'path'])
-          .addFields('canvas_page--canvas_page', ['title', 'path'])
-          .addFilter('fulltext', q)
-          .addPageLimit(10)
-          .addPageOffset(pageOffset)
-          .getQueryString(),
-      },
-    ],
+    client && q !== null
+      ? [
+          'index--cms_content',
+          {
+            queryString: new DrupalJsonApiParams()
+              .addFields('node--article', ['title', 'path'])
+              .addFields('canvas_page--canvas_page', ['title', 'path'])
+              .addFilter('fulltext', q)
+              .addPageLimit(10)
+              .addPageOffset(pageOffset)
+              .getQueryString(),
+          },
+        ]
+      : null,
     async ([type, options]) => {
       const json = await client.getCollection(type, options);
 
       return {
         results: Array.isArray(json) ? json : [],
-        links: json.getLinks() || {},
+        links: json?.getLinks?.() || {},
       };
     },
   );
@@ -51,8 +64,8 @@ export default function List() {
     }
   };
 
-  if (error) return 'An error has occurred.';
-  if (isLoading) return 'Loading...';
+  if (!data && error) return 'An error has occurred.';
+  if (!data && (isLoading || q === null)) return 'Loading...';
 
   const results = data?.results || [];
   const links = data?.links || {};
