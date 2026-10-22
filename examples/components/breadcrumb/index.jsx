@@ -1,8 +1,8 @@
-import { getPageData } from 'drupal-canvas';
+import { usePageContext } from 'drupal-canvas/react';
 
 const Breadcrumb = () => {
-  const { breadcrumbs } = getPageData();
-  const links = Array.from(breadcrumbs);
+  const page = usePageContext();
+  const links = Array.from(page?.breadcrumbs ?? []);
   return (
     links && (
       <nav role="navigation" aria-labelledby="system-breadcrumb">

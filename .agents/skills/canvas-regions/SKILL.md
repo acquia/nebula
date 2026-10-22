@@ -1,13 +1,22 @@
 ---
 name: canvas-regions
 description:
-  Use for any task touching site chrome — header, footer, sidebar, or global
-  navigation that repeats across pages — and for any region-spec work (create,
-  modify, review, validate region JSON, or the project-level layout component).
-  Also load when a task creates or edits multiple pages that share chrome, or
-  asks for a "site" or "navigation between pages"; shared chrome belongs in
-  regions, never inlined into page JSON.
+  Use when maintaining legacy Canvas theme-global regions, region JSON, or a
+  project-level Region-based layout. Also consult for existing region-based site
+  chrome. Region APIs are deprecated; new integrations should use page variants
+  and composed page trees instead.
 ---
+
+## Legacy scope
+
+`Region` and `RegionsProvider` are deprecated in favor of page variants and
+composed page trees. Existing integrations keep working; do not introduce a new
+region-provider integration or automatically migrate existing region files.
+
+The instructions below describe maintenance of an existing theme-global region
+workflow only. For new site chrome, consult the target Canvas version's
+page-variant documentation rather than treating these region specs as the
+current authoring model. A page-variant migration is a separate task.
 
 ## Project type
 
@@ -17,8 +26,8 @@ present, this is a Canvas Headless codebase — read
 [`canvas-headless`](../canvas-headless/SKILL.md) first. Global regions are not
 supported in headless projects; this skill does not apply there. If no such
 dependency is present, this is a Canvas-rendered React codebase: components are
-React (`index.jsx`/`.tsx`) and everything in this skill applies as written.
-These are the only two project types.
+React (`index.jsx`/`.tsx`); apply the legacy guidance below only when the
+project already uses theme-global regions. These are the only two project types.
 
 ## Canonical definition
 

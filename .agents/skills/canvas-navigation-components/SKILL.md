@@ -7,7 +7,7 @@ description:
   canvas-data-fetching. Use when the user asks for navigation, header or footer
   links, menus, menu_items, mobile nav, or breadcrumb trails. Run after
   canvas-design-decomposition for layout and API sketches; follow
-  canvas-data-fetching for SWR, JsonApiClient, sortMenu, and menu fallbacks.
+  canvas-data-fetching for SWR, useJsonApiClient, sortMenu, and menu fallbacks.
 ---
 
 # Canvas navigation components
@@ -18,13 +18,13 @@ Before applying this skill, check `package.json` for a dependency named
 `@drupal-canvas/headless` or starting with `@drupal-canvas/headless-`. If one is
 present, this is a Canvas Headless codebase — read
 [`canvas-headless`](../canvas-headless/SKILL.md) first. The decomposition,
-naming, and accessibility guidance below applies unchanged, but the fetch
-patterns (SWR, `JsonApiClient`, `sortMenu`, `getPageData` from `drupal-canvas`)
-are for Canvas-rendered React projects only; in headless projects fetch menus
-with the SDK's JSON:API client (`getClient()`) instead. If no such dependency is
-present, this is a Canvas-rendered React codebase: components are React
-(`index.jsx`/`.tsx`) and everything in this skill applies as written. These are
-the only two project types.
+naming, and accessibility guidance below applies unchanged. React components use
+the portable hooks and SWR patterns below in Drupal, Workbench, and React
+headless projects. Headless server code uses the SDK's `getClient()`; native
+non-React components use framework-native data loading and page context. If no
+such dependency is present, this is a Canvas-rendered React codebase: components
+are React (`index.jsx`/`.tsx`) and everything in this skill applies as written.
+These are the only two project types.
 
 Build **navigation** that fits Canvas: reusable names, clear **props**
 (`variant`, `menuName`) and **slots** (logo, utilities, mega-menu regions),
@@ -36,7 +36,7 @@ This skill **stacks on**:
 1. [`canvas-design-decomposition`](../canvas-design-decomposition/SKILL.md) —
    regions, tree, prop/slot sketch, reuse-first naming **before** code.
 2. [`canvas-data-fetching`](../canvas-data-fetching/SKILL.md) — SWR,
-   `JsonApiClient`, menu resource pattern, Workbench rules.
+   `useJsonApiClient`, menu resource pattern, Workbench rules.
 
 Then apply [`canvas-component-metadata`](../canvas-component-metadata/SKILL.md),
 [`canvas-component-definition`](../canvas-component-definition/SKILL.md)
@@ -75,7 +75,7 @@ table. Summary:
 | Source          | When                                                                        |
 | --------------- | --------------------------------------------------------------------------- |
 | **Drupal menu** | Editors manage links in Structure → Menus; use `menu_items` + `getResource` |
-| **Breadcrumb**  | Trail from current page context via `getPageData()`                         |
+| **Breadcrumb**  | Trail from current page context via `usePageContext()`                      |
 | **Static**      | Rare; document why; still provide sensible defaults or slots                |
 
 ### 3. Implement the fetch (Drupal menu)
@@ -83,17 +83,19 @@ table. Summary:
 Use the **Navigation / Menu Components** section in
 [`canvas-data-fetching`](../canvas-data-fetching/SKILL.md#navigation--menu-components):
 
-- `useSWR(menuName ? ['menu_items', menuName] : null, ([type, id]) => client.getResource(type, id))`
+- Read `client` with `useJsonApiClient()` from `drupal-canvas/react`.
+- `useSWR(client && menuName ? ['menu_items', menuName] : null, ([type, id]) => client.getResource(type, id))`
 - `Array.from(sortMenu(data))` when data is valid; otherwise
-  **`FALLBACK_LINKS`**
+  **`FALLBACK_LINKS`**. Do not hide available data behind `isLoading` or
+  disguise draft-session failures as successful fallback content.
 - Always define **`FALLBACK_LINKS`** so Workbench and sites without the menu
   still render.
 - Expose **`menuName`** in `component.yml` when editors should pick the Drupal
   menu (machine name, e.g. `main`, `footer`). Hard-coding only the default in
   JSX without a prop is fine for examples; **production** nav that must switch
   menus should register `menuName` per data-fetching rules.
-- `menuName` omitted or null in props: use SWR key `null` and show fallback when
-  you need static-only preview behavior.
+- Set `menuName` explicitly to null to disable fetching for static-only
+  previews; omission may select the component's default menu.
 
 Do **not** fabricate JSON:API menu payloads in Workbench mocks. Prefer real
 loading/error/empty behavior; fallback links cover the empty-menu case.
@@ -116,10 +118,12 @@ machine names such as `main`, `footer`) and link to **Structure → Menus** as i
 
 ### 4. Breadcrumbs
 
-Breadcrumbs come from **page context**, not `menu_items`. Precedent:
-[`examples/components/breadcrumb/index.jsx`](../../../examples/components/breadcrumb/index.jsx)
-(`getPageData()`, `breadcrumbs`). Probe or read existing patterns before
-inventing fields.
+Breadcrumbs come from **page context**, not `menu_items`. Read
+`usePageContext()` from `drupal-canvas/react` unconditionally, then handle a
+null page or an empty `breadcrumbs` collection. Read existing patterns before
+inventing fields. Workbench supplies empty breadcrumbs by default; verify real
+page trails in the routed application. Preserve Drupal-generated URLs unless the
+application explicitly adapts routing.
 
 ### 5. Accessibility (minimum)
 
@@ -143,10 +147,9 @@ inventing fields.
 
 ## Reference example
 
-Menu + SWR + `sortMenu` pattern:
-[`examples/components/main_navigation/index.jsx`](../../../examples/components/main_navigation/index.jsx).
-Consider adding **`menuName`** to `component.yml` when editors must choose the
-menu without code changes.
+The canonical menu + SWR + `sortMenu` example lives in
+[`canvas-data-fetching`](../canvas-data-fetching/SKILL.md#navigation--menu-components),
+including the `menuName` metadata for editor configuration.
 
 ## Mega-menu and nested menus
 

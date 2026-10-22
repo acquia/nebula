@@ -95,6 +95,32 @@ available:
 If a Workbench server is already running for the current project, reuse it
 instead of starting a second instance.
 
+## Page, site, and client context
+
+Both interactive previews and `preview-build` output supply the providers for
+`usePageContext()`, `useSiteContext()`, and `useJsonApiClient()` automatically.
+Do not add component-level providers or inject Drupal globals to make these
+hooks work. Site data and client configuration come from the Vite integration's
+public `/canvas/api/v0/site-data` request, with existing configuration
+fallbacks.
+
+Workbench does not load the current Drupal page's context. Its intentional page
+defaults are:
+
+```js
+{ pageTitle: '', breadcrumbs: [], mainEntity: null }
+```
+
+An empty breadcrumb trail or hidden entity-dependent component may therefore be
+correct. Verify real page context in Drupal or the routed headless application;
+do not invent JSON:API payloads or page-context fixtures in component mocks to
+conceal these defaults. Keep using real loading, empty, and error states.
+
+Edits to an existing mock refresh the mounted preview in place and preserve
+component state. Adding/removing discovery files can remount the iframe. When
+checking initial state, explicitly reload rather than assuming a mock edit reset
+it.
+
 ## Verification workflow
 
 Workbench is the runtime surface for local preview verification. When

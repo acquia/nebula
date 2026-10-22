@@ -73,9 +73,9 @@ of “create the node page UI.”
 ## How this coexists with other skills
 
 - **`canvas-data-fetching`**: Still use for **component-level** patterns (SWR,
-  `JsonApiClient`, filters) when components should load real data in production.
-  This skill does **not** forbid data in components; it forbids **API-driven
-  assembly of many individual pages** as the scaffold deliverable.
+  `useJsonApiClient`, filters) when components should load real data in
+  production. This skill does **not** forbid data in components; it forbids
+  **API-driven assembly of many individual pages** as the scaffold deliverable.
 - **`acquia-source-canvas-pages`** / **`acquia-source-site-build`**: Run only
   when the user wants **remote** Source publish or end-to-end migration—not as
   the default for “add a node detail screen” unless they say so.

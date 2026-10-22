@@ -1,16 +1,16 @@
 import { useState } from 'react';
-import { cn, JsonApiClient, sortMenu } from 'drupal-canvas';
+import { cn, sortMenu } from 'drupal-canvas';
+import { useJsonApiClient } from 'drupal-canvas/react';
 import useSWR from 'swr';
 
-const client = new JsonApiClient();
-
 const MainNavigation = () => {
-  const { data, error, isLoading } = useSWR(
-    ['menu_items', 'main'],
+  const client = useJsonApiClient();
+  const { data } = useSWR(
+    client ? ['menu_items', 'main'] : null,
     ([type, resourceId]) => client.getResource(type, resourceId),
   );
 
-  const links = !error && !isLoading ? Array.from(sortMenu(data)) : [];
+  const links = data ? Array.from(sortMenu(data)) : [];
   const [open, setOpen] = useState(false);
   return (
     <>

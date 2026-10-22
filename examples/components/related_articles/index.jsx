@@ -1,10 +1,9 @@
 import Card from '@/components/card';
 import CardContainer from '@/components/card_container';
-import { getNodePath, getPageData, JsonApiClient } from 'drupal-canvas';
+import { getNodePath } from 'drupal-canvas';
+import { useJsonApiClient, usePageContext } from 'drupal-canvas/react';
 import { DrupalJsonApiParams } from 'drupal-jsonapi-params';
 import useSWR from 'swr';
-
-const client = new JsonApiClient();
 
 export const RelatedArticles = ({
   mainEntity,
@@ -15,18 +14,21 @@ export const RelatedArticles = ({
   layout,
   textColor,
 }) => {
+  const client = useJsonApiClient();
   const { data } = useSWR(
-    [
-      'node--article',
-      {
-        queryString: new DrupalJsonApiParams()
-          .addInclude(['field_image', 'uid'])
-          .addFilter('id', mainEntity.uuid, '<>')
-          .addSort('created', 'DESC')
-          .addPageLimit(4)
-          .getQueryString(),
-      },
-    ],
+    client && mainEntity?.uuid
+      ? [
+          'node--article',
+          {
+            queryString: new DrupalJsonApiParams()
+              .addInclude(['field_image', 'uid'])
+              .addFilter('id', mainEntity.uuid, '<>')
+              .addSort('created', 'DESC')
+              .addPageLimit(4)
+              .getQueryString(),
+          },
+        ]
+      : null,
     ([type, options]) => client.getCollection(type, options),
   );
 
@@ -84,7 +86,8 @@ const RelatedArticlesContainer = ({
   layout,
   textColor,
 }) => {
-  const { mainEntity } = getPageData();
+  const page = usePageContext();
+  const mainEntity = page?.mainEntity;
   if (!mainEntity) {
     return null;
   }
